@@ -1,0 +1,19 @@
+<h1>Listing plugins</h1>
+
+<table>
+  <tr>
+    <th>Short name</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Url</th>
+  </tr>
+
+<% for plugin in @plugins %>
+  <tr>
+    <td><%=h plugin %></td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
