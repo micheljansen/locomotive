@@ -7554,6 +7554,7 @@ Locomotive::Plugins::DummyLocomotive::Plugins::HelloWorld
 Rendering template within layouts/plugins
 Rendering plugins/index
 Completed in 0.07541 (13 reqs/sec) | Rendering: 0.00524 (6%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+<<<<<<< HEAD:log/development.log
 checking plugin 'engines' for 'application_helper'
 checking plugin 'dummy' for 'application_helper'
 checking plugin 'helloworld' for 'application_helper'
@@ -12940,3 +12941,5 @@ loading from application: application_helper
 checking plugin 'engines' for 'plugins_helper'
 checking plugin 'helloworld' for 'plugins_helper'
 loading from application: plugins_helper
+=======
+>>>>>>> db60e5f... boel geklooi met Modules gehad:log/development.log

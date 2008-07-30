@@ -1,3 +1,4 @@
+<<<<<<< HEAD:log/production.log
 
 
 Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 13:43:49) [GET]
@@ -772,3 +773,5 @@ ActionView::TemplateError (undefined method `short_name' for "Locomotive::Plugin
     script/server:3
 
 Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+=======
+>>>>>>> db60e5f... boel geklooi met Modules gehad:log/production.log

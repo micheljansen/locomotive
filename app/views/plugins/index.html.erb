@@ -8,12 +8,14 @@
     <th>Url</th>
   </tr>
 
-<% @plugins.each do |plugin| %>
+<% for plugin in @plugins %>
   <tr>
+<<<<<<< HEAD:app/views/plugins/index.html.erb
 
 	<td><%=h plugin.short_name %></td>
+=======
+>>>>>>> db60e5f... boel geklooi met Modules gehad:app/views/plugins/index.html.erb
     <td><%=h plugin %></td>
-
 
   </tr>
 <% end %>

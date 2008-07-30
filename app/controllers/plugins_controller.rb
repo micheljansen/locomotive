@@ -4,9 +4,18 @@ class PluginsController < ApplicationController
   def index
     #@plugins = Plugin.find(:all)
     #@plugins = []
+<<<<<<< HEAD:app/controllers/plugins_controller.rb
     @plugins = Locomotive::Plugin.available_plugins
+=======
+    @plugins = Locomotive::Plugin.find_all();
+>>>>>>> db60e5f... boel geklooi met Modules gehad:app/controllers/plugins_controller.rb
     logger.debug("all plugins: ")
+<<<<<<< HEAD:app/controllers/plugins_controller.rb
     logger.debug(Locomotive::Plugin.available_plugins)
+=======
+    logger.debug(Locomotive::Plugin.find_all())
+    logger.debug(Locomotive::Plugin.descendants)
+>>>>>>> db60e5f... boel geklooi met Modules gehad:app/controllers/plugins_controller.rb
 
     respond_to do |format|
       format.html # index.html.erb
