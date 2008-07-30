@@ -8,9 +8,11 @@
     <th>Url</th>
   </tr>
 
-<% for plugin in @plugins %>
+<% @plugins.each do |plugin| %>
   <tr>
+
     <td><%=h plugin %></td>
+
 
   </tr>
 <% end %>

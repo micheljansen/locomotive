@@ -1,0 +1,99 @@
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 13:43:49) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00725 (138 reqs/sec) | Rendering: 0.00487 (67%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 13:43:51) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00259 (385 reqs/sec) | Rendering: 0.00208 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 13:43:53) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00241 (415 reqs/sec) | Rendering: 0.00192 (79%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 13:43:54) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00309 (323 reqs/sec) | Rendering: 0.00259 (83%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 14:19:59) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00747 (133 reqs/sec) | Rendering: 0.00466 (62%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 14:20:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00240 (416 reqs/sec) | Rendering: 0.00186 (77%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 14:20:01) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00239 (417 reqs/sec) | Rendering: 0.00191 (79%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 14:20:01) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00244 (409 reqs/sec) | Rendering: 0.00196 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 14:20:01) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00253 (394 reqs/sec) | Rendering: 0.00205 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 14:20:01) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00239 (418 reqs/sec) | Rendering: 0.00192 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-29 14:20:04) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00241 (414 reqs/sec) | Rendering: 0.00194 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
