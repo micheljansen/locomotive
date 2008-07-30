@@ -12529,3 +12529,414 @@ loading from application: application_helper
 checking plugin 'engines' for 'plugins_helper'
 checking plugin 'helloworld' for 'plugins_helper'
 loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:11) [GET]
+  Session ID: fae589435eb8ea76ab431d643496bc9d
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+
+
+NoMethodError (undefined method `descendants' for Locomotive::Plugin:Class):
+    /app/controllers/plugins_controller.rb:9:in `index'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.1.0/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:21) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.05426 (18 reqs/sec) | Rendering: 0.01613 (29%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:23) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.04243 (23 reqs/sec) | Rendering: 0.00236 (5%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:29) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+Locomotive::Plugins::HelloWorld
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.11539 (8 reqs/sec) | Rendering: 0.07173 (62%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:32) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.03645 (27 reqs/sec) | Rendering: 0.00232 (6%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:32) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.04002 (24 reqs/sec) | Rendering: 0.00232 (5%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.04104 (24 reqs/sec) | Rendering: 0.00225 (5%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.04250 (23 reqs/sec) | Rendering: 0.00225 (5%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.04480 (22 reqs/sec) | Rendering: 0.00228 (5%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.04755 (21 reqs/sec) | Rendering: 0.00230 (4%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:34) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.04933 (20 reqs/sec) | Rendering: 0.00224 (4%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:11:34) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+all plugins: 
+
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.03547 (28 reqs/sec) | Rendering: 0.00232 (6%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
