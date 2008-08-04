@@ -13107,3 +13107,580 @@ loading from application: application_helper
 checking plugin 'engines' for 'plugins_helper'
 checking plugin 'helloworld' for 'plugins_helper'
 loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-08-04 10:45:22) [GET]
+  Session ID: ce113483a1636cd103eefbe5da5a6742
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x2350b54>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.08996 (11 reqs/sec) | Rendering: 0.08752 (97%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-08-04 10:47:03) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x23cc984>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00656 (152 reqs/sec) | Rendering: 0.00221 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining option hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining option hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-08-04 11:39:55) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x234fe34>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00737 (135 reqs/sec) | Rendering: 0.00486 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-08-04 11:39:57) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x23f6298>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00696 (143 reqs/sec) | Rendering: 0.00235 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-08-04 11:39:59) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x235cee0>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00709 (140 reqs/sec) | Rendering: 0.00239 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining option hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-08-04 11:40:34) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x233f50c>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00724 (138 reqs/sec) | Rendering: 0.00476 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-08-04 11:40:58) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x233f50c>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00250 (399 reqs/sec) | Rendering: 0.00200 (79%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-08-04 11:40:59) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x233f50c>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00283 (353 reqs/sec) | Rendering: 0.00223 (78%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-08-04 11:40:59) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x233f50c>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00270 (371 reqs/sec) | Rendering: 0.00212 (78%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining option hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining option hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining option hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining option hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining option hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+method fiets missing
+method friend_name missing
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Rerouting acces to property hello_world.friend_name
+Rerouting acces to property hello_world.friend_name
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Rerouting acces to property hello_world.friend_name
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+Rerouting acces to property hello_world.define_singleton_method
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+Rerouting acces to property hello_world.define_singleton_method
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+Rerouting acces to property hello_world.define_singleton_method
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Rerouting acces to property hello_world.test
+Rerouting acces to property hello_world.friend_name
+Rerouting acces to property hello_world.get_all
+Rerouting acces to property hello_world.bla
+Rerouting acces to property hello_world.friend_name
+Rerouting acces to property hello_world.friend_name
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Rerouting acces to property hello_world.friend_name
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+Rerouting acces to property hello_world.define_singleton_method
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Rerouting acces to property hello_world.friend_name
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Rerouting acces to property hello_world.friend_name
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+Rerouting acces to property hello_world.options
+Rerouting acces to property hello_world.options
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+defining property hello_world.friend_name
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper

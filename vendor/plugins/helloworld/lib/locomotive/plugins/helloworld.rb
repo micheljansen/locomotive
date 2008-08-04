@@ -9,6 +9,10 @@ module Locomotive::Plugins
     description "Who could ever do without a HelloWorld plugin."
   
     #menu_path "Stuff" "HelloWorld"
-  end    
-
+    
+    # property :identifier "optional description" "optional regexp" "optional default"
+    property :friend_name, "The name of the person we should greet", "", "Friend"
+    
+    
+  end
 end  
