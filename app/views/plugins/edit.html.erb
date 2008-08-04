@@ -1,28 +1,18 @@
 <h1>Editing plugin</h1>
 
-<% form_for(@plugin) do |f| %>
-  <%= f.error_messages %>
+<% fields_for(@plugin) do |f| %>
 
+  <% @plugin.properties.each do |property| %>
   <p>
-    <%= f.label :short_name %><br />
-    <%= f.text_field :short_name %>
+	<%= f.label property[0] %><br />
+	<%= f.text_field property[0] %>
   </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </p>
+  <% end %>
+
   <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @plugin %> |
+
 <%= link_to 'Back', plugins_path %>

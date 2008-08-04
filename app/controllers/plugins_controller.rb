@@ -37,7 +37,8 @@ class PluginsController < ApplicationController
 
   # GET /plugins/1/edit
   def edit
-    @plugin = Plugin.find(params[:id])
+    #@plugin = Plugin.find(params[:id])
+    @plugin = Locomotive::Plugins::HelloWorld
   end
 
 end
