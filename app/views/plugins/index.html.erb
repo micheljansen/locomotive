@@ -5,7 +5,7 @@
     <th>Short name</th>
     <th>Name</th>
     <th>Description</th>
-    <th>Url</th>
+    <th>Options</th>
   </tr>
 
 <% @plugins.each do |plugin| %>
@@ -14,6 +14,17 @@
 	<td><%=h plugin.short_name %></td>
     <td><%=h plugin.long_name %></td>
     <td><%=h plugin.description %></td>
+	<td>
+		<table>
+		
+		<% plugin.properties.each do |property| %>
+		<tr>
+			<td><%=h property %></td>
+			<td><%=h plugin %></td>
+		</tr>
+		<% end %>
+		</table>
+	</td>
 
 
   </tr>
