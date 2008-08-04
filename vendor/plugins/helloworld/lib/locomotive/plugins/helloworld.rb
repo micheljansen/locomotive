@@ -11,7 +11,8 @@ module Locomotive::Plugins
     #menu_path "Stuff" "HelloWorld"
     
     # property :identifier "optional description" "optional regexp" "optional default"
-    property :friend_name, "The name of the person we should greet", "", "Friend"
+    property :friend_name, "The name of the person we should greet", /.*/, "Friend"
+    property :useless_property, "This property is useless"
     
     
   end

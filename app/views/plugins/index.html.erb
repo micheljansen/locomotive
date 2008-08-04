@@ -19,8 +19,8 @@
 		
 		<% plugin.properties.each do |property| %>
 		<tr>
-			<td><%=h property %></td>
-			<td><%=h plugin %></td>
+			<td><%=h property[0] %></td>
+			<td><%=h property[1] %></td>
 		</tr>
 		<% end %>
 		</table>
