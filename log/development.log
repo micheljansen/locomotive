@@ -12943,3 +12943,167 @@ checking plugin 'helloworld' for 'plugins_helper'
 loading from application: plugins_helper
 =======
 >>>>>>> db60e5f... boel geklooi met Modules gehad:log/development.log
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:43:02) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x2351054>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00725 (137 reqs/sec) | Rendering: 0.00479 (66%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:43:42) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x2351054>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00705 (141 reqs/sec) | Rendering: 0.00456 (64%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:44:19) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x2351054>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00732 (136 reqs/sec) | Rendering: 0.00481 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:44:20) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x23f82b4>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00772 (129 reqs/sec) | Rendering: 0.00332 (42%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'plugins_controller'
+checking plugin 'helloworld' for 'plugins_controller'
+loading from application: plugins_controller
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:44:21) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+#<Set:0x235fb40>
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00626 (159 reqs/sec) | Rendering: 0.00213 (34%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+Registering Locomotive Plugin Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+Currently known plugins: 
+	 Locomotive::Plugins::HelloWorld::HelloWorldPlugin
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper
+checking plugin 'engines' for 'application_helper'
+checking plugin 'helloworld' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'plugins_helper'
+checking plugin 'helloworld' for 'plugins_helper'
+loading from application: plugins_helper

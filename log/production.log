@@ -775,3 +775,66 @@ ActionView::TemplateError (undefined method `short_name' for "Locomotive::Plugin
 Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
 =======
 >>>>>>> db60e5f... boel geklooi met Modules gehad:log/production.log
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:44:35) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00702 (142 reqs/sec) | Rendering: 0.00464 (66%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:44:36) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.07189 (13 reqs/sec) | Rendering: 0.07140 (99%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:45:06) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00734 (136 reqs/sec) | Rendering: 0.00497 (67%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:47:51) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00769 (130 reqs/sec) | Rendering: 0.00503 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:49:08) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.07079 (14 reqs/sec) | Rendering: 0.07026 (99%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 14:50:36) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00743 (134 reqs/sec) | Rendering: 0.00499 (67%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
+
+
+Processing PluginsController#index (for 127.0.0.1 at 2008-07-30 15:33:57) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--cfe083ac5762b74e43f3438654c5105ad0258e06
+  Parameters: {"action"=>"index", "controller"=>"plugins"}
+Rendering template within layouts/plugins
+Rendering plugins/index
+Completed in 0.00250 (399 reqs/sec) | Rendering: 0.00200 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/plugins]
