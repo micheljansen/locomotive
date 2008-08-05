@@ -15,5 +15,7 @@ module Locomotive::Plugins
     property :useless_property, "This property is useless"
     
     
+    #listens_for :subversion
+    
   end
 end  
