@@ -27,9 +27,6 @@
 	    <div id="content">
 		
 			<p style="color: green"><%= flash[:notice] %></p>
-			
-						 (<% controller.methods.each do |m| h m end %>)
-
 			<%= yield  %>
 		</div>
 	</div>
