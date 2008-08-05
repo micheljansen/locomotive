@@ -9,13 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080805124652) do
+ActiveRecord::Schema.define(:version => 20080805132828) do
+
+  create_table "plugin_instances", :force => true do |t|
+    t.string   "plugin_type"
+    t.integer  "version"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "plugin_properties", :force => true do |t|
     t.string   "key"
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "plugin_instance_id"
   end
 
 end
