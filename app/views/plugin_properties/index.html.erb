@@ -1,0 +1,22 @@
+<h1>Listing plugin_properties</h1>
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Value</th>
+  </tr>
+
+<% for plugin_property in @plugin_properties %>
+  <tr>
+    <td><%=h plugin_property.key %></td>
+    <td><%=h plugin_property.value %></td>
+    <td><%= link_to 'Show', plugin_property %></td>
+    <td><%= link_to 'Edit', edit_plugin_property_path(plugin_property) %></td>
+    <td><%= link_to 'Destroy', plugin_property, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New plugin_property', new_plugin_property_path %>
