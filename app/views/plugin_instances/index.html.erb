@@ -1,0 +1,24 @@
+<h1>Listing plugin_instances</h1>
+
+<table>
+  <tr>
+    <th>Plugin type</th>
+    <th>Version</th>
+    <th>Name</th>
+  </tr>
+
+<% for plugin_instance in @plugin_instances %>
+  <tr>
+    <td><%=h plugin_instance.plugin_type %></td>
+    <td><%=h plugin_instance.version %></td>
+    <td><%=h plugin_instance.name %></td>
+    <td><%= link_to 'Show', plugin_instance %></td>
+    <td><%= link_to 'Edit', edit_plugin_instance_path(plugin_instance) %></td>
+    <td><%= link_to 'Destroy', plugin_instance, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New plugin_instance', new_plugin_instance_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  plugin_type: MyString
+  version: 1
+  name: MyString
+
+two:
+  plugin_type: MyString
+  version: 1
+  name: MyString

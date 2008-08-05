@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :plugin_instances
+
   map.resources :plugin_properties
 
   map.resources :plugins

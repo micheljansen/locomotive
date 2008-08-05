@@ -1,0 +1,18 @@
+<p>
+  <b>Plugin type:</b>
+  <%=h @plugin_instance.plugin_type %>
+</p>
+
+<p>
+  <b>Version:</b>
+  <%=h @plugin_instance.version %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @plugin_instance.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_plugin_instance_path(@plugin_instance) %> |
+<%= link_to 'Back', plugin_instances_path %>

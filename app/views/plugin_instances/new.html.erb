@@ -1,0 +1,23 @@
+<h1>New plugin_instance</h1>
+
+<% form_for(@plugin_instance) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :plugin_type %><br />
+    <%= f.text_field :plugin_type %>
+  </p>
+  <p>
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', plugin_instances_path %>
