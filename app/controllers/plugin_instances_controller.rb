@@ -35,6 +35,7 @@ class PluginInstancesController < ApplicationController
   # GET /plugin_instances/1/edit
   def edit
     @plugin_instance = PluginInstance.find(params[:id])
+    @plugin = Locomotive::Plugin.find_by_id(@plugin_instance.plugin_type)
   end
 
   # POST /plugin_instances

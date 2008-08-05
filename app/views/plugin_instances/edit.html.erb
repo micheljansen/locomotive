@@ -5,7 +5,9 @@
 
   <p>
     <%= f.label :plugin_type %><br />
-    <%= f.text_field :plugin_type %>
+    <%= f.select :plugin_type,
+        Locomotive::Plugin.all_ids,
+        :prompt => "Select plugin type" %>
   </p>
   <p>
     <%= f.label :version %><br />
@@ -14,6 +16,15 @@
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= "Plugin type does not exist!" if @plugin.nil? %>
+    plugin: {
+      <%= y @plugin.short_name %>
+      <% @plugin.properties.each_key do |p| %>
+        <%=h p %>
+      <% end %>
+    }
   </p>
   <p>
     <%= f.submit "Update" %>
