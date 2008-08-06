@@ -21,14 +21,21 @@ class PluginInstancesController < ApplicationController
     end
   end
 
-  # GET /plugin_instances/new
-  # GET /plugin_instances/new.xml
+  # GET /plugin_instances/new/hello_world
   def new
-    @plugin_instance = PluginInstance.new
+    @plugin = Locomotive::Plugin.find_by_id(params[:id])
+    
+    if @plugin.nil? then
+      logger.error("Attempt to instantiate nonexisting plugin '#{params[:id]}'")
+      flash[:notice] = "No plugin with ID '#{params[:id]}' exists."
+      redirect_to :controller => "plugins", :action => "index"
+    else
+      @plugin_instance = PluginInstance.new (:plugin_type => params[:id], 
+                                            :version => @plugin.version)
+    end
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @plugin_instance }
     end
   end
 

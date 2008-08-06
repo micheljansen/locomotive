@@ -4,8 +4,9 @@ module Locomotive::Plugins
   module HelloWorld
     include Locomotive::Plugin
   
-    short_name "hello_world"
-    long_name "Simple HelloWorld plugin"
+    short_name  "hello_world"
+    long_name   "Simple HelloWorld plugin"
+    version     1337
     description "Who could ever do without a HelloWorld plugin."
   
     #menu_path "Stuff" "HelloWorld"

@@ -4,8 +4,8 @@ class PluginsController < ApplicationController
   def index
     #@plugins = Plugin.find(:all)
     #@plugins = []
-    @plugins = Locomotive::Plugin.descendants
-    logger.debug(Locomotive::Plugin.descendants)
+    @plugins = Locomotive::Plugin.find_all
+    logger.debug(Locomotive::Plugin.find_all)
 
     respond_to do |format|
       format.html # index.html.erb

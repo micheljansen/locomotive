@@ -1,15 +1,17 @@
-<h1>New plugin_instance</h1>
+<h1>New instance of <%=h @plugin.name %></h1>
+
+<p>
+  Let's hook a new instance of <%=h @plugin.name %> into your Locomotive. Please provide a name for this instance and configure its properties.
+</p>
 
 <% form_for(@plugin_instance) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :plugin_type %><br />
-    <%= f.text_field :plugin_type %>
+    <%= f.label :plugin_type %>: <%=h @plugin_instance.plugin_type %>
   </p>
   <p>
-    <%= f.label :version %><br />
-    <%= f.text_field :version %>
+    <%= f.label :version %>: <%=h @plugin_instance.version %>
   </p>
   <p>
     <%= f.label :name %><br />
