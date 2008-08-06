@@ -18,7 +18,9 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= "Plugin type does not exist!" if @plugin.nil? %>
+    <% @plugin_instance.plugin.properties.each do |property| %>
+      <%=h y property %>
+    <% end %>
   </p>
   <p>
     <%= f.submit "Update" %>
