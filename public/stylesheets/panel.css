@@ -3,13 +3,14 @@
 */
 
 #header {
-	background-color: #000;
+	background-color: #333;
 	padding-top: 10px;
 }
 
 #header h1 {
 	margin-left: 10px;
 	margin-bottom: 20px;
+	color: #ccc;
 }
 
 /*
@@ -33,7 +34,7 @@
 */
 
 #mainmenu {
-	border-bottom: 4px solid #ccf;
+	border-bottom: 4px solid #c00;
 	margin : 0;
 	padding-bottom : 19px;
 	padding-left : 10px;
@@ -47,9 +48,9 @@
 }
 
 #mainmenu a:link, #mainmenu a:visited	{
-	background : #E8EBF0;
-	border : 1px solid #ccc;
-	color : #666;
+	background : #690303;
+	border-bottom : 1px solid #330000;
+	color : #fff;
 	float : left;
 	line-height : 14px;
 	margin-right : 8px;
@@ -58,17 +59,18 @@
 }
 
 #mainmenu a:link.active, #mainmenu a:visited.active	{
-	background : #fff;
-	border-bottom : 1px solid #fff;
-	color : #000;
+	background : #690303;
+	border-bottom : 1px solid #690303;
+	color : #fff;
 }
 
 #mainmenu a:hover	{
-	color : #f00;
+	color : #fff;
 }
 
 #mainmenu a.selected {
-	background: #ccf;
+	background: #c00;
+	border-bottom: 1px solid #c00;
 
 }
 
@@ -90,13 +92,17 @@ body {
 #contentwindow {
 	background: #fff;
 	border: #ddd;
-	padding: 20px;
+	padding: 0;
 	width: 100%;
 	margin: 0;
 }
 
+#contentwindow-body {
+	padding: 10px;
+}
+
 #contentwindow-header {
-	background: #000;
+	background: #666;
 	color: #fff;
 	padding-top: 10px;
 	padding-left: 10px;
