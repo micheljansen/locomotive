@@ -29,6 +29,7 @@ class PluginInstancesController < ApplicationController
       logger.error("Attempt to instantiate nonexisting plugin '#{params[:id]}'")
       flash[:notice] = "No plugin with ID '#{params[:id]}' exists."
       redirect_to :controller => "plugins", :action => "index"
+      return
     else
       @plugin_instance = PluginInstance.new (:plugin_type => params[:id], 
                                             :version => @plugin.version)
