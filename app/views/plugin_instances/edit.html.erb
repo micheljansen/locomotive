@@ -19,12 +19,6 @@
   </p>
   <p>
     <%= "Plugin type does not exist!" if @plugin.nil? %>
-    plugin: {
-      <%= y @plugin.short_name %>
-      <% @plugin.properties.each_key do |p| %>
-        <%=h p %>
-      <% end %>
-    }
   </p>
   <p>
     <%= f.submit "Update" %>

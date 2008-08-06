@@ -9,9 +9,11 @@
 
   <p>
     <%= f.label :plugin_type %>: <%=h @plugin_instance.plugin_type %>
+    <%= f.hidden_field :plugin_type %>
   </p>
   <p>
     <%= f.label :version %>: <%=h @plugin_instance.version %>
+    <%= f.hidden_field :version %>
   </p>
   <p>
     <%= f.label :name %><br />

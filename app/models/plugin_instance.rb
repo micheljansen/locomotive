@@ -14,6 +14,16 @@
 class PluginInstance < ActiveRecord::Base
   has_many :plugin_properties
   
-  validates_presence_of :plugin_id, :on => :create, :message => "can't be blank"
+  #validates_presence_of :plugin_type, :on => :create, :message => "can't be blank"
+  validates_presence_of :plugin_type, :on => :create, :message => "can't be blank. This should not happen"
+  validates_presence_of :version, :on => :create, :message => "can't be blank. This should not happen"
+  validates_presence_of :name, :on => :create, :message => "should be provided"
+  validates_uniqueness_of :name, :on => :create, :message => "should be unique"
+  
+  # gives the plugin that is the template of this instance
+  def plugin
+    logger.debug("PluginInstance #{self} looking up plugin #{plugin_type}")
+    Locomotive::Plugin.find_by_id(plugin_type)
+  end
   
 end
