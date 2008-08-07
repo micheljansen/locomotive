@@ -18,9 +18,16 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <% @plugin_instance.plugin.properties.each do |property| %>
-      <%=h y property %>
-    <% end %>
+    <table>
+      <% @plugin_instance.plugin_properties.each do |property| %>
+        <% fields_for(property) do |fld| %>
+          <tr>
+            <td><%=h property.key %></td>
+            <td><%= fld.text_field :value %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
   </p>
   <p>
     <%= f.submit "Update" %>

@@ -22,8 +22,46 @@ class PluginInstance < ActiveRecord::Base
   
   # gives the plugin that is the template of this instance
   def plugin
-    logger.debug("PluginInstance #{self} looking up plugin #{plugin_type}")
-    Locomotive::Plugin.find_by_id(plugin_type)
+    @plugin ||= Locomotive::Plugin.find_by_id(plugin_type)
   end
   
+  delegate :description, :to => :plugin
+  
+  def plugin_properties_that_explodes
+      raise "this method should not be used to collect properties from a plugin instance. Use PluginInstance#properties instead."
+    
+  end
+  
+  def plugin_properties_with_inherited_defaults(force_reload=true)
+    props = {}
+    
+    plugin.properties.each do |key, value|
+      logger.debug("adding #{key} => #{value}")
+      props[key] = plugin_properties_without_inherited_defaults.build(:key => key.to_s, :value => value)
+    end
+      
+    
+    overridden_properties = plugin_properties_without_inherited_defaults(force_reload)
+    
+    overridden_properties.each do |p|
+      logger.debug("Overriding #{p.key} with #{p}")
+      props[p.key.to_sym] = p
+    end
+    
+    return props.values
+    
+  end
+  
+  # get al properties, respecting inheritance from the plugin defaults, as a hash
+  def properties
+    plugin_properties.inject({}) {|props, p| props.merge(p.key.to_sym => p.value)}
+  end
+  
+  alias_method :plugin_properties_without_inherited_defaults, 
+               :plugin_properties 
+  
+  alias_method :plugin_properties, 
+               :plugin_properties_with_inherited_defaults
+  
+ 
 end

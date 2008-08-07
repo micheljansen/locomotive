@@ -13,6 +13,18 @@
   <%=h @plugin_instance.name %>
 </p>
 
+<p>
+  <b>Properties:</b>
+  <table>
+    <% @plugin_instance.plugin_properties.each do |property| %>
+      <tr>
+        <td><%=h property.key %></td>
+        <td><%=h property.value %></td>
+      </tr>
+    <% end%>
+  </table>
+</p>
+
 
 <%= link_to 'Edit', edit_plugin_instance_path(@plugin_instance) %> |
 <%= link_to 'Back', plugin_instances_path %>
