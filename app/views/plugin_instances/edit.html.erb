@@ -19,14 +19,13 @@
   </p>
   <p>
     <table>
-      <% @plugin_instance.plugin_properties.each do |property| %>
-        <% fields_for(property) do |fld| %>
+
+        <% fields_for @plugin_instance.plugin_properties do |fld, property| %>
           <tr>
-            <td><%=h property.key %></td>
+            <td><%=h property.key %> <%= fld.hidden_field :key %></td>
             <td><%= fld.text_field :value %></td>
           </tr>
         <% end %>
-      <% end %>
     </table>
   </p>
   <p>

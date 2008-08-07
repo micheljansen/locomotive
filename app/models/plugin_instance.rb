@@ -48,8 +48,16 @@ class PluginInstance < ActiveRecord::Base
       props[p.key.to_sym] = p
     end
     
-    return props.values
+    return plugin_properties_without_inherited_defaults.replace(props.values)
     
+  end
+  
+  def plugin_propsx=(props)
+    logger.debug("setting plugin_properties to #{p props}")
+    
+    props.each do |p|
+      plugin_properties.build(p)
+    end
   end
   
   # get al properties, respecting inheritance from the plugin defaults, as a hash
