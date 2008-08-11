@@ -16,9 +16,9 @@
 one:
   plugin_type: hello_world
   version: 1
-  name: test1
+  name: hello_test_1
 
 two:
   plugin_type: hello_world
   version: 1
-  name: test2
+  name: hello_test_2
