@@ -16,7 +16,7 @@ class PluginsController < ApplicationController
   # GET /plugins/1
   # GET /plugins/1.xml
   def show
-    @plugin = Plugin.find(params[:id])
+    @plugin = Locomotive::Plugin.find_by_id(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

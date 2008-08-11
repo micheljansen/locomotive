@@ -1,3 +1,4 @@
+<h2>Plugin details</h2>
 <p>
   <b>Short name:</b>
   <%=h @plugin.short_name %>
@@ -12,12 +13,6 @@
   <b>Description:</b>
   <%=h @plugin.description %>
 </p>
-
-<p>
-  <b>Url:</b>
-  <%=h @plugin.url %>
-</p>
-
 
 <%= link_to 'Edit', edit_plugin_path(@plugin) %> |
 <%= link_to 'Back', plugins_path %>
