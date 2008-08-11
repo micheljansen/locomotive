@@ -12,7 +12,7 @@
 #
 
 class PluginInstance < ActiveRecord::Base
-  has_many :plugin_properties
+  has_many :plugin_properties, :dependent => :destroy
   
   #validates_presence_of :plugin_type, :on => :create, :message => "can't be blank"
   validates_presence_of :plugin_type, :on => :create, :message => "can't be blank. This should not happen"
