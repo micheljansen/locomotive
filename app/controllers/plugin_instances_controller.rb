@@ -59,7 +59,7 @@ class PluginInstancesController < ApplicationController
     respond_to do |format|
       if @plugin_instance.save
         flash[:notice] = 'PluginInstance was successfully created.'
-        format.html { redirect_to(@plugin_instance) }
+        format.html { redirect_to :action => "edit", :id => @plugin_instance }
         format.xml  { render :xml => @plugin_instance, :status => :created, :location => @plugin_instance }
       else
         format.html { render :action => "new" }
