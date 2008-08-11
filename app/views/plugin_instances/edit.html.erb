@@ -9,28 +9,35 @@
         Locomotive::Plugin.all_ids,
         :prompt => "Select plugin type" %>
   </p>
+  
   <p>
     <%= f.label :version %><br />
     <%= f.text_field :version %>
   </p>
+
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
+
   <p>
     <table>
-
-        <% fields_for @plugin_instance.plugin_properties do |fld, property| %>
-          <tr>
-            <td><%=h property.key %> <%= fld.hidden_field :key %></td>
-            <td><%= fld.text_field :value %></td>
-          </tr>
+        <% @plugin_instance.plugin_properties.each do |property| %>
+          <% fields_for "plugin_properties[]", property do |fld| %>
+          <%= error_messages_for :property %>
+            <tr>
+              <td><%=h property.key %> <%= fld.hidden_field :key %></td>
+              <td><%= fld.text_field :value %></td>
+            </tr>
+          <% end%>
         <% end %>
     </table>
   </p>
+
   <p>
     <%= f.submit "Update" %>
   </p>
+
 <% end %>
 
 <%= link_to 'Show', @plugin_instance %> |

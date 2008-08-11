@@ -32,19 +32,19 @@ class PluginInstance < ActiveRecord::Base
     
   end
   
-  def plugin_properties_with_inherited_defaults(force_reload=true)
+  def plugin_properties_with_inherited_defaults(force_reload=false)
+    logger.debug("PPWID================")
     props = {}
     
     plugin.properties.each do |key, value|
-      logger.debug("adding #{key} => #{value}")
-      props[key] = plugin_properties_without_inherited_defaults.build(:key => key.to_s, :value => value)
+      props[key] = plugin_properties_without_inherited_defaults.new(:key => key.to_s, :value => value)
     end
       
     
     overridden_properties = plugin_properties_without_inherited_defaults(force_reload)
     
     overridden_properties.each do |p|
-      logger.debug("Overriding #{p.key} with #{p}")
+      logger.debug("Overriding #{p.key} with #{p.value}")
       props[p.key.to_sym] = p
     end
     
@@ -52,7 +52,7 @@ class PluginInstance < ActiveRecord::Base
     
   end
   
-  def plugin_propsx=(props)
+  def plugin_properties=(props)
     logger.debug("setting plugin_properties to #{p props}")
     
     props.each do |p|

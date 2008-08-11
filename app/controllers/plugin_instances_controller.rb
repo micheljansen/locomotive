@@ -45,7 +45,7 @@ class PluginInstancesController < ApplicationController
   # GET /plugin_instances/1/edit
   def edit
     @plugin_instance = PluginInstance.find(params[:id])
-    #@plugin = Locomotive::Plugin.find_by_id(@plugin_instance.plugin_type)
+    p @plugin_instance.plugin_properties
   end
 
   # POST /plugin_instances
@@ -72,16 +72,25 @@ class PluginInstancesController < ApplicationController
   # PUT /plugin_instances/1.xml
   def update
     @plugin_instance = PluginInstance.find(params[:id])
-
+    
     respond_to do |format|
-      if @plugin_instance.update_attributes(params[:plugin_instance])
-        flash[:notice] = 'PluginInstance was successfully updated.'
-        format.html { redirect_to(@plugin_instance) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @plugin_instance.errors, :status => :unprocessable_entity }
+      @plugin_instance.attributes = params[:plugin_instance]
+      
+      @plugin_instance.plugin_properties.each do |p|
+        logger.debug("updating plugin_property #{p.key}")
+        y p
+        y params[:plugin_properties][p.id.to_s]
+        p.attributes = params[:plugin_properties][p.id.to_s]  
       end
+      
+      if @plugin_instance.valid? && @plugin_instance.plugin_properties.all?(&:valid?)
+          @plugin_instance.save!
+          @plugin_instance.plugin_properties.each { |p| p.save! }
+          flash[:notice] = 'PluginInstance was successfully updated.'
+          format.html { redirect_to(@plugin_instance) }
+        else
+          render :action => 'edit'
+        end
     end
   end
 
