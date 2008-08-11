@@ -5,7 +5,6 @@
     <th>Short name</th>
     <th>Name</th>
     <th>Description</th>
-    <th>Options</th>
   </tr>
 
 <% @plugins.each do |plugin| %>
@@ -14,16 +13,6 @@
 	<td><%=h plugin.short_name %></td>
   <td><%=h plugin.long_name %></td>
   <td><%=h plugin.description %></td>
-	<td>
-		<table>
-		<% plugin.properties.each do |property| %>
-		<tr>
-			<td><%=h property[0] %></td>
-			<td><%=h property[1] %></td>
-		</tr>
-		<% end %>
-		</table>
-	</td>
 	<td><%= link_to "instantiate", :controller => "plugin_instances", :action => "new", :id => plugin.short_name %></td>
 
   </tr>

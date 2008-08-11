@@ -14,11 +14,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  plugin_type: MyString
+  plugin_type: hello_world
   version: 1
-  name: MyString
+  name: test1
 
 two:
-  plugin_type: MyString
+  plugin_type: hello_world
   version: 1
-  name: MyString
+  name: test2
