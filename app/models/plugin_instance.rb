@@ -60,7 +60,7 @@ class PluginInstance < ActiveRecord::Base
     end
   end
   
-  # get al properties, respecting inheritance from the plugin defaults, as a hash
+  # get all properties, respecting inheritance from the plugin defaults, as a hash
   def properties
     plugin_properties.inject({}) {|props, p| props.merge(p.key.to_sym => p.value)}
   end
@@ -70,6 +70,6 @@ class PluginInstance < ActiveRecord::Base
   
   alias_method :plugin_properties, 
                :plugin_properties_with_inherited_defaults
-  
+
  
 end

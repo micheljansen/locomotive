@@ -10,7 +10,7 @@ end
   
   describe PluginInstance do
     before(:each) do
-      @plugin_instance = PluginInstance.new
+      @plugin_instance = PluginInstance.new(:plugin_type => "spec_test_plugin")
     end
 
     it "should be invalid wihout an existing plugin_type" do
