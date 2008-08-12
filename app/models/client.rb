@@ -1,4 +1,4 @@
 class Client < ActiveRecord::Base
-  has_many :applications
-  has_many :application_instances  
+  has_many :services
+  has_many :service_instances
 end
