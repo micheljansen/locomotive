@@ -1,6 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :release_versions
-
   map.resources :application_instances
 
   map.resources :applications
