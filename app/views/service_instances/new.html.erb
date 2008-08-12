@@ -1,0 +1,11 @@
+<h1>New service_instance</h1>
+
+<% form_for(@service_instance) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', service_instances_path %>

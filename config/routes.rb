@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :service_instances
+
   map.resources :services
 
   map.resources :releases
