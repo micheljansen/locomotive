@@ -1,0 +1,12 @@
+<h1>Editing application_instance</h1>
+
+<% form_for(@application_instance) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @application_instance %> |
+<%= link_to 'Back', application_instances_path %>
