@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080812093538) do
+ActiveRecord::Schema.define(:version => 20080812095301) do
 
   create_table "application_instances", :force => true do |t|
     t.datetime "created_at"
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(:version => 20080812093538) do
   end
 
   create_table "release_versions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "releases", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
