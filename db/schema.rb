@@ -9,18 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080812095301) do
-
-  create_table "application_instances", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "applications", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20080812101710) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -45,13 +34,13 @@ ActiveRecord::Schema.define(:version => 20080812095301) do
     t.integer  "plugin_instance_id"
   end
 
-  create_table "release_versions", :force => true do |t|
+  create_table "releases", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "releases", :force => true do |t|
+  create_table "services", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
