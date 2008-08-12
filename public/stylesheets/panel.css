@@ -140,7 +140,7 @@ body {
 }
 
 
-#submenu a:link.active, #submenu a:visited.active	{
+#submenu #active a:link, #submenu #active a:visited	{
 	background : #fff;
 	border-bottom : 1px solid #fff;
 	color : #000;

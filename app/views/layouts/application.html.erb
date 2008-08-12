@@ -15,28 +15,22 @@
     
 		<h1>Locomotive Control Panel</h1>
 
-    <%= render :partial => 'shared/menubar' %>
+    <%= render :partial => 'shared/mainmenu' %>
 
 	</div>
 
 	<div id="main">
-    <div id="sidebar">        
-			(sidebar content)
+    <div id="sidebar">
+			<%= yield :sidebar %>
 		</div>
     <div id="content">
-		  <p style="color: green"><%= flash[:notice] %></p>
       <div id="contentwindow">
         <div id="contentwindow-header">
-          <h1>Plugin settings</h1>
-          <div id="submenu">
-            <ul>
-              <li><a href="/plugins" class="active">Plugins</a></li>
-              <li><a href="/plugin_instances">Instances</a></li>
-              <li><a href="/plugin_properties">Properties</a></li>
-            </ul>
-          </div>
+          <h1>insert title here</h1>
+          <%= render :partial => 'shared/submenu' %>
         </div>
         <div id="contentwindow-body">
+          <p style="color: green"><%= flash[:notice] %></p>
           <%= yield  %>
         </div>
       </div>
