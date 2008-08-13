@@ -38,7 +38,8 @@ class Menu
   
   # value is wrapped in an array if required
   def []=(key, value)
-    logger.debug("adding #{key} linking to #{value}")
+    puts("adding #{key} linking to")
+    p value
     @order << key
     items[key] = value
   end

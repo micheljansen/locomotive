@@ -1,8 +1,6 @@
 # Helloworld
 module Locomotive::Plugins
   
-  Menu.add("Hello World", {:controller => "clients"})
-
   module HelloWorld
     include Locomotive::Plugin
   
@@ -12,6 +10,9 @@ module Locomotive::Plugins
     description "Who could ever do without a HelloWorld plugin."
   
     #menu_path "Stuff" "HelloWorld"
+    
+    #Menu.add("Hello World", {:controller => "clients"})
+    menu_path "Hello World", {:controller => "clients"}
     
     # property :identifier "optional description" "optional regexp" "optional default"
     property :friend_name, "The name of the person we should greet", /.*/, "Michel"

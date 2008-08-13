@@ -1,8 +1,5 @@
 <ul id="mainmenu">
-	<li>
-		<a href="/">Cockpit</a>
-	</li>
-	<li>
-		<a href="/settings/" class="selected">Settings</a>
-	</li>
+  <% Menu.root.links.each do |menu_link_params| %>
+    <li><%= link_to *menu_link_params %></li>
+  <% end %>
 </ul>
