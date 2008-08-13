@@ -1,4 +1,7 @@
 class PluginsController < ApplicationController
+  
+  before_filter :init_menu
+  
   # GET /plugins
   # GET /plugins.xml
   def index
@@ -39,6 +42,10 @@ class PluginsController < ApplicationController
   def edit
     #@plugin = Plugin.find(params[:id])
     @plugin = Locomotive::Plugins::HelloWorld
+  end
+  
+  def init_menu
+    @menu = ["Hello World"]
   end
 
 end

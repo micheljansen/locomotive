@@ -1,5 +1,9 @@
 <ul id="mainmenu">
   <% Menu.root.links.each do |menu_link_params| %>
-    <li><%= link_to *menu_link_params %></li>
+    <% if not @menu.nil? and menu_link_params[0] == @menu[0] %>
+      <li id="active"><%= link_to *menu_link_params %></li>
+    <% else %>
+      <li><%= link_to *menu_link_params %></li>
+    <% end%>
   <% end %>
 </ul>

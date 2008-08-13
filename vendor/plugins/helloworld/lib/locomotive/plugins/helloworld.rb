@@ -11,8 +11,7 @@ module Locomotive::Plugins
   
     #menu_path "Stuff" "HelloWorld"
     
-    #Menu.add("Hello World", {:controller => "clients"})
-    menu_path "Hello World", {:controller => "clients"}
+    menu_path "Hello World", {:controller => "plugins"}
     
     # property :identifier "optional description" "optional regexp" "optional default"
     property :friend_name, "The name of the person we should greet", /.*/, "Michel"

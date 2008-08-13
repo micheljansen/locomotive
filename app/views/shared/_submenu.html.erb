@@ -1,7 +1,13 @@
 <div id="submenu">
   <ul>
-    <li id="active"><%= link_to 'Plugins', :controller => 'plugins' %></li>
-    <li><%= link_to 'Instances', :controller => 'plugin_instances' %></li>
-    <li><%= link_to 'Properties', :controller => 'plugin_properties' %></li>
+    <% if not @menu.nil? and Menu[@menu[0]].respond_to?(:links) %>
+      <% Menu[@menu[0]].links.each do |submenu_link| %>
+        <% if not @menu[1].nil? and submenu_link[0] == @menu[1] %>
+          <li id="active"><%= link_to *submenu_link %></li>
+        <% else %>
+          <li><%= link_to *submenu_link %></li>
+        <% end%>
+      <% end %>
+    <% end %>
   </ul>
 </div>

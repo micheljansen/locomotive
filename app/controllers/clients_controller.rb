@@ -1,5 +1,7 @@
 class ClientsController < ApplicationController
   
+  before_filter :init_menu
+  
   # GET /clients
   # GET /clients.xml
   def index
@@ -83,4 +85,9 @@ class ClientsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def init_menu
+    @menu = ["Administration","Clients"]
+  end
+  
 end

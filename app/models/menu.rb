@@ -6,6 +6,7 @@ class Menu
       Menu["Administration"]["Dashboard"] = [{:controller => "clients"}]
       Menu["Administration"]["Clients"] = [{:controller => "clients"}]
       Menu["Administration"]["Services"] = [{:controller => "services"}]
+      p Menu.root
       @defaults_loaded = true
     end    
   end
@@ -33,14 +34,18 @@ class Menu
   
   # if key does not exist, it is created
   def [](key)
-    items[key].nil? ? items[key] = Menu.new : items[key]
+    if items[key].nil?
+      self[key] = Menu.new
+    else 
+      items[key]
+    end
   end
   
   # value is wrapped in an array if required
   def []=(key, value)
     puts("adding #{key} linking to")
     p value
-    @order << key
+    @order << key unless items.member?(key)
     items[key] = value
   end
   
@@ -112,5 +117,7 @@ class Menu
   def logger
     RAILS_DEFAULT_LOGGER
   end
+  
+  Menu.load_defaults
   
 end

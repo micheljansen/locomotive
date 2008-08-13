@@ -47,7 +47,7 @@
 	padding : 0;
 }
 
-#mainmenu a:link, #mainmenu a:visited	{
+#mainmenu a:link, #mainmenu a:visited {
 	background : #690303;
 	border-bottom : 1px solid #330000;
 	color : #fff;
@@ -58,21 +58,15 @@
 	text-decoration : none;
 }
 
-#mainmenu a:link.active, #mainmenu a:visited.active	{
-	background : #690303;
-	border-bottom : 1px solid #690303;
-	color : #fff;
+#mainmenu #active a:link, #mainmenu #active a:visited {
+	background: #c00;
+	border-bottom: 1px solid #c00;
 }
 
 #mainmenu a:hover	{
 	color : #fff;
 }
 
-#mainmenu a.selected {
-	background: #c00;
-	border-bottom: 1px solid #c00;
-
-}
 
 /*
 	Content area
