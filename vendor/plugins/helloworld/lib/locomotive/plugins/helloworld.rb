@@ -1,5 +1,7 @@
 # Helloworld
 module Locomotive::Plugins
+  
+  Menu.add("Hello World", {:controller => "clients"})
 
   module HelloWorld
     include Locomotive::Plugin

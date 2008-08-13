@@ -1,9 +1,15 @@
 class Menu
   
-  def initialize
-    @order = []
+  def self.load_defaults
+    unless @defaults_loaded
+      Menu.add("Cockpit", "/", :confirm => "This doesn't work yet. Try anyway?")
+      Menu["Administration"]["Dashboard"] = [{:controller => "clients"}]
+      Menu["Administration"]["Clients"] = [{:controller => "clients"}]
+      Menu["Administration"]["Services"] = [{:controller => "services"}]
+      @defaults_loaded = true
+    end    
   end
-  
+
   def self.root
     @menu ||= Menu.new
   end
@@ -16,6 +22,15 @@ class Menu
     root[key] = value
   end
   
+  def self.add(*args)
+    root.add(*args)
+  end
+  
+  # Initialize a new Menu
+  def initialize
+    @order = []
+  end
+  
   # if key does not exist, it is created
   def [](key)
     items[key].nil? ? items[key] = Menu.new : items[key]
@@ -23,6 +38,7 @@ class Menu
   
   # value is wrapped in an array if required
   def []=(key, value)
+    logger.debug("adding #{key} linking to #{value}")
     @order << key
     items[key] = value
   end
@@ -56,6 +72,7 @@ class Menu
 
   end
   
+  # get the link parameters for a given key
   def link_for(key)
     item = items[key]
     if item.is_a?(Menu) then
@@ -74,6 +91,7 @@ class Menu
   # if "args" is empty, assume creation of a submenu
   # if a menu named "key" already exists, it is replaced
   def add(key, *args)
+    logger.debug("adding #{key} linking to #{args}")
     @order << key
     if(args.size == 0) then
       items[key] = Menu.new
@@ -85,6 +103,13 @@ class Menu
   # resets this menu
   def self.reset
     @menu = Menu.new
+    Menu.load_defaults
   end
     
+  private
+  
+  def logger
+    RAILS_DEFAULT_LOGGER
+  end
+  
 end

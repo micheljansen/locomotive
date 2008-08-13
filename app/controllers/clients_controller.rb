@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  
   # GET /clients
   # GET /clients.xml
   def index
