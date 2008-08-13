@@ -17,15 +17,17 @@
 	Sidebar
 */
 
-#sidebar{ 
-	float: right; 
+#sidebar { 
+	float: right;
 	width: 17%; 
 	position: relative; 
 	z-index: 9; 
 	min-height: 600px; 
-	padding: 10px; 
+	padding-left: 0px;
+	padding-top: 40px;
+	padding-right: 20px;
 	margin: 0;
-	background-color: #ccc;
+	
 }
 * html #sidebar{ width: 17%; }
 
@@ -79,10 +81,10 @@ body {
 }
 
 #content {
-	margin: 10px 10px 10px 10px;
+	margin: 20px 20px 20px 20px;
 	padding: 0;
 	float: left;
-	width: 600px;
+	width: 70%;
 }
 
 #contentwindow {

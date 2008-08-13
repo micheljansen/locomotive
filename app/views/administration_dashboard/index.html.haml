@@ -1,2 +1,10 @@
 %h1 Administration dashboard
-%p Hi!
+%p== You currently have #{link_to @clients.size.to_s + " clients", :controller =>"clients"}, #{link_to @services.size.to_s + " services", :controller => "services"} and some servers set-up. If you want to know more about these, click on any of the tabs above. You can also jump right into adding more by hitting the buttons in the side bar to the right.
+
+
+- content_for :sidebar do
+  %h2 Actions
+  %ul
+    %li==#{link_to "add a client", {:controller => "clients", :action => "new"}}
+    %li==#{link_to "add a service", {:controller => "services", :action => "new"}}
+      

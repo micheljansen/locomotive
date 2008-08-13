@@ -3,7 +3,7 @@ class Menu
   def self.load_defaults
     unless @defaults_loaded
       Menu.add("Cockpit", "/", :confirm => "This doesn't work yet. Try anyway?")
-      Menu["Administration"]["Dashboard"] = [{:controller => "clients"}]
+      Menu["Administration"]["Dashboard"] = [{:controller => "administration_dashboard"}]
       Menu["Administration"]["Clients"] = [{:controller => "clients"}]
       Menu["Administration"]["Services"] = [{:controller => "services"}]
       p Menu.root
