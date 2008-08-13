@@ -1,1 +1,0 @@
-Menu.load_defaults
