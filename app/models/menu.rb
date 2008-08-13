@@ -16,8 +16,9 @@ class Menu
     root[key] = value
   end
   
+  # if key does not exist, it is created
   def [](key)
-    items[key]
+    items[key].nil? ? items[key] = Menu.new : items[key]
   end
   
   # value is wrapped in an array if required

@@ -7,14 +7,13 @@ describe Menu do
   end
   
   it "should be able to have links added to its root" do
-    Menu["Spec menu"] = {:controller => "spec_menu"}
-    Menu["Spec menu"].should_not be_nil
-    Menu.root.add("Spec menu 2", {:controller => "spec menu 2"})
-    Menu.root["Spec menu 2"].should_not be_nil
+    Menu["Spec menu"] = [{:controller => "spec_menu"}]
+    Menu["Spec menu"].should == [{:controller => "spec_menu"}]
+    Menu.root.add("Spec menu 2", {:controller => "spec_menu_2"})
+    Menu.root["Spec menu 2"].should == [{:controller => "spec_menu_2"}]
   end
   
   it "should be able to have submenu's added" do
-    Menu["Spec menu"] = Menu.new
     Menu["Spec menu"]["Spec submenu"] = {:controller => "spec submenu"}
     Menu["Spec menu"]["Spec submenu 2"] = {:controller => "spec submenu 2"}
     Menu["Spec menu"].add("Spec submenu 3", {:controller => "spec submenu 3"})
@@ -28,16 +27,8 @@ describe Menu do
     Menu.root.should have(2).items
   end
   
-  it "should not contain empty items" do
-    Menu["nonexisting menu"].should be_nil
-    Menu.root.should have(0).items
-  end
-  
   it "should be able to provide a default link" do
     Menu.root["Spec menu"] = "link"
-    
-    p Menu.root 
-    
     Menu.root.default_link.should == ["Spec menu", "link"]
     
     Menu.root["Dashboard"] = "new link"
@@ -57,7 +48,6 @@ describe Menu do
     Menu["m1"] = Menu.new
     Menu["m1"].add("Dashboard", {:controller => "plugins", :action => "index"})
     Menu["m1"]["Properties"] = {:controller => "plugin_properties"}
-    
   end
   
 end
