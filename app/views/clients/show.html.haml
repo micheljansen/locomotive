@@ -4,6 +4,17 @@
 #actions
   %span=link_to 'Edit this client', edit_client_path(@client)
   %span=link_to 'All clients', clients_path
+
+#contracts
+  %h2 Services
+  %p== These are the services that are assigned to this client. Feel free to check them out or #{link_to 'assign more' ''}
+  %table
+    - @client.contracts.each do |contract|
+      %tr
+        %td= link_to contract.service.name, service_path(contract.service)
+        %td= link_to 'cancel contract', contract, :method => :delete
+    
+  
   
 - content_for(:sidebar) do
   %h2 Actions
