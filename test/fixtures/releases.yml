@@ -1,3 +1,15 @@
+# == Schema Information
+# Schema version: 20080814065844
+#
+# Table name: releases
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)     
+#  created_at :datetime        
+#  updated_at :datetime        
+#  service_id :integer         
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
