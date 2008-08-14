@@ -11,4 +11,9 @@
 #
 
 class Contract < ActiveRecord::Base
+  belongs_to :client
+  belongs_to :service
+  
+  validates_presence_of :client_id, :on => :create, :message => "can't be blank"
+  validates_presence_of :service_id, :on => :create, :message => "can't be blank"
 end
