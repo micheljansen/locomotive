@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080814065844) do
+ActiveRecord::Schema.define(:version => 20080814141021) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -17,6 +17,16 @@ ActiveRecord::Schema.define(:version => 20080814065844) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "contracts", :force => true do |t|
+    t.integer  "client_id"
+    t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contracts", ["service_id"], :name => "index_contracts_on_service_id"
+  add_index "contracts", ["client_id"], :name => "index_contracts_on_client_id"
 
   create_table "plugin_instances", :force => true do |t|
     t.string   "plugin_type"

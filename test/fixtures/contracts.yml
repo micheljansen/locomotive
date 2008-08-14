@@ -1,19 +1,21 @@
 # == Schema Information
 # Schema version: 20080814141021
 #
-# Table name: releases
+# Table name: contracts
 #
 #  id         :integer         not null, primary key
-#  name       :string(255)     
+#  client_id  :integer         
+#  service_id :integer         
 #  created_at :datetime        
 #  updated_at :datetime        
-#  service_id :integer         
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
+  client_id: 1
+  service_id: 1
 
 two:
-  name: MyString
+  client_id: 1
+  service_id: 1

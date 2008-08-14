@@ -1,13 +1,14 @@
 # == Schema Information
 # Schema version: 20080814141021
 #
-# Table name: service_instances
+# Table name: contracts
 #
 #  id         :integer         not null, primary key
+#  client_id  :integer         
+#  service_id :integer         
 #  created_at :datetime        
 #  updated_at :datetime        
 #
 
-class ServiceInstance < ActiveRecord::Base
-  belongs_to :release
+class Contract < ActiveRecord::Base
 end

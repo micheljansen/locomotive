@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080814065844
+# Schema version: 20080814141021
 #
 # Table name: clients
 #
@@ -11,6 +11,7 @@
 #
 
 class Client < ActiveRecord::Base
-  has_many :services
+  has_many :contracts
+  has_many :services, :through => :contracts
   has_many :service_instances
 end
