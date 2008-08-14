@@ -13,4 +13,7 @@
 class Release < ActiveRecord::Base
   belongs_to :service
   has_many :instances
+  
+  validates_presence_of :service_id, :message => "unknown for this release"
+  
 end

@@ -1,4 +1,7 @@
 class ReleasesController < ApplicationController
+  
+  before_filter :init_menu
+  
   # GET /releases
   # GET /releases.xml
   def index
@@ -25,6 +28,8 @@ class ReleasesController < ApplicationController
   # GET /releases/new.xml
   def new
     @release = Release.new
+    @release.service_id = params[:service_id]
+    @service = Service.find(params[:service_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -81,5 +86,9 @@ class ReleasesController < ApplicationController
       format.html { redirect_to(releases_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def init_menu
+    @menu = ["Administration", "Services"]
   end
 end
