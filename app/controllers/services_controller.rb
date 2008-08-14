@@ -17,6 +17,7 @@ class ServicesController < ApplicationController
   # GET /services/1.xml
   def show
     @service = Service.find(params[:id])
+    @releases = @service.releases
 
     respond_to do |format|
       format.html # show.html.erb
