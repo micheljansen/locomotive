@@ -1,0 +1,14 @@
+%h1=h @client.name
+%p=h @client.description
+
+#actions
+  %span=link_to 'Edit this client', edit_client_path(@client)
+  %span=link_to 'All clients', clients_path
+  
+- content_for(:sidebar) do
+  %h2 Actions
+  %ul
+    %li= link_to 'Edit this client', edit_client_path(@client)
+    %li= link_to 'Assign a service'
+  %ul
+    %li= link_to 'Add a new client', new_client_path

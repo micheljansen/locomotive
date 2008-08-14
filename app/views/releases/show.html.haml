@@ -1,7 +1,6 @@
-%h1== #{@release.service.name} release #{@release.name}
+%h1== #{link_to @release.service.name, service_path(@release.service)} release #{@release.name}
 #actions 
   %span= link_to 'Edit', edit_release_path(@release)
-  %span= link_to 'Back', releases_path
 
   
 - content_for :sidebar do

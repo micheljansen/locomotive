@@ -1,0 +1,19 @@
+%h1 Listing services
+
+%p These are all the services you are running. Click on one to view its details, add releases etc. or jump right into one of the actions to the right.
+
+%table
+  %tr
+    %th Name
+
+  - @services.each do |service|
+    %tr
+      %td= link_to service.name, service
+      %td= link_to 'Edit', edit_service_path(service)
+      %td= link_to 'Remove', service, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to 'New service', new_service_path
+- content_for :sidebar do
+  %h2 Actions
+  %ul
+    %li= link_to "Add a service", new_service_path
