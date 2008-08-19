@@ -37,9 +37,10 @@ class ReleasesController < ApplicationController
     end
   end
 
-  # GET /releases/1/edit
+  # GET /services/1/releases/1/edit
   def edit
     @release = Release.find(params[:id])
+    @service = @release.service
   end
 
   # POST /releases
@@ -68,7 +69,7 @@ class ReleasesController < ApplicationController
     respond_to do |format|
       if @release.update_attributes(params[:release])
         flash[:notice] = 'Release was successfully updated.'
-        format.html { redirect_to(@release) }
+        format.html { redirect_to(@release.service) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

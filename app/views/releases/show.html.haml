@@ -1,12 +1,12 @@
 %h1== #{link_to @release.service.name, service_path(@release.service)} release #{@release.name}
 #actions 
-  %span= link_to 'Edit', edit_release_path(@release)
+  %span= link_to 'Edit', edit_service_release_path(@release.service, @release)
 
   
 - content_for :sidebar do
   %h2 Actions
   %ul
-    %li= link_to "Add a release", :controller => 'releases', :action => "new", :service_id => @release.service.id
+    %li= link_to "Add a release", new_service_release_path(@release.service)
     
   %h2 Other releases
   %ul

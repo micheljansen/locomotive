@@ -4,13 +4,13 @@
   %span= link_to 'Back', services_path
 #releases
   %h2 Releases
-  %span= link_to "Add a release", new_service_release_path(:service_id => @service.id)
+  %span= link_to "Add a release", new_service_release_path(@service)
   %ul
     -@releases.each do |release|
-      %li= link_to release.name, :controller => 'releases', :action => 'show', :id => release.id
+      %li= link_to release.name, service_release_path(@service, release)
       
 
 - content_for :sidebar do
   %h2 Actions
   %ul
-    %li= link_to "Add a release", new_service_release_path(:service_id => @service.id)
+    %li= link_to "Add a release", new_service_release_path(@service)

@@ -1,6 +1,6 @@
 <h1>Editing release</h1>
 
-<% form_for(@release) do |f| %>
+<% form_for([@service,@release]) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -12,5 +12,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @release %> |
-<%= link_to 'Back', releases_path %>
+<%= link_to 'Back', service_path (@service) %>
