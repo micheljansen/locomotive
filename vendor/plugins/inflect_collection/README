@@ -3,8 +3,10 @@ Inflect Object
 
 Adds inflection functionality to Ruby objects. This is useful if you want to describe things in natural language, for instance Rails objects.
 
+Just add it as a rails plugin, or include the functionality into objects you like.
 
-Example
+
+Examples
 =======
 
 ["word"].inflected => "string"
@@ -14,6 +16,8 @@ Example
 [Person.new, Person.new] => "people"
 
 Person.find(:all) => "people" if Person.count is 0 or >1, "person" otherwise.
+
+See more in the rspec descriptions
 
 
 Copyright (c) 2008 Michel Jansen, released under the MIT license

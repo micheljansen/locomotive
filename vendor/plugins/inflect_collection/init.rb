@@ -1,2 +1,2 @@
 # Include hook code here
-Object.send(:include, InflectCollection)
+Object.send(:include, InflectObject)

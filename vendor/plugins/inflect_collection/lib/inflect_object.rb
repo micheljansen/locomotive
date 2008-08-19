@@ -1,5 +1,4 @@
-# InflectCollection
-module InflectCollection
+module InflectObject
   
   # return a correctly inflected string for this Object
   def inflected
@@ -17,6 +16,7 @@ module InflectCollection
       
       if self.size == 0 then
         # special case, we don't know the type!
+        # if anyone has any good ideas about this, let me know :)
         "none"
       elsif self.size == 1 then
         self[0].class.name.underscore.gsub(/_/, " ").downcase.singularize

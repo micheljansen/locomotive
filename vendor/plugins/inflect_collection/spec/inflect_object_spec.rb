@@ -11,7 +11,7 @@ class ActiveRecordCategory
   cattr_accessor :count
 end
 
-describe InflectCollection do
+describe InflectObject do
   it "should singularize a collection of one" do
     [Person.new].inflected.should == "person"
     [TestObject.new].inflected.should == "test object"
