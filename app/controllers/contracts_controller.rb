@@ -1,4 +1,7 @@
 class ContractsController < ApplicationController
+  
+  before_filter :init_menu
+  
   # GET /contracts
   # GET /contracts.xml
   def index
@@ -88,4 +91,9 @@ class ContractsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def init_menu
+    @menu = ["Administration", "Clients"]
+  end
+  
 end
