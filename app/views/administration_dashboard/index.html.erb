@@ -1,0 +1,15 @@
+<h1>Administration dashboard</h1>
+
+<p>
+  You currently have 
+  <%= link_to count_objects(Client), :controller => "clients" %>, 
+  <%= link_to count_objects(Service), :controller => "services" %> and some servers set-up. If you want to know more about these, click on any of the tabs above. You can also jump right into adding more by hitting the buttons in the side bar to the right.
+</p>
+
+<% content_for :sidebar do %>
+  <h2>Actions</h2>
+  <ul>
+    <li>link_to "add a client", {:controller => "clients", :action => "new"}</li>
+    <li>link_to "add a service", {:controller => "services", :action => "new"}</li>
+  </ul>
+<% end %>
