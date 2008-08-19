@@ -21,8 +21,10 @@ class ContractsController < ApplicationController
     end
   end
 
-  # GET /contracts/assign/id.xml
-  def assign
+  # GET /clients/1/contracts/assign/2
+  def new
+    @services = Service.find(:all)
+    @client = Client.find(params[:client_id])
     @contract = Contract.new    
 
     respond_to do |format|
@@ -36,15 +38,18 @@ class ContractsController < ApplicationController
     @contract = Contract.find(params[:id])
   end
 
-  # POST /contracts
-  # POST /contracts.xml
+  # POST /clients/1/contracts
+  # POST /clients/1/contracts.xml
   def create
     @contract = Contract.new(params[:contract])
+    @contract.client_id = params[:client_id]
 
     respond_to do |format|
       if @contract.save
         flash[:notice] = 'Contract was successfully created.'
-        format.html { redirect_to(@contract) }
+        
+        @client = @contract.client
+        format.html { redirect_to(@client) }
         format.xml  { render :xml => @contract, :status => :created, :location => @contract }
       else
         format.html { render :action => "new" }

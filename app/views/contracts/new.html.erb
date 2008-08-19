@@ -1,11 +1,14 @@
 <h1>New contract</h1>
 
-<% form_for(@contract) do |f| %>
+<% form_for([@client, @contract]) do |f| %>
   <%= f.error_messages %>
 
+  <p>
+    <%= f.collection_select :service_id, @services, :id, :name %>
+  </p>
   <p>
     <%= f.submit "Create" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', contracts_path %>
+<%= link_to 'Back', client_path(@client) %>

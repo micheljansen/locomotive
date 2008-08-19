@@ -7,12 +7,12 @@
 
 #contracts
   %h2 Services
-  %p== These are the services that are assigned to this client. Feel free to check them out or #{link_to 'assign more' ''}
+  %p== These are the services that are assigned to this client. Feel free to check them out or #{link_to 'assign more', new_client_contract_path(:client_id => @client.id)}
   %table
     - @client.contracts.each do |contract|
       %tr
         %td= link_to contract.service.name, service_path(contract.service)
-        %td= link_to 'cancel contract', contract, :method => :delete
+/        %td= link_to 'cancel contract', contract, :method => :delete
     
   
   
@@ -20,6 +20,5 @@
   %h2 Actions
   %ul
     %li= link_to 'Edit this client', edit_client_path(@client)
-    %li= link_to 'Assign a service', contract, {:action => create, }
   %ul
     %li= link_to 'Add a new client', new_client_path
