@@ -21,6 +21,16 @@ class ContractsController < ApplicationController
     end
   end
 
+  # GET /contracts/assign/id.xml
+  def assign
+    @contract = Contract.new    
+
+    respond_to do |format|
+      format.html
+      #format.xml  { render :xml => @contract }
+    end
+  end
+
   # GET /contracts/1/edit
   def edit
     @contract = Contract.find(params[:id])

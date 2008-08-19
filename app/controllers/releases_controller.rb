@@ -46,11 +46,12 @@ class ReleasesController < ApplicationController
   # POST /releases.xml
   def create
     @release = Release.new(params[:release])
+    @service = Service.find(params[:service_id])
 
     respond_to do |format|
       if @release.save
         flash[:notice] = 'Release was successfully created.'
-        format.html { redirect_to(@release) }
+        format.html { redirect_to(@service) }
         format.xml  { render :xml => @release, :status => :created, :location => @release }
       else
         format.html { render :action => "new" }

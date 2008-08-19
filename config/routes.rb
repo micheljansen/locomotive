@@ -1,13 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :contracts
+  #map.resources :contracts
 
   map.resources :service_instances
 
-  map.resources :services
+  map.resources :services do |service|
+    service.resources :releases
+  end
 
-  map.resources :releases
-
-  map.resources :clients
+  map.resources :clients do |client|
+    client.resources :contracts
+  end
 
   map.resources :plugin_instances
 

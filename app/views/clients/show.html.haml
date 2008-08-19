@@ -20,6 +20,6 @@
   %h2 Actions
   %ul
     %li= link_to 'Edit this client', edit_client_path(@client)
-    %li= link_to 'Assign a service'
+    %li= link_to 'Assign a service', contract, {:action => create, }
   %ul
     %li= link_to 'Add a new client', new_client_path
