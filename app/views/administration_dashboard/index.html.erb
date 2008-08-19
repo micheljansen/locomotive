@@ -9,7 +9,7 @@
 <% content_for :sidebar do %>
   <h2>Actions</h2>
   <ul>
-    <li>link_to "add a client", {:controller => "clients", :action => "new"}</li>
-    <li>link_to "add a service", {:controller => "services", :action => "new"}</li>
+    <li><%= link_to "add a client", new_client_path %></li>
+    <li><%= link_to "add a service", new_service_path %></li>
   </ul>
 <% end %>
