@@ -78,11 +78,13 @@ class ContractsController < ApplicationController
   # DELETE /contracts/1
   # DELETE /contracts/1.xml
   def destroy
+    @client = Client.find(params[:client_id])
     @contract = Contract.find(params[:id])
     @contract.destroy
 
     respond_to do |format|
-      format.html { redirect_to(contracts_url) }
+      flash[:notice] = 'Contract was successfully cancelled.'
+      format.html { redirect_to(client_url(@client)) }
       format.xml  { head :ok }
     end
   end

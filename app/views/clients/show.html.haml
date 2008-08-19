@@ -12,7 +12,7 @@
     - @client.contracts.each do |contract|
       %tr
         %td= link_to contract.service.name, service_path(contract.service)
-/        %td= link_to 'cancel contract', contract, :method => :delete
+        %td= link_to 'cancel contract', client_contract_path(@client, contract), :method => :delete
     
   
   
