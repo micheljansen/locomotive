@@ -1,0 +1,19 @@
+Inflect Object
+=================
+
+Adds inflection functionality to Ruby objects. This is useful if you want to describe things in natural language, for instance Rails objects.
+
+
+Example
+=======
+
+["word"].inflected => "string"
+["two", "words"].inflected => "strings"
+
+[Person.new].inflected => "person"
+[Person.new, Person.new] => "people"
+
+Person.find(:all) => "people" if Person.count is 0 or >1, "person" otherwise.
+
+
+Copyright (c) 2008 Michel Jansen, released under the MIT license
