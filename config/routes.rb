@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :contracts
+
   map.resources :service_instances
 
   map.resources :services
