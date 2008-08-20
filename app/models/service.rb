@@ -10,8 +10,8 @@
 #
 
 class Service < ActiveRecord::Base
-  has_many :releases
-  has_many :service_instances, :through => :releases
-  has_many :contracts
+  has_many :releases, :dependent => :destroy
+  has_many :service_instances, :through => :releases, :dependent => :destroy
+  has_many :contracts, :dependent => :destroy
   has_many :clients, :through => :contracts
 end
