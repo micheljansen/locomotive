@@ -1,4 +1,7 @@
 class PluginInstancesController < ApplicationController
+  
+  before_filter :init_menu
+  
   # GET /plugin_instances
   # GET /plugin_instances.xml
   def index
@@ -105,4 +108,9 @@ class PluginInstancesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def init_menu
+    @menu = ["Settings", "Plugins"]
+  end
+  
 end

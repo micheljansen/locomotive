@@ -45,7 +45,7 @@ class PluginsController < ApplicationController
   end
   
   def init_menu
-    @menu = ["Hello World"]
+    @menu = ["Settings", "Plugins"]
   end
 
 end

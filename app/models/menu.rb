@@ -6,6 +6,7 @@ class Menu
       Menu["Administration"]["Dashboard"] = [{:controller => "administration_dashboard"}]
       Menu["Administration"]["Clients"] = [{:controller => "clients"}]
       Menu["Administration"]["Services"] = [{:controller => "services"}]
+      Menu["Settings"]["Plugins"] = [{:controller => "plugins"}]
       p Menu.root
       @defaults_loaded = true
     end    
