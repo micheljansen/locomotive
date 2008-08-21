@@ -1,4 +1,7 @@
 class ServersController < ApplicationController
+
+  before_filter :init_menu
+  
   # GET /servers
   # GET /servers.xml
   def index
@@ -81,5 +84,9 @@ class ServersController < ApplicationController
       format.html { redirect_to(servers_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def init_menu
+    @menu = ["Administration","Servers"]
   end
 end
