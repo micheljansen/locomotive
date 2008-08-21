@@ -1,0 +1,10 @@
+# this file contains basic role definitions
+
+webserver:
+    name: webserver
+
+appserver:
+    name: appserver
+
+dbserver:
+    name: dbserver
