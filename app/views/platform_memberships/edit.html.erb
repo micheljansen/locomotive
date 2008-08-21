@@ -1,0 +1,20 @@
+<h1>Editing platform_membership</h1>
+
+<% form_for(@platform_membership) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :server_id %><br />
+    <%= f.text_field :server_id %>
+  </p>
+  <p>
+    <%= f.label :platform_id %><br />
+    <%= f.text_field :platform_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @platform_membership %> |
+<%= link_to 'Back', platform_memberships_path %>

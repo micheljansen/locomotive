@@ -1,0 +1,22 @@
+<h1>Listing platform_memberships</h1>
+
+<table>
+  <tr>
+    <th>Server</th>
+    <th>Platform</th>
+  </tr>
+
+<% for platform_membership in @platform_memberships %>
+  <tr>
+    <td><%=h platform_membership.server_id %></td>
+    <td><%=h platform_membership.platform_id %></td>
+    <td><%= link_to 'Show', platform_membership %></td>
+    <td><%= link_to 'Edit', edit_platform_membership_path(platform_membership) %></td>
+    <td><%= link_to 'Destroy', platform_membership, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New platform_membership', new_platform_membership_path %>
