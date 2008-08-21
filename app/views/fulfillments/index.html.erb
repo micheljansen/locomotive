@@ -1,0 +1,24 @@
+<h1>Listing fulfillments</h1>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Server</th>
+    <th>Subsystem type</th>
+  </tr>
+
+<% for fulfillment in @fulfillments %>
+  <tr>
+    <td><%=h fulfillment.role_id %></td>
+    <td><%=h fulfillment.server_id %></td>
+    <td><%=h fulfillment.subsystem_type_id %></td>
+    <td><%= link_to 'Show', fulfillment %></td>
+    <td><%= link_to 'Edit', edit_fulfillment_path(fulfillment) %></td>
+    <td><%= link_to 'Destroy', fulfillment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New fulfillment', new_fulfillment_path %>

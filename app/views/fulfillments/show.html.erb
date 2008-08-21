@@ -1,0 +1,18 @@
+<p>
+  <b>Role:</b>
+  <%=h @fulfillment.role_id %>
+</p>
+
+<p>
+  <b>Server:</b>
+  <%=h @fulfillment.server_id %>
+</p>
+
+<p>
+  <b>Subsystem type:</b>
+  <%=h @fulfillment.subsystem_type_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_fulfillment_path(@fulfillment) %> |
+<%= link_to 'Back', fulfillments_path %>
