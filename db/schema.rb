@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080821121013) do
+ActiveRecord::Schema.define(:version => 20080821124415) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -65,6 +65,12 @@ ActiveRecord::Schema.define(:version => 20080821121013) do
   end
 
   add_index "releases", ["service_id"], :name => "index_releases_on_service_id"
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "servers", :force => true do |t|
     t.string   "name"
