@@ -8,6 +8,23 @@
   <%=h @server.hostname %>
 </p>
 
+<p>
+  <b>Roles:</b>
+  
+  <table>
+  <% @server.roles.each do |role| %>
+    <tr>
+      <td><%=h role.name %></td>
+      <td><%= link_to 'Show', role %></td>
+      <td><%= link_to 'Remove', server_role_path(@server, role), :confirm => 'Are you sure? (this does not work yet)', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+  
+  <%= link_to 'Add another role' %>
+  
+</p>
+
 
 <%= link_to 'Edit', edit_server_path(@server) %> |
 <%= link_to 'Back', servers_path %>
