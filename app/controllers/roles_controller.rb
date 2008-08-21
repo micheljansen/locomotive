@@ -1,4 +1,8 @@
 class RolesController < ApplicationController
+  
+  before_filter :init_menu
+  before_filter :find_associated_server
+  
   # GET /roles
   # GET /roles.xml
   def index
@@ -80,6 +84,22 @@ class RolesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(roles_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def init_menu
+    @menu = ["Administration", "Servers"]
+  end
+  
+  # attempt to find the corresponding server if we're accessed
+  # through a route containing a server, like
+  # /servers/1/roles
+  def find_associated_server
+    @server = nil
+    server_id = params[:server_id]
+    
+    unless server_id.nil?
+      @server = Server.find(server_id)
     end
   end
 end
