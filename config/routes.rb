@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :platform_memberships
 
   map.resources :servers do |service|
-    service.resources :fulfillments
+    service.resources :purposes
   end
 
   map.resources :platforms

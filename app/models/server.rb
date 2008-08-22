@@ -13,6 +13,6 @@
 class Server < ActiveRecord::Base
   has_many :platform_memberships, :dependent => :destroy
   has_many :platforms, :through => :platform_memberships
-  has_many :fulfillments, :dependent => :destroy
-  has_many :roles, :through => :fulfillments
+  has_many :purposes, :dependent => :destroy
+  has_many :roles, :through => :purposes
 end

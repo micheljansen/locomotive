@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080821125506) do
+ActiveRecord::Schema.define(:version => 20080822082018) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -57,11 +57,21 @@ ActiveRecord::Schema.define(:version => 20080821125506) do
     t.integer  "plugin_instance_id"
   end
 
+  create_table "purposes", :force => true do |t|
+    t.integer  "role_id"
+    t.integer  "server_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "releases", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "service_id"
   end
+
+  add_index "releases", ["service_id"], :name => "index_releases_on_service_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
