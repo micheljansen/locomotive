@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080821134651
+# Schema version: 20080822082018
 #
 # Table name: releases
 #
@@ -7,6 +7,7 @@
 #  name       :string(255)     
 #  created_at :datetime        
 #  updated_at :datetime        
+#  service_id :integer         
 #
 
 class Release < ActiveRecord::Base

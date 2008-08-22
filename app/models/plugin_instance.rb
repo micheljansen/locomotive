@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080821134651
+# Schema version: 20080822082018
 #
 # Table name: plugin_instances
 #
