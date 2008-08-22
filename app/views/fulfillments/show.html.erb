@@ -1,13 +1,11 @@
+<!-- TODO: remove this when no longer debugging -->
 <p>
   <b>Role:</b>
-  <%=h @fulfillment.role_id %>
+  <%=h @fulfillment.role.name %>
 </p>
 
 <p>
   <b>Server:</b>
-  <%=h @fulfillment.server_id %>
+  <%=h @fulfillment.server.name %>
 </p>
 
-
-<%= link_to 'Edit', edit_fulfillment_path(@fulfillment) %> |
-<%= link_to 'Back', fulfillments_path %>

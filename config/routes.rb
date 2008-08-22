@@ -1,12 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :fulfillments
 
   map.resources :roles
 
   map.resources :platform_memberships
 
   map.resources :servers do |service|
-    service.resources :roles
+    service.resources :fulfillments
   end
 
   map.resources :platforms

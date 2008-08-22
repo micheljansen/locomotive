@@ -12,11 +12,11 @@
   <b>Roles:</b>
   
   <table>
-  <% @server.roles.each do |role| %>
+  <% @server.fulfillments.each do |fulfillment| %>
     <tr>
-      <td><%=h role.name %></td>
-      <td><%= link_to 'Show', role %></td>
-      <td><%= link_to 'Remove', server_role_path(@server, role), :confirm => 'Are you sure? (this does not work yet)', :method => :delete %></td>
+      <td><%=h fulfillment.role.name %></td>
+      <td><%= link_to 'Show', server_fulfillment_path(@server, fulfillment) %></td>
+      <td><%= link_to 'Remove', server_fulfillment_path(@server, fulfillment), :confirm => 'Are you sure? (this does not work yet)', :method => :delete %></td>
     </tr>
   <% end %>
   </table>

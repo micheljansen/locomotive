@@ -1,25 +1,29 @@
 class FulfillmentsController < ApplicationController
-  # GET /fulfillments
-  # GET /fulfillments.xml
-  def index
-    @fulfillments = Fulfillment.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @fulfillments }
-    end
-  end
-
-  # GET /fulfillments/1
-  # GET /fulfillments/1.xml
-  def show
-    @fulfillment = Fulfillment.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @fulfillment }
-    end
-  end
+  
+  before_filter :init_menu
+  before_filter :find_associated_server
+  
+#  # GET /fulfillments
+#  # GET /fulfillments.xml
+#  def index
+#    @fulfillments = Fulfillment.find(:all)
+#
+#    respond_to do |format|
+#      format.html # index.html.erb
+#      format.xml  { render :xml => @fulfillments }
+#    end
+#  end
+#
+#  # GET /fulfillments/1
+#  # GET /fulfillments/1.xml
+#  def show
+#    @fulfillment = Fulfillment.find(params[:id])
+#
+#    respond_to do |format|
+#      format.html # show.html.erb
+#      format.xml  { render :xml => @fulfillment }
+#    end
+#  end
 
   # GET /fulfillments/new
   # GET /fulfillments/new.xml
@@ -32,10 +36,10 @@ class FulfillmentsController < ApplicationController
     end
   end
 
-  # GET /fulfillments/1/edit
-  def edit
-    @fulfillment = Fulfillment.find(params[:id])
-  end
+#  # GET /fulfillments/1/edit
+#  def edit
+#    @fulfillment = Fulfillment.find(params[:id])
+#  end
 
   # POST /fulfillments
   # POST /fulfillments.xml
@@ -82,4 +86,33 @@ class FulfillmentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  # attempt to find the corresponding server if we're accessed
+  # through a route containing a server, like
+  # /servers/1/fulfillments/x
+  def find_associated_server
+    @server = nil
+    server_id = params[:server_id]
+    
+    unless server_id.nil?
+      @server = Server.find(server_id)
+    end
+  end
+  
+  # attempt to find the corresponding server if we're accessed
+  # through a route containing a server, like
+  # /servers/1/roles
+  def find_associated_server
+    @server = nil
+    server_id = params[:server_id]
+    
+    unless server_id.nil?
+      @server = Server.find(server_id)
+    end
+  end
+  
+  def init_menu
+    @menu = ["Administration", "Servers"]
+  end
+  
 end
