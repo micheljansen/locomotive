@@ -12,4 +12,6 @@
 class Role < ActiveRecord::Base
   has_many :purposes, :dependent => :destroy
   has_many :servers, :through => :purposes
+  
+  validates_uniqueness_of :name
 end
