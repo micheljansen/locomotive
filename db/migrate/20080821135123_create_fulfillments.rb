@@ -3,7 +3,6 @@ class CreateFulfillments < ActiveRecord::Migration
     create_table :fulfillments do |t|
       t.integer :role_id
       t.integer :server_id
-
       t.timestamps
     end
   end
