@@ -13,26 +13,28 @@ class PurposesController < ApplicationController
 #      format.xml  { render :xml => @purposes }
 #    end
 #  end
-#
+
+#  TODO: remove this action when no longer debugging
 #  # GET /purposes/1
 #  # GET /purposes/1.xml
-#  def show
-#    @purpose = Purpose.find(params[:id])
-#
-#    respond_to do |format|
-#      format.html # show.html.erb
-#      format.xml  { render :xml => @purpose }
-#    end
-#  end
+  def show
+    @purpose = Purpose.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @purpose }
+    end
+  end
 
   # GET /purposes/new
   # GET /purposes/new.xml
   def new
     @purpose = Purpose.new
+    @purpose.server_id = @server.id
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @purpose }
+      format.xml  { render :xml => @server }
     end
   end
 
@@ -48,8 +50,8 @@ class PurposesController < ApplicationController
 
     respond_to do |format|
       if @purpose.save
-        flash[:notice] = 'Purpose was successfully created.'
-        format.html { redirect_to(@purpose) }
+        flash[:notice] = 'Role was successfully created.'
+        format.html { redirect_to(@server) }
         format.xml  { render :xml => @purpose, :status => :created, :location => @purpose }
       else
         format.html { render :action => "new" }
@@ -65,8 +67,8 @@ class PurposesController < ApplicationController
 
     respond_to do |format|
       if @purpose.update_attributes(params[:purpose])
-        flash[:notice] = 'Purpose was successfully updated.'
-        format.html { redirect_to(@purpose) }
+        flash[:notice] = 'Role was successfully updated.'
+        format.html { redirect_to(@server) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -82,7 +84,7 @@ class PurposesController < ApplicationController
     @purpose.destroy
 
     respond_to do |format|
-      format.html { redirect_to(purposes_url) }
+      format.html { redirect_to(@server) }
       format.xml  { head :ok }
     end
   end

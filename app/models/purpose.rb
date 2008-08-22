@@ -13,4 +13,7 @@
 class Purpose < ActiveRecord::Base
   belongs_to :role
   belongs_to :server
+  
+  validates_uniqueness_of :role_id, :scope => :server_id, 
+                          :message => "already assigned to this server."
 end

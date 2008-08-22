@@ -1,19 +1,16 @@
-<h1>New purpose</h1>
+<h1>Add a role to server <%= @server.name %></h1>
 
-<% form_for(@purpose) do |f| %>
+<% form_for([@server,@purpose]) do |f| %>
   <%= f.error_messages %>
-
+  
+  <%= f.hidden_field :server_id %>
   <p>
     <%= f.label :role_id %><br />
-    <%= f.text_field :role_id %>
-  </p>
-  <p>
-    <%= f.label :server_id %><br />
-    <%= f.text_field :server_id %>
+    <%= f.collection_select :role_id, Role.find(:all), :id, :name %>
   </p>
   <p>
     <%= f.submit "Create" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', purposes_path %>
+<%= link_to 'Back to server '+@server.name, @server %>
