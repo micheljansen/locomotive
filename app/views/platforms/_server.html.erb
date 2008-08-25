@@ -1,4 +1,5 @@
-<div class="server" id="server_<%=h server.id %>"><%=h server.name %></div>
+<div class="server" id="server_<%=h server.id %>">
+  <strong><%=h server.name %></strong> - <em><%=h server.hostname %></em>
+</div>
 <%= draggable_element "server_#{server.id}",
-                        :revert => "function(el){
-                                  return Position.page(el)[0] > 100; }" %>
+                        :revert => "true" %>
