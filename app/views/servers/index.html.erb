@@ -21,4 +21,12 @@
 
 <br />
 
-<%= link_to 'New server', new_server_path %>
+<% content_for(:sidebar) do %>
+
+  <h2>Actions</h2>
+
+  <ul id="general">
+    <li><%= link_to 'New server', new_server_path %></li>
+  </ul>
+  
+<% end %>

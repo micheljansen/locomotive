@@ -87,7 +87,7 @@ class RolesController < ApplicationController
   end
   
   def init_menu
-    @menu = ["Administration", "Servers"]
+    @menu = ["Administration", "Roles"]
   end
   
 end

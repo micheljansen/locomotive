@@ -11,6 +11,23 @@
     <%= f.label :hostname %><br />
     <%= f.text_field :hostname %>
   </p>
+  
+  <table>
+    <%# render :partial => "server_role", :collection => Role.find(:all) %>
+    <% Role.find(:all).each do |role| %>
+      <tr>
+        <td>
+          <%= check_box_tag "server[role_ids][]", role.id, @server.roles.include?(role) %>
+        </td>
+
+        <td>
+            <%=h role.name %>
+        </td>
+      </tr>
+    <% end %>
+  
+  </table>
+  
   <p>
     <%= f.submit "Update" %>
   </p>
@@ -18,3 +35,27 @@
 
 <%= link_to 'Show', @server %> |
 <%= link_to 'Back', servers_path %>
+
+<% content_for(:sidebar) do %>
+
+  <h2>Actions</h2>
+
+  <ul id="specific">
+    <li><%= link_to 'Assign a role', new_server_purpose_path(@server) %></li>
+  </ul>
+  <ul id="general">
+    <li><%= link_to 'New server', new_server_path %></li>
+  </ul>
+  
+  <% if @server.others.size > 0 %>
+    <h2>More servers</h2>
+  
+    <ul>
+    <% @server.others.each do |server| %>
+      <li><%= link_to server.name, server %></li>
+    <% end %>
+    <li><%= link_to "See all...", servers_path %></li>
+    </ul>
+  <% end %>
+  
+<% end %>

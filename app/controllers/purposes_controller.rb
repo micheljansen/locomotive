@@ -5,14 +5,15 @@ class PurposesController < ApplicationController
   
 #  # GET /purposes
 #  # GET /purposes.xml
-#  def index
-#    @purposes = Purpose.find(:all)
-#
-#    respond_to do |format|
-#      format.html # index.html.erb
-#      format.xml  { render :xml => @purposes }
-#    end
-#  end
+  def index
+    
+    @purposes = @server.purposes
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @purposes }
+    end
+  end
 
 #  TODO: remove this action when no longer debugging
 #  # GET /purposes/1

@@ -10,21 +10,37 @@
 
 <p>
   <b>Roles:</b>
-  
-  <table>
-  <% @server.purposes.each do |purpose| %>
-    <tr>
-      <td><%=h purpose.role.name %></td>
-      <td><%= link_to 'Show', server_purpose_path(@server, purpose) %></td>
-      <td><%= link_to 'Remove', server_purpose_path(@server, purpose), :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-  </table>
-  
-  <%= link_to 'Add another role', new_server_purpose_path(@server) %>
-  
+    <ul>
+      <% @server.roles.each do |role| %>
+        <li><%=h role.name %></li>
+      <% end %>
+    </ul>
+    
 </p>
 
+<%= link_to 'Back to server list', servers_path %>
 
-<%= link_to 'Edit', edit_server_path(@server) %> |
-<%= link_to 'Back', servers_path %>
+<% content_for(:sidebar) do %>
+
+  <h2>Actions</h2>
+
+  <ul id="specific">
+    <li><%= link_to 'Edit this server', edit_server_path(@server) %></li>
+    <li><%= link_to 'Assign a role', new_server_purpose_path(@server) %></li>
+  </ul>
+  <ul id="general">
+    <li><%= link_to 'New server', new_server_path %></li>
+  </ul>
+  
+  <% if @server.others.size > 0 %>
+    <h2>More servers</h2>
+  
+    <ul>
+    <% @server.others.each do |server| %>
+      <li><%= link_to server.name, server %></li>
+    <% end %>
+    <li><%= link_to "See all...", servers_path %></li>
+    </ul>
+  <% end %>
+  
+<% end %>

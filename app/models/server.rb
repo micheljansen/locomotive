@@ -15,4 +15,8 @@ class Server < ActiveRecord::Base
   has_many :platforms, :through => :platform_memberships
   has_many :purposes, :dependent => :destroy
   has_many :roles, :through => :purposes
+  
+  def others
+    Server.find(:all) - [self]
+  end
 end

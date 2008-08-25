@@ -17,3 +17,18 @@
 <% end %>
 
 <%= link_to 'Back', servers_path %>
+
+<% content_for(:sidebar) do %>
+
+  <% if @server.others.size > 0 %>
+    <h2>More servers</h2>
+  
+    <ul>
+    <% @server.others.each do |server| %>
+      <li><%= link_to server.name, server %></li>
+    <% end %>
+    <li><%= link_to "See all...", servers_path %></li>
+    </ul>
+  <% end %>
+  
+<% end %>

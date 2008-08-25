@@ -1,22 +1,14 @@
-<h1>Listing purposes</h1>
+<h1>Listing purposes for <%= @server.name %></h1>
 
 <table>
-  <tr>
-    <th>Role</th>
-    <th>Server</th>
-  </tr>
-
 <% for purpose in @purposes %>
   <tr>
-    <td><%=h purpose.role_id %></td>
-    <td><%=h purpose.server_id %></td>
-    <td><%= link_to 'Show', purpose %></td>
-    <td><%= link_to 'Edit', edit_purpose_path(purpose) %></td>
-    <td><%= link_to 'Destroy', purpose, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%=h purpose.role.name %></td>
+    <td><%= link_to 'x', server_purpose_path(@server, purpose), 
+            :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New purpose', new_purpose_path %>
