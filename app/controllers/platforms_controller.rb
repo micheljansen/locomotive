@@ -1,4 +1,7 @@
 class PlatformsController < ApplicationController
+  
+  before_filter :init_menu
+  
   # GET /platforms
   # GET /platforms.xml
   def index
@@ -81,5 +84,9 @@ class PlatformsController < ApplicationController
       format.html { redirect_to(platforms_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def init_menu
+    @menu = ["Administration", "Platforms"]
   end
 end

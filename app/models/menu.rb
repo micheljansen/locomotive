@@ -8,6 +8,7 @@ class Menu
       Menu["Administration"]["Services"] = [{:controller => "services"}]
       Menu["Administration"]["Servers"] = [{:controller => "servers"}]
       Menu["Administration"]["Roles"] = [{:controller => "roles"}]
+      Menu["Administration"]["Platforms"] = [{:controller => "platforms"}]
       Menu["Settings"]["Plugins"] = [{:controller => "plugins"}]
       
       @defaults_loaded = true
