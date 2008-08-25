@@ -1,8 +1,25 @@
+<h1>Editing platform <%=h @platform.name %></h1>
+
 <p>
-  <b>Name:</b>
-  <%=h @platform.name %>
+  Drag servers between your into this platform to add them
+  or drag them away to remove. 
 </p>
 
+<div id="platform_manager">
+
+  <div id="servers">
+    <h2><%= @platform.name %></h2>
+    <%= render :partial => "server", :collection => @platform.servers %>
+  </div>
+
+  <div id="other_servers">
+    <h2>Other servers</h2>
+    <%= render :partial => "server", :collection => @platform.other_servers %>
+  </div>
+  
+  <div style="clear: both"/>
+
+</div>
 
 <%= link_to 'Edit', edit_platform_path(@platform) %> |
 <%= link_to 'Back', platforms_path %>

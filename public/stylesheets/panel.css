@@ -157,3 +157,40 @@ body {
 
 #contentwindow h1 {
 }
+
+/* Stuff specific to the Platforms screen */
+
+#platform_manager {
+	padding: 0;
+	margin: 0;
+}
+
+#platform_manager #servers {
+	float: left;
+	display: block;
+	background: #eee;
+	border: 1px solid #ddd;
+	width: 40%;
+	padding: 20px;
+	min-height: 200px;
+}
+
+#platform_manager #other_servers {
+	float: right;
+	display: block;
+	background: #eee;
+	border: 1px solid #ddd;
+	width: 40%;
+	padding: 20px;
+	min-height: 200px;
+}
+
+#platform_manager .server {
+	padding: 10px;
+	background: #fee;
+	margin-top: 5px;
+	border: 1px solid #f00;
+	cursor:move;
+}
+
+
