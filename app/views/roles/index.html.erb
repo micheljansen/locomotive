@@ -1,20 +1,39 @@
 <h1>Listing roles</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
+<% unless Role.count == 0 %>
 
-<% for role in @roles %>
-  <tr>
-    <td><%=h role.name %></td>
-    <td><%= link_to 'Show', role %></td>
-    <td><%= link_to 'Edit', edit_role_path(role) %></td>
-    <td><%= link_to 'Destroy', role, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <p>
+    Roles are like job descriptions for your servers.
+    You can check out the list below to see the roles that are currently available
+    or add more using the "add more" link to the right.
+  </p>
+
+  <table>
+    <tr>
+      <th>Name</th>
+    </tr>
+
+  <% for role in @roles %>
+    <tr>
+      <td><%=h role.name %></td>
+      <td><%= link_to 'Show', role %></td>
+      <td><%= link_to 'Edit', edit_role_path(role) %></td>
+      <td><%= link_to 'Destroy', role, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+
+<% else # no roles defined yet %>
+  <p>
+    Hey! It looks like you haven't defined any roles yet.
+    Roles are like job descriptions for your servers. Hurry to the "add more"
+    link to the right to add more.
+  </p>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New role', new_role_path %>
+<% content_for :sidebar do %>
+  <h2>Actions</h2>
+    <ul id="general">
+      <li><%= link_to "Add a new role", new_role_path %></li>
+    </ul>
+<% end %>
