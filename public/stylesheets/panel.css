@@ -31,6 +31,18 @@
 }
 * html #sidebar{ width: 17%; }
 
+#sidebar h2 {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+#sidebar ul {
+	margin-left: 1em;
+	margin-top: 1em;
+	padding-left: 0;
+	list-style-type: none;
+}
+
 /*
 	Menu styles
 */
