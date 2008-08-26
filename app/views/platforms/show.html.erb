@@ -9,11 +9,13 @@
 
   <div id="servers">
     <h2><%= @platform.name %></h2>
+    <%= link_to "Edit...", edit_platform_path(@platform) %>
     <%= render :partial => "server", :collection => @platform.servers %>
   </div>
 
   <div id="other_servers">
     <h2>Other servers</h2>
+    <%= link_to "Add more...", new_server_path %>
     <%= render :partial => "server", :collection => @platform.other_servers %>
   </div>
   
