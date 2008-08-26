@@ -9,13 +9,17 @@
 
   <div id="servers">
     <h2><%= @platform.name %></h2>
-    <%= link_to "Edit...", edit_platform_path(@platform) %>
+    <div id="servers_options">
+      <%= link_to "Edit...", edit_platform_path(@platform) %>
+    </div>
+    
     <%= render :partial => "server", :collection => @platform.servers %>
   </div>
 
   <div id="other_servers">
     <h2>Other servers</h2>
-    <div id="other_server_options_box">
+    
+    <div id="other_servers_options">
       <%= link_to "Add more...", new_server_path %>
       <%= link_to_function "Filter", visual_effect(:toggle_blind, 'server_filter_box') %>
       <div id="server_filter_box" style="display: none">
@@ -27,7 +31,6 @@
         </span>
       </div>
     </div>
-    
     
     <%= render :partial => "server", :collection => @platform.other_servers %>
   </div>
