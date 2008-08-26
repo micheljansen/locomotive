@@ -2,13 +2,17 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :roles
 
-  map.resources :platform_memberships
+  
 
-  map.resources :servers do |service|
-    service.resources :purposes
+  map.resources :servers do |server|
+    server.resources :purposes
+    server.resources :platform_memberships
   end
 
-  map.resources :platforms
+  map.resources :platforms do |platform|
+    platform.resources :platform_memberships
+  end
+  
 
   #map.resources :contracts
 

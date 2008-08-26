@@ -175,6 +175,11 @@ body {
 	min-height: 200px;
 }
 
+.dragover {
+	background: #ffa !important;
+}
+
+
 #platform_manager #other_servers {
 	float: right;
 	display: block;

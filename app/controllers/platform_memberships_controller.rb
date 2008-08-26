@@ -1,4 +1,9 @@
 class PlatformMembershipsController < ApplicationController
+  
+  before_filter :find_platform
+  before_filter :find_server
+  before_filter :initialize_params
+  
   # GET /platform_memberships
   # GET /platform_memberships.xml
   def index
@@ -45,8 +50,23 @@ class PlatformMembershipsController < ApplicationController
     respond_to do |format|
       if @platform_membership.save
         flash[:notice] = 'PlatformMembership was successfully created.'
-        format.html { redirect_to(@platform_membership) }
-        format.xml  { render :xml => @platform_membership, :status => :created, :location => @platform_membership }
+        format.html { redirect_to(@platform) }
+        format.xml  { render :xml => @platform_membership, :status => :created, :location => platform_platform_membership_path(@platform, @platform_membership) }
+        format.js  {
+          render :update do |page|
+            page.replace_html :servers, 
+                              :partial => "/platforms/servers", 
+                              :object => @platform.servers, 
+                              :locals => {:platform => @platform}
+                              
+            page.replace_html :other_servers, 
+                              :partial => "/platforms/other_servers", 
+                              :object => @platform.other_servers, 
+                              :locals => {:platform => @platform}
+                              
+            page.visual_effect :shake, :servers
+          end
+          }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @platform_membership.errors, :status => :unprocessable_entity }
@@ -81,5 +101,26 @@ class PlatformMembershipsController < ApplicationController
       format.html { redirect_to(platform_memberships_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def find_platform
+    @platform ||= Platform.find(params[:platform_id]) if params[:platform_id]
+  end
+  
+  def find_server
+    @server ||= Server.find(params[:server_id]) if params[:server_id]
+  end
+  
+  def initialize_params
+    puts "initializeing params"
+    y params
+    p @platform
+    p @server
+    params[:platform_membership] ||= {}
+    params[:platform_membership][:platform_id] ||= @platform.id if @platform
+    params[:platform_membership][:server_id] ||= @server.id if @server
+    y params
   end
 end
