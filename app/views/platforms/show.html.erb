@@ -15,7 +15,20 @@
 
   <div id="other_servers">
     <h2>Other servers</h2>
-    <%= link_to "Add more...", new_server_path %>
+    <div id="other_server_options_box">
+      <%= link_to "Add more...", new_server_path %>
+      <%= link_to_function "Filter", visual_effect(:toggle_blind, 'server_filter_box') %>
+      <div id="server_filter_box" style="display: none">
+        <span>Show only</span>
+        <span style="float: right">
+          <% form_tag 'javascript:void(0)' do %>
+            <%= select_tag :role_filter, options_for_select(Role.find(:all).map {|r| [r.name.pluralize, r.id]}) %>
+          <% end %>
+        </span>
+      </div>
+    </div>
+    
+    
     <%= render :partial => "server", :collection => @platform.other_servers %>
   </div>
   
