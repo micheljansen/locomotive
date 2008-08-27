@@ -1,11 +1,9 @@
 page.replace_html :servers, 
-                  :partial => "/platforms/servers", 
-                  :object => @platform.servers, 
+                  :partial => "/platforms/memberships", 
+                  :object => @platform.platform_memberships, 
                   :locals => {:platform => @platform}
                   
 page.replace_html :other_servers, 
                   :partial => "/platforms/other_servers", 
                   :object => @platform.other_servers, 
                   :locals => {:platform => @platform}
-                  
-page.visual_effect :shake, :servers

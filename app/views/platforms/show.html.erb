@@ -8,8 +8,8 @@
 <div id="platform_manager">
   
   <div id="servers">
-    <%= render :partial => "servers", 
-                :object => @platform.servers, 
+    <%= render :partial => "memberships", 
+                :object => @platform.platform_memberships, 
                 :locals => { :platform => @platform } %>
   </div>
 
@@ -27,18 +27,18 @@
         :accept     => "server",
         :before     => visual_effect("highlight", "servers"),
         :hoverclass => "dragover",
-        :with       => "\"server_id=\"+ (element.id.split('_').last())",
+        :with       => "\"server_id=\"+ encodeURIComponent(element.id.split('_').last())",
         :url        => platform_platform_memberships_path(@platform) + ".js"
       ) %>
 
-<%=   drop_receiving_element("other_servers",
-        :accept     => "server",
-        :before     => visual_effect("highlight", "servers"),
+<%=   unescaped_drop_receiving_element("other_servers",
+        :accept     => "membership",
+        :before     => visual_effect("highlight", "other_servers"),
         :hoverclass => "dragover",
-        :with       => "\"server_id=\"+ (element.id.split('_').last())",
-        :with       => "\"_method=delete\"",
-        :url        => platform_platform_membership_path(@platform, @platform.membership_for_server_id(1)) + ".js"
-          #formatted_platform_platform_membership_path (@platform, @platform.membership_for_server_id(1), :js)
+        :with       => "''",
+        :method     => "delete",
+        :url        => "'" + platform_platform_membership_path(@platform, -1) + ".js'.replace('-1', encodeURIComponent(element.id.split('_').last()))"
+        #formatted_platform_platform_membership_path (@platform, @platform.membership_for_server_id(1), :js)
       ) %>
 
 

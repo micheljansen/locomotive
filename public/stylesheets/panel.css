@@ -190,7 +190,7 @@ body {
 	min-height: 200px;
 }
 
-#platform_manager .server {
+#platform_manager .server, #platform_manager .membership {
 	padding: 10px;
 	background: #fee;
 	margin-top: 5px;
