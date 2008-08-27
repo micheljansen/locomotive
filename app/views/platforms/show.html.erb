@@ -25,7 +25,8 @@
 
 <%=   drop_receiving_element("servers",
         :accept     => "server",
-        :before     => visual_effect("highlight", "servers"),
+        :before     => visual_effect("highlight", "servers") +
+                           " new Effect.Move(element, { x: Position.page($('servers'))[0]-Position.page(element)[0], mode: 'relative', duration: 4 });",
         :hoverclass => "dragover",
         :with       => "\"server_id=\"+ encodeURIComponent(element.id.split('_').last())",
         :url        => platform_platform_memberships_path(@platform) + ".js"
