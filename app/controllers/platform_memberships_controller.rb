@@ -52,21 +52,7 @@ class PlatformMembershipsController < ApplicationController
         flash[:notice] = 'PlatformMembership was successfully created.'
         format.html { redirect_to(@platform) }
         format.xml  { render :xml => @platform_membership, :status => :created, :location => platform_platform_membership_path(@platform, @platform_membership) }
-        format.js  {
-          render :update do |page|
-            page.replace_html :servers, 
-                              :partial => "/platforms/servers", 
-                              :object => @platform.servers, 
-                              :locals => {:platform => @platform}
-                              
-            page.replace_html :other_servers, 
-                              :partial => "/platforms/other_servers", 
-                              :object => @platform.other_servers, 
-                              :locals => {:platform => @platform}
-                              
-            page.visual_effect :shake, :servers
-          end
-          }
+        format.js  { render :action => :refresh }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @platform_membership.errors, :status => :unprocessable_entity }
@@ -100,10 +86,17 @@ class PlatformMembershipsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(platform_memberships_url) }
       format.xml  { head :ok }
+      format.js   { render :action => :refresh }
     end
   end
   
   private
+  
+  # Actions
+  def refresh
+    #all the fun is in refresh.js.rjs ;)
+  end
+  # end
   
   def find_platform
     @platform ||= Platform.find(params[:platform_id]) if params[:platform_id]

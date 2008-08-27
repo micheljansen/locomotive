@@ -19,4 +19,16 @@ class Platform < ActiveRecord::Base
     # TODO: handle this via SQL instead of substracting sets in Ruby
     Server.find(:all)-servers
   end
+  
+  # returns the membership for a given server
+  # or nil if not found
+  def membership_for_server_id(server_id)
+    
+    platform_memberships.each do |m|
+      return m if m.server_id = server_id
+    end
+    
+    return nil
+    
+  end
 end

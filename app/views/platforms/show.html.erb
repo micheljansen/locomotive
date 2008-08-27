@@ -31,6 +31,17 @@
         :url        => platform_platform_memberships_path(@platform) + ".js"
       ) %>
 
+<%=   drop_receiving_element("other_servers",
+        :accept     => "server",
+        :before     => visual_effect("highlight", "servers"),
+        :hoverclass => "dragover",
+        :with       => "\"server_id=\"+ (element.id.split('_').last())",
+        :with       => "\"_method=delete\"",
+        :url        => platform_platform_membership_path(@platform, @platform.membership_for_server_id(1)) + ".js"
+          #formatted_platform_platform_membership_path (@platform, @platform.membership_for_server_id(1), :js)
+      ) %>
+
+
 
 <%= link_to 'Edit', edit_platform_path(@platform) %> |
 <%= link_to 'Back', platforms_path %>
