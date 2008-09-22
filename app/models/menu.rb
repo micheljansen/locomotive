@@ -47,7 +47,6 @@ class Menu
   
   # value is wrapped in an array if required
   def []=(key, value)
-    puts("adding #{key} linking to")
     p value
     @order << key unless items.member?(key)
     items[key] = value
