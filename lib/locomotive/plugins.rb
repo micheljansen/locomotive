@@ -6,6 +6,8 @@ module Locomotive
     class << self
       attr_accessor :discovered
       
+      # Accessor to query plugins by their name
+      # Returns the plugin with plugin_name if it is known
       def [](plugin_name)
         discovered[plugin_name]
       end
