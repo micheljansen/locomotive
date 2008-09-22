@@ -24,9 +24,16 @@ module Locomotive
             
       installed_plugins.each do |p|
         puts "\t#{p}"
-        require File.join(DEFAULT_PATH, p, 'lib', 'locomotive', 'plugins', p)
+        
+        path = File.join(DEFAULT_PATH, p, 'lib', 'locomotive', 'plugins', p)
+        
+        $LOAD_PATH << path
+        Dependencies.load_paths      << path
+        Dependencies.load_once_paths << path
+        
         discovered[p] = Locomotive::Plugins.const_get(p.camelize)
       end
+      
     end
     
     def self.find_all

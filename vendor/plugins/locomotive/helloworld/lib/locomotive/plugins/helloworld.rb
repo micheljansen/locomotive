@@ -3,9 +3,11 @@ module Locomotive::Plugins
   
   module Helloworld
     include Locomotive::Plugin
+    
+    puts "Helloworld plugin loaded :)"
   
-    short_name  "hello_world"
-    long_name   "Simple HelloWorld plugin"
+    short_name  "helloworld"
+    long_name   "Hello World"
     version     1337
     description "Who could ever do without a HelloWorld plugin."
   
