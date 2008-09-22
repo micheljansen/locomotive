@@ -1,7 +1,7 @@
 # Helloworld
 module Locomotive::Plugins
   
-  module HelloWorld
+  module Helloworld
     include Locomotive::Plugin
   
     short_name  "hello_world"
