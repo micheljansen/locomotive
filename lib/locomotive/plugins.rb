@@ -19,7 +19,12 @@ module Locomotive
       installed_plugins.each do |p|
         puts "\t#{p}"
         require File.join(DEFAULT_PATH, p, 'lib', 'locomotive', 'plugins', p)
+        discovered[p] = Locomotive::Plugins.const_get(p.camelize)
       end
+    end
+    
+    def self.find_all
+      discovered.values
     end
     
     # Generates a list of installed plugins from the directory structure
