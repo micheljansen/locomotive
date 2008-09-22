@@ -1,2 +1,4 @@
-class Locomotive::Subsystems::Httpd < Locomotive::Subsystems::Base
+class Locomotive::Subsystems::Httpd < Subsystem
+  Subsystem.register(self)
 end
+

@@ -30,6 +30,7 @@ module Locomotive
         $LOAD_PATH << path
         Dependencies.load_paths      << path
         Dependencies.load_once_paths << path
+        require_dependency path
         
         discovered[p] = Locomotive::Plugins.const_get(p.camelize)
       end
