@@ -5,6 +5,10 @@ module Locomotive
     
     class << self
       attr_accessor :discovered
+      
+      def [](plugin_name)
+        discovered[plugin_name]
+      end
     end
     
     self.discovered = {}
