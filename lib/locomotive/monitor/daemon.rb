@@ -17,10 +17,9 @@ module Locomotive
         @threads = []
       end
     
-      # run the execution loop. this call normally won't return
+      # Run the execution loop. 
+      # This call normally won't return until everything is finished.
       def run
-        #loop do
-          log("loop")
         
           Server.find(:all).each do |server|
             log("Starting check for server " +server.name)
@@ -30,8 +29,7 @@ module Locomotive
           end
 
           @threads.each {|t| t.join()}
-        
-        #end
+    
       end
     
       # Start the monitor in the background
