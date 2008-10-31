@@ -1,6 +1,17 @@
+<h1><%=h @role.name %></h1>
 <p>
-  <b>Name:</b>
-  <%=h @role.name %>
+  Listing all servers with role `<%=h @role.name %>'
+  <ul>
+  <%
+    @role.servers.each do |server|
+  %>
+    <li>
+      <%= link_to server.name, server_path(server) %>
+    </li>
+  <%
+    end
+  %>
+  </ul>
 </p>
 
 
