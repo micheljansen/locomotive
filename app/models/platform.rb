@@ -17,7 +17,12 @@ class Platform < ActiveRecord::Base
   # a list of servers not part of this platform
   def other_servers
     # TODO: handle this via SQL instead of substracting sets in Ruby
-    Server.find(:all)-servers
+    Server.find(:all) - servers
+  end
+  
+  # a list of all platforms except this one
+  def others
+    Platform.find(:all) - [self]
   end
   
   # returns the membership for a given server

@@ -42,7 +42,18 @@
         #formatted_platform_platform_membership_path (@platform, @platform.membership_for_server_id(1), :js)
       ) %>
 
-
-
 <%= link_to 'Edit', edit_platform_path(@platform) %> |
 <%= link_to 'Back', platforms_path %>
+
+<% content_for :sidebar do %>
+  <% if (! @platform.others.empty?) %>
+    <h2>More platforms</h2>
+    <ul>
+      <% @platform.others.each do |other_platform| %>
+      <li>
+        <%= link_to other_platform.name, platform_path(other_platform) %>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
