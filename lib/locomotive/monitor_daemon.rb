@@ -33,11 +33,13 @@ module Locomotive
       #end
     end
     
+    # Start the monitor in the background
     def start
       daemonize()
       run
     end
     
+    # simple log wrapper
     def log(msg)
       msg = Time.new.to_s + ": " + msg
       puts msg
