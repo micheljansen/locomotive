@@ -1,3 +1,5 @@
+require 'ping'
+
 # == Schema Information
 # Schema version: 20080822082018
 #
@@ -18,5 +20,9 @@ class Server < ActiveRecord::Base
   
   def others
     Server.find(:all) - [self]
+  end
+  
+  def check
+    return (Ping.pingecho "localhost", 10)
   end
 end

@@ -5,7 +5,6 @@ require 'daemons'
 # TODO: check if we can do this more elegantly :)
 require File.join(File.dirname(__FILE__), "..", "..", "config", "environment.rb")
 
-
 module Locomotive
   class MonitorDaemon
     include Daemonize
@@ -14,19 +13,24 @@ module Locomotive
     def initialize
       @logfilename = File.expand_path(__FILE__) + '.log'
       @logfile = File.open(@logfilename, File::CREAT|File::APPEND|File::RDWR)
+      @threads = []
     end
     
     # run the execution loop. this call normally won't return
     def run
-      loop do
+      #loop do
         log("loop")
         
         Server.find(:all).each do |server|
-          log("Checking server " +server.name)
+          log("Starting check for server " +server.name)
+          @threads << Locomotive::Monitor::Checker.new(server, self, 10).start();
+          
+          # walk each of the services in the server
         end
+
+        @threads.each {|t| t.join()}
         
-        sleep 2
-      end
+      #end
     end
     
     def start
