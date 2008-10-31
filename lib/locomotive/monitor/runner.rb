@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'daemons'
-require File.join(File.dirname(__FILE__), 'monitor_daemon')
+require File.join(File.dirname(__FILE__), 'daemon')
 
 #Daemons.run(File.join(File.dirname(__FILE__), 'monitor_daemon.rb'))
-Locomotive::MonitorDaemon.new.send(ARGV[0])
+Locomotive::Monitor::Daemon.new.send(ARGV[0])

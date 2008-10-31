@@ -1,0 +1,10 @@
+Fri Oct 31 16:10:36 +0100 2008: loop
+Fri Oct 31 16:10:36 +0100 2008: Starting check for server App1
+Fri Oct 31 16:10:36 +0100 2008: Starting check for server App2
+Fri Oct 31 16:10:38 +0100 2008: Starting check for server DB2
+Fri Oct 31 16:10:40 +0100 2008: Starting check for server Load Balancer
+Fri Oct 31 16:12:10 +0100 2008: loop
+Fri Oct 31 16:12:10 +0100 2008: Starting check for server App1
+Fri Oct 31 16:12:10 +0100 2008: Starting check for server App2
+Fri Oct 31 16:12:12 +0100 2008: Starting check for server DB2
+Fri Oct 31 16:12:14 +0100 2008: Starting check for server Load Balancer
