@@ -14,4 +14,6 @@ class Service < ActiveRecord::Base
   has_many :service_instances, :through => :releases, :dependent => :destroy
   has_many :contracts, :dependent => :destroy
   has_many :clients, :through => :contracts
+  
+  belongs_to :service_type #, :dependent => :nullify
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080822082018) do
+ActiveRecord::Schema.define(:version => 20081118111804) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20080822082018) do
 
   add_index "contracts", ["service_id"], :name => "index_contracts_on_service_id"
   add_index "contracts", ["client_id"], :name => "index_contracts_on_client_id"
+
+  create_table "dependencies", :force => true do |t|
+    t.integer  "role_id"
+    t.integer  "service_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "platform_memberships", :force => true do |t|
     t.integer  "server_id"
@@ -55,6 +62,11 @@ ActiveRecord::Schema.define(:version => 20080822082018) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "plugin_instance_id"
+  end
+
+  create_table "plugin_schema_info", :id => false, :force => true do |t|
+    t.string  "plugin_name"
+    t.integer "version"
   end
 
   create_table "purposes", :force => true do |t|
@@ -94,8 +106,21 @@ ActiveRecord::Schema.define(:version => 20080822082018) do
     t.integer  "platform_id"
   end
 
+  create_table "service_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "services", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subsystems", :force => true do |t|
+    t.integer  "port"
+    t.integer  "server"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

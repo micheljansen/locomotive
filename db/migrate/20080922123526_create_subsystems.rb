@@ -2,7 +2,7 @@ class CreateSubsystems < ActiveRecord::Migration
   def self.up
     create_table :subsystems do |t|
       t.integer :port
-      t.server :server
+      t.integer :server
 
       t.timestamps
     end

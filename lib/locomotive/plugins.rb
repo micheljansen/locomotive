@@ -28,8 +28,8 @@ module Locomotive
         path = File.join(DEFAULT_PATH, p, 'lib', 'locomotive', 'plugins', p)
         
         $LOAD_PATH << path
-        Dependencies.load_paths      << path
-        Dependencies.load_once_paths << path
+        ActiveSupport::Dependencies.load_paths      << path
+        ActiveSupport::Dependencies.load_once_paths << path
         require_dependency path
         
         discovered[p] = Locomotive::Plugins.const_get(p.camelize)
