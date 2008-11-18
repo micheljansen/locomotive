@@ -6,6 +6,7 @@ class Menu
       Menu["Administration"]["Dashboard"] = [{:controller => "administration_dashboard"}]
       Menu["Administration"]["Clients"] = [{:controller => "clients"}]
       Menu["Administration"]["Services"] = [{:controller => "services"}]
+      Menu["Administration"]["Servicetypes"] = [{:controller => "service_types"}]
       Menu["Administration"]["Servers"] = [{:controller => "servers"}]
       Menu["Administration"]["Roles"] = [{:controller => "roles"}]
       Menu["Administration"]["Platforms"] = [{:controller => "platforms"}]
