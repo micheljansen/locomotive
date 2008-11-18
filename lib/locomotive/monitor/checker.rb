@@ -9,16 +9,11 @@ module Locomotive
       end
       
       def run
-        loop do
-          
-          Thread.new do
-            log("checking #{@target.name}")
-            result = @target.check()
-            log("result for #{@target.name}, #{result}")
-          end
-          
-          sleep(@interval)
-        end
+        log("checking #{@target.name}")
+        result = @target.check()
+        log("result for #{@target.name}, #{result}")
+        @monitor.mark_completed(@target)
+        log("all done, Thread for #{target.name} signing off!")
       end
       
       def start
@@ -28,8 +23,8 @@ module Locomotive
       end
       
       def log(msg)
-        #@monitor.log(msg) unless monitor.nil?
-        puts msg
+        #puts msg
+        @monitor.log(msg) unless @monitor.nil?
       end
     end
   end
