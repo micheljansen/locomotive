@@ -1,0 +1,22 @@
+<h1>Listing dependencies</h1>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Service type</th>
+  </tr>
+
+<% for dependency in @dependencies %>
+  <tr>
+    <td><%=h dependency.role_id %></td>
+    <td><%=h dependency.service_type_id %></td>
+    <td><%= link_to 'Show', dependency %></td>
+    <td><%= link_to 'Edit', edit_dependency_path(dependency) %></td>
+    <td><%= link_to 'Destroy', dependency, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New dependency', new_dependency_path %>
