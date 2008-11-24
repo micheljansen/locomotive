@@ -24,6 +24,6 @@ class Server < ActiveRecord::Base
   
   def check
     puts "pinging #{hostname}"
-    return (Ping.pingecho hostname, 10)
+    return Ping.pingecho(hostname, 10)
   end
 end
