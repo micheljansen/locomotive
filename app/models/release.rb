@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20081118111804
+# Schema version: 20081201121936
 #
 # Table name: releases
 #
@@ -12,7 +12,7 @@
 
 class Release < ActiveRecord::Base
   belongs_to :service
-  has_many :instances
+  has_many :service_instances
   
   validates_presence_of :service_id, :message => "unknown for this release"
   

@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20081201121936) do
     t.datetime "updated_at"
     t.integer  "platform_id"
     t.integer  "client_id"
+    t.integer  "release_id"
   end
 
   create_table "service_types", :force => true do |t|

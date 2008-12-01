@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20081118111804
+# Schema version: 20081201121936
 #
 # Table name: service_instances
 #
@@ -7,6 +7,8 @@
 #  created_at  :datetime        
 #  updated_at  :datetime        
 #  platform_id :integer         
+#  client_id   :integer         
+#  release_id  :integer         
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

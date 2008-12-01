@@ -1,12 +1,13 @@
 # == Schema Information
-# Schema version: 20081118111804
+# Schema version: 20081201121936
 #
 # Table name: services
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)     
-#  created_at :datetime        
-#  updated_at :datetime        
+#  id                :integer         not null, primary key
+#  name              :string(255)     
+#  created_at        :datetime        
+#  updated_at        :datetime        
+#  service_type_type :string(255)     
 #
 
 class Service < ActiveRecord::Base
