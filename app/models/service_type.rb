@@ -1,14 +1,25 @@
-# == Schema Information
-# Schema version: 20081118111804
-#
-# Table name: service_types
-#
-#  id         :integer         not null, primary key
-#  name       :string(255)     
-#  created_at :datetime        
-#  updated_at :datetime        
-#
-
-class ServiceType < ActiveRecord::Base
-  has_many :services
+class ServiceType
+  
+  def self.known_service_types
+    [MongrelRails]
+  end
+  
+  def name
+    raise "abstract service type does not have a name"
+  end
+  
+  # A list of ActiveRecord Role models
+  def self.dependencies
+    @@dependencies ||= []
+  end
+  
+  def self.depends_on(role)
+    if(role.respond_to?(:id) && role.id)
+      # it's an active record model
+      dependencies << role
+    else
+      # it'is a string, so find it or create it
+      dependencies << (Role.find_by_name(role) ? Role.find_by_name(role) : Role.create(role))    
+    end
+  end
 end
