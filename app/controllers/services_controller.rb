@@ -79,11 +79,10 @@ class ServicesController < ApplicationController
   # DELETE /services/1.xml
   def destroy
     @service = Service.find(params[:id])
-    server = @service.server
     @service.destroy
 
     respond_to do |format|
-      format.html { redirect_to(server) }
+      format.html { redirect_to(:controller => "services") }
       format.xml  { head :ok }
     end
   end
