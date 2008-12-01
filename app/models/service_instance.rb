@@ -18,8 +18,14 @@ class ServiceInstance < ActiveRecord::Base
   
   def deploy
     # find the service_type to delegate this request to
-    service_type = release.service.service_type.new
+    service_type = release.service.service_type
     puts "ServiceType: #{service_type.name}"
     service_type.deploy(self)
   end
+  
+  # convenience accessor to service through release
+  def service
+    release.service if release
+  end
+  
 end
