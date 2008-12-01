@@ -100,7 +100,7 @@ class Menu
   # if "args" is empty, assume creation of a submenu
   # if a menu named "key" already exists, it is replaced
   def add(key, *args)
-    logger.debug("adding #{key} linking to #{args}")
+    #logger.debug("adding #{key} linking to #{args}")
     @order << key
     if(args.size == 0) then
       items[key] = Menu.new
