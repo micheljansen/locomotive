@@ -16,7 +16,16 @@ class Service < ActiveRecord::Base
   has_many :contracts, :dependent => :destroy
   has_many :clients, :through => :contracts
   
+  validates_presence_of :service_type_type, :on => :create, :message => "can't be blank"
+  validate :service_type_exists?
+  
   def service_type
     service_type_type.to_s.constantize
+  end
+  
+  def service_type_exists?
+    if(!ServiceType.known_service_types.map {|st| st.to_s }.include? service_type_type)
+      errors.add(:service_type, "does not exist. Must be one of [#{ServiceType.known_service_types.join(',')}]")
+    end
   end
 end

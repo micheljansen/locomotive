@@ -2,9 +2,12 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe ServiceInstance do
   
+  class SpecServiceType < ServiceType
+  end
+  
   before(:each) do
     client  = Client.create(:name => "henk", :description => "test")
-    service = client.services.create(:name => "testservice")
+    service = client.services.create(:name => "testservice", :service_type_type => "SpecServiceType")
     release = service.releases.create(:name => "release")
     @valid_service_instance = release.service_instances.create(:client => client)
     @valid_service_instance.platform = Platform.new
