@@ -16,6 +16,10 @@ class ServiceInstance < ActiveRecord::Base
   belongs_to :client
   belongs_to :platform
   
+  validates_presence_of :release, :on => :create, :message => "can't be blank"
+  validates_presence_of :client, :on => :create, :message => "can't be blank"
+  validates_presence_of :platform, :on => :create, :message => "can't be blank"
+  
   def deploy
     # find the service_type to delegate this request to
     service_type = release.service.service_type
