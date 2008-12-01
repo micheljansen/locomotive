@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080822082018
+# Schema version: 20081118111804
 #
 # Table name: releases
 #

@@ -1,7 +1,5 @@
-require 'ping'
-
 # == Schema Information
-# Schema version: 20080822082018
+# Schema version: 20081118111804
 #
 # Table name: servers
 #
@@ -11,6 +9,8 @@ require 'ping'
 #  created_at :datetime        
 #  updated_at :datetime        
 #
+
+require 'ping'
 
 class Server < ActiveRecord::Base
   has_many :platform_memberships, :dependent => :destroy
