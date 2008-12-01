@@ -3,7 +3,5 @@ class IOServer < ServiceType
   
   depends_on "appserver"
   
-  def deploy
-    
-  end
+
 end

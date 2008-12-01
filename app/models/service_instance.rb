@@ -11,5 +11,6 @@
 
 class ServiceInstance < ActiveRecord::Base
   belongs_to :release
-  has_one :platform
+  belongs_to :client
+  belongs_to :platform
 end
