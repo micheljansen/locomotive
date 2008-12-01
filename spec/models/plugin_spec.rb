@@ -6,7 +6,7 @@ describe Locomotive::Plugin do
   before(:each) do
     @spec_plugin = Locomotive::Plugin.find_by_id("spec_test_plugin")
   end
-  
+=begin  
   it "should be able to find registered plugins" do
     Locomotive::Plugin.find_by_id("spec_test_plugin").should_not be_nil
     Locomotive::Plugin.all_ids.should include("spec_test_plugin")
@@ -28,4 +28,5 @@ describe Locomotive::Plugin do
     @spec_plugin.invalid_checked_with_defaults == "invalid1"
   end
   
+=end
 end

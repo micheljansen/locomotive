@@ -14,4 +14,6 @@ class Client < ActiveRecord::Base
   has_many :contracts
   has_many :services, :through => :contracts
   has_many :service_instances
+  
+  validates_presence_of :name, :on => :create, :message => "can't be blank"
 end
