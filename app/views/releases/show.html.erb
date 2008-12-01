@@ -1,0 +1,27 @@
+<h1><%= link_to @release.service.name, service_path(@release.service) %> release <%=h @release.name %>
+<div id="actions">
+  <span>
+    <%= link_to 'Edit', edit_service_release_path(@release.service, @release) %>
+  </span>
+</div>
+
+  
+<% content_for :sidebar do %>
+
+  <h2>Actions</h2>
+  <ul>
+    <li><%= link_to 'Edit this release', edit_service_release_path(@release.service, @release) %></li>
+    <li><%= link_to "Delete this release", service_release_path(@release.service, @release), :method => :delete %></li>
+  </ul>
+  <ul>
+    <li><%= link_to "Add a release", new_service_release_path(@release.service) %></li>
+  </ul>
+  
+  <h2>Other releases</h2>
+  <ul>
+    <% @release.service.releases.each do |other_release| %>
+      <li> <%= link_to other_release.name, :controller => "releases", :action => "show", :id => other_release.id %> </li>
+    <% end %>
+  </ul>
+  
+<% end %>

@@ -1,25 +1,79 @@
 class ServiceType
   
+  # array of known service types
   def self.known_service_types
-    [MongrelRails]
+    self.subclasses
+  end
+  
+  # find all (direct or indirect) subclasses
+  def self.subclasses(direct = false)
+    classes = []
+
+    ObjectSpace.each_object(Class) do |klass|
+      if(direct)
+        classes << klass if klass.superclass == self
+      else
+        classes << klass if klass.ancestors.include? self
+      end
+    end
+    
+    return classes
+  end
+  
+  class << self
+    # get/set the name
+    def name(new_name=nil)
+      @name = new_name if new_name
+      @name
+    end
+
+    def depends_on(role)
+      if(role.class == Role)
+        # it's an active record Role model
+        dependencies << role
+      else
+        # it's a string, so find it or create it
+        dependencies << (Role.find_by_name(role) ? Role.find_by_name(role) : Role.create(:name => role))    
+      end
+    end
+
+    # A list of ActiveRecord Role models
+    def dependencies
+      @dependencies ||= []
+    end
+    
+    def dependency_names
+      dependencies.map {|r| r.name }
+    end
+    
   end
   
   def name
-    raise "abstract service type does not have a name"
+    self.class.name
   end
   
-  # A list of ActiveRecord Role models
-  def self.dependencies
-    @@dependencies ||= []
+  def dependencies
+    self.class.dependencies
   end
   
-  def self.depends_on(role)
-    if(role.respond_to?(:id) && role.id)
-      # it's an active record model
-      dependencies << role
+  def dependency_names
+    self.class.dependency_names
+  end
+  
+  def depends_on?(role)
+    if(role.class == Role)
+      dependencies.include? role
     else
-      # it'is a string, so find it or create it
-      dependencies << (Role.find_by_name(role) ? Role.find_by_name(role) : Role.create(role))    
+      dependency_names.include? role
     end
   end
+  
+  # deploy a service_instance of this type
+  def deploy(service_instance)
+    puts "deploying an instance of service #{service_instance.release.service.name} 
+            release #{service_instance.release.name} 
+            of type #{self.name} 
+            for client #{service_instance.client.name}"
+  end
+
 end

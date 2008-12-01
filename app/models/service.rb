@@ -15,5 +15,7 @@ class Service < ActiveRecord::Base
   has_many :contracts, :dependent => :destroy
   has_many :clients, :through => :contracts
   
-  belongs_to :service_type #, :dependent => :nullify
+  def service_type
+    service_type_type.to_s.constantize
+  end
 end
