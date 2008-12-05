@@ -1,14 +1,22 @@
-<h1>Listing service_instances</h1>
+<h1>Listing Deployed Service Instances</h1>
 
 <table>
   <tr>
+    <th>Client</th>
+    <th>Service</th>
+    <th>Release</th>
+    <th>Platform</th>
   </tr>
 
-<% for service_instance in @service_instances %>
+<% for si in @service_instances %>
   <tr>
-    <td><%= link_to 'Show', service_instance %></td>
-    <td><%= link_to 'Edit', edit_service_instance_path(service_instance) %></td>
-    <td><%= link_to 'Destroy', service_instance, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to si.client.name, si.client %></td>
+    <td><%= link_to si.release.service.name, si.release.service %></td>
+    <td><%= link_to si.release.name, service_release_path(si.release.service, si.release) %></td>
+    <td><%= link_to si.platform.name, si.platform %></td>
+    <td><%= link_to 'Show', si %></td>
+    <td><%= link_to 'Edit', edit_service_instance_path(si) %></td>
+    <td><%= link_to 'Destroy', si, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
