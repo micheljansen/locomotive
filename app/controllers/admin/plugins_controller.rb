@@ -1,4 +1,4 @@
-class Admin::PluginsController < ApplicationController
+class PluginsController < ApplicationController
   
   before_filter :init_menu
   

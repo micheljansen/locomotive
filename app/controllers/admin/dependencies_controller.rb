@@ -1,4 +1,4 @@
-class Admin::DependenciesController < ApplicationController
+class DependenciesController < ApplicationController
   
   before_filter :init_menu
   

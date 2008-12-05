@@ -1,4 +1,4 @@
-class Admin::PluginPropertiesController < ApplicationController
+class PluginPropertiesController < ApplicationController
   # GET /plugin_properties
   # GET /plugin_properties.xml
   def index

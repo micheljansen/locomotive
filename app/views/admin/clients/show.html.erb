@@ -7,22 +7,22 @@
   <h2>Service contracts</h2>
   <p>
     These are the services that are assigned to this client.
-    Feel free to check them out or <%= link_to 'assign more', new_admin_client_contract_path(:client_id => @client.id) %>
+    Feel free to check them out or <%= link_to 'assign more', new_client_contract_path(:client_id => @client.id) %>
   </p>
   <table>
     <% @client.contracts.each do |contract| %>
       <tr>
-        <td><%= link_to contract.service.name, admin_service_path(contract.service) %></td>
-        <td><%= link_to 'cancel contract', admin_client_contract_path(@client, contract), :method => :delete %></td>
+        <td><%= link_to contract.service.name, service_path(contract.service) %></td>
+        <td><%= link_to 'cancel contract', client_contract_path(@client, contract), :method => :delete %></td>
     <% end %>
   </table>
   
 <% content_for(:sidebar) do %>
   <h2>Actions</h2>
   <ul>
-    <li><%= link_to 'Edit this client', edit_admin_client_path(@client) %>
+    <li><%= link_to 'Edit this client', edit_client_path(@client) %>
   </ul>
   <ul>
-    <li><%= link_to 'Add a new client', new_admin_client_path %>
+    <li><%= link_to 'Add a new client', new_client_path %>
   </ul>
 <% end %>

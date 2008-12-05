@@ -1,4 +1,4 @@
-class Admin::PlatformsController < ApplicationController
+class PlatformsController < ApplicationController
   
   before_filter :init_menu
   

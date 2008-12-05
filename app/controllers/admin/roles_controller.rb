@@ -1,4 +1,4 @@
-class Admin::RolesController < ApplicationController
+class RolesController < ApplicationController
   
   before_filter :init_menu
   
