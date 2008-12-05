@@ -14,6 +14,8 @@ class Platform < ActiveRecord::Base
   has_many :platform_memberships, :dependent => :destroy
   has_many :servers, :through => :platform_memberships
   
+  validates_presence_of :name
+  
   # a list of servers not part of this platform
   def other_servers
     # TODO: handle this via SQL instead of substracting sets in Ruby
@@ -28,12 +30,6 @@ class Platform < ActiveRecord::Base
   # returns the membership for a given server
   # or nil if not found
   def membership_for_server_id(server_id)
-    
-    platform_memberships.each do |m|
-      return m if m.server_id = server_id
-    end
-    
-    return nil
-    
+    platform_memberships.find_by_server_id(server_id)
   end
 end
