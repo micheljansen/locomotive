@@ -1,0 +1,30 @@
+<h1> Clients </h1>
+
+<p>
+  These are your clients. You may want to click on any of them to show their details, assign services to them and so on.
+</p>
+
+<table>
+  <tr>
+    <th> Name </th>
+    <th> Description </th>
+
+  <% @clients.each do |client| %>
+    <tr>
+      <td><%= link_to client.name, client %></td>
+      <td><%=h client.description %></td>
+      <td><%= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% end %>
+
+<% content_for(:sidebar) do %>
+  <h2> Actions </h2>
+  <ul>
+    <li><%= link_to 'Add a client', new_client_path %> </li>
+  </ul>
+  <h2> All clients </h2>
+  <ul>
+    <% @clients.each do |client| %>
+      <li><%= link_to client.name, client %> </li>
+    <% end %>
+  </ul>
+<% end %>
