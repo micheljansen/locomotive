@@ -28,4 +28,8 @@ class Service < ActiveRecord::Base
       errors.add(:service_type, "does not exist. Must be one of [#{ServiceType.known_service_types.join(',')}]")
     end
   end
+  
+  def instances_for_client_id(client_id)
+    service_instances.find_all_by_client_id(client_id)
+  end
 end

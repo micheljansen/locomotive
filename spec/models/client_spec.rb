@@ -10,6 +10,6 @@ describe Client do
   it "should be valid with a name" do
     client = Client.new(:name => "test")
     client.should be_valid
-  end  
+  end
   
 end

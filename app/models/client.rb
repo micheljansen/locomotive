@@ -16,4 +16,8 @@ class Client < ActiveRecord::Base
   has_many :service_instances
   
   validates_presence_of :name, :on => :create, :message => "can't be blank"
+  
+  # def instances_for_service_id(service_id)
+  #     service_instances.find_by_server_id(server_id)
+  #   end
 end

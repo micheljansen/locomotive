@@ -4,15 +4,39 @@
 </p>
 
 <div id="contracts">
-  <h2>Service contracts</h2>
+  <h2>Services</h2>
   <p>
     These are the services that are assigned to this client.
     Feel free to check them out or <%= link_to 'assign more', new_client_contract_path(:client_id => @client.id) %>
   </p>
   <table>
+    <tr>
+      <th>Service</th>
+      <th>Instances</th>
+      <th>Actions</th>
+    </tr>
     <% @client.contracts.each do |contract| %>
       <tr>
         <td><%= link_to contract.service.name, service_path(contract.service) %></td>
+        <td>
+          <ul>
+            <% 
+              instances = contract.service.instances_for_client_id(@client.id)
+
+              if instances.size > 0
+                instances.each do |instance|
+            %>
+            
+                <%= link_to "#{instance.platform.name} (#{instance.release.name})", instance %>
+            
+            <%    
+                end
+              else
+            %>
+              not deployed to any platforms yet
+            <% end %>
+          </ul>
+        </td>
         <td><%= link_to 'cancel contract', client_contract_path(@client, contract), :method => :delete %></td>
     <% end %>
   </table>
