@@ -1,4 +1,4 @@
-class ClientsController < ApplicationController
+class Admin::ClientsController < ApplicationController
   
   before_filter :init_menu
   

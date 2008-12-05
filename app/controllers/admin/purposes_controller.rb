@@ -1,4 +1,4 @@
-class PurposesController < ApplicationController
+class Admin::PurposesController < ApplicationController
   
   before_filter :init_menu
   before_filter :find_associated_server

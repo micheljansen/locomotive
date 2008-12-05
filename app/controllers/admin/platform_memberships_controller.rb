@@ -1,4 +1,4 @@
-class PlatformMembershipsController < ApplicationController
+class Admin::PlatformMembershipsController < ApplicationController
   
   before_filter :find_platform
   before_filter :find_server

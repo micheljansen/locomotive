@@ -1,4 +1,4 @@
-class ServicesController < ApplicationController
+class Admin::ServicesController < ApplicationController
   
   before_filter :init_menu
   

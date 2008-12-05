@@ -1,4 +1,4 @@
-class ReleasesController < ApplicationController
+class Admin::ReleasesController < ApplicationController
   
   before_filter :init_menu
   

@@ -1,4 +1,38 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.namespace :admin do |admin|
+    admin.resources :service_types
+
+    admin.resources :dependencies
+
+
+    admin.resources :roles
+
+
+
+    admin.resources :servers do |server|
+      server.resources :purposes
+      server.resources :platform_memberships
+    end
+
+    admin.resources :platforms do |platform|
+      platform.resources :platform_memberships
+    end
+
+
+    #admin.resources :contracts
+
+    admin.resources :service_instances
+
+    admin.resources :services do |service|
+      service.resources :releases
+    end
+
+    admin.resources :clients do |client|
+      client.resources :contracts
+    end
+  end
+  
   map.resources :service_types
 
   map.resources :dependencies
@@ -6,7 +40,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :roles
 
-  
+
 
   map.resources :servers do |server|
     server.resources :purposes
@@ -16,7 +50,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :platforms do |platform|
     platform.resources :platform_memberships
   end
-  
+
 
   #map.resources :contracts
 
@@ -29,7 +63,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :clients do |client|
     client.resources :contracts
   end
-
+  
   map.resources :plugin_instances
 
   map.resources :plugin_properties

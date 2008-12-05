@@ -1,4 +1,4 @@
-class ContractsController < ApplicationController
+class Admin::ContractsController < ApplicationController
   
   before_filter :init_menu
   

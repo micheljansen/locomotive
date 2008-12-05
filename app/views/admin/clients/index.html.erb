@@ -11,20 +11,20 @@
 
   <% @clients.each do |client| %>
     <tr>
-      <td><%= link_to client.name, client %></td>
+      <td><%= link_to client.name, admin_client_path(client) %></td>
       <td><%=h client.description %></td>
-      <td><%= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to 'Destroy', admin_client_path(client), :confirm => 'Are you sure?', :method => :delete %></td>
   <% end %>
 
 <% content_for(:sidebar) do %>
   <h2> Actions </h2>
   <ul>
-    <li><%= link_to 'Add a client', new_client_path %> </li>
+    <li><%= link_to 'Add a client', new_admin_client_path %> </li>
   </ul>
   <h2> All clients </h2>
   <ul>
     <% @clients.each do |client| %>
-      <li><%= link_to client.name, client %> </li>
+      <li><%= link_to client.name, admin_client_path(client) %> </li>
     <% end %>
   </ul>
 <% end %>

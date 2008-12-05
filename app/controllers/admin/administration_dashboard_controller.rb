@@ -1,4 +1,4 @@
-class AdministrationDashboardController < ApplicationController
+class Admin::AdministrationDashboardController < ApplicationController
   
   before_filter :init_menu
   
