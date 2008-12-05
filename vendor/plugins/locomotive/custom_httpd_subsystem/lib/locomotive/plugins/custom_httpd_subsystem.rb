@@ -10,7 +10,7 @@ module Locomotive::Plugins
   
     #menu_path "Stuff" "HelloWorld"
     
-    menu_path "Hello World", {:controller => "plugins"}
+    #menu_path "Hello World", {:controller => "plugins"}
     
     # property :identifier "optional description" "optional regexp" "optional default"
     property :check_path, "The path to use for checking if the server is up", /.*/, "/"

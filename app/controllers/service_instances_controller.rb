@@ -1,4 +1,7 @@
 class ServiceInstancesController < ApplicationController
+  
+  before_filter :init_menu
+  
   # GET /service_instances
   # GET /service_instances.xml
   def index
@@ -81,5 +84,9 @@ class ServiceInstancesController < ApplicationController
       format.html { redirect_to(service_instances_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def init_menu
+    @menu = ["Manage", "Deploy"]
   end
 end

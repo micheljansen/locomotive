@@ -2,13 +2,14 @@ class Menu
   
   def self.load_defaults
     unless @defaults_loaded
-      Menu.add("Cockpit", "/", :confirm => "This doesn't work yet. Try anyway?")
+      Menu.add("Cockpit", "/")
       Menu["Administration"]["Dashboard"] = [{:controller => "administration_dashboard"}]
       Menu["Administration"]["Clients"] = [{:controller => "clients"}]
       Menu["Administration"]["Services"] = [{:controller => "services"}]
       Menu["Administration"]["Servers"] = [{:controller => "servers"}]
       Menu["Administration"]["Roles"] = [{:controller => "roles"}]
       Menu["Administration"]["Platforms"] = [{:controller => "platforms"}]
+      Menu["Manage"]["Deploy"] = [{:controller => "service_instances"}]
       Menu["Settings"]["Plugins"] = [{:controller => "plugins"}]
       
       @defaults_loaded = true
