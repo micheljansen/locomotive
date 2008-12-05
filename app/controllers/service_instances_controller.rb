@@ -1,11 +1,17 @@
 class ServiceInstancesController < ApplicationController
   
   before_filter :init_menu
+  before_filter :find_client
   
   # GET /service_instances
   # GET /service_instances.xml
   def index
-    @service_instances = ServiceInstance.find(:all)
+    @service_instances = 
+      if @client
+        @client.service_instances
+      else
+        ServiceInstance.find(:all)
+      end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,7 +92,15 @@ class ServiceInstancesController < ApplicationController
     end
   end
   
+  private
+  
   def init_menu
     @menu = ["Manage", "Deploy"]
+  end
+  
+  def find_client
+    if params[:client_id]
+      @client = Client.find(params[:client_id])
+    end
   end
 end
