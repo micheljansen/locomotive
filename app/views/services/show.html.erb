@@ -1,5 +1,6 @@
-<h1><%= @service.name %> deploy manager</h1>
+<h1><%= @service.name %></h1>
 
+<!--
 <div id="instances">
   <h2>Instances</h2>
   <table>
@@ -17,11 +18,14 @@
     <% end %>
   </table>
 </div>
+-->
+I'm not sure what to make of this page yet. For now, move over to <%= link_to '"Manage deployments"', service_service_instances_path(@service) %>.
 
 <% content_for :sidebar do %>
   <h2>Actions</h2>
   <ul id="specific">
     <li><%= link_to 'Edit this service', edit_service_path(@service) %> </li>
+    <li><%= link_to 'Manage deployments', service_service_instances_path(@service) %></li>
   </ul>
   <ul id="general">
     <li><%= link_to "Add a release", new_service_release_path(@service) %> </li>

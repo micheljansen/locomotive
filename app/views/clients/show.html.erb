@@ -46,6 +46,7 @@
   <ul id="specific">
     <li><%= link_to 'Edit this client', edit_client_path(@client) %></li>
     <li><%= link_to 'Assign a service', new_client_contract_path(:client_id => @client.id) %></li>
+    <li><%= link_to 'Manage deployments', client_service_instances_path(@client) %></li>
   </ul>
   <ul id="general">
     <li><%= link_to 'Add a new client', new_client_path %>
