@@ -43,10 +43,11 @@
   
 <% content_for(:sidebar) do %>
   <h2>Actions</h2>
-  <ul>
-    <li><%= link_to 'Edit this client', edit_client_path(@client) %>
+  <ul id="specific">
+    <li><%= link_to 'Edit this client', edit_client_path(@client) %></li>
+    <li><%= link_to 'Assign a service', new_client_contract_path(:client_id => @client.id) %></li>
   </ul>
-  <ul>
+  <ul id="general">
     <li><%= link_to 'Add a new client', new_client_path %>
   </ul>
 <% end %>
