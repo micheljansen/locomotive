@@ -20,3 +20,5 @@
 
 <%= link_to 'Show', @service %> |
 <%= link_to 'Back', services_path %>
+
+<% content_for :sidebar, render (:partial => "sidebar", :object => @service) %>
