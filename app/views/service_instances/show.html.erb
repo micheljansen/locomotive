@@ -1,2 +1,16 @@
+<h2><%= "#{@service_instance.release.service.name} for #{@client.name} on #{@service_instance.platform.name}" %></h2>
+<h3>Details</h3>
+<p><b>Client:</b>
+<%= link_to @service_instance.client.name, @service_instance.client %>
+</p>
+<p><b>Service:</b>
+<%= link_to @service_instance.release.service.name, @service_instance.release.service %>
+<p><b>Release:</b>
+<%= link_to @service_instance.release.name, service_release_path(@service_instance.release.service, @service_instance.release) %>
+</p>
+<p><b>Platform:</b>
+<%= link_to @service_instance.platform.name, @service_instance.platform %>
+</p>
+
 <%= link_to 'Edit', edit_service_instance_path(@service_instance) %> |
 <%= link_to 'Back', service_instances_path %>

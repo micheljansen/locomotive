@@ -23,6 +23,7 @@ class ServiceInstancesController < ApplicationController
   # GET /service_instances/1.xml
   def show
     @service_instance = ServiceInstance.find(params[:id])
+    @client = @service_instance.client
 
     respond_to do |format|
       format.html # show.html.erb
