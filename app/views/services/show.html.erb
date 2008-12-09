@@ -1,16 +1,4 @@
-<h1><%= @service.name %> </h1>
-
-  
-
-<div id="releases">
-  <h2>Releases</h2>
-  <span><%= link_to "Add a release", new_service_release_path(@service) %> </span>
-  <ul>
-    <% @releases.each do |release| %>
-      <li><%= link_to release.name, service_release_path(@service, release) %> </li>
-    <% end %>
-  </ul>    
-</div>
+<h1><%= @service.name %> deploy manager</h1>
 
 <div id="instances">
   <h2>Instances</h2>
@@ -38,7 +26,7 @@
   <ul id="general">
     <li><%= link_to "Add a release", new_service_release_path(@service) %> </li>
   </ul>
-  <h2>Releases</h2>
+  <h2>Releases <sup><%= link_to "+", new_service_release_path(@service) %></sup></h2>
   <ul>
     <% @releases.each do |release| %>
       <li><%= link_to release.name, service_release_path(@service, release) %> </li>
