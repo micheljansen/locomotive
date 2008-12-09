@@ -13,7 +13,6 @@ module ServiceInstancesHelper
   end
   
   def title
-    
     case showing_what
       when :service
         "Listing deployed instances of #{@service.name}"
