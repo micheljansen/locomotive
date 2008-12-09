@@ -16,7 +16,8 @@ class Release < ActiveRecord::Base
   
   validates_presence_of :service_id, :message => "unknown for this release"
   
-  def deploy
-    
+  def full_name
+    "#{service.name} #{name}"
   end
+
 end
