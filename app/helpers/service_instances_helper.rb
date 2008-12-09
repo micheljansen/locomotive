@@ -6,12 +6,14 @@ module ServiceInstancesHelper
   end
   
   def showing_what
-    :client if @client
-    :service if @service
-    :all if @all
+    return :client if @client
+    return :service if @service
+    #otherwise
+    return :all
   end
   
   def title
+    
     case showing_what
       when :service
         "Listing deployed instances of #{@service.name}"
@@ -21,4 +23,5 @@ module ServiceInstancesHelper
         "Listing all deployed instances"
     end
   end
+  
 end
