@@ -2,6 +2,20 @@
 
 <% form_for(@service_instance) do |f| %>
   <%= f.error_messages %>
+  <table>
+    <tr>
+      <th>Client:</th>
+      <td><%= f.collection_select :client_id, Client.find(:all), :id, :name %></td>
+    </tr>
+    <tr>
+      <th>Release:</th>
+      <td><%= f.collection_select :release_id, Release.find(:all), :id, :full_name %></td>
+    </tr>
+    <tr>
+      <th>Platform:</th>
+      <td><%= f.collection_select :platform_id, Platform.find(:all), :id, :name %></td>
+    </tr>
+  </table>
 
   <p>
     <%= f.submit "Create" %>
