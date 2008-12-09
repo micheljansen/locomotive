@@ -3,7 +3,7 @@
   
 
 <div id="releases">
-  <h2> Releases</h2>
+  <h2>Releases</h2>
   <span><%= link_to "Add a release", new_service_release_path(@service) %> </span>
   <ul>
     <% @releases.each do |release| %>
@@ -14,6 +14,20 @@
 
 <div id="instances">
   <h2>Instances</h2>
+  <table>
+    <tr>
+      <th>Client</th>
+      <th>Platform</th>
+      <th>Release</th>
+    </tr>
+    <% @service_instances.each do |si| %>
+    <tr>
+      <td><%= si.client.name %></td>
+      <td><%= si.platform.name %></td>
+      <td><%= si.release.name %></td>
+    </tr>
+    <% end %>
+  </table>
 </div>
 
 <% content_for :sidebar do %>

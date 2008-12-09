@@ -18,6 +18,7 @@ class ServicesController < ApplicationController
   def show
     @service = Service.find(params[:id])
     @releases = @service.releases
+    @service_instances = @service.service_instances.find(:all, :order => "client_id DESC")
 
     respond_to do |format|
       format.html # show.html.erb
