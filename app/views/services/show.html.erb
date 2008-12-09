@@ -1,8 +1,8 @@
 <h1><%= @service.name %> </h1>
-#actions 
-  <span><%= link_to 'Edit', edit_service_path(@service) %> </span>
-  <span><%= link_to 'Back', services_path %> </span>
-#releases
+
+  
+
+<div id="releases">
   <h2> Releases</h2>
   <span><%= link_to "Add a release", new_service_release_path(@service) %> </span>
   <ul>
@@ -10,10 +10,14 @@
       <li><%= link_to release.name, service_release_path(@service, release) %> </li>
     <% end %>
   </ul>    
+</div>
 
 <% content_for :sidebar do %>
-  <h2> Actions</h2>
-  <ul>
+  <h2>Actions</h2>
+  <ul id="specific">
+    <li><%= link_to 'Edit this service', edit_service_path(@service) %> </li>
+  </ul>
+  <ul id="general">
     <li><%= link_to "Add a release", new_service_release_path(@service) %> </li>
   </ul>
 <% end %>
