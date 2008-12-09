@@ -12,6 +12,8 @@
   </ul>    
 </div>
 
+<div id="">
+
 <% content_for :sidebar do %>
   <h2>Actions</h2>
   <ul id="specific">
@@ -19,5 +21,11 @@
   </ul>
   <ul id="general">
     <li><%= link_to "Add a release", new_service_release_path(@service) %> </li>
+  </ul>
+  <h2>Releases</h2>
+  <ul>
+    <% @releases.each do |release| %>
+      <li><%= link_to release.name, service_release_path(@service, release) %> </li>
+    <% end %>
   </ul>
 <% end %>
