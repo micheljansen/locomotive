@@ -2,6 +2,7 @@ class ServiceInstancesController < ApplicationController
   
   before_filter :init_menu
   before_filter :find_client
+  before_filter :find_service
   
   # GET /service_instances
   # GET /service_instances.xml
@@ -9,6 +10,8 @@ class ServiceInstancesController < ApplicationController
     @service_instances = 
       if @client
         @client.service_instances
+      elsif @service
+        @service.service_instances
       else
         ServiceInstance.find(:all)
       end
@@ -102,6 +105,12 @@ class ServiceInstancesController < ApplicationController
   def find_client
     if params[:client_id]
       @client = Client.find(params[:client_id])
+    end
+  end
+  
+  def find_service
+    if params[:service_id]
+      @service = Service.find(params[:service_id])
     end
   end
 end

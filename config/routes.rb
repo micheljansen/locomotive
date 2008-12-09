@@ -24,6 +24,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :services do |service|
     service.resources :releases
+    service.resources :service_instances
   end
 
   map.resources :clients do |client|
