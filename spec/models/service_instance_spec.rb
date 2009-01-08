@@ -6,11 +6,12 @@ describe ServiceInstance do
   end
   
   before(:each) do
-    client  = Client.create(:name => "henk", :description => "test")
-    service = client.services.create(:name => "testservice", :service_type_type => "SpecServiceType")
-    release = service.releases.create(:name => "release")
-    @valid_service_instance = release.service_instances.create(:client => client)
+    @client  = Client.create(:name => "henk", :description => "test")
+    @service = @client.services.create(:name => "testservice", :service_type_type => "SpecServiceType")
+    @release = @service.releases.create(:name => "release")
+    @valid_service_instance = @release.service_instances.create(:client => @client)
     @valid_service_instance.platform = Platform.new
+    @valid_service_instance.save
   end
   
   it "should be valid when provided with a valid release, client and platform" do
@@ -39,6 +40,15 @@ describe ServiceInstance do
     invalid_si.client = Client.new
     
     invalid_si.should_not be_valid
+  end
+  
+  it "should not be allowed to change service type" do
+    si = @valid_service_instance
+    unrelated_service = @client.services.create(:name => "completely_unrelated_service", :service_type_type => "SpecServiceType")
+    unrelated_release = unrelated_service.releases.create(:name => "test")
+    si.release = unrelated_release
+    
+    si.should_not be_valid
   end
   
 end
