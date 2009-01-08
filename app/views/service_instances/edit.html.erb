@@ -1,9 +1,16 @@
-<h1>Editing service_instance</h1>
+<h2>Editing <%= "#{@service_instance.release.full_name} for #{@service_instance.client.name}" %></h2>
 
 <% form_for(@service_instance) do |f| %>
   <%= f.error_messages %>
 
   <p>
+    <p><b>Release:</b>
+    <%#= link_to @service_instance.release.name, service_release_path(@service_instance.release.service, @service_instance.release) %>
+    <%= f.collection_select :release_id, @service_instance.service.releases, :id, :full_name %>
+    </p>
+    <p><b>Platform:</b>
+    <%= link_to @service_instance.platform.name, @service_instance.platform %>
+    </p>
     <%= f.submit "Update" %>
   </p>
 <% end %>

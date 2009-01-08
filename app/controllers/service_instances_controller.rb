@@ -86,10 +86,29 @@ class ServiceInstancesController < ApplicationController
     old_release = @service_instance.release
     old_platform = @service_instance.platform
     
-    ServiceInstance.transaction do
+    #ServiceInstance.transaction do
       # update the service instances data to reflect the changes
-      @service_instance.update_attributes!(params[:service_instance])
-    end
+      begin
+        @service_instance.update_attributes(params[:service_instance])
+        
+        # somehow, the relation attributes don't get updated automatically
+        # after their corresponding _id attributes have been updated, so
+        # reload manually to flush the cache
+        @service_instance.reload
+        
+        if old_platform != @service_instance.platform
+          # move from one platform to another
+        end
+      
+        if old_release != @service_instance.release
+          # up / downgrade
+          puts "upgrading from #{old_release.name} to #{@service_instance.release.name}"
+        end
+      
+      rescue Exception 
+        STDERR.puts "ERROR: #{$!}"
+      end
+    #end
 
     respond_to do |format|
       if 
