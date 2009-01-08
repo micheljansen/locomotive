@@ -21,6 +21,7 @@ class ServiceInstance < ActiveRecord::Base
   validates_presence_of :platform, :on => :create, :message => "can't be blank"
   
   validate :legal_release_for_client?
+  validate :service_has_not_changed?
   
   def deploy
     # find the service_type to delegate this request to
@@ -33,6 +34,7 @@ class ServiceInstance < ActiveRecord::Base
   def service
     release.service if release
   end
+  
   
   private
   
@@ -48,6 +50,20 @@ class ServiceInstance < ActiveRecord::Base
       errors.add(:release, "does not belong to a service")
     elsif(!release.service.clients.include? client)
       errors.add(:release, "does not belong to a service client #{client.name ? client.name : nil} has a contract for.")
+    end
+  end
+  
+  # Validates on updating the release, whether that release belongs to the same
+  # service as the previous one.
+  def service_has_not_changed?
+    if changed?
+      
+      previous_release = Release.find(release_id_was) if release_id_was
+     
+      if previous_release && release && previous_release.service != release.service
+        errors.add(:release, "belongs to a different service than this instance")
+      end
+      
     end
   end
   
