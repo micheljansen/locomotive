@@ -103,6 +103,7 @@ class ServiceInstancesController < ApplicationController
         if old_release != @service_instance.release
           # up / downgrade
           puts "upgrading from #{old_release.name} to #{@service_instance.release.name}"
+          @service_instance.deploy
         end
       
       rescue Exception 
