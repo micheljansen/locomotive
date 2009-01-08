@@ -48,7 +48,7 @@ class Menu
   
   # value is wrapped in an array if required
   def []=(key, value)
-    p value
+    #p value
     @order << key unless items.member?(key)
     items[key] = value
   end
