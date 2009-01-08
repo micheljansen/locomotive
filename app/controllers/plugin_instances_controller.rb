@@ -81,8 +81,8 @@ class PluginInstancesController < ApplicationController
       
       @plugin_instance.plugin_properties.each do |p|
         logger.debug("updating plugin_property #{p.key}")
-        y p
-        y params[:plugin_properties][p.id.to_s]
+        #y p
+        #y params[:plugin_properties][p.id.to_s]
         p.attributes = params[:plugin_properties][p.id.to_s]  
       end
       

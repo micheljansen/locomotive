@@ -52,6 +52,9 @@ class ServiceInstancesController < ApplicationController
 
   # POST /service_instances
   # POST /service_instances.xml
+  #
+  # CREATING a service_instance, means deploying a new instance of
+  # a given service to a given platform. 
   def create
     @service_instance = ServiceInstance.new(params[:service_instance])
 
@@ -69,11 +72,27 @@ class ServiceInstancesController < ApplicationController
 
   # PUT /service_instances/1
   # PUT /service_instances/1.xml
+  #
+  # UPDATING a service_instance might mean different things
+  # depending on which parameters have changed:
+  #   * If the version has changed, an upgrade or dowgrade should be performed
+  #     so the given version of the service ends up being deployed to the platform.
+  #   * If the platform has changed, this instance will be moved to a different
+  #     set of servers.
+  # These actions should be combined if possible.
   def update
     @service_instance = ServiceInstance.find(params[:id])
+    
+    old_release = @service_instance.release
+    old_platform = @service_instance.platform
+    
+    ServiceInstance.transaction do
+      # update the service instances data to reflect the changes
+      @service_instance.update_attributes!(params[:service_instance])
+    end
 
     respond_to do |format|
-      if @service_instance.update_attributes(params[:service_instance])
+      if 
         flash[:notice] = 'ServiceInstance was successfully updated.'
         format.html { redirect_to(@service_instance) }
         format.xml  { head :ok }

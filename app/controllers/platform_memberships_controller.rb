@@ -107,13 +107,13 @@ class PlatformMembershipsController < ApplicationController
   end
   
   def initialize_params
-    puts "initializeing params"
-    y params
-    p @platform
-    p @server
+    puts "initializing params"
+    # y params
+    #     p @platform
+    #     p @server
     params[:platform_membership] ||= {}
     params[:platform_membership][:platform_id] ||= @platform.id if @platform
     params[:platform_membership][:server_id] ||= @server.id if @server
-    y params
+    #y params
   end
 end
