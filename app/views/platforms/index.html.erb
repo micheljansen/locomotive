@@ -15,6 +15,15 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New platform', new_platform_path %>
+<% content_for(:sidebar) do %>
+  <h2> Actions </h2>
+  <ul>
+    <li><%= link_to 'Add a platform', new_platform_path %> </li>
+  </ul>
+  <h2> All platforms </h2>
+  <ul>
+    <% Platform.find(:all).each do |platform| %>
+      <li><%= link_to platform.name, platform %> </li>
+    <% end %>
+  </ul>
+<% end %>
