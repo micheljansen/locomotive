@@ -1,7 +1,7 @@
 <h1>Editing server</h1>
 
 <% form_for(@server) do |f| %>
-  <%= f.error_messages %>
+  <!--TODO: Fixme for DM %= f.error_messages %-->
 
   <p>
     <%= f.label :name %><br />
@@ -13,8 +13,8 @@
   </p>
   
   <table>
-    <%# render :partial => "server_role", :collection => Role.find(:all) %>
-    <% Role.find(:all).each do |role| %>
+    <%# render :partial => "server_role", :collection => Role.all %>
+    <% Role.all.each do |role| %>
       <tr>
         <td>
           <%= check_box_tag "server[role_ids][]", role.id, @server.roles.include?(role) %>

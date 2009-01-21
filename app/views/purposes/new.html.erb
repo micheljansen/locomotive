@@ -1,12 +1,12 @@
 <h1>Add a role to server <%= @server.name %></h1>
 
 <% form_for([@server,@purpose]) do |f| %>
-  <%= f.error_messages %>
+  <!--TODO: Fixme for DM %= f.error_messages %-->
   
   <%= f.hidden_field :server_id %>
   <p>
     <%= f.label :role_id %><br />
-    <%= f.collection_select :role_id, Role.find(:all), :id, :name %>
+    <%= f.collection_select :role_id, Role.all, :id, :name %>
   </p>
   <p>
     <%= f.submit "Create" %>

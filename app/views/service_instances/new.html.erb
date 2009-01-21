@@ -1,19 +1,19 @@
 <h1>New service_instance</h1>
 
 <% form_for(@service_instance) do |f| %>
-  <%= f.error_messages %>
+  <!--TODO: Fixme for DM %= f.error_messages %-->
   <table>
     <tr>
       <th>Client:</th>
-      <td><%= f.collection_select :client_id, Client.find(:all), :id, :name %></td>
+      <td><%= f.collection_select :client_id, Client.all, :id, :name %></td>
     </tr>
     <tr>
       <th>Release:</th>
-      <td><%= f.collection_select :release_id, Release.find(:all), :id, :full_name %></td>
+      <td><%= f.collection_select :release_id, Release.all, :id, :full_name %></td>
     </tr>
     <tr>
       <th>Platform:</th>
-      <td><%= f.collection_select :platform_id, Platform.find(:all), :id, :name %></td>
+      <td><%= f.collection_select :platform_id, Platform.all, :id, :name %></td>
     </tr>
   </table>
 
