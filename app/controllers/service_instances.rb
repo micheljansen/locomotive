@@ -1,8 +1,8 @@
-class ServiceInstancesController < ApplicationController
+class ServiceInstances < Application
   
-  before_filter :init_menu
-  before_filter :find_client
-  before_filter :find_service
+  before :init_menu
+  before :find_client
+  before :find_service
   
   # GET /service_instances
   # GET /service_instances.xml

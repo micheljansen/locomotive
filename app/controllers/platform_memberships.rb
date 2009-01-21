@@ -1,8 +1,8 @@
-class PlatformMembershipsController < ApplicationController
+class PlatformMemberships < Application
   
-  before_filter :find_platform
-  before_filter :find_server
-  before_filter :initialize_params
+  before :find_platform
+  before :find_server
+  before :initialize_params
   
   # GET /platform_memberships
   # GET /platform_memberships.xml

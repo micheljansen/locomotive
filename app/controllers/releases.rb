@@ -1,6 +1,6 @@
-class ReleasesController < ApplicationController
+class Releases < Application
   
-  before_filter :init_menu
+  before :init_menu
   
   # GET /releases
   # GET /releases.xml

@@ -1,7 +1,7 @@
-class PurposesController < ApplicationController
+class Purposes < Application
   
-  before_filter :init_menu
-  before_filter :find_associated_server
+  before :init_menu
+  before :find_associated_server
   
 #  # GET /purposes
 #  # GET /purposes.xml

@@ -1,6 +1,6 @@
-class ContractsController < ApplicationController
+class Contracts < Application
   
-  before_filter :init_menu
+  before :init_menu
   
   # GET /contracts
   # GET /contracts.xml

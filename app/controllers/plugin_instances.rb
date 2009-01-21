@@ -1,6 +1,6 @@
-class PluginInstancesController < ApplicationController
+class PluginInstances < Application
   
-  before_filter :init_menu
+  before :init_menu
   
   # GET /plugin_instances
   # GET /plugin_instances.xml

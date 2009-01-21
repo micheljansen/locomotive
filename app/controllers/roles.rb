@@ -1,6 +1,6 @@
-class RolesController < ApplicationController
+class Roles < Application
   
-  before_filter :init_menu
+  before :init_menu
   
   # GET /roles
   # GET /roles.xml

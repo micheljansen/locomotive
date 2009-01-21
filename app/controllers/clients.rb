@@ -1,6 +1,6 @@
-class ClientsController < ApplicationController
+class Clients < Application
   
-  before_filter :init_menu
+  before :init_menu
   
   # GET /clients
   # GET /clients.xml

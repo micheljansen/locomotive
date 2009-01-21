@@ -1,6 +1,6 @@
-class ServersController < ApplicationController
+class Servers < Application
 
-  before_filter :init_menu
+  before :init_menu
   
   # GET /servers
   # GET /servers.xml

@@ -1,6 +1,6 @@
-class AdministrationDashboardController < ApplicationController
-  
-  before_filter :init_menu
+class AdministrationDashboard < Application
+
+  before :init_menu
   
   def index
     @clients = Client.all

@@ -1,6 +1,6 @@
-class DependenciesController < ApplicationController
+class Dependencies < Application
   
-  before_filter :init_menu
+  before :init_menu
   
   # GET /dependencies
   # GET /dependencies.xml
