@@ -2,7 +2,7 @@ class PluginPropertiesController < ApplicationController
   # GET /plugin_properties
   # GET /plugin_properties.xml
   def index
-    @plugin_properties = PluginProperty.find(:all)
+    @plugin_properties = PluginProperty.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class PluginPropertiesController < ApplicationController
   # GET /plugin_properties/1
   # GET /plugin_properties/1.xml
   def show
-    @plugin_property = PluginProperty.find(params[:id])
+    @plugin_property = PluginProperty.get(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class PluginPropertiesController < ApplicationController
 
   # GET /plugin_properties/1/edit
   def edit
-    @plugin_property = PluginProperty.find(params[:id])
+    @plugin_property = PluginProperty.get(params[:id])
   end
 
   # POST /plugin_properties
@@ -57,7 +57,7 @@ class PluginPropertiesController < ApplicationController
   # PUT /plugin_properties/1
   # PUT /plugin_properties/1.xml
   def update
-    @plugin_property = PluginProperty.find(params[:id])
+    @plugin_property = PluginProperty.get(params[:id])
 
     respond_to do |format|
       if @plugin_property.update_attributes(params[:plugin_property])
@@ -74,7 +74,7 @@ class PluginPropertiesController < ApplicationController
   # DELETE /plugin_properties/1
   # DELETE /plugin_properties/1.xml
   def destroy
-    @plugin_property = PluginProperty.find(params[:id])
+    @plugin_property = PluginProperty.get(params[:id])
     @plugin_property.destroy
 
     respond_to do |format|

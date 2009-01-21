@@ -13,7 +13,7 @@ class ServiceInstancesController < ApplicationController
       elsif @service
         @service.service_instances
       else
-        ServiceInstance.find(:all)
+        ServiceInstance.all
       end
 
     respond_to do |format|
@@ -25,7 +25,7 @@ class ServiceInstancesController < ApplicationController
   # GET /service_instances/1
   # GET /service_instances/1.xml
   def show
-    @service_instance = ServiceInstance.find(params[:id])
+    @service_instance = ServiceInstance.get(params[:id])
     @client = @service_instance.client
 
     respond_to do |format|
@@ -47,7 +47,7 @@ class ServiceInstancesController < ApplicationController
 
   # GET /service_instances/1/edit
   def edit
-    @service_instance = ServiceInstance.find(params[:id])
+    @service_instance = ServiceInstance.get(params[:id])
   end
 
   # POST /service_instances
@@ -81,7 +81,7 @@ class ServiceInstancesController < ApplicationController
   #     set of servers.
   # These actions should be combined if possible.
   def update
-    @service_instance = ServiceInstance.find(params[:id])
+    @service_instance = ServiceInstance.get(params[:id])
     
     old_release = @service_instance.release
     old_platform = @service_instance.platform
@@ -126,7 +126,7 @@ class ServiceInstancesController < ApplicationController
   # DELETE /service_instances/1
   # DELETE /service_instances/1.xml
   def destroy
-    @service_instance = ServiceInstance.find(params[:id])
+    @service_instance = ServiceInstance.get(params[:id])
     @service_instance.destroy
 
     respond_to do |format|

@@ -7,7 +7,7 @@ class PlatformMembershipsController < ApplicationController
   # GET /platform_memberships
   # GET /platform_memberships.xml
   def index
-    @platform_memberships = PlatformMembership.find(:all)
+    @platform_memberships = PlatformMembership.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,7 +18,7 @@ class PlatformMembershipsController < ApplicationController
   # GET /platform_memberships/1
   # GET /platform_memberships/1.xml
   def show
-    @platform_membership = PlatformMembership.find(params[:id])
+    @platform_membership = PlatformMembership.get(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -39,7 +39,7 @@ class PlatformMembershipsController < ApplicationController
 
   # GET /platform_memberships/1/edit
   def edit
-    @platform_membership = PlatformMembership.find(params[:id])
+    @platform_membership = PlatformMembership.get(params[:id])
   end
 
   # POST /platform_memberships
@@ -63,7 +63,7 @@ class PlatformMembershipsController < ApplicationController
   # PUT /platform_memberships/1
   # PUT /platform_memberships/1.xml
   def update
-    @platform_membership = PlatformMembership.find(params[:id])
+    @platform_membership = PlatformMembership.get(params[:id])
 
     respond_to do |format|
       if @platform_membership.update_attributes(params[:platform_membership])
@@ -80,7 +80,7 @@ class PlatformMembershipsController < ApplicationController
   # DELETE /platform_memberships/1
   # DELETE /platform_memberships/1.xml
   def destroy
-    @platform_membership = PlatformMembership.find(params[:id])
+    @platform_membership = PlatformMembership.get(params[:id])
     @platform_membership.destroy
 
     respond_to do |format|

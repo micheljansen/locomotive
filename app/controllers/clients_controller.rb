@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.xml
   def index
-    @clients = Client.find(:all)
+    @clients = Client.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.xml
   def show
-    @client = Client.find(params[:id])
+    @client = Client.get(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +37,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/1/edit
   def edit
-    @client = Client.find(params[:id])
+    @client = Client.get(params[:id])
   end
 
   # POST /clients
@@ -60,7 +60,7 @@ class ClientsController < ApplicationController
   # PUT /clients/1
   # PUT /clients/1.xml
   def update
-    @client = Client.find(params[:id])
+    @client = Client.get(params[:id])
 
     respond_to do |format|
       if @client.update_attributes(params[:client])
@@ -77,7 +77,7 @@ class ClientsController < ApplicationController
   # DELETE /clients/1
   # DELETE /clients/1.xml
   def destroy
-    @client = Client.find(params[:id])
+    @client = Client.get(params[:id])
     @client.destroy
 
     respond_to do |format|

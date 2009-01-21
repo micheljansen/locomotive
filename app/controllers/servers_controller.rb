@@ -5,7 +5,7 @@ class ServersController < ApplicationController
   # GET /servers
   # GET /servers.xml
   def index
-    @servers = Server.find(:all)
+    @servers = Server.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class ServersController < ApplicationController
   # GET /servers/1
   # GET /servers/1.xml
   def show
-    @server = Server.find(params[:id])
+    @server = Server.get(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +37,7 @@ class ServersController < ApplicationController
 
   # GET /servers/1/edit
   def edit
-    @server = Server.find(params[:id])
+    @server = Server.get(params[:id])
   end
 
   # POST /servers
@@ -60,7 +60,7 @@ class ServersController < ApplicationController
   # PUT /servers/1
   # PUT /servers/1.xml
   def update
-    @server = Server.find(params[:id])
+    @server = Server.get(params[:id])
 
     respond_to do |format|
       if @server.update_attributes(params[:server])
@@ -77,7 +77,7 @@ class ServersController < ApplicationController
   # DELETE /servers/1
   # DELETE /servers/1.xml
   def destroy
-    @server = Server.find(params[:id])
+    @server = Server.get(params[:id])
     @server.destroy
 
     respond_to do |format|

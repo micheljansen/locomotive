@@ -5,7 +5,7 @@ class DependenciesController < ApplicationController
   # GET /dependencies
   # GET /dependencies.xml
   def index
-    @dependencies = Dependency.find(:all)
+    @dependencies = Dependency.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class DependenciesController < ApplicationController
   # GET /dependencies/1
   # GET /dependencies/1.xml
   def show
-    @dependency = Dependency.find(params[:id])
+    @dependency = Dependency.get(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +37,7 @@ class DependenciesController < ApplicationController
 
   # GET /dependencies/1/edit
   def edit
-    @dependency = Dependency.find(params[:id])
+    @dependency = Dependency.get(params[:id])
   end
 
   # POST /dependencies
@@ -60,7 +60,7 @@ class DependenciesController < ApplicationController
   # PUT /dependencies/1
   # PUT /dependencies/1.xml
   def update
-    @dependency = Dependency.find(params[:id])
+    @dependency = Dependency.get(params[:id])
 
     respond_to do |format|
       if @dependency.update_attributes(params[:dependency])
@@ -77,7 +77,7 @@ class DependenciesController < ApplicationController
   # DELETE /dependencies/1
   # DELETE /dependencies/1.xml
   def destroy
-    @dependency = Dependency.find(params[:id])
+    @dependency = Dependency.get(params[:id])
     @dependency.destroy
 
     respond_to do |format|

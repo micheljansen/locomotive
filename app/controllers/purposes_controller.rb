@@ -19,7 +19,7 @@ class PurposesController < ApplicationController
 #  # GET /purposes/1
 #  # GET /purposes/1.xml
   def show
-    @purpose = Purpose.find(params[:id])
+    @purpose = Purpose.get(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,7 +41,7 @@ class PurposesController < ApplicationController
 
 #  # GET /purposes/1/edit
 #  def edit
-#    @purpose = Purpose.find(params[:id])
+#    @purpose = Purpose.get(params[:id])
 #  end
 
   # POST /purposes
@@ -64,7 +64,7 @@ class PurposesController < ApplicationController
   # PUT /purposes/1
   # PUT /purposes/1.xml
   def update
-    @purpose = Purpose.find(params[:id])
+    @purpose = Purpose.get(params[:id])
 
     respond_to do |format|
       if @purpose.update_attributes(params[:purpose])
@@ -81,7 +81,7 @@ class PurposesController < ApplicationController
   # DELETE /purposes/1
   # DELETE /purposes/1.xml
   def destroy
-    @purpose = Purpose.find(params[:id])
+    @purpose = Purpose.get(params[:id])
     @purpose.destroy
 
     respond_to do |format|

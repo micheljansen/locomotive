@@ -5,7 +5,7 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.xml
   def index
-    @roles = Role.find(:all)
+    @roles = Role.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class RolesController < ApplicationController
   # GET /roles/1
   # GET /roles/1.xml
   def show
-    @role = Role.find(params[:id])
+    @role = Role.get(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +37,7 @@ class RolesController < ApplicationController
 
   # GET /roles/1/edit
   def edit
-    @role = Role.find(params[:id])
+    @role = Role.get(params[:id])
   end
 
   # POST /roles
@@ -60,7 +60,7 @@ class RolesController < ApplicationController
   # PUT /roles/1
   # PUT /roles/1.xml
   def update
-    @role = Role.find(params[:id])
+    @role = Role.get(params[:id])
 
     respond_to do |format|
       if @role.update_attributes(params[:role])
@@ -77,7 +77,7 @@ class RolesController < ApplicationController
   # DELETE /roles/1
   # DELETE /roles/1.xml
   def destroy
-    @role = Role.find(params[:id])
+    @role = Role.get(params[:id])
     @role.destroy
 
     respond_to do |format|

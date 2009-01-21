@@ -5,7 +5,7 @@ class ReleasesController < ApplicationController
   # GET /releases
   # GET /releases.xml
   def index
-    @releases = Release.find(:all)
+    @releases = Release.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class ReleasesController < ApplicationController
   # GET /releases/1
   # GET /releases/1.xml
   def show
-    @release = Release.find(params[:id])
+    @release = Release.get(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -39,7 +39,7 @@ class ReleasesController < ApplicationController
 
   # GET /services/1/releases/1/edit
   def edit
-    @release = Release.find(params[:id])
+    @release = Release.get(params[:id])
     @service = @release.service
   end
 
@@ -64,7 +64,7 @@ class ReleasesController < ApplicationController
   # PUT /releases/1
   # PUT /releases/1.xml
   def update
-    @release = Release.find(params[:id])
+    @release = Release.get(params[:id])
 
     respond_to do |format|
       if @release.update_attributes(params[:release])
@@ -81,7 +81,7 @@ class ReleasesController < ApplicationController
   # DELETE /releases/1
   # DELETE /releases/1.xml
   def destroy
-    @release = Release.find(params[:id])
+    @release = Release.get(params[:id])
     @release.destroy
 
     respond_to do |format|

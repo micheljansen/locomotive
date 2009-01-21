@@ -5,7 +5,7 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.xml
   def index
-    @services = Service.find(:all)
+    @services = Service.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.xml
   def show
-    @service = Service.find(params[:id])
+    @service = Service.get(params[:id])
     @releases = @service.releases
     @service_instances = @service.service_instances.find(:all, :order => "client_id DESC")
 
@@ -39,7 +39,7 @@ class ServicesController < ApplicationController
 
   # GET /services/1/edit
   def edit
-    @service = Service.find(params[:id])
+    @service = Service.get(params[:id])
   end
 
   # POST /services
@@ -62,7 +62,7 @@ class ServicesController < ApplicationController
   # PUT /services/1
   # PUT /services/1.xml
   def update
-    @service = Service.find(params[:id])
+    @service = Service.get(params[:id])
 
     respond_to do |format|
       if @service.update_attributes(params[:service])
@@ -79,7 +79,7 @@ class ServicesController < ApplicationController
   # DELETE /services/1
   # DELETE /services/1.xml
   def destroy
-    @service = Service.find(params[:id])
+    @service = Service.get(params[:id])
     @service.destroy
 
     respond_to do |format|

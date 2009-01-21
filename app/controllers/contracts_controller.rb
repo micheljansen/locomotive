@@ -5,7 +5,7 @@ class ContractsController < ApplicationController
   # GET /contracts
   # GET /contracts.xml
   def index
-    @contracts = Contract.find(:all)
+    @contracts = Contract.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class ContractsController < ApplicationController
   # GET /contracts/1
   # GET /contracts/1.xml
   def show
-    @contract = Contract.find(params[:id])
+    @contract = Contract.get(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,8 +26,8 @@ class ContractsController < ApplicationController
 
   # GET /clients/1/contracts/assign/2
   def new
-    @services = Service.find(:all)
-    @client = Client.find(params[:client_id])
+    @services = Service.all
+    @client = Client.get(params[:client_id])
     @contract = Contract.new    
 
     respond_to do |format|
@@ -38,7 +38,7 @@ class ContractsController < ApplicationController
 
   # GET /contracts/1/edit
   def edit
-    @contract = Contract.find(params[:id])
+    @contract = Contract.get(params[:id])
   end
 
   # POST /clients/1/contracts
@@ -64,7 +64,7 @@ class ContractsController < ApplicationController
   # PUT /contracts/1
   # PUT /contracts/1.xml
   def update
-    @contract = Contract.find(params[:id])
+    @contract = Contract.get(params[:id])
 
     respond_to do |format|
       if @contract.update_attributes(params[:contract])
@@ -82,7 +82,7 @@ class ContractsController < ApplicationController
   # DELETE /contracts/1.xml
   def destroy
     @client = Client.find(params[:client_id])
-    @contract = Contract.find(params[:id])
+    @contract = Contract.get(params[:id])
     @contract.destroy
 
     respond_to do |format|

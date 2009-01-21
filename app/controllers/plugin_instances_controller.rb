@@ -5,7 +5,7 @@ class PluginInstancesController < ApplicationController
   # GET /plugin_instances
   # GET /plugin_instances.xml
   def index
-    @plugin_instances = PluginInstance.find(:all)
+    @plugin_instances = PluginInstance.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class PluginInstancesController < ApplicationController
   # GET /plugin_instances/1
   # GET /plugin_instances/1.xml
   def show
-    @plugin_instance = PluginInstance.find(params[:id])
+    @plugin_instance = PluginInstance.get(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +26,7 @@ class PluginInstancesController < ApplicationController
 
   # GET /plugin_instances/new/hello_world
   def new
-    @plugin = Locomotive::Plugin.find_by_id(params[:id])
+    @plugin = Locomotive::PluginInstance.all(:conditions => {:id => params[:id]})[0]
     
     # explode if the corresponding plugin cannot be found
     if @plugin.nil? then
@@ -47,7 +47,7 @@ class PluginInstancesController < ApplicationController
 
   # GET /plugin_instances/1/edit
   def edit
-    @plugin_instance = PluginInstance.find(params[:id])
+    @plugin_instance = PluginInstance.get(params[:id])
     p @plugin_instance.plugin_properties
   end
 
@@ -74,7 +74,7 @@ class PluginInstancesController < ApplicationController
   # PUT /plugin_instances/1
   # PUT /plugin_instances/1.xml
   def update
-    @plugin_instance = PluginInstance.find(params[:id])
+    @plugin_instance = PluginInstance.get(params[:id])
     
     respond_to do |format|
       @plugin_instance.attributes = params[:plugin_instance]
@@ -100,7 +100,7 @@ class PluginInstancesController < ApplicationController
   # DELETE /plugin_instances/1
   # DELETE /plugin_instances/1.xml
   def destroy
-    @plugin_instance = PluginInstance.find(params[:id])
+    @plugin_instance = PluginInstance.get(params[:id])
     @plugin_instance.destroy
 
     respond_to do |format|

@@ -5,7 +5,7 @@ class PluginsController < ApplicationController
   # GET /plugins
   # GET /plugins.xml
   def index
-    #@plugins = Plugin.find(:all)
+    #@plugins = Plugin.all
     #@plugins = []
     @plugins = Locomotive::Plugins.find_all
     logger.debug(Locomotive::Plugins.find_all)
@@ -40,7 +40,7 @@ class PluginsController < ApplicationController
 
   # GET /plugins/1/edit
   def edit
-    #@plugin = Plugin.find(params[:id])
+    #@plugin = Plugin.get(params[:id])
     @plugin = Locomotive::Plugins::HelloWorld
   end
   
