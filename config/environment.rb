@@ -32,6 +32,8 @@ Rails::Initializer.run do |config|
   config.gem "data_objects"
   config.gem "do_sqlite3"
   config.gem "dm-core"
+  config.gem "dm-aggregates"
+  config.gem "dm-validations"
 
   # Only load the plugins named here, in the order given. By default, all plugins
   # in vendor/plugins are loaded in alphabetical order.

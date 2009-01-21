@@ -26,7 +26,7 @@ module Locomotive
         #loop forever
         loop do
           
-          Server.find(:all).each do |server|
+          Server.all.each do |server|
             result = server.check()
             log("result for #{server.name}: #{result}")
           end

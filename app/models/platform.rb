@@ -4,29 +4,37 @@
 # Table name: platforms
 #
 #  id         :integer         not null, primary key
-#  name       :string(255)     
-#  created_at :datetime        
-#  updated_at :datetime        
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
 #
+require 'platform_membership' # Related classes not loaded by Rails TODO: investigate this
 
-class Platform < ActiveRecord::Base
-  has_many :service_instances
-  has_many :platform_memberships, :dependent => :destroy
-  has_many :servers, :through => :platform_memberships
-  
-  validates_presence_of :name
-  
+class Platform
+  include DataMapper::Resource
+
+  property :id, Integer, :serial => true
+  property :name, String
+  property :created_at, DateTime
+  property :updated_at, DateTime
+
+  has n, :service_instances
+  has n, :platform_memberships, :dependent => :destroy
+  has n, :servers, :through => :platform_memberships
+
+  validates_present :name
+
   # a list of servers not part of this platform
   def other_servers
     # TODO: handle this via SQL instead of substracting sets in Ruby
-    Server.find(:all) - servers
+    Server.all - servers
   end
-  
+
   # a list of all platforms except this one
   def others
-    Platform.find(:all) - [self]
+    Platform.all - [self]
   end
-  
+
   # returns the membership for a given server
   # or nil if not found
   def membership_for_server_id(server_id)

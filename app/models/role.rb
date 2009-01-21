@@ -9,9 +9,16 @@
 #  updated_at :datetime        
 #
 
-class Role < ActiveRecord::Base
-  has_many :purposes, :dependent => :destroy
-  has_many :servers, :through => :purposes
+class Role
+  include DataMapper::Resource
   
-  validates_uniqueness_of :name
+  property :id, Integer, :serial => true
+  property :name, String
+  property :created_at, DateTime
+  property :updated_at, DateTime
+  
+  has n, :purposes, :dependent => :destroy
+  has n, :servers, :through => :purposes
+  
+  validates_is_unique :name
 end
