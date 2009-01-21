@@ -33,7 +33,8 @@ class ServiceType
         dependencies << role
       else
         # it's a string, so find it or create it
-        dependencies << (Role.find_by_name(role) ? Role.find_by_name(role) : Role.create(:name => role))    
+        # FIXME: find DM/Merb equivalent
+		# dependencies << (Role.find_by_name(role) ? Role.find_by_name(role) : Role.create(:name => role))    
       end
     end
 

@@ -34,7 +34,8 @@ class PluginInstance
     @plugin ||= Locomotive::Plugin.find_by_id(plugin_type)
   end
 
-  delegate :description, :to => :plugin
+  # FIXME: equivalent on Merb/DM stack
+  # delegate :description, :to => :plugin
 
   def plugin_properties_that_explodes
       raise "this method should not be used to collect properties from a plugin instance. Use PluginInstance#properties instead."
