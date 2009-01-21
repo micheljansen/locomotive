@@ -4,7 +4,7 @@
 <% for purpose in @purposes %>
   <tr>
     <td><%=h purpose.role.name %></td>
-    <td><%= link_to 'x', server_purpose_path(@server, purpose), 
+    <td><%= link_to 'x', server_purpose_path(@server.id, purpose.id),
             :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

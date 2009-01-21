@@ -12,9 +12,9 @@
     <td><%=h server.name %></td>
     <td><%=h server.hostname %></td>
     <td><%=h server.roles.map {|r| r.name} * "," %></td>
-    <td><%= link_to 'Show', server %></td>
-    <td><%= link_to 'Edit', edit_server_path(server) %></td>
-    <td><%= link_to 'Destroy', server, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', server_path(server.id) %></td>
+    <td><%= link_to 'Edit', edit_server_path(server.id) %></td>
+    <td><%= link_to 'Destroy', server_path(server.id), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

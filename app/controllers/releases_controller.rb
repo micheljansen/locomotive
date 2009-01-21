@@ -52,7 +52,7 @@ class ReleasesController < ApplicationController
     respond_to do |format|
       if @release.save
         flash[:notice] = 'Release was successfully created.'
-        format.html { redirect_to(@service) }
+        format.html { redirect_to(service_url(@service.id)) }
         format.xml  { render :xml => @release, :status => :created, :location => @release }
       else
         format.html { render :action => "new" }
@@ -69,7 +69,7 @@ class ReleasesController < ApplicationController
     respond_to do |format|
       if @release.update_attributes(params[:release])
         flash[:notice] = 'Release was successfully updated.'
-        format.html { redirect_to(@release.service) }
+        format.html { redirect_to(service_url(@release.service.id)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

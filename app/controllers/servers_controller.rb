@@ -48,7 +48,7 @@ class ServersController < ApplicationController
     respond_to do |format|
       if @server.save
         flash[:notice] = 'Server was successfully created.'
-        format.html { redirect_to(@server) }
+        format.html { redirect_to(server_url(@server.id)) }
         format.xml  { render :xml => @server, :status => :created, :location => @server }
       else
         format.html { render :action => "new" }
@@ -65,7 +65,7 @@ class ServersController < ApplicationController
     respond_to do |format|
       if @server.update_attributes(params[:server])
         flash[:notice] = 'Server was successfully updated.'
-        format.html { redirect_to(@server) }
+        format.html { redirect_to(server_url(@server.id)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

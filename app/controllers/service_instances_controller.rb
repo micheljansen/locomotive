@@ -61,7 +61,7 @@ class ServiceInstancesController < ApplicationController
     respond_to do |format|
       if @service_instance.save
         flash[:notice] = 'ServiceInstance was successfully created.'
-        format.html { redirect_to(@service_instance) }
+        format.html { redirect_to(service_instance_url(@service_instance.id)) }
         format.xml  { render :xml => @service_instance, :status => :created, :location => @service_instance }
       else
         format.html { render :action => "new" }
@@ -114,7 +114,7 @@ class ServiceInstancesController < ApplicationController
     respond_to do |format|
       if 
         flash[:notice] = 'ServiceInstance was successfully updated.'
-        format.html { redirect_to(@service_instance) }
+        format.html { redirect_to(service_instance_url(@service_instance.id)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

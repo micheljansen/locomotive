@@ -37,16 +37,16 @@
             <% end %>
           </ul>
         </td>
-        <td><%= link_to 'cancel contract', client_contract_path(@client, contract), :method => :delete %></td>
+        <td><%= link_to 'cancel contract', client_contract_path(@client.id, contract.id), :method => :delete %></td>
     <% end %>
   </table>
   
 <% content_for(:sidebar) do %>
   <h2>Actions</h2>
   <ul id="specific">
-    <li><%= link_to 'Edit this client', edit_client_path(@client) %></li>
+    <li><%= link_to 'Edit this client', edit_client_path(@client.id) %></li>
     <li><%= link_to 'Assign a service', new_client_contract_path(:client_id => @client.id) %></li>
-    <li><%= link_to 'Manage deployments', client_service_instances_path(@client) %></li>
+    <li><%= link_to 'Manage deployments', client_service_instances_path(@client.id) %></li>
   </ul>
   <ul id="general">
     <li><%= link_to 'Add a new client', new_client_path %>

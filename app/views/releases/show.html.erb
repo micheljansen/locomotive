@@ -1,7 +1,7 @@
-<h1><%= link_to @release.service.name, service_path(@release.service) %> release <%=h @release.name %></h1>
+<h1><%= link_to @release.service.name, service_path(@release.service.id) %> release <%=h @release.name %></h1>
 <div id="actions">
   <span>
-    <%= link_to 'Edit', edit_service_release_path(@release.service, @release) %>
+    <%= link_to 'Edit', edit_service_release_path(@release.service.id, @release.id) %>
   </span>
 </div>
 
@@ -10,11 +10,11 @@
 
   <h2>Actions</h2>
   <ul>
-    <li><%= link_to 'Edit this release', edit_service_release_path(@release.service, @release) %></li>
-    <li><%= link_to "Delete this release", service_release_path(@release.service, @release), :method => :delete %></li>
+    <li><%= link_to 'Edit this release', edit_service_release_path(@release.service.id, @release.id) %></li>
+    <li><%= link_to "Delete this release", service_release_path(@release.service.id, @release.id), :method => :delete %></li>
   </ul>
   <ul>
-    <li><%= link_to "Add a release", new_service_release_path(@release.service) %></li>
+    <li><%= link_to "Add a release", new_service_release_path(@release.service.id) %></li>
   </ul>
   
   <h2>Other releases</h2>

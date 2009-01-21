@@ -12,9 +12,9 @@
     <td><%=h plugin_instance.plugin_type %></td>
     <td><%=h plugin_instance.version %></td>
     <td><%=h plugin_instance.name %></td>
-    <td><%= link_to 'Show', plugin_instance %></td>
-    <td><%= link_to 'Edit', edit_plugin_instance_path(plugin_instance) %></td>
-    <td><%= link_to 'Destroy', plugin_instance, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', plugin_instance_path(plugin_instance.id) %></td>
+    <td><%= link_to 'Edit', edit_plugin_instance_path(plugin_instance.id) %></td>
+    <td><%= link_to 'Destroy', plugin_instance_path(plugin_instance.id), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

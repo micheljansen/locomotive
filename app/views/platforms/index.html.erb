@@ -8,9 +8,9 @@
 <% for platform in @platforms %>
   <tr>
     <td><%=h platform.name %></td>
-    <td><%= link_to 'Show', platform %></td>
-    <td><%= link_to 'Edit', edit_platform_path(platform) %></td>
-    <td><%= link_to 'Destroy', platform, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', platform_path(platform.id) %></td>
+    <td><%= link_to 'Edit', edit_platform_path(platform.id) %></td>
+    <td><%= link_to 'Destroy', platform_path(platform.id), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -22,8 +22,8 @@
   </ul>
   <h2> All platforms </h2>
   <ul>
-    <% Platform.find(:all).each do |platform| %>
-      <li><%= link_to platform.name, platform %> </li>
+    <% Platform.all.each do |platform| %>
+      <li><%= link_to platform.name, platform_path(platform.id) %> </li>
     <% end %>
   </ul>
 <% end %>

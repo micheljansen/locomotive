@@ -6,9 +6,9 @@
 
 <% for contract in @contracts %>
   <tr>
-    <td><%= link_to 'Show', contract %></td>
-    <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
-    <td><%= link_to 'Destroy', contract, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', contract_path(contract.id) %></td>
+    <td><%= link_to 'Edit', edit_contract_path(contract.id) %></td>
+    <td><%= link_to 'Destroy', contract_path(contract.id), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

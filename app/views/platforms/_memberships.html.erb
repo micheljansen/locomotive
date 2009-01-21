@@ -1,6 +1,6 @@
 <h2><%=h platform.name %></h2>
 <div id="servers_options">
-  <%= link_to "Edit...", edit_platform_path(platform) %>
+  <%= link_to "Edit...", edit_platform_path(platform.id) %>
 </div>
 
-<%= render :partial => "/platforms/membership", :collection => memberships %>
+<%= render :partial => "/platforms/membership", :collection => @memberships %>

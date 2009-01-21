@@ -10,9 +10,9 @@
   <tr>
     <td><%=h plugin_property.key %></td>
     <td><%=h plugin_property.value %></td>
-    <td><%= link_to 'Show', plugin_property %></td>
-    <td><%= link_to 'Edit', edit_plugin_property_path(plugin_property) %></td>
-    <td><%= link_to 'Destroy', plugin_property, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', plugin_property_path(plugin_property.id) %></td>
+    <td><%= link_to 'Edit', edit_plugin_property_path(plugin_property.id) %></td>
+    <td><%= link_to 'Destroy', plugin_property_path(plugin_property.id), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

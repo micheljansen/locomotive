@@ -48,7 +48,7 @@ class PlatformsController < ApplicationController
     respond_to do |format|
       if @platform.save
         flash[:notice] = 'Platform was successfully created.'
-        format.html { redirect_to(@platform) }
+        format.html { redirect_to(platform_url(@platform.id)) }
         format.xml  { render :xml => @platform, :status => :created, :location => @platform }
       else
         format.html { render :action => "new" }
@@ -65,7 +65,7 @@ class PlatformsController < ApplicationController
     respond_to do |format|
       if @platform.update_attributes(params[:platform])
         flash[:notice] = 'Platform was successfully updated.'
-        format.html { redirect_to(@platform) }
+        format.html { redirect_to(platform_url(@platform.id)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -25,8 +25,8 @@
   <h2>Actions</h2>
 
   <ul id="specific">
-    <li><%= link_to 'Edit this server', edit_server_path(@server) %></li>
-    <li><%= link_to 'Assign a role', new_server_purpose_path(@server) %></li>
+    <li><%= link_to 'Edit this server', edit_server_path(@server.id) %></li>
+    <li><%= link_to 'Assign a role', new_server_purpose_path(@server.id) %></li>
   </ul>
   <ul id="general">
     <li><%= link_to 'New server', new_server_path %></li>

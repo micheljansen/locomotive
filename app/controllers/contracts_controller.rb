@@ -52,7 +52,7 @@ class ContractsController < ApplicationController
         flash[:notice] = 'Contract was successfully created.'
         
         @client = @contract.client
-        format.html { redirect_to(@client) }
+        format.html { redirect_to(client_url(@client.id)) }
         format.xml  { render :xml => @contract, :status => :created, :location => @contract }
       else
         format.html { render :action => "new" }
@@ -69,7 +69,7 @@ class ContractsController < ApplicationController
     respond_to do |format|
       if @contract.update_attributes(params[:contract])
         flash[:notice] = 'Contract was successfully updated.'
-        format.html { redirect_to(@contract) }
+        format.html { redirect_to(contract_url(@contract.id)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -87,7 +87,7 @@ class ContractsController < ApplicationController
 
     respond_to do |format|
       flash[:notice] = 'Contract was successfully cancelled.'
-      format.html { redirect_to(client_url(@client)) }
+      format.html { redirect_to(client_url(@client.id)) }
       format.xml  { head :ok }
     end
   end

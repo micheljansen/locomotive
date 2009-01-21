@@ -9,10 +9,10 @@
 
   - @services.each do |service|
     %tr
-      %td= link_to service.name, service
+      %td= link_to service.name, service_path(service.id)
       %td=h service.service_type.name
-      %td= link_to 'Edit', edit_service_path(service)
-      %td= link_to 'Remove', service, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Edit', edit_service_path(service.id)
+      %td= link_to 'Remove', service_path(service.id), :confirm => 'Are you sure?', :method => :delete
 
 %p= link_to 'New service', new_service_path
 - content_for :sidebar do

@@ -19,6 +19,6 @@
   </table>
 </div>
 -->
-I'm not sure what to make of this page yet. For now, move over to <%= link_to '"Manage deployments"', service_service_instances_path(@service) %>.
+I'm not sure what to make of this page yet. For now, move over to <%= link_to '"Manage deployments"', service_service_instances_path(@service.id) %>.
 
 <% content_for :sidebar, render (:partial => "sidebar", :object => @service) %>

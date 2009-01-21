@@ -62,7 +62,7 @@ class PluginInstancesController < ApplicationController
     respond_to do |format|
       if @plugin_instance.save
         flash[:notice] = 'PluginInstance was successfully created.'
-        format.html { redirect_to :action => "edit", :id => @plugin_instance }
+        format.html { redirect_to :action => "edit", :id => @plugin_instance.id }
         format.xml  { render :xml => @plugin_instance, :status => :created, :location => @plugin_instance }
       else
         format.html { render :action => "new" }
@@ -90,7 +90,7 @@ class PluginInstancesController < ApplicationController
           @plugin_instance.save!
           @plugin_instance.plugin_properties.each { |p| p.save! }
           flash[:notice] = 'PluginInstance was successfully updated.'
-          format.html { redirect_to(@plugin_instance) }
+          format.html { redirect_to(plugin_url(@plugin_instance.id)) }
         else
           render :action => 'edit'
         end

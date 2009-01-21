@@ -48,7 +48,7 @@ class DependenciesController < ApplicationController
     respond_to do |format|
       if @dependency.save
         flash[:notice] = 'Dependency was successfully created.'
-        format.html { redirect_to(@dependency) }
+        format.html { redirect_to(dependency_url(@dependency.id)) }
         format.xml  { render :xml => @dependency, :status => :created, :location => @dependency }
       else
         format.html { render :action => "new" }
@@ -65,7 +65,7 @@ class DependenciesController < ApplicationController
     respond_to do |format|
       if @dependency.update_attributes(params[:dependency])
         flash[:notice] = 'Dependency was successfully updated.'
-        format.html { redirect_to(@dependency) }
+        format.html { redirect_to(dependency_url(@dependency.id)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

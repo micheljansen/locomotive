@@ -52,7 +52,7 @@ class PurposesController < ApplicationController
     respond_to do |format|
       if @purpose.save
         flash[:notice] = 'Role was successfully created.'
-        format.html { redirect_to(@server) }
+        format.html { redirect_to(server_url(@server.id)) }
         format.xml  { render :xml => @purpose, :status => :created, :location => @purpose }
       else
         format.html { render :action => "new" }
@@ -69,7 +69,7 @@ class PurposesController < ApplicationController
     respond_to do |format|
       if @purpose.update_attributes(params[:purpose])
         flash[:notice] = 'Role was successfully updated.'
-        format.html { redirect_to(@server) }
+        format.html { redirect_to(server_url(@server.id)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -85,7 +85,7 @@ class PurposesController < ApplicationController
     @purpose.destroy
 
     respond_to do |format|
-      format.html { redirect_to(@server) }
+      format.html { redirect_to(server_url(@server.id)) }
       format.xml  { head :ok }
     end
   end

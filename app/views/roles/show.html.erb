@@ -6,7 +6,7 @@
     @role.servers.each do |server|
   %>
     <li>
-      <%= link_to server.name, server_path(server) %>
+      <%= link_to server.name, server_path(server.id) %>
     </li>
   <%
     end
@@ -15,5 +15,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_role_path(@role) %> |
+<%= link_to 'Edit', edit_role_path(@role.id) %> |
 <%= link_to 'Back', roles_path %>

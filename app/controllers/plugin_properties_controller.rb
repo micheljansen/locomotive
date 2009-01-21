@@ -45,7 +45,7 @@ class PluginPropertiesController < ApplicationController
     respond_to do |format|
       if @plugin_property.save
         flash[:notice] = 'PluginProperty was successfully created.'
-        format.html { redirect_to(@plugin_property) }
+        format.html { redirect_to(plugin_property_url(@plugin_property.id)) }
         format.xml  { render :xml => @plugin_property, :status => :created, :location => @plugin_property }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class PluginPropertiesController < ApplicationController
     respond_to do |format|
       if @plugin_property.update_attributes(params[:plugin_property])
         flash[:notice] = 'PluginProperty was successfully updated.'
-        format.html { redirect_to(@plugin_property) }
+        format.html { redirect_to(plugin_property_url(@plugin_property.id)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
