@@ -1,2 +1,4 @@
-module ReleasesHelper
+module Merb
+  module ReleasesHelper
+  end
 end

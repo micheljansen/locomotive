@@ -1,2 +1,4 @@
-module ClientsHelper
+module Merb
+  module ClientsHelper
+  end
 end

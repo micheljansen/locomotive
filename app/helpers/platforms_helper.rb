@@ -1,5 +1,5 @@
-
-module PlatformsHelper
+module Merb
+  module PlatformsHelper
   
   def unescaped_remote_function(options)
     javascript_options = options_for_ajax(options)
@@ -49,4 +49,5 @@ module PlatformsHelper
     %(Droppables.add(#{element_id.to_json}, #{options_for_javascript(options)});)
   end
   
+  end
 end

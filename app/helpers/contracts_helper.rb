@@ -1,2 +1,4 @@
-module ContractsHelper
+module Merb
+  module ContractsHelper
+  end
 end

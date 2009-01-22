@@ -1,2 +1,4 @@
-module DependenciesHelper
+module Merb
+  module DependenciesHelper
+  end
 end

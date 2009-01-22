@@ -1,2 +1,4 @@
-module PurposesHelper
+module Merb
+  module PurposesHelper
+  end
 end

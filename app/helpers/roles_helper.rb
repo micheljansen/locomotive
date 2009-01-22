@@ -1,2 +1,4 @@
-module RolesHelper
+module Merb
+  module RolesHelper
+  end
 end

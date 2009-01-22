@@ -1,2 +1,4 @@
-module ServersHelper
+module Merb
+  module ServersHelper
+  end
 end

@@ -1,2 +1,4 @@
-module PlatformMembershipsHelper
+module Merb
+  module PlatformMembershipsHelper
+  end
 end

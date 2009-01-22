@@ -1,2 +1,4 @@
-module PluginInstancesHelper
+module Merb
+  module PluginInstancesHelper
+  end
 end
