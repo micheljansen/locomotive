@@ -3,14 +3,14 @@ class Menu
   def self.load_defaults
     unless @defaults_loaded
       Menu.add("Cockpit", "/")
-      Menu["Administration"]["Dashboard"] = [{:controller => "administration_dashboard"}]
-      Menu["Administration"]["Clients"] = [{:controller => "clients"}]
-      Menu["Administration"]["Services"] = [{:controller => "services"}]
-      Menu["Administration"]["Servers"] = [{:controller => "servers"}]
-      Menu["Administration"]["Roles"] = [{:controller => "roles"}]
-      Menu["Administration"]["Platforms"] = [{:controller => "platforms"}]
-      Menu["Manage"]["Deploy"] = [{:controller => "service_instances"}]
-      Menu["Settings"]["Plugins"] = [{:controller => "plugins"}]
+      Menu["Administration"]["Dashboard"] = ["administration_dashboard"]
+      Menu["Administration"]["Clients"] = ['clients']
+      Menu["Administration"]["Services"] = ['services']
+      Menu["Administration"]["Servers"] = ['servers']
+      Menu["Administration"]["Roles"] = ['roles']
+      Menu["Administration"]["Platforms"] = ['platforms']
+      Menu["Manage"]["Deploy"] = ['service_instances']
+      Menu["Settings"]["Plugins"] = ['plugins']
       
       @defaults_loaded = true
     end    
@@ -119,7 +119,6 @@ class Menu
   private
   
   def logger
-    RAILS_DEFAULT_LOGGER
   end
   
   Menu.load_defaults
