@@ -36,15 +36,11 @@ class Purposes < Application
   def create
     @purpose = Purpose.new(params[:purpose])
 
-    respond_to do |format|
-      if @purpose.save
-        flash[:notice] = 'Role was successfully created.'
-        format.html { redirect_to(server_url(@server.id)) }
-        format.xml  { render :xml => @purpose, :status => :created, :location => @purpose }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @purpose.errors, :status => :unprocessable_entity }
-      end
+    if @purpose.save
+      # flash[:notice] = 'Role was successfully created.'
+      redirect resource(@server)
+    else
+      render :new
     end
   end
 
@@ -53,15 +49,11 @@ class Purposes < Application
   def update
     @purpose = Purpose.get(params[:id])
 
-    respond_to do |format|
-      if @purpose.update_attributes(params[:purpose])
-        flash[:notice] = 'Role was successfully updated.'
-        format.html { redirect_to(server_url(@server.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @purpose.errors, :status => :unprocessable_entity }
-      end
+    if @purpose.update_attributes(params[:purpose])
+      # flash[:notice] = 'Role was successfully updated.'
+      redirect resource(@server)
+    else
+      render :edit
     end
   end
 

@@ -27,6 +27,7 @@ class Contracts < Application
   # GET /contracts/1/edit
   def edit
     @contract = Contract.get(params[:id])
+    display @contract
   end
 
   # POST /clients/1/contracts
@@ -35,17 +36,13 @@ class Contracts < Application
     @contract = Contract.new(params[:contract])
     @contract.client_id = params[:client_id]
 
-    respond_to do |format|
-      if @contract.save
-        flash[:notice] = 'Contract was successfully created.'
-        
-        @client = @contract.client
-        format.html { redirect_to(client_url(@client.id)) }
-        format.xml  { render :xml => @contract, :status => :created, :location => @contract }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @contract.errors, :status => :unprocessable_entity }
-      end
+    if @contract.save
+      # flash[:notice] = 'Contract was successfully created.'
+      
+      @client = @contract.client
+      redirect resource(@client)
+    else
+      render :new
     end
   end
 
@@ -54,15 +51,11 @@ class Contracts < Application
   def update
     @contract = Contract.get(params[:id])
 
-    respond_to do |format|
-      if @contract.update_attributes(params[:contract])
-        flash[:notice] = 'Contract was successfully updated.'
-        format.html { redirect_to(contract_url(@contract.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @contract.errors, :status => :unprocessable_entity }
-      end
+    if @contract.update_attributes(params[:contract])
+      # flash[:notice] = 'Contract was successfully updated.'
+      redirect resource(@contract)
+    else
+      render :edit
     end
   end
 

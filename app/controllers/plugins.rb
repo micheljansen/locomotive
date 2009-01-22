@@ -30,6 +30,7 @@ class Plugins < Application
   def edit
     #@plugin = Plugin.get(params[:id])
     @plugin = Locomotive::Plugins::HelloWorld
+    display @plugin
   end
   
   def init_menu

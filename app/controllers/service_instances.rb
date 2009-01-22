@@ -36,6 +36,7 @@ class ServiceInstances < Application
   # GET /service_instances/1/edit
   def edit
     @service_instance = ServiceInstance.get(params[:id])
+    display @service_instance
   end
 
   # POST /service_instances
@@ -46,15 +47,11 @@ class ServiceInstances < Application
   def create
     @service_instance = ServiceInstance.new(params[:service_instance])
 
-    respond_to do |format|
-      if @service_instance.save
-        flash[:notice] = 'ServiceInstance was successfully created.'
-        format.html { redirect_to(service_instance_url(@service_instance.id)) }
-        format.xml  { render :xml => @service_instance, :status => :created, :location => @service_instance }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @service_instance.errors, :status => :unprocessable_entity }
-      end
+    if @service_instance.save
+      # flash[:notice] = 'ServiceInstance was successfully created.'
+      redirect resource(@service_instance)
+    else
+      render :new
     end
   end
 
@@ -99,16 +96,11 @@ class ServiceInstances < Application
       end
     #end
 
-    respond_to do |format|
-      if 
-        flash[:notice] = 'ServiceInstance was successfully updated.'
-        format.html { redirect_to(service_instance_url(@service_instance.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @service_instance.errors, :status => :unprocessable_entity }
-      end
-    end
+    #if 
+      # flash[:notice] = 'ServiceInstance was successfully updated.'
+    #else
+    #end
+    redirect resource(@service_instance)
   end
 
   # DELETE /service_instances/1
@@ -131,13 +123,13 @@ class ServiceInstances < Application
   
   def find_client
     if params[:client_id]
-      @client = Client.find(params[:client_id])
+      @client = Client.get(params[:client_id])
     end
   end
   
   def find_service
     if params[:service_id]
-      @service = Service.find(params[:service_id])
+      @service = Service.get(params[:service_id])
     end
   end
   

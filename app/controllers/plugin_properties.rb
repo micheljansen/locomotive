@@ -23,6 +23,7 @@ class PluginProperties < Application
   # GET /plugin_properties/1/edit
   def edit
     @plugin_property = PluginProperty.get(params[:id])
+    display @plugin_property
   end
 
   # POST /plugin_properties
@@ -30,15 +31,11 @@ class PluginProperties < Application
   def create
     @plugin_property = PluginProperty.new(params[:plugin_property])
 
-    respond_to do |format|
-      if @plugin_property.save
-        flash[:notice] = 'PluginProperty was successfully created.'
-        format.html { redirect_to(plugin_property_url(@plugin_property.id)) }
-        format.xml  { render :xml => @plugin_property, :status => :created, :location => @plugin_property }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @plugin_property.errors, :status => :unprocessable_entity }
-      end
+    if @plugin_property.save
+      # flash[:notice] = 'PluginProperty was successfully created.'
+      redirect resource(@plugin_property)
+    else
+      render :new
     end
   end
 
@@ -47,15 +44,11 @@ class PluginProperties < Application
   def update
     @plugin_property = PluginProperty.get(params[:id])
 
-    respond_to do |format|
-      if @plugin_property.update_attributes(params[:plugin_property])
-        flash[:notice] = 'PluginProperty was successfully updated.'
-        format.html { redirect_to(plugin_property_url(@plugin_property.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @plugin_property.errors, :status => :unprocessable_entity }
-      end
+    if @plugin_property.update_attributes(params[:plugin_property])
+      # flash[:notice] = 'PluginProperty was successfully updated.'
+      redirect resource(@plugin_property)
+    else
+      render :edit
     end
   end
 

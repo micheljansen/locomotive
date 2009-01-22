@@ -26,6 +26,7 @@ class Roles < Application
   # GET /roles/1/edit
   def edit
     @role = Role.get(params[:id])
+    display @role
   end
 
   # POST /roles
@@ -33,15 +34,11 @@ class Roles < Application
   def create
     @role = Role.new(params[:role])
 
-    respond_to do |format|
-      if @role.save
-        flash[:notice] = 'Role was successfully created.'
-        format.html { redirect_to(role_url(@role.id)) }
-        format.xml  { render :xml => @role, :status => :created, :location => @role }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @role.errors, :status => :unprocessable_entity }
-      end
+    if @role.save
+      # flash[:notice] = 'Role was successfully created.'
+      redorect resource(@role)
+    else
+      render :new
     end
   end
 
@@ -50,15 +47,11 @@ class Roles < Application
   def update
     @role = Role.get(params[:id])
 
-    respond_to do |format|
-      if @role.update_attributes(params[:role])
-        flash[:notice] = 'Role was successfully updated.'
-        format.html { redirect_to(role_url(@role.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @role.errors, :status => :unprocessable_entity }
-      end
+    if @role.update_attributes(params[:role])
+      # flash[:notice] = 'Role was successfully updated.'
+      redirect resource(@role)
+    else
+      render :edit
     end
   end
 

@@ -29,6 +29,7 @@ class Releases < Application
   def edit
     @release = Release.get(params[:id])
     @service = @release.service
+    display @release
   end
 
   # POST /releases
@@ -37,15 +38,11 @@ class Releases < Application
     @release = Release.new(params[:release])
     @service = Service.find(params[:service_id])
 
-    respond_to do |format|
-      if @release.save
-        flash[:notice] = 'Release was successfully created.'
-        format.html { redirect_to(service_url(@service.id)) }
-        format.xml  { render :xml => @release, :status => :created, :location => @release }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @release.errors, :status => :unprocessable_entity }
-      end
+    if @release.save
+      #  flash[:notice] = 'Release was successfully created.'
+      redirect resource(@service)
+    else
+      render :new
     end
   end
 
@@ -54,15 +51,11 @@ class Releases < Application
   def update
     @release = Release.get(params[:id])
 
-    respond_to do |format|
-      if @release.update_attributes(params[:release])
-        flash[:notice] = 'Release was successfully updated.'
-        format.html { redirect_to(service_url(@release.service.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @release.errors, :status => :unprocessable_entity }
-      end
+    if @release.update_attributes(params[:release])
+      # flash[:notice] = 'Release was successfully updated.'
+      redirect resource(@release.service)
+    else
+      render :edit
     end
   end
 

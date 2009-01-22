@@ -28,6 +28,7 @@ class Services < Application
   # GET /services/1/edit
   def edit
     @service = Service.get(params[:id])
+    display @service
   end
 
   # POST /services
@@ -35,15 +36,11 @@ class Services < Application
   def create
     @service = Service.new(params[:service])
 
-    respond_to do |format|
-      if @service.save
-        flash[:notice] = 'Service was successfully created.'
-        format.html { redirect_to(service_url(@service.id)) }
-        format.xml  { render :xml => @service, :status => :created, :location => @service }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @service.errors, :status => :unprocessable_entity }
-      end
+    if @service.save
+      # flash[:notice] = 'Service was successfully created.'
+      redirect resource(@service)
+    else
+      render :new
     end
   end
 
@@ -52,15 +49,11 @@ class Services < Application
   def update
     @service = Service.get(params[:id])
 
-    respond_to do |format|
-      if @service.update_attributes(params[:service])
-        flash[:notice] = 'Service was successfully updated.'
-        format.html { redirect_to(service_url(@service.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @service.errors, :status => :unprocessable_entity }
-      end
+    if @service.update_attributes(params[:service])
+      # flash[:notice] = 'Service was successfully updated.'
+      redirect resource(@service)
+    else
+      render :edit
     end
   end
 

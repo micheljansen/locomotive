@@ -26,6 +26,7 @@ class Servers < Application
   # GET /servers/1/edit
   def edit
     @server = Server.get(params[:id])
+    display @server
   end
 
   # POST /servers
@@ -33,15 +34,11 @@ class Servers < Application
   def create
     @server = Server.new(params[:server])
 
-    respond_to do |format|
-      if @server.save
-        flash[:notice] = 'Server was successfully created.'
-        format.html { redirect_to(server_url(@server.id)) }
-        format.xml  { render :xml => @server, :status => :created, :location => @server }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @server.errors, :status => :unprocessable_entity }
-      end
+    if @server.save
+      # flash[:notice] = 'Server was successfully created.'
+      redirect resource(@server)
+    else
+      render :new
     end
   end
 
@@ -50,15 +47,11 @@ class Servers < Application
   def update
     @server = Server.get(params[:id])
 
-    respond_to do |format|
-      if @server.update_attributes(params[:server])
-        flash[:notice] = 'Server was successfully updated.'
-        format.html { redirect_to(server_url(@server.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @server.errors, :status => :unprocessable_entity }
-      end
+    if @server.update_attributes(params[:server])
+      # flash[:notice] = 'Server was successfully updated.'
+      redirect resource(@server)
+    else
+      render :edit
     end
   end
 

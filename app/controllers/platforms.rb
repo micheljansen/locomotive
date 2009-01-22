@@ -26,6 +26,7 @@ class Platforms < Application
   # GET /platforms/1/edit
   def edit
     @platform = Platform.get(params[:id])
+    display @platform
   end
 
   # POST /platforms
@@ -33,15 +34,11 @@ class Platforms < Application
   def create
     @platform = Platform.new(params[:platform])
 
-    respond_to do |format|
-      if @platform.save
-        flash[:notice] = 'Platform was successfully created.'
-        format.html { redirect_to(platform_url(@platform.id)) }
-        format.xml  { render :xml => @platform, :status => :created, :location => @platform }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @platform.errors, :status => :unprocessable_entity }
-      end
+    if @platform.save
+      # flash[:notice] = 'Platform was successfully created.'
+      redirect resource(@platform)
+    else
+      render :new
     end
   end
 
@@ -50,15 +47,11 @@ class Platforms < Application
   def update
     @platform = Platform.get(params[:id])
 
-    respond_to do |format|
-      if @platform.update_attributes(params[:platform])
-        flash[:notice] = 'Platform was successfully updated.'
-        format.html { redirect_to(platform_url(@platform.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @platform.errors, :status => :unprocessable_entity }
-      end
+    if @platform.update_attributes(params[:platform])
+      # flash[:notice] = 'Platform was successfully updated.'
+      redirect resource(@platform)
+    else
+      render :edit
     end
   end
 

@@ -26,6 +26,7 @@ class Dependencies < Application
   # GET /dependencies/1/edit
   def edit
     @dependency = Dependency.get(params[:id])
+    display @dependency
   end
 
   # POST /dependencies
@@ -33,15 +34,11 @@ class Dependencies < Application
   def create
     @dependency = Dependency.new(params[:dependency])
 
-    respond_to do |format|
-      if @dependency.save
-        flash[:notice] = 'Dependency was successfully created.'
-        format.html { redirect_to(dependency_url(@dependency.id)) }
-        format.xml  { render :xml => @dependency, :status => :created, :location => @dependency }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @dependency.errors, :status => :unprocessable_entity }
-      end
+    if @dependency.save
+      # flash[:notice] = 'Dependency was successfully created.'
+      redirect resource(@dependency)
+    else
+      render :new
     end
   end
 
@@ -50,15 +47,11 @@ class Dependencies < Application
   def update
     @dependency = Dependency.get(params[:id])
 
-    respond_to do |format|
-      if @dependency.update_attributes(params[:dependency])
-        flash[:notice] = 'Dependency was successfully updated.'
-        format.html { redirect_to(dependency_url(@dependency.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @dependency.errors, :status => :unprocessable_entity }
-      end
+    if @dependency.update_attributes(params[:dependency])
+      # flash[:notice] = 'Dependency was successfully updated.'
+      redirect resource(@dependency)
+    else
+      render :edit
     end
   end
 

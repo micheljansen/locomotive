@@ -26,6 +26,7 @@ class Clients < Application
   # GET /clients/1/edit
   def edit
     @client = Client.get(params[:id])
+    display @client
   end
 
   # POST /clients
@@ -33,15 +34,11 @@ class Clients < Application
   def create
     @client = Client.new(params[:client])
 
-    respond_to do |format|
-      if @client.save
-        flash[:notice] = 'Client was successfully created.'
-        format.html { redirect_to(client_url(@client.id)) }
-        format.xml  { render :xml => @client, :status => :created, :location => @client }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @client.errors, :status => :unprocessable_entity }
-      end
+    if @client.save
+      # flash[:notice] = 'Client was successfully created.'
+      redirect resource(@client) 
+    else
+      render :new
     end
   end
 
@@ -50,15 +47,11 @@ class Clients < Application
   def update
     @client = Client.get(params[:id])
 
-    respond_to do |format|
-      if @client.update_attributes(params[:client])
-        flash[:notice] = 'Client was successfully updated.'
-        format.html { redirect_to(client_url(@client.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @client.errors, :status => :unprocessable_entity }
-      end
+    if @client.update_attributes(params[:client])
+      # flash[:notice] = 'Client was successfully updated.'
+      redirect resource(@client)
+    else
+      display @client, :edit
     end
   end
 
@@ -68,10 +61,8 @@ class Clients < Application
     @client = Client.get(params[:id])
     @client.destroy
 
-    respond_to do |format|
       format.html { redirect_to(clients_url) }
       format.xml  { head :ok }
-    end
   end
   
   def init_menu

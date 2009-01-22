@@ -28,6 +28,7 @@ class PlatformMemberships < Application
   # GET /platform_memberships/1/edit
   def edit
     @platform_membership = PlatformMembership.get(params[:id])
+    display @platform_membership
   end
 
   # POST /platform_memberships
@@ -35,16 +36,11 @@ class PlatformMemberships < Application
   def create
     @platform_membership = PlatformMembership.new(params[:platform_membership])
 
-    respond_to do |format|
-      if @platform_membership.save
-        flash[:notice] = 'PlatformMembership was successfully created.'
-        format.html { redirect_to(platform_url(@platform.id)) }
-        format.xml  { render :xml => @platform_membership, :status => :created, :location => platform_platform_membership_path(@platform, @platform_membership) }
-        format.js  { render :action => :refresh }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @platform_membership.errors, :status => :unprocessable_entity }
-      end
+    if @platform_membership.save
+      # flash[:notice] = 'PlatformMembership was successfully created.'
+      redirect resource(@platform)
+    else
+      render :new
     end
   end
 
@@ -53,15 +49,11 @@ class PlatformMemberships < Application
   def update
     @platform_membership = PlatformMembership.get(params[:id])
 
-    respond_to do |format|
-      if @platform_membership.update_attributes(params[:platform_membership])
-        flash[:notice] = 'PlatformMembership was successfully updated.'
-        format.html { redirect_to(platform_membership_url(@platform_membership.id)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @platform_membership.errors, :status => :unprocessable_entity }
-      end
+    if @platform_membership.update_attributes(params[:platform_membership])
+      # flash[:notice] = 'PlatformMembership was successfully updated.'
+      redirect resource(@platform_membership)
+    else
+      render :edit 
     end
   end
 

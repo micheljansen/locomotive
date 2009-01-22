@@ -23,7 +23,7 @@ class PluginInstances < Application
     # explode if the corresponding plugin cannot be found
     if @plugin.nil? then
       logger.error("Attempt to instantiate nonexisting plugin '#{params[:id]}'")
-      flash[:notice] = "No plugin with ID '#{params[:id]}' exists."
+      # flash[:notice] = "No plugin with ID '#{params[:id]}' exists."
       redirect_to :controller => "plugins", :action => "index"
       return
     end
@@ -38,6 +38,7 @@ class PluginInstances < Application
   def edit
     @plugin_instance = PluginInstance.get(params[:id])
     p @plugin_instance.plugin_properties
+    display @plugin_instance
   end
 
   # POST /plugin_instances
@@ -48,15 +49,11 @@ class PluginInstances < Application
     
     logger.debug("plugin_instance: #{y @plugin_instance} for plugin: #{y @plugin}")
 
-    respond_to do |format|
-      if @plugin_instance.save
-        flash[:notice] = 'PluginInstance was successfully created.'
-        format.html { redirect_to :action => "edit", :id => @plugin_instance.id }
-        format.xml  { render :xml => @plugin_instance, :status => :created, :location => @plugin_instance }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @plugin_instance.errors, :status => :unprocessable_entity }
-      end
+    if @plugin_instance.save
+      # flash[:notice] = 'PluginInstance was successfully created.'
+      redirect resource(@plugin_instance, :edit)
+    else
+      render :new
     end
   end
 
@@ -65,24 +62,22 @@ class PluginInstances < Application
   def update
     @plugin_instance = PluginInstance.get(params[:id])
     
-    respond_to do |format|
-      @plugin_instance.attributes = params[:plugin_instance]
+    @plugin_instance.attributes = params[:plugin_instance]
       
-      @plugin_instance.plugin_properties.each do |p|
-        logger.debug("updating plugin_property #{p.key}")
+    @plugin_instance.plugin_properties.each do |p|
+      logger.debug("updating plugin_property #{p.key}")
         #y p
         #y params[:plugin_properties][p.id.to_s]
-        p.attributes = params[:plugin_properties][p.id.to_s]  
-      end
+      p.attributes = params[:plugin_properties][p.id.to_s]  
+    end
       
-      if @plugin_instance.valid? && @plugin_instance.plugin_properties.all?(&:valid?)
-          @plugin_instance.save!
-          @plugin_instance.plugin_properties.each { |p| p.save! }
-          flash[:notice] = 'PluginInstance was successfully updated.'
-          format.html { redirect_to(plugin_url(@plugin_instance.id)) }
-        else
-          render :action => 'edit'
-        end
+    if @plugin_instance.valid? && @plugin_instance.plugin_properties.all?(&:valid?)
+      @plugin_instance.save!
+      @plugin_instance.plugin_properties.each { |p| p.save! }
+       #  flash[:notice] = 'PluginInstance was successfully updated.'
+      redirect resource(@plugin_instance)
+    else
+      render :edit
     end
   end
 
