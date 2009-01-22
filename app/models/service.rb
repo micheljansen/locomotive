@@ -28,7 +28,7 @@ class Service
   validates_with_method :service_type_exists?
 
   def service_type
-    service_type_type.to_s.constantize
+    service_type_type.to_s # TODO .constantize
   end
 
   def service_type_exists?
