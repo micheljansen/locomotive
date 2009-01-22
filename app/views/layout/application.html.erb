@@ -4,35 +4,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Locomotive - <%= controller.controller_name %> - <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
-  <%= stylesheet_link_tag 'panel' %>
-  <%= javascript_include_tag :defaults %> 
+  <title>Locomotive - <%= Extlib::Inflection.humanize(controller_name) %> - <%= Extlib::Inflection.humanize(action_name) %></title>
+  <%= css_include_tag 'scaffold' %>
+  <%= css_include_tag 'panel' %>
+  <%= js_include_tag :defaults %> 
 </head>
 
-<body class="<%= controller.action_name %>">
+<body class="<%= controller_name %>">
 <div id="wrapper">
 	<div id="header">
     
 		<h1>Locomotive Control Panel</h1>
 
-    <%= render :partial => 'shared/mainmenu' %>
+    <%= partial 'shared/mainmenu' %>
 
 	</div>
 
 	<div id="main">
     <div id="sidebar">
-			<%= yield :sidebar %>
+			<%= catch_content :sidebar %>
 		</div>
     <div id="content">
       <div id="contentwindow">
         <div id="contentwindow-header">
           <h1><!--insert title here--></h1>
-          <%= render :partial => 'shared/submenu' %>
+          <%= partial 'shared/submenu' %>
         </div>
         <div id="contentwindow-body">
-          <p style="color: green"><%= flash[:notice] %></p>
-          <%= yield  %>
+          <p style="color: green"><%= h(message) %></p>
+          <%= catch_content :for_layout  %>
         </div>
       </div>
 		</div>

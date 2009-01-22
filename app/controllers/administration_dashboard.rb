@@ -5,6 +5,7 @@ class AdministrationDashboard < Application
   def index
     @clients = Client.all
     @services = Service.all
+    render
   end
   
   def init_menu
