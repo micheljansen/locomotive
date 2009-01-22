@@ -7,28 +7,28 @@ Merb::Router.prepare do
 
   resources :roles
 
-  # FIXME resources :servers do |server|
-  #  server.resources :purposes
-  #  server.resources :platform_memberships
-  # end
+  resources :servers do
+    resources :purposes
+    resources :platform_memberships
+  end
 
-  # FIXME resources :platforms do |platform|
-  #  platform.resources :platform_memberships
-  # end
+  resources :platforms do
+    resources :platform_memberships
+  end
 
   #map.resources :contracts
 
   resources :service_instances
 
-  # FIXME map.resources :services do |service|
-  #  service.resources :releases
-  #  service.resources :service_instances
-  # end
+  resources :services do
+    resources :releases
+    resources :service_instances
+  end
 
-  # FIXME resources :clients do |client|
-  #  client.resources :contracts
-  #  client.resources :service_instances
-  # end
+  resources :clients do
+    resources :contracts
+    resources :service_instances
+  end
 
   resources :plugin_instances
 
