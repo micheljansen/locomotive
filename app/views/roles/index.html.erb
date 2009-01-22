@@ -15,9 +15,9 @@
 
   <% for role in @roles %>
     <tr>
-      <td><%= link_to role.name, role_path(role.id) %></td>
-      <td><%= link_to 'Edit', edit_role_path(role.id) %></td>
-      <td><%= link_to 'Destroy', role_path(role.id), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to role.name, resource(role) %></td>
+      <td><%= link_to 'Edit', resource(role, :edit) %></td>
+      <td><%= link_to 'Destroy', resource(role, :delete), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
   </table>
@@ -30,9 +30,9 @@
   </p>
 <% end %>
 
-<% content_for :sidebar do %>
+<% throw_content :sidebar do %>
   <h2>Actions</h2>
     <ul id="general">
-      <li><%= link_to "Add a new role", new_role_path %></li>
+      <li><%= link_to "Add a new role", resource(:roles, :new) %></li>
     </ul>
 <% end %>

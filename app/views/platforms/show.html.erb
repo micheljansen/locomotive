@@ -8,13 +8,13 @@
 <div id="platform_manager">
   
   <div id="servers">
-    <%= render :partial => "memberships", 
+    <%= partial :memberships, 
                 :object => @platform.platform_memberships, 
                 :locals => { :platform => @platform } %>
   </div>
 
   <div id="other_servers">
-    <%= render :partial => "other_servers", 
+    <%= partial :other_servers, 
                 :object => @platform.other_servers, 
                 :locals => { :platform => @platform } %>
   </div>
@@ -29,7 +29,7 @@
                            " new Effect.Move(element, { x: Position.page($('servers'))[0]-Position.page(element)[0], mode: 'relative', duration: 4 });",
         :hoverclass => "dragover",
         :with       => "\"server_id=\"+ encodeURIComponent(element.id.split('_').last())",
-        :url        => platform_platform_memberships_path(@platform) + ".js"
+        :url        => resource(@platform) + ".js"
       ) %>
 
 <%=   unescaped_drop_receiving_element("other_servers",
@@ -38,20 +38,20 @@
         :hoverclass => "dragover",
         :with       => "''",
         :method     => "delete",
-        :url        => "'" + platform_platform_membership_path(@platform, -1) + ".js'.replace('-1', encodeURIComponent(element.id.split('_').last()))"
+        :url        => "'" + resource(@platform, -1) + ".js'.replace('-1', encodeURIComponent(element.id.split('_').last()))"
         #formatted_platform_platform_membership_path (@platform, @platform.membership_for_server_id(1), :js)
       ) %>
 
-<%= link_to 'Edit', edit_platform_path(@platform.id) %> |
-<%= link_to 'Back', platforms_path %>
+<%= link_to 'Edit', resource(@platform, :edit) %> |
+<%= link_to 'Back', resource(:platforms) %>
 
-<% content_for :sidebar do %>
+<% throw_content :sidebar do %>
   <% if (! @platform.others.empty?) %>
     <h2>More platforms</h2>
     <ul>
       <% @platform.others.each do |other_platform| %>
       <li>
-        <%= link_to other_platform.name, platform_path(other_platform.id) %>
+        <%= link_to other_platform.name, resource(other_platform) %>
       </li>
       <% end %>
     </ul>

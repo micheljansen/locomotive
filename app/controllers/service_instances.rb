@@ -15,11 +15,7 @@ class ServiceInstances < Application
       else
         ServiceInstance.all
       end
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @service_instances }
-    end
+    display @service_instances
   end
 
   # GET /service_instances/1
@@ -27,22 +23,14 @@ class ServiceInstances < Application
   def show
     @service_instance = ServiceInstance.get(params[:id])
     @client = @service_instance.client
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @service_instance }
-    end
+    display @service_instance
   end
 
   # GET /service_instances/new
   # GET /service_instances/new.xml
   def new
     @service_instance = ServiceInstance.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @service_instance }
-    end
+    display @service_instance
   end
 
   # GET /service_instances/1/edit

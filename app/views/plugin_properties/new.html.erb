@@ -1,19 +1,17 @@
 <h1>New plugin_property</h1>
 
-<% form_for(@plugin_property) do |f| %>
-  <!--TODO: Fixme for DM %= f.error_messages %-->
+<%= form_for(@plugin_property, :action => resource(@plugin_property)) do %>
+  <%= error_messages %>
 
   <p>
-    <%= f.label :key %><br />
-    <%= f.text_field :key %>
+    <%= text_field :key %>
   </p>
   <p>
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
+    <%= text_field :value %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= submit "Create" %>
   </p>
-<% end %>
+<% end =%>
 
-<%= link_to 'Back', plugin_properties_path %>
+<%= link_to 'Back', resource(:plugin_properties) %>

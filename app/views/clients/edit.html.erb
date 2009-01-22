@@ -1,20 +1,18 @@
 <h1>Editing client</h1>
 
-<% form_for(@client) do |f| %>
-  <%= f.error_messages %>
+<%= form_for(@client, :action => resource(@client)) do %>
+  <%= error_messages %>
 
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= text_field :name, :label => 'Name' %>
   </p>
   <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= text_field :description, :label => 'Description' %>
   </p>
   <p>
-    <%= f.submit "Update" %>
+    <%= submit "Update" %>
   </p>
-<% end %>
+<% end =%>
 
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to 'Show', resource(@client) %> |
+<%= link_to 'Back', resource(:clients) %>

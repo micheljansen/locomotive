@@ -1,12 +1,12 @@
 <h1>Editing contract</h1>
 
-<% form_for(@contract) do |f| %>
-  <%= f.error_messages %>
+<%= form_for(@contract, :action => resource(@contract)) do %>
+  <%= error_messages %>
 
   <p>
-    <%= f.submit "Update" %>
+    <%= submit "Update" %>
   </p>
-<% end %>
+<% end =%>
 
-<%= link_to 'Show', @contract %> |
-<%= link_to 'Back', contracts_path %>
+<%= link_to 'Show', resource(@contract) %> |
+<%= link_to 'Back', resource(:contracts) %>

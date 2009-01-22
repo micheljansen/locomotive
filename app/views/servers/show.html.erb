@@ -18,18 +18,18 @@
     
 </p>
 
-<%= link_to 'Back to server list', servers_path %>
+<%= link_to 'Back to server list', resource(:servers) %>
 
-<% content_for(:sidebar) do %>
+<% throw_content(:sidebar) do %>
 
   <h2>Actions</h2>
 
   <ul id="specific">
-    <li><%= link_to 'Edit this server', edit_server_path(@server.id) %></li>
-    <li><%= link_to 'Assign a role', new_server_purpose_path(@server.id) %></li>
+    <li><%= link_to 'Edit this server', resource(@server, :edit) %></li>
+    <li><%= link_to 'Assign a role', resource(@server, :purposes, :new) %></li>
   </ul>
   <ul id="general">
-    <li><%= link_to 'New server', new_server_path %></li>
+    <li><%= link_to 'New server', resource(:servers, :new) %></li>
   </ul>
   
   <% if @server.others.size > 0 %>
@@ -39,7 +39,7 @@
     <% @server.others.each do |server| %>
       <li><%= link_to server.name, server %></li>
     <% end %>
-    <li><%= link_to "See all...", servers_path %></li>
+    <li><%= link_to "See all...", resource(:servers) %></li>
     </ul>
   <% end %>
   

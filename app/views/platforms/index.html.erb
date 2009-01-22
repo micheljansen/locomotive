@@ -8,22 +8,22 @@
 <% for platform in @platforms %>
   <tr>
     <td><%=h platform.name %></td>
-    <td><%= link_to 'Show', platform_path(platform.id) %></td>
-    <td><%= link_to 'Edit', edit_platform_path(platform.id) %></td>
-    <td><%= link_to 'Destroy', platform_path(platform.id), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', resource(platform) %></td>
+    <td><%= link_to 'Edit', resource(platform, :edit) %></td>
+    <td><%= link_to 'Destroy', resource(platform, :delete), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<% content_for(:sidebar) do %>
+<% throw_content(:sidebar) do %>
   <h2> Actions </h2>
   <ul>
-    <li><%= link_to 'Add a platform', new_platform_path %> </li>
+    <li><%= link_to 'Add a platform', resource(:platforms, :new) %> </li>
   </ul>
   <h2> All platforms </h2>
   <ul>
     <% Platform.all.each do |platform| %>
-      <li><%= link_to platform.name, platform_path(platform.id) %> </li>
+      <li><%= link_to platform.name, resource(platform) %> </li>
     <% end %>
   </ul>
 <% end %>

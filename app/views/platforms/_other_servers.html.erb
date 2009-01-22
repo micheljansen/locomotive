@@ -1,7 +1,7 @@
 <h2>Other servers</h2>
 
 <div id="other_servers_options">
-  <%= link_to "Add more...", new_server_path %>
+  <%= link_to "Add more...", resource(:servers, :new) %>
   <%= link_to_function "Filter", visual_effect(:toggle_blind, 'server_filter_box') %>
   <div id="server_filter_box" style="display: none">
     <span>Show only</span>

@@ -8,33 +8,21 @@ class PlatformMemberships < Application
   # GET /platform_memberships.xml
   def index
     @platform_memberships = PlatformMembership.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @platform_memberships }
-    end
+    display @platform_memberships
   end
 
   # GET /platform_memberships/1
   # GET /platform_memberships/1.xml
   def show
     @platform_membership = PlatformMembership.get(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @platform_membership }
-    end
+    display @platform_membership
   end
 
   # GET /platform_memberships/new
   # GET /platform_memberships/new.xml
   def new
     @platform_membership = PlatformMembership.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @platform_membership }
-    end
+    display @platform_membership
   end
 
   # GET /platform_memberships/1/edit

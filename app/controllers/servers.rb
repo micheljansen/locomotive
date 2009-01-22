@@ -6,33 +6,21 @@ class Servers < Application
   # GET /servers.xml
   def index
     @servers = Server.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @servers }
-    end
+    display @servers
   end
 
   # GET /servers/1
   # GET /servers/1.xml
   def show
     @server = Server.get(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @server }
-    end
+    display @server
   end
 
   # GET /servers/new
   # GET /servers/new.xml
   def new
     @server = Server.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @server }
-    end
+    display @server
   end
 
   # GET /servers/1/edit

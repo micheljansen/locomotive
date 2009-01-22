@@ -9,13 +9,13 @@
 
   - @services.each do |service|
     %tr
-      %td= link_to service.name, service_path(service.id)
+      %td= link_to service.name, resource(service)
       %td=h service.service_type.name
-      %td= link_to 'Edit', edit_service_path(service.id)
-      %td= link_to 'Remove', service_path(service.id), :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Edit', resource(service, :edit)
+      %td= link_to 'Remove', resource(service, :delete), :confirm => 'Are you sure?', :method => :delete
 
-%p= link_to 'New service', new_service_path
-- content_for :sidebar do
+%p= link_to 'New service', resource(:services, :new)
+- throw_content :sidebar do
   %h2 Actions
   %ul
-    %li= link_to "Add a service", new_service_path
+    %li= link_to "Add a service", resource(:services, :new)

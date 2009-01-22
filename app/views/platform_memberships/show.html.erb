@@ -9,5 +9,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_platform_membership_path(@platform_membership.id) %> |
-<%= link_to 'Back', platform_memberships_path %>
+<%= link_to 'Edit', resource(@platform_membership, :edit) %> |
+<%= link_to 'Back', resource(:platform_memberships) %>

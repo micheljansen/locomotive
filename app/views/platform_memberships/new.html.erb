@@ -1,18 +1,16 @@
 <h1>New platform_membership</h1>
 
-<% form_for([@platform,@platform_membership]) do |f| %>
-  <!--TODO: Fixme for DM %= f.error_messages %-->
+<%= form_for(@platform_membership, :action => resource(@platform, :platform_memberships)) do %>
+  <%= error_messages %>
 
   <p>
-    <%= f.label :server_id %><br />
-    <%= f.text_field :server_id %>
+    <%= text_field :server_id %>
   </p>
   <p>
-    <%= f.label :platform_id %><br />
-    <%= f.text_field :platform_id %>
+    <%= text_field :platform_id %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= submit "Create" %>
   </p>
-<% end %>
+<% end =%>
 

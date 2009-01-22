@@ -6,33 +6,21 @@ class Clients < Application
   # GET /clients.xml
   def index
     @clients = Client.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @clients }
-    end
+    display @clients
   end
 
   # GET /clients/1
   # GET /clients/1.xml
   def show
     @client = Client.get(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @client }
-    end
+    display @client
   end
 
   # GET /clients/new
   # GET /clients/new.xml
   def new
     @client = Client.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @client }
-    end
+    display @client
   end
 
   # GET /clients/1/edit

@@ -14,5 +14,5 @@
   <%=h @plugin.description %>
 </p>
 
-<%= link_to 'Edit', edit_plugin_path(@plugin.id) %> |
-<%= link_to 'Back', plugins_path %>
+<%= link_to 'Edit', resource(@plugin, :edit) %> |
+<%= link_to 'Back', resource(:plugins)%>

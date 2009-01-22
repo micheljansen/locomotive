@@ -5,14 +5,9 @@ class Purposes < Application
   
 #  # GET /purposes
 #  # GET /purposes.xml
-  def index
-    
+  def index  
     @purposes = @server.purposes
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @purposes }
-    end
+    display @purposes
   end
 
 #  TODO: remove this action when no longer debugging
@@ -20,11 +15,7 @@ class Purposes < Application
 #  # GET /purposes/1.xml
   def show
     @purpose = Purpose.get(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @purpose }
-    end
+    display @purpose
   end
 
   # GET /purposes/new
@@ -32,11 +23,7 @@ class Purposes < Application
   def new
     @purpose = Purpose.new
     @purpose.server_id = @server.id
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @server }
-    end
+    display @purpose
   end
 
 #  # GET /purposes/1/edit

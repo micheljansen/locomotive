@@ -1,20 +1,18 @@
 <h1>Editing plugin_property</h1>
 
-<% form_for(@plugin_property) do |f| %>
-  <%= f.error_messages %>
+<%= form_for(@plugin_property, :action => resource(@plugin_property)) do %>
+  <%= error_messages %>
 
   <p>
-    <%= f.label :key %><br />
-    <%= f.text_field :key %>
+    <%= text_field :key, :label => 'Key' %>
   </p>
   <p>
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
+    <%= text_field :value, :label => 'Value' %>
   </p>
   <p>
-    <%= f.submit "Update" %>
+    <%= submit "Update" %>
   </p>
-<% end %>
+<% end =%>
 
-<%= link_to 'Show', plugin_property_path(@plugin_property.id) %> |
-<%= link_to 'Back', plugin_properties_path %>
+<%= link_to 'Show', resource(@plugin_property) %> |
+<%= link_to 'Back', resource(:plugin_properties) %>

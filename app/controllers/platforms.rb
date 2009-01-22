@@ -6,33 +6,21 @@ class Platforms < Application
   # GET /platforms.xml
   def index
     @platforms = Platform.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @platforms }
-    end
+    display @platforms
   end
 
   # GET /platforms/1
   # GET /platforms/1.xml
   def show
     @platform = Platform.get(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @platform }
-    end
+    display @platform
   end
 
   # GET /platforms/new
   # GET /platforms/new.xml
   def new
     @platform = Platform.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @platform }
-    end
+    display @platform
   end
 
   # GET /platforms/1/edit

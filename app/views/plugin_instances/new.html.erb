@@ -4,24 +4,23 @@
   Let's hook a new instance of <%=h @plugin.name %> into your Locomotive. Please provide a name for this instance and configure its properties.
 </p>
 
-<% form_for(@plugin_instance) do |f| %>
-  <%= f.error_messages %>
+<%= form_for(@plugin_instance, :action => resource(:plugin_instances)) do %>
+  <%= error_messages %>
 
   <p>
-    <%= f.label :plugin_type %>: <%=h @plugin_instance.plugin_type %>
-    <%= f.hidden_field :plugin_type %>
+    <%# f.label :plugin_type %>: <%=h @plugin_instance.plugin_type %>
+    <%= hidden_field :plugin_type %>
   </p>
   <p>
-    <%= f.label :version %>: <%=h @plugin_instance.version %>
-    <%= f.hidden_field :version %>
+    <%# f.label :version %>: <%=h @plugin_instance.version %>
+    <%= hidden_field :version %>
   </p>
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= text_field :name, :label => 'Name' %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= submit "Create" %>
   </p>
-<% end %>
+<% end =%>
 
-<%= link_to 'Back', plugin_instances_path %>
+<%= link_to 'Back', resource(:plugin_instances) %>

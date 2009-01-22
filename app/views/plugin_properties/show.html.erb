@@ -9,5 +9,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_plugin_property_path(@plugin_property.id) %> |
-<%= link_to 'Back', plugin_properties_path %>
+<%= link_to 'Edit', resource(@plugin_property, :edit) %> |
+<%= link_to 'Back', resource(:plugin_properties) %>

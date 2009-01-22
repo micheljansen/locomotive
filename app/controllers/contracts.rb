@@ -6,22 +6,14 @@ class Contracts < Application
   # GET /contracts.xml
   def index
     @contracts = Contract.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @contracts }
-    end
+    display @contracts
   end
 
   # GET /contracts/1
   # GET /contracts/1.xml
   def show
     @contract = Contract.get(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @contract }
-    end
+    display @contract
   end
 
   # GET /clients/1/contracts/assign/2
@@ -29,11 +21,7 @@ class Contracts < Application
     @services = Service.all
     @client = Client.get(params[:client_id])
     @contract = Contract.new    
-
-    respond_to do |format|
-      format.html
-      #format.xml  { render :xml => @contract }
-    end
+    display @contract
   end
 
   # GET /contracts/1/edit

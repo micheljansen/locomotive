@@ -6,33 +6,21 @@ class Dependencies < Application
   # GET /dependencies.xml
   def index
     @dependencies = Dependency.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @dependencies }
-    end
+    display @dependencies
   end
 
   # GET /dependencies/1
   # GET /dependencies/1.xml
   def show
     @dependency = Dependency.get(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @dependency }
-    end
+    display @dependency
   end
 
   # GET /dependencies/new
   # GET /dependencies/new.xml
   def new
     @dependency = Dependency.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @dependency }
-    end
+    display @dependency
   end
 
   # GET /dependencies/1/edit

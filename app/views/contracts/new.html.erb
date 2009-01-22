@@ -1,14 +1,14 @@
 <h1>New contract</h1>
 
-<% form_for([@client, @contract]) do |f| %>
-  <!--TODO: Fixme for DM %= f.error_messages %-->
+<%= form_for(@contract, :action => resource(@client, :contracts)) do %>
+  <%= error_messages %>
 
   <p>
-    <%= f.collection_select :service_id, @services, :id, :name %>
+    <%= select :service_id, @services, :id, :name %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= submit "Create" %>
   </p>
-<% end %>
+<% end =%>
 
-<%= link_to 'Back', client_path(@client.id) %>
+<%= link_to 'Back', resource(@client) %>

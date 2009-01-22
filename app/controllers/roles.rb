@@ -6,33 +6,21 @@ class Roles < Application
   # GET /roles.xml
   def index
     @roles = Role.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @roles }
-    end
+    display @roles
   end
 
   # GET /roles/1
   # GET /roles/1.xml
   def show
     @role = Role.get(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @role }
-    end
+    display @role
   end
 
   # GET /roles/new
   # GET /roles/new.xml
   def new
     @role = Role.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @role }
-    end
+    display @role
   end
 
   # GET /roles/1/edit

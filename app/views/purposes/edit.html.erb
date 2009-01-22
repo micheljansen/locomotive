@@ -1,20 +1,18 @@
 <h1>Editing purpose</h1>
 
-<% form_for(@purpose) do |f| %>
-  <%= f.error_messages %>
+<%= form_for(@purpose, :action => resource(@purpose)) do  %>
+  <%= error_messages %>
 
   <p>
-    <%= f.label :role_id %><br />
-    <%= f.text_field :role_id %>
+    <%= text_field :role_id %>
   </p>
   <p>
-    <%= f.label :server_id %><br />
-    <%= f.text_field :server_id %>
+    <%= text_field :server_id %>
   </p>
   <p>
-    <%= f.submit "Update" %>
+    <%= submit "Update" %>
   </p>
-<% end %>
+<% end =%>
 
-<%= link_to 'Show', purpose_path(@purpose.id) %> |
-<%= link_to 'Back', purposes_path %>
+<%= link_to 'Show', resource(@purpose) %> |
+<%= link_to 'Back', resource(:purposes) %>

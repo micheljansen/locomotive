@@ -26,5 +26,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_plugin_instance_path(@plugin_instance.id) %> |
-<%= link_to 'Back', plugin_instances_path %>
+<%= link_to 'Edit', resource(@plugin_instance, :edit) %> |
+<%= link_to 'Back', resource(:plugin_instances) %>

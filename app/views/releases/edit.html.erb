@@ -1,15 +1,14 @@
 <h1>Editing release</h1>
 
-<% form_for([@service,@release]) do |f| %>
-  <%= f.error_messages %>
+<%= form_for(@release, :action => resource(@service, @release)) do %>
+  <%= error_messages %>
 
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= text_field :name %>
   </p>
   <p>
-    <%= f.submit "Update" %>
+    <%= submit "Update" %>
   </p>
-<% end %>
+<% end =%>
 
-<%= link_to 'Back', service_path (@service.id) %>
+<%= link_to 'Back', resource(@service) %>

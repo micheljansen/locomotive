@@ -6,13 +6,13 @@
 
 <% for contract in @contracts %>
   <tr>
-    <td><%= link_to 'Show', contract_path(contract.id) %></td>
-    <td><%= link_to 'Edit', edit_contract_path(contract.id) %></td>
-    <td><%= link_to 'Destroy', contract_path(contract.id), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', resource(contract) %></td>
+    <td><%= link_to 'Edit', resource(contract, :edit) %></td>
+    <td><%= link_to 'Destroy', resource(contract, :delete), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New contract', new_contract_path %>
+<%# link_to 'New contract', resource(@client, :contracts, :new) %>

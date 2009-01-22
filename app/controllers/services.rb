@@ -6,11 +6,7 @@ class Services < Application
   # GET /services.xml
   def index
     @services = Service.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @services }
-    end
+    display @services
   end
 
   # GET /services/1
@@ -19,22 +15,14 @@ class Services < Application
     @service = Service.get(params[:id])
     @releases = @service.releases
     @service_instances = @service.service_instances.find(:all, :order => "client_id DESC")
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @service }
-    end
+    display @service
   end
 
   # GET /services/new
   # GET /services/new.xml
   def new
     @service = Service.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @service }
-    end
+    display @service
   end
 
   # GET /services/1/edit

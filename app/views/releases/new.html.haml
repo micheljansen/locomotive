@@ -1,9 +1,9 @@
 %h1== New release for #{@service.name}
 
-- form_for([@service, @release]) do |f|
-
-  %p= f.label :name
-  = f.text_field :name
-  = f.hidden_field :service_id
-  = f.submit "Create"
-=link_to "Back to #{@service.name}", @service.id
+- form_for(@release, :action => (:releases)) do
+  = error_messages
+  %p= label :name
+  = text_field :name
+  = hidden_field :service_id
+  = submit "Create"
+=link_to "Back to #{@service.name}", resource(@service)

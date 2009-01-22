@@ -1,15 +1,13 @@
 <h1>Editing server</h1>
 
-<% form_for(@server) do |f| %>
-  <!--TODO: Fixme for DM %= f.error_messages %-->
+<%= form_for(@server, :action => resource(@server)) do %>
+  <%= error_messages %>
 
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= text_field :name, :label => 'Name' %>
   </p>
   <p>
-    <%= f.label :hostname %><br />
-    <%= f.text_field :hostname %>
+    <%= text_field :hostname, :label => 'Hostname' %>
   </p>
   
   <table>
@@ -17,7 +15,7 @@
     <% Role.all.each do |role| %>
       <tr>
         <td>
-          <%= check_box_tag "server[role_ids][]", role.id, @server.roles.include?(role) %>
+          <%= check_box :name => "server[role_ids][]", :value => role.id, :boolean => @server.roles.include?(role) %>
         </td>
 
         <td>
@@ -29,22 +27,22 @@
   </table>
   
   <p>
-    <%= f.submit "Update" %>
+    <%= submit "Update" %>
   </p>
-<% end %>
+<% end =%>
 
-<%= link_to 'Show', @server %> |
-<%= link_to 'Back', servers_path %>
+<%= link_to 'Show', resource(@server) %> |
+<%= link_to 'Back', resource(:servers) %>
 
-<% content_for(:sidebar) do %>
+<% throw_content(:sidebar) do %>
 
   <h2>Actions</h2>
 
   <ul id="specific">
-    <li><%= link_to 'Assign a role', new_server_purpose_path(@server) %></li>
+    <li><%= link_to 'Assign a role', resource(@server, :purposes, :new) %></li>
   </ul>
   <ul id="general">
-    <li><%= link_to 'New server', new_server_path %></li>
+    <li><%= link_to 'New server', resource(:servers, :new) %></li>
   </ul>
   
   <% if @server.others.size > 0 %>
@@ -52,9 +50,9 @@
   
     <ul>
     <% @server.others.each do |server| %>
-      <li><%= link_to server.name, server %></li>
+      <li><%= link_to server.name, resource(server) %></li>
     <% end %>
-    <li><%= link_to "See all...", servers_path %></li>
+    <li><%= link_to "See all...", resource(:servers) %></li>
     </ul>
   <% end %>
   

@@ -12,21 +12,21 @@
     <td><%=h server.name %></td>
     <td><%=h server.hostname %></td>
     <td><%=h server.roles.map {|r| r.name} * "," %></td>
-    <td><%= link_to 'Show', server_path(server.id) %></td>
-    <td><%= link_to 'Edit', edit_server_path(server.id) %></td>
-    <td><%= link_to 'Destroy', server_path(server.id), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', resource(server) %></td>
+    <td><%= link_to 'Edit', resource(server, :edit) %></td>
+    <td><%= link_to 'Destroy', resource(server, :delete), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<% content_for(:sidebar) do %>
+<% throw_content(:sidebar) do %>
 
   <h2>Actions</h2>
 
   <ul id="general">
-    <li><%= link_to 'New server', new_server_path %></li>
+    <li><%= link_to 'New server', resource(:servers, :new) %></li>
   </ul>
   
 <% end %>

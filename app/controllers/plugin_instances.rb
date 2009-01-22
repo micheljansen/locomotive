@@ -6,22 +6,14 @@ class PluginInstances < Application
   # GET /plugin_instances.xml
   def index
     @plugin_instances = PluginInstance.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @plugin_instances }
-    end
+    display @plugin_instance
   end
 
   # GET /plugin_instances/1
   # GET /plugin_instances/1.xml
   def show
     @plugin_instance = PluginInstance.get(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @plugin_instance }
-    end
+    display @plugin_instance
   end
 
   # GET /plugin_instances/new/hello_world
@@ -39,10 +31,7 @@ class PluginInstances < Application
 
     @plugin_instance = PluginInstance.new(:plugin_type => params[:id], 
                                           :version => @plugin.version)
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
+    display @plugin_instance
   end
 
   # GET /plugin_instances/1/edit

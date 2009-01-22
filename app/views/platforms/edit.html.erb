@@ -1,16 +1,15 @@
 <h1>Editing platform</h1>
 
-<% form_for(@platform) do |f| %>
-  <%= f.error_messages %>
+<%= form_for(@platform, :action => resource(@platform)) do %>
+  <%= error_messages %>
 
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= text_field :name %>
   </p>
   <p>
-    <%= f.submit "Update" %>
+    <%= submit "Update" %>
   </p>
-<% end %>
+<% end =%>
 
-<%= link_to 'Show', platform_path(@platform.id) %> |
-<%= link_to 'Back', platforms_path %>
+<%= link_to 'Show', resource(@platform) %> |
+<%= link_to 'Back', resource(:platforms) %>

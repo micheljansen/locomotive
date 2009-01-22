@@ -3,33 +3,21 @@ class PluginProperties < Application
   # GET /plugin_properties.xml
   def index
     @plugin_properties = PluginProperty.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @plugin_properties }
-    end
+    display @plugin_properties
   end
 
   # GET /plugin_properties/1
   # GET /plugin_properties/1.xml
   def show
     @plugin_property = PluginProperty.get(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @plugin_property }
-    end
+    display @plugin_property
   end
 
   # GET /plugin_properties/new
   # GET /plugin_properties/new.xml
   def new
     @plugin_property = PluginProperty.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @plugin_property }
-    end
+    display @plugin_property
   end
 
   # GET /plugin_properties/1/edit

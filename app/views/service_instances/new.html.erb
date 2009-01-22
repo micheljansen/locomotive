@@ -1,25 +1,25 @@
 <h1>New service_instance</h1>
 
-<% form_for(@service_instance) do |f| %>
+<%= form_for(@service_instance, :action => resource(:service_instances)) do %>
   <!--TODO: Fixme for DM %= f.error_messages %-->
   <table>
     <tr>
       <th>Client:</th>
-      <td><%= f.collection_select :client_id, Client.all, :id, :name %></td>
+      <td><%= select :client_id, :collection => Client.all, :value_method => :id, :text_method => :name %></td>
     </tr>
     <tr>
       <th>Release:</th>
-      <td><%= f.collection_select :release_id, Release.all, :id, :full_name %></td>
+      <td><%= select :release_id, :collection => Release.all, :value_method => :id, :text_method => :full_name %></td>
     </tr>
     <tr>
       <th>Platform:</th>
-      <td><%= f.collection_select :platform_id, Platform.all, :id, :name %></td>
+      <td><%= select :platform_id, :collection => Platform.all, :value_method => :id, :text_method => :name %></td>
     </tr>
   </table>
 
   <p>
-    <%= f.submit "Create" %>
+    <%= submit "Create" %>
   </p>
-<% end %>
+<% end =%>
 
-<%= link_to 'Back', service_instances_path %>
+<%= link_to 'Back', resource(:service_instances) %>

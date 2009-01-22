@@ -6,22 +6,14 @@ class Releases < Application
   # GET /releases.xml
   def index
     @releases = Release.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @releases }
-    end
+    display @releases
   end
 
   # GET /releases/1
   # GET /releases/1.xml
   def show
     @release = Release.get(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @release }
-    end
+    display @release
   end
 
   # GET /releases/new
@@ -30,11 +22,7 @@ class Releases < Application
     @release = Release.new
     @release.service_id = params[:service_id]
     @service = Service.find(params[:service_id])
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @release }
-    end
+    display @release
   end
 
   # GET /services/1/releases/1/edit

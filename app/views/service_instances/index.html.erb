@@ -12,15 +12,15 @@
   <tr>
     <td><%= link_to si.client.name, si.client.id %></td>
     <td><%= link_to si.release.service.name, si.release.service.id %></td>
-    <td><%= link_to si.release.name, service_release_path(si.release.service.id, si.release.id) %></td>
-    <td><%= link_to si.platform.name, si.platform %></td>
-    <td><%= link_to 'Show', service_instance_path(si.id) %></td>
-    <td><%= link_to 'Edit', edit_service_instance_path(si.id) %></td>
-    <td><%= link_to 'Destroy', service_instance_path(si.id), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to si.release.name, resource(si.release.service, :edit, si.release.id) %></td>
+    <td><%= link_to si.platform.name, resource(si.platform) %></td>
+    <td><%= link_to 'Show', resource(si) %></td>
+    <td><%= link_to 'Edit', resource(si, :edit) %></td>
+    <td><%= link_to 'Destroy', resource(si, :delete), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New service_instance', new_service_instance_path %>
+<%= link_to 'New service_instance', resource(:service_instances, :new) %>

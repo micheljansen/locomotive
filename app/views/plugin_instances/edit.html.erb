@@ -1,33 +1,31 @@
 <h1>Editing plugin_instance</h1>
 
-<% form_for(@plugin_instance) do |f| %>
-  <%= f.error_messages %>
+<%= form_for(@plugin_instance, :action => resource(@plugin_instance)) do %>
+  <%= error_messages %>
 
   <p>
-    <%= f.label :plugin_type %><br />
-    <%= f.select :plugin_type,
+    <%= select :plugin_type,
         Locomotive::Plugin.all_ids,
+        :name => 'Plugin type',
         :prompt => "Select plugin type" %>
   </p>
   
   <p>
-    <%= f.label :version %><br />
-    <%= f.text_field :version %>
+    <%= text_field :version, :label => 'Version' %>
   </p>
 
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= text_field :name, :label => 'Name' %>
   </p>
 
   <p>
     <table>
-        <% @plugin_instance.plugin_properties.each do |property| %>
-          <% fields_for "plugin_properties[]", property do |fld| %>
-          <%= error_messages_for :property %>
+        <% @plugin_instance.plugin_properties.each do %>
+          <% fields_for "plugin_properties[]", property do %>
+          <%= error_messages_r :property %>
             <tr>
-              <td><%=h property.key %> <%= fld.hidden_field :key %></td>
-              <td><%= fld.text_field :value %></td>
+              <td><%=h property.key %> <%= hidden_field :key %></td>
+              <td><%= text_field :value %></td>
             </tr>
           <% end%>
         <% end %>
@@ -35,10 +33,10 @@
   </p>
 
   <p>
-    <%= f.submit "Update" %>
+    <%= submit "Update" %>
   </p>
 
-<% end %>
+<% end =%>
 
-<%= link_to 'Show', plugin_instance_path(@plugin_instance.id) %> |
-<%= link_to 'Back', plugin_instances_path %>
+<%= link_to 'Show', resource(@plugin_instance) %> |
+<%= link_to 'Back', resource(:plugin_instances) %>
