@@ -1,18 +1,4 @@
-# == Schema Information
-# Schema version: 20081201121936
-#
-# Table name: servers
-#
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  hostname   :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#
-
 require 'ping'
-require 'purpose' # Related classes not loaded by Rails TODO: investigate this
-require 'role'    # Related classes not loaded by Rails TODO: investigate this
 
 class Server
   include DataMapper::Resource

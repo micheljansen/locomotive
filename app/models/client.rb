@@ -1,16 +1,3 @@
-# == Schema Information
-# Schema version: 20081201121936
-#
-# Table name: clients
-#
-#  id          :integer         not null, primary key
-#  name        :string(255)
-#  description :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#
-require 'contract'  # Related classes not loaded by Rails TODO: investigate this
-
 class Client
   include DataMapper::Resource
 

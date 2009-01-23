@@ -1,19 +1,3 @@
-# == Schema Information
-# Schema version: 20081201121936
-#
-# Table name: service_instances
-#
-#  id          :integer         not null, primary key
-#  created_at  :datetime
-#  updated_at  :datetime
-#  platform_id :integer
-#  client_id   :integer
-#  release_id  :integer
-#
-
-require 'release' # Related classes not loaded by Rails TODO: investigate this
-require 'role'    # Related classes not loaded by Rails TODO: investigate this
-
 class ServiceInstance
   include DataMapper::Resource
 

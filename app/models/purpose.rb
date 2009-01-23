@@ -1,15 +1,3 @@
-# == Schema Information
-# Schema version: 20081201121936
-#
-# Table name: purposes
-#
-#  id         :integer         not null, primary key
-#  role_id    :integer
-#  server_id  :integer
-#  created_at :datetime
-#  updated_at :datetime
-#
-
 class Purpose
   include DataMapper::Resource
 

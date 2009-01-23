@@ -1,15 +1,3 @@
-# == Schema Information
-# Schema version: 20081201121936
-#
-# Table name: releases
-#
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  service_id :integer
-#
-
 class Release
   include DataMapper::Resource
 

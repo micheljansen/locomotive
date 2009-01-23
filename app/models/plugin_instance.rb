@@ -1,16 +1,3 @@
-# == Schema Information
-# Schema version: 20081201121936
-#
-# Table name: plugin_instances
-#
-#  id          :integer         not null, primary key
-#  plugin_type :string(255)
-#  version     :integer
-#  name        :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#
-
 class PluginInstance
   include DataMapper::Resource
 

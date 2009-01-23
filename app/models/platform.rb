@@ -1,15 +1,3 @@
-# == Schema Information
-# Schema version: 20081201121936
-#
-# Table name: platforms
-#
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#
-require 'platform_membership' # Related classes not loaded by Rails TODO: investigate this
-
 class Platform
   include DataMapper::Resource
 
