@@ -59,6 +59,11 @@ class Releases < Application
     end
   end
 
+  def delete(id)
+    @release = Release.get(id)
+    display @release
+  end
+
   # DELETE /releases/1
   # DELETE /releases/1.xml
   def destroy

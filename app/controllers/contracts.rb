@@ -59,6 +59,11 @@ class Contracts < Application
     end
   end
 
+  def delete(id)
+    @contract = Contract.get(id)
+    display @contract
+  end
+
   # DELETE /contracts/1
   # DELETE /contracts/1.xml
   def destroy

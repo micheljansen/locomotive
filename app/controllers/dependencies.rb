@@ -55,6 +55,11 @@ class Dependencies < Application
     end
   end
 
+  def delete(id)
+    @dependency = Dependency.get(id)
+    display @dependency
+  end
+
   # DELETE /dependencies/1
   # DELETE /dependencies/1.xml
   def destroy

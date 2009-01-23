@@ -55,6 +55,11 @@ class Platforms < Application
     end
   end
 
+  def delete(id)
+    @platform = Platform.get(id)
+    display @platform
+  end
+
   # DELETE /platforms/1
   # DELETE /platforms/1.xml
   def destroy

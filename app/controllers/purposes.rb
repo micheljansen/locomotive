@@ -57,6 +57,11 @@ class Purposes < Application
     end
   end
 
+  def delete(id)
+    @purpose = Purpose.get(id)
+    display @purpose
+  end
+
   # DELETE /purposes/1
   # DELETE /purposes/1.xml
   def destroy

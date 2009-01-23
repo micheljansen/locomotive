@@ -55,6 +55,11 @@ class Clients < Application
     end
   end
 
+  def delete(id)
+    @client = Client.get(id)
+    display @client
+  end
+
   # DELETE /clients/1
   # DELETE /clients/1.xml
   def destroy
@@ -63,6 +68,11 @@ class Clients < Application
     if @client.destroy
       redirect resource(:clients)
     else
+
+    respond_to do |format|
+      format.html { redirect_to(:controller => "services") }
+      format.xml  { head :ok }
+    end
       raise InternalServerError
     end
   end

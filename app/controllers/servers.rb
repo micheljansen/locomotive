@@ -55,6 +55,11 @@ class Servers < Application
     end
   end
 
+  def delete(id)
+    @server = Server.get(id)
+    display @server
+  end
+
   # DELETE /servers/1
   # DELETE /servers/1.xml
   def destroy

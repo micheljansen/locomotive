@@ -55,6 +55,11 @@ class Roles < Application
     end
   end
 
+  def delete(id)
+    @role = Role.get(id)
+    display @role
+  end
+
   # DELETE /roles/1
   # DELETE /roles/1.xml
   def destroy

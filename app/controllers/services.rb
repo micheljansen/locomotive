@@ -57,6 +57,11 @@ class Services < Application
     end
   end
 
+  def delete(id)
+    @service = Service.get(id)
+    display @service
+  end
+
   # DELETE /services/1
   # DELETE /services/1.xml
   def destroy

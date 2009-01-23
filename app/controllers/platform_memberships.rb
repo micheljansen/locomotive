@@ -57,6 +57,11 @@ class PlatformMemberships < Application
     end
   end
 
+  def delete(id)
+    @platform_membership = PlatformMembership.get(id)
+    display @platform_membership
+  end
+
   # DELETE /platform_memberships/1
   # DELETE /platform_memberships/1.xml
   def destroy

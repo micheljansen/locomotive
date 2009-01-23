@@ -52,6 +52,11 @@ class PluginProperties < Application
     end
   end
 
+  def delete(id)
+    @plugin_property = PluginProperty.get(id)
+    display @plugin_property
+  end
+
   # DELETE /plugin_properties/1
   # DELETE /plugin_properties/1.xml
   def destroy

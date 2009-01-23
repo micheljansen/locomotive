@@ -103,6 +103,11 @@ class ServiceInstances < Application
     redirect resource(@service_instance)
   end
 
+  def delete(id)
+    @server_instance = ServerInstance.get(id)
+    display @server_instance
+  end
+
   # DELETE /service_instances/1
   # DELETE /service_instances/1.xml
   def destroy

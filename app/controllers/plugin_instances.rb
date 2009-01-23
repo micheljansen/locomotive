@@ -81,6 +81,11 @@ class PluginInstances < Application
     end
   end
 
+  def delete(id)
+    @plugin_instance = PluginInstance.get(id)
+    display @plugin_instance
+  end
+
   # DELETE /plugin_instances/1
   # DELETE /plugin_instances/1.xml
   def destroy
