@@ -2,15 +2,15 @@ class Menu
   
   def self.load_defaults
     unless @defaults_loaded
-      Menu.add("Cockpit", "/")
-      Menu["Administration"]["Dashboard"] = ["administration_dashboard"]
-      Menu["Administration"]["Clients"] = ['clients']
-      Menu["Administration"]["Services"] = ['services']
-      Menu["Administration"]["Servers"] = ['servers']
-      Menu["Administration"]["Roles"] = ['roles']
-      Menu["Administration"]["Platforms"] = ['platforms']
-      Menu["Manage"]["Deploy"] = ['service_instances']
-      Menu["Settings"]["Plugins"] = ['plugins']
+      Menu.add("Cockpit", '/')
+      Menu["Administration"]["Dashboard"] = ['/']
+      Menu["Administration"]["Clients"] = [:clients]
+      Menu["Administration"]["Services"] = [:services]
+      Menu["Administration"]["Servers"] = [:servers]
+      Menu["Administration"]["Roles"] = [:roles]
+      Menu["Administration"]["Platforms"] = [:platforms]
+      Menu["Manage"]["Deploy"] = [:service_instances]
+      Menu["Settings"]["Plugins"] = [:plugins]
       
       @defaults_loaded = true
     end    
