@@ -64,12 +64,12 @@ class Contracts < Application
   def destroy
     @client = Client.find(params[:client_id])
     @contract = Contract.get(params[:id])
-    @contract.destroy
-
-    respond_to do |format|
-      flash[:notice] = 'Contract was successfully cancelled.'
-      format.html { redirect_to(client_url(@client.id)) }
-      format.xml  { head :ok }
+    raise NotFound unless @contract
+    if @contract.destroy
+      #  flash[:notice] = 'Contract was successfully cancelled.'
+      redirect resource(@client)
+    else
+      raise InternalServerError
     end
   end
   

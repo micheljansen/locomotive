@@ -85,11 +85,11 @@ class PluginInstances < Application
   # DELETE /plugin_instances/1.xml
   def destroy
     @plugin_instance = PluginInstance.get(params[:id])
-    @plugin_instance.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(plugin_instances_url) }
-      format.xml  { head :ok }
+    raise NotFound unless @plugin_instance
+    if @plugin_instance.destroy
+      redirect resource(:plugin_instances)
+    else
+      raise InternalServerError
     end
   end
   

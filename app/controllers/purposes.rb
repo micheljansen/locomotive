@@ -61,11 +61,11 @@ class Purposes < Application
   # DELETE /purposes/1.xml
   def destroy
     @purpose = Purpose.get(params[:id])
-    @purpose.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(server_url(@server.id)) }
-      format.xml  { head :ok }
+    raise NotFound unless @purpose
+    if @purpose.destroy
+      redirect resource(@server)
+    else
+      raise InternalServerError
     end
   end
   

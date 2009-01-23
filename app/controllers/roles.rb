@@ -59,11 +59,11 @@ class Roles < Application
   # DELETE /roles/1.xml
   def destroy
     @role = Role.get(params[:id])
-    @role.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(roles_url) }
-      format.xml  { head :ok }
+    raise NotFound unless @role
+    if @role.destroy
+      redirect resource(:roles)
+    else
+      raise InternalServerError
     end
   end
   

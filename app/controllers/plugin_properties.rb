@@ -56,11 +56,11 @@ class PluginProperties < Application
   # DELETE /plugin_properties/1.xml
   def destroy
     @plugin_property = PluginProperty.get(params[:id])
-    @plugin_property.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(plugin_properties_url) }
-      format.xml  { head :ok }
+    raise NotFound unless @plugin_property
+    if @plugin_property.destroy
+      redirect resource(:plugin_instances)
+    else
+      raise InternalServerError
     end
   end
 end

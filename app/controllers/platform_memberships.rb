@@ -61,12 +61,12 @@ class PlatformMemberships < Application
   # DELETE /platform_memberships/1.xml
   def destroy
     @platform_membership = PlatformMembership.get(params[:id])
-    @platform_membership.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(platform_memberships_url) }
-      format.xml  { head :ok }
-      format.js   { render :action => :refresh }
+    raise NotFound unless @platform_membership
+    if @platform_membership.destroy
+      redirect resource(:platform_memberships)
+      # TODO: rework JS for Merb format.js   { render :action => :refresh }
+    else
+      raise InternalServerError
     end
   end
   

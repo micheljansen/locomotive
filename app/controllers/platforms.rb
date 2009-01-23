@@ -59,11 +59,11 @@ class Platforms < Application
   # DELETE /platforms/1.xml
   def destroy
     @platform = Platform.get(params[:id])
-    @platform.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(platforms_url) }
-      format.xml  { head :ok }
+    raise NotFound unless @platform
+    if @platform.destroy
+      redirect resource(:platforms)
+    else
+      raise InternalServerError
     end
   end
   

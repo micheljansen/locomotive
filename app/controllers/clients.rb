@@ -59,10 +59,12 @@ class Clients < Application
   # DELETE /clients/1.xml
   def destroy
     @client = Client.get(params[:id])
-    @client.destroy
-
-      format.html { redirect_to(clients_url) }
-      format.xml  { head :ok }
+    raise NotFound unless @client
+    if @client.destroy
+      redirect resource(:clients)
+    else
+      raise InternalServerError
+    end
   end
   
   def init_menu

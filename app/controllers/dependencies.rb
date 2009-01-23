@@ -59,11 +59,11 @@ class Dependencies < Application
   # DELETE /dependencies/1.xml
   def destroy
     @dependency = Dependency.get(params[:id])
-    @dependency.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(dependencies_url) }
-      format.xml  { head :ok }
+    raise NotFound unless @dependency
+    if @dependency.destroy
+      redirect resource(:dependencies)
+    else
+      raise InternalServerError
     end
   end
   

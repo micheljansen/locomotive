@@ -63,11 +63,11 @@ class Releases < Application
   # DELETE /releases/1.xml
   def destroy
     @release = Release.get(params[:id])
-    @release.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(releases_url) }
-      format.xml  { head :ok }
+    raise NotFound unless @release
+    if @release.destroy
+      redirect resource(:releases)
+    else
+      raise InternalServerError
     end
   end
   

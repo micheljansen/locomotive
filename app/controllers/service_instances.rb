@@ -107,11 +107,11 @@ class ServiceInstances < Application
   # DELETE /service_instances/1.xml
   def destroy
     @service_instance = ServiceInstance.get(params[:id])
-    @service_instance.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(service_instances_url) }
-      format.xml  { head :ok }
+    raise NotFound unless @service_instance
+    if @service_instance.destroy
+      redirect resource(:service_instances)
+    else
+      raise InternalServerError
     end
   end
   

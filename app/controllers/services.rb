@@ -61,11 +61,11 @@ class Services < Application
   # DELETE /services/1.xml
   def destroy
     @service = Service.get(params[:id])
-    @service.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(:controller => "services") }
-      format.xml  { head :ok }
+    raise NotFound unless @service
+    if @service.destroy
+      redirect resource(:services)
+    else
+      raise InternalServerError
     end
   end
   

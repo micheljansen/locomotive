@@ -59,11 +59,11 @@ class Servers < Application
   # DELETE /servers/1.xml
   def destroy
     @server = Server.get(params[:id])
-    @server.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(servers_url) }
-      format.xml  { head :ok }
+    raise NotFound unless @server
+    if @server.destroy
+      redirect resource(:servers)
+    else
+      raise InternalServerError
     end
   end
   
