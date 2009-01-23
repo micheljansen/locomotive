@@ -82,7 +82,7 @@ class Purposes < Application
     server_id = params[:server_id]
     
     unless server_id.nil?
-      @server = Server.find(server_id)
+      @server = Server.get(server_id)
     end
   end
   
@@ -94,7 +94,7 @@ class Purposes < Application
     server_id = params[:server_id]
     
     unless server_id.nil?
-      @server = Server.find(server_id)
+      @server = Server.get(server_id)
     end
   end
   

@@ -21,7 +21,7 @@ class PluginInstance
   property :created_at, DateTime
   property :updated_at, DateTime
 
-  has n, :plugin_properties, :dependent => :destroy
+  has n, :plugin_properties # :dependent => :destroy
 
   #validates_presence_of :plugin_type, :on => :create, :message => "can't be blank"
   validates_present :plugin_type, :on => :create, :message => "can't be blank. This should not happen"

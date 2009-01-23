@@ -84,11 +84,11 @@ class PlatformMemberships < Application
   # end
   
   def find_platform
-    @platform ||= Platform.find(params[:platform_id]) if params[:platform_id]
+    @platform ||= Platform.get(params[:platform_id]) if params[:platform_id]
   end
   
   def find_server
-    @server ||= Server.find(params[:server_id]) if params[:server_id]
+    @server ||= Server.get(params[:server_id]) if params[:server_id]
   end
   
   def initialize_params

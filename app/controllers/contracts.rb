@@ -67,7 +67,7 @@ class Contracts < Application
   # DELETE /contracts/1
   # DELETE /contracts/1.xml
   def destroy
-    @client = Client.find(params[:client_id])
+    @client = Client.get(params[:client_id])
     @contract = Contract.get(params[:id])
     raise NotFound unless @contract
     if @contract.destroy

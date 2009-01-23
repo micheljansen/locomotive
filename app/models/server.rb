@@ -23,9 +23,9 @@ class Server
   property :created_at, DateTime
   property :updated_at, DateTime
 
-  has n, :platform_memberships, :dependent => :destroy
+  has n, :platform_memberships # :dependent => :destroy
   has n, :platforms, :through => :platform_memberships
-  has n, :purposes, :dependent => :destroy
+  has n, :purposes # :dependent => :destroy
   has n, :roles, :through => :purposes
 
   def others

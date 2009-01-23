@@ -14,7 +14,7 @@ class Services < Application
   def show
     @service = Service.get(params[:id])
     @releases = @service.releases
-    @service_instances = @service.service_instances.find(:all, :order => "client_id DESC")
+    @service_instances = @service.service_instances.all(:order => [:client_id.desc])
     display @service
   end
 

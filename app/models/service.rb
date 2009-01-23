@@ -19,9 +19,9 @@ class Service
   property :updated_at, DateTime
   property :service_type_type, String
 
-  has n, :releases, :dependent => :destroy
-  has n, :service_instances, :through => :releases, :dependent => :destroy
-  has n, :contracts, :dependent => :destroy
+  has n, :releases # :dependent => :destroy
+  has n, :service_instances, :through => :releases # :dependent => :destroy
+  has n, :contracts # :dependent => :destroy
   has n, :clients, :through => :contracts
 
   validates_present :service_type_type, :on => :create, :message => "can't be blank"

@@ -19,7 +19,7 @@ class Platform
   property :updated_at, DateTime
 
   has n, :service_instances
-  has n, :platform_memberships, :dependent => :destroy
+  has n, :platform_memberships # :dependent => :destroy
   has n, :servers, :through => :platform_memberships
 
   validates_present :name
@@ -38,6 +38,6 @@ class Platform
   # returns the membership for a given server
   # or nil if not found
   def membership_for_server_id(server_id)
-    platform_memberships.find_by_server_id(server_id)
+    platform_memberships.all(:server_id => server_id)
   end
 end

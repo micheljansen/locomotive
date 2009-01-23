@@ -68,9 +68,9 @@ class ServiceInstance
   # Validates on updating the release, whether that release belongs to the same
   # service as the previous one.
   def service_has_not_changed?
-    if changed?
-
-      previous_release = Release.get(release_id_was) if release_id_was
+    if dirty?
+                                        ## TODO: check this is being done correctly
+      previous_release = Release.get(dirty_attributes[:release_id]) if dirty_attributes[:release_id]
 
       if previous_release && release && previous_release.service != release.service
         errors.add(:release, "belongs to a different service than this instance")

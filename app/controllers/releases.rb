@@ -21,7 +21,7 @@ class Releases < Application
   def new
     @release = Release.new
     @release.service_id = params[:service_id]
-    @service = Service.find(params[:service_id])
+    @service = Service.get(params[:service_id])
     display @release
   end
 
@@ -36,7 +36,7 @@ class Releases < Application
   # POST /releases.xml
   def create
     @release = Release.new(params[:release])
-    @service = Service.find(params[:service_id])
+    @service = Service.get(params[:service_id])
 
     if @release.save
       #  flash[:notice] = 'Release was successfully created.'
