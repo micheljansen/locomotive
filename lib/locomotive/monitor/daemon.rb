@@ -3,7 +3,7 @@ require 'daemons'
 
 # load the entire rails framework
 # TODO: check if we can do this more elegantly :)
-require File.join(File.dirname(__FILE__), "..", "..", "..", "config", "environment.rb")
+# require File.join(File.dirname(__FILE__), "..", "..", "..", "config", "environment.rb")
 
 module Locomotive
   module Monitor

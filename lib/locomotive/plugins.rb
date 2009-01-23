@@ -1,7 +1,7 @@
 module Locomotive
   module Plugins
     
-    DEFAULT_PATH = File.join(RAILS_ROOT, 'vendor','plugins','locomotive')
+    DEFAULT_PATH = File.join(Merb.root, 'vendor','plugins','locomotive')
     
     class << self
       attr_accessor :discovered

@@ -119,6 +119,7 @@ class Menu
   private
   
   def logger
+    Merb.logger
   end
   
   Menu.load_defaults
