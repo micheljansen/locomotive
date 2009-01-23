@@ -12,7 +12,7 @@
     <td><%=h plugin_property.value %></td>
     <td><%= link_to 'Show', resource(plugin_property) %></td>
     <td><%= link_to 'Edit', resource(plugin_property, :edit) %></td>
-    <td><%= link_to 'Destroy', resource(plugin_property, :delete), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', resource(plugin_property, :delete), :confirm => 'Are you sure?' %></td>
   </tr>
 <% end %>
 </table>
