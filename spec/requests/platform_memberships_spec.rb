@@ -1,45 +1,110 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-describe Platforms do 
-  it "should_get_index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:platform_memberships)
-  end
+given "a platform_membership exists" do
+  Contract.all.destroy!
+  request(resource(@platform, :platform_memberships), :method => "POST", 
+    :params => { :platform_membership => { :id => nil }})
+end
 
-  it "should_get_new" do
-    get :new
-    assert_response :success
-  end
-
-  it "should_create_platform_membership" do
-    assert_difference('PlatformMembership.count') do
-      post :create, :platform_membership => { }
+describe "resource(@platform, :platform_memberships)" do
+  describe "GET" do
+    
+    before(:each) do
+      @response = request(resource(@platform, :platform_memberships))
+    end
+    
+    it "responds successfully" do
+      @response.should be_successful
     end
 
-    assert_redirected_to platform_membership_path(assigns(:platform_membership))
-  end
-
-  it "should_show_platform_membership" do
-    get :show, :id => platform_memberships(:one).id
-    assert_response :success
-  end
-
-  it "should_get_edit" do
-    get :edit, :id => platform_memberships(:one).id
-    assert_response :success
-  end
-
-  it "should_update_platform_membership" do
-    put :update, :id => platform_memberships(:one).id, :platform_membership => { }
-    assert_redirected_to platform_membership_path(assigns(:platform_membership))
-  end
-
-  it "should_destroy_platform_membership" do
-    assert_difference('PlatformMembership.count', -1) do
-      delete :destroy, :id => platform_memberships(:one).id
+    it "contains a list of platform_memberships" do
+      pending
+      @response.should have_xpath("//ul")
     end
-
-    assert_redirected_to platform_memberships_path
+    
+  end
+  
+  describe "GET", :given => "a platform_membership exists" do
+    before(:each) do
+      @response = request(resource(@platform, :platform_memberships))
+    end
+    
+    it "has a list of platform_memberships" do
+      pending
+      @response.should have_xpath("//ul/li")
+    end
+  end
+  
+  describe "a successful POST" do
+    before(:each) do
+      Contract.all.destroy!
+      @response = request(resource(@platform, :platform_memberships), :method => "POST", 
+        :params => { :platform_membership => { :id => nil }})
+    end
+    
+    it "redirects to resource(@platform, :platform_memberships)" do
+      @response.should redirect_to(resource(Contract.first), :message => {:notice => "platform_membership was successfully created"})
+    end
+    
   end
 end
+
+describe "resource(@platform, @platform_membership)" do 
+  describe "a successful DELETE", :given => "a platform_membership exists" do
+     before(:each) do
+       @response = request(resource(Contract.first), :method => "DELETE")
+     end
+
+     it "should redirect to the index action" do
+       @response.should redirect_to(resource(@platform, :platform_memberships))
+     end
+
+   end
+end
+
+describe "resource(@platform, :platform_memberships, :new)" do
+  before(:each) do
+    @response = request(resource(@platform, :platform_memberships, :new))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@platform, @platform_membership, :edit)", :given => "a platform_membership exists" do
+  before(:each) do
+    @response = request(resource(Contract.first, :edit))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@platform, @platform_membership)", :given => "a platform_membership exists" do
+  
+  describe "GET" do
+    before(:each) do
+      @response = request(resource(Contract.first))
+    end
+  
+    it "responds successfully" do
+      @response.should be_successful
+    end
+  end
+  
+  describe "PUT" do
+    before(:each) do
+      @platform_membership = Contract.first
+      @response = request(resource(@platform, @platform_membership), :method => "PUT", 
+        :params => { :platform_membership => {:id => @platform_membership.id} })
+    end
+  
+    it "redirect to the article show action" do
+      @response.should redirect_to(resource(@platform, @platform_membership))
+    end
+  end
+  
+end
+

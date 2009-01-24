@@ -1,45 +1,110 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-describe ServiceInstances do 
-  it "should_get_index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:service_instances)
-  end
+given "a service_instance exists" do
+  ServiceInstance.all.destroy!
+  request(resource(:service_instances), :method => "POST", 
+    :params => { :service_instance => { :id => nil }})
+end
 
-  it "should_get_new" do
-    get :new
-    assert_response :success
-  end
-
-  it "should_create_service_instance" do
-    assert_difference('ServiceInstance.count') do
-      post :create, :service_instance => { }
+describe "resource(:service_instances)" do
+  describe "GET" do
+    
+    before(:each) do
+      @response = request(resource(:service_instances))
+    end
+    
+    it "responds successfully" do
+      @response.should be_successful
     end
 
-    assert_redirected_to service_instance_path(assigns(:service_instance))
-  end
-
-  it "should_show_service_instance" do
-    get :show, :id => service_instances(:one).id
-    assert_response :success
-  end
-
-  it "should_get_edit" do
-    get :edit, :id => service_instances(:one).id
-    assert_response :success
-  end
-
-  it "should_update_service_instance" do
-    put :update, :id => service_instances(:one).id, :service_instance => { }
-    assert_redirected_to service_instance_path(assigns(:service_instance))
-  end
-
-  it "should_destroy_service_instance" do
-    assert_difference('ServiceInstance.count', -1) do
-      delete :destroy, :id => service_instances(:one).id
+    it "contains a list of service_instances" do
+      pending
+      @response.should have_xpath("//ul")
     end
-
-    assert_redirected_to service_instances_path
+    
+  end
+  
+  describe "GET", :given => "a service_instance exists" do
+    before(:each) do
+      @response = request(resource(:service_instances))
+    end
+    
+    it "has a list of service_instances" do
+      pending
+      @response.should have_xpath("//ul/li")
+    end
+  end
+  
+  describe "a successful POST" do
+    before(:each) do
+      ServiceInstance.all.destroy!
+      @response = request(resource(:service_instances), :method => "POST", 
+        :params => { :service_instance => { :id => nil }})
+    end
+    
+    it "redirects to resource(:service_instances)" do
+      @response.should redirect_to(resource(ServiceInstance.first), :message => {:notice => "service_instance was successfully created"})
+    end
+    
   end
 end
+
+describe "resource(@service_instance)" do 
+  describe "a successful DELETE", :given => "a service_instance exists" do
+     before(:each) do
+       @response = request(resource(ServiceInstance.first), :method => "DELETE")
+     end
+
+     it "should redirect to the index action" do
+       @response.should redirect_to(resource(:service_instances))
+     end
+
+   end
+end
+
+describe "resource(:service_instances, :new)" do
+  before(:each) do
+    @response = request(resource(:service_instances, :new))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@service_instance, :edit)", :given => "a service_instance exists" do
+  before(:each) do
+    @response = request(resource(ServiceInstance.first, :edit))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@service_instance)", :given => "a service_instance exists" do
+  
+  describe "GET" do
+    before(:each) do
+      @response = request(resource(ServiceInstance.first))
+    end
+  
+    it "responds successfully" do
+      @response.should be_successful
+    end
+  end
+  
+  describe "PUT" do
+    before(:each) do
+      @service_instance = ServiceInstance.first
+      @response = request(resource(@service_instance), :method => "PUT", 
+        :params => { :service_instance => {:id => @service_instance.id} })
+    end
+  
+    it "redirect to the article show action" do
+      @response.should redirect_to(resource(@service_instance))
+    end
+  end
+  
+end
+

@@ -1,45 +1,110 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-describe Services do 
-  it "should_get_index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:services)
-  end
+given "a service exists" do
+  Service.all.destroy!
+  request(resource(:services), :method => "POST", 
+    :params => { :service => { :id => nil }})
+end
 
-  it "should_get_new" do
-    get :new
-    assert_response :success
-  end
-
-  it "should_create_service" do
-    assert_difference('Service.count') do
-      post :create, :service => { }
+describe "resource(:services)" do
+  describe "GET" do
+    
+    before(:each) do
+      @response = request(resource(:services))
+    end
+    
+    it "responds successfully" do
+      @response.should be_successful
     end
 
-    assert_redirected_to service_path(assigns(:service))
-  end
-
-  it "should_show_service" do
-    get :show, :id => services(:one).id
-    assert_response :success
-  end
-
-  it "should_get_edit" do
-    get :edit, :id => services(:one).id
-    assert_response :success
-  end
-
-  it "should_update_service" do
-    put :update, :id => services(:one).id, :service => { }
-    assert_redirected_to service_path(assigns(:service))
-  end
-
-  it "should_destroy_service" do
-    assert_difference('Service.count', -1) do
-      delete :destroy, :id => services(:one).id
+    it "contains a list of services" do
+      pending
+      @response.should have_xpath("//ul")
     end
-
-    assert_redirected_to services_path
+    
+  end
+  
+  describe "GET", :given => "a service exists" do
+    before(:each) do
+      @response = request(resource(:services))
+    end
+    
+    it "has a list of services" do
+      pending
+      @response.should have_xpath("//ul/li")
+    end
+  end
+  
+  describe "a successful POST" do
+    before(:each) do
+      Service.all.destroy!
+      @response = request(resource(:services), :method => "POST", 
+        :params => { :service => { :id => nil }})
+    end
+    
+    it "redirects to resource(:services)" do
+      @response.should redirect_to(resource(Service.first), :message => {:notice => "service was successfully created"})
+    end
+    
   end
 end
+
+describe "resource(@service)" do 
+  describe "a successful DELETE", :given => "a service exists" do
+     before(:each) do
+       @response = request(resource(Service.first), :method => "DELETE")
+     end
+
+     it "should redirect to the index action" do
+       @response.should redirect_to(resource(:services))
+     end
+
+   end
+end
+
+describe "resource(:services, :new)" do
+  before(:each) do
+    @response = request(resource(:services, :new))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@service, :edit)", :given => "a service exists" do
+  before(:each) do
+    @response = request(resource(Service.first, :edit))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@service)", :given => "a service exists" do
+  
+  describe "GET" do
+    before(:each) do
+      @response = request(resource(Service.first))
+    end
+  
+    it "responds successfully" do
+      @response.should be_successful
+    end
+  end
+  
+  describe "PUT" do
+    before(:each) do
+      @service = Service.first
+      @response = request(resource(@service), :method => "PUT", 
+        :params => { :service => {:id => @service.id} })
+    end
+  
+    it "redirect to the article show action" do
+      @response.should redirect_to(resource(@service))
+    end
+  end
+  
+end
+

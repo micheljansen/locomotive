@@ -1,45 +1,110 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-describe Contracts do 
-  it "should_get_index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:contracts)
-  end
+given "a contract exists" do
+  Contract.all.destroy!
+  request(resource(@client, :contracts), :method => "POST", 
+    :params => { :contract => { :id => nil }})
+end
 
-  it "should_get_new" do
-    get :new
-    assert_response :success
-  end
-
-  it "should_create_contract" do
-    assert_difference('Contract.count') do
-      post :create, :contract => { }
+describe "resource(@client, :contracts)" do
+  describe "GET" do
+    
+    before(:each) do
+      @response = request(resource(@client, :contracts))
+    end
+    
+    it "responds successfully" do
+      @response.should be_successful
     end
 
-    assert_redirected_to contract_path(assigns(:contract))
-  end
-
-  it "should_show_contract" do
-    get :show, :id => contracts(:one).id
-    assert_response :success
-  end
-
-  it "should_get_edit" do
-    get :edit, :id => contracts(:one).id
-    assert_response :success
-  end
-
-  it "should_update_contract" do
-    put :update, :id => contracts(:one).id, :contract => { }
-    assert_redirected_to contract_path(assigns(:contract))
-  end
-
-  it "should_destroy_contract" do
-    assert_difference('Contract.count', -1) do
-      delete :destroy, :id => contracts(:one).id
+    it "contains a list of contracts" do
+      pending
+      @response.should have_xpath("//ul")
     end
-
-    assert_redirected_to contracts_path
+    
+  end
+  
+  describe "GET", :given => "a contract exists" do
+    before(:each) do
+      @response = request(resource(@client, :contracts))
+    end
+    
+    it "has a list of contracts" do
+      pending
+      @response.should have_xpath("//ul/li")
+    end
+  end
+  
+  describe "a successful POST" do
+    before(:each) do
+      Contract.all.destroy!
+      @response = request(resource(@client, :contracts), :method => "POST", 
+        :params => { :contract => { :id => nil }})
+    end
+    
+    it "redirects to resource(@client, :contracts)" do
+      @response.should redirect_to(resource(Contract.first), :message => {:notice => "contract was successfully created"})
+    end
+    
   end
 end
+
+describe "resource(@client, @contract)" do 
+  describe "a successful DELETE", :given => "a contract exists" do
+     before(:each) do
+       @response = request(resource(Contract.first), :method => "DELETE")
+     end
+
+     it "should redirect to the index action" do
+       @response.should redirect_to(resource(@client, :contracts))
+     end
+
+   end
+end
+
+describe "resource(@client, :contracts, :new)" do
+  before(:each) do
+    @response = request(resource(@client, :contracts, :new))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@client, @contract, :edit)", :given => "a contract exists" do
+  before(:each) do
+    @response = request(resource(Contract.first, :edit))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@client, @contract)", :given => "a contract exists" do
+  
+  describe "GET" do
+    before(:each) do
+      @response = request(resource(Contract.first))
+    end
+  
+    it "responds successfully" do
+      @response.should be_successful
+    end
+  end
+  
+  describe "PUT" do
+    before(:each) do
+      @contract = Contract.first
+      @response = request(resource(@client, @contract), :method => "PUT", 
+        :params => { :contract => {:id => @contract.id} })
+    end
+  
+    it "redirect to the article show action" do
+      @response.should redirect_to(resource(@client, @contract))
+    end
+  end
+  
+end
+

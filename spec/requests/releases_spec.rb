@@ -1,45 +1,110 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-describe Releases do 
-  it "should_get_index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:releases)
-  end
+given "a release exists" do
+  Release.all.destroy!
+  request(resource(@service, :releases), :method => "POST", 
+    :params => { :release => { :id => nil }})
+end
 
-  it "should_get_new" do
-    get :new
-    assert_response :success
-  end
-
-  it "should_create_release" do
-    assert_difference('Release.count') do
-      post :create, :release => { }
+describe "resource(@service, :releases)" do
+  describe "GET" do
+    
+    before(:each) do
+      @response = request(resource(@service, :releases))
+    end
+    
+    it "responds successfully" do
+      @response.should be_successful
     end
 
-    assert_redirected_to release_path(assigns(:release))
-  end
-
-  it "should_show_release" do
-    get :show, :id => releases(:one).id
-    assert_response :success
-  end
-
-  it "should_get_edit" do
-    get :edit, :id => releases(:one).id
-    assert_response :success
-  end
-
-  it "should_update_release" do
-    put :update, :id => releases(:one).id, :release => { }
-    assert_redirected_to release_path(assigns(:release))
-  end
-
-  it "should_destroy_release" do
-    assert_difference('Release.count', -1) do
-      delete :destroy, :id => releases(:one).id
+    it "contains a list of releases" do
+      pending
+      @response.should have_xpath("//ul")
     end
-
-    assert_redirected_to releases_path
+    
+  end
+  
+  describe "GET", :given => "a release exists" do
+    before(:each) do
+      @response = request(resource(@service, :releases))
+    end
+    
+    it "has a list of releases" do
+      pending
+      @response.should have_xpath("//ul/li")
+    end
+  end
+  
+  describe "a successful POST" do
+    before(:each) do
+      Release.all.destroy!
+      @response = request(resource(@service, :releases), :method => "POST", 
+        :params => { :release => { :id => nil }})
+    end
+    
+    it "redirects to resource(@service, :releases)" do
+      @response.should redirect_to(resource(Release.first), :message => {:notice => "release was successfully created"})
+    end
+    
   end
 end
+
+describe "resource(@service, @release)" do 
+  describe "a successful DELETE", :given => "a release exists" do
+     before(:each) do
+       @response = request(resource(Release.first), :method => "DELETE")
+     end
+
+     it "should redirect to the index action" do
+       @response.should redirect_to(resource(@service, :releases))
+     end
+
+   end
+end
+
+describe "resource(@service, :releases, :new)" do
+  before(:each) do
+    @response = request(resource(@service, :releases, :new))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@service, @release, :edit)", :given => "a release exists" do
+  before(:each) do
+    @response = request(resource(Release.first, :edit))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@service, @release)", :given => "a release exists" do
+  
+  describe "GET" do
+    before(:each) do
+      @response = request(resource(Release.first))
+    end
+  
+    it "responds successfully" do
+      @response.should be_successful
+    end
+  end
+  
+  describe "PUT" do
+    before(:each) do
+      @release = Release.first
+      @response = request(resource(@service, @release), :method => "PUT", 
+        :params => { :release => {:id => @release.id} })
+    end
+  
+    it "redirect to the article show action" do
+      @response.should redirect_to(resource(@service, @release))
+    end
+  end
+  
+end
+

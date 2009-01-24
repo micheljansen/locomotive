@@ -1,46 +1,110 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-describe PluginInstances do 
-  it "should_get_index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:plugin_instances)
-  end
+given "a plugin_instance exists" do
+  PluginInstance.all.destroy!
+  request(resource(:plugin_instances), :method => "POST", 
+    :params => { :plugin_instance => { :id => nil }})
+end
 
-  it "should_get_new" do
-    get :new, :id => "hello_world"
-    assert_response :success
-  end
-
-  it "should_create_plugin_instance" do
-    assert_difference('PluginInstance.count') do
-      post :create, :plugin_instance => { :plugin_type => "hello_world", :name => "hello_world_instance_1", :version => "1337" }
+describe "resource(:plugin_instances)" do
+  describe "GET" do
+    
+    before(:each) do
+      @response = request(resource(:plugin_instances))
+    end
+    
+    it "responds successfully" do
+      @response.should be_successful
     end
 
-    #assert_redirected_to plugin_instance_path(assigns(:plugin_instance))
-  end
-
-  it "should_show_plugin_instance" do
-    get :show, :id => plugin_instances(:one).id
-    assert_response :success
-  end
-
-  it "should_get_edit" do
-    get :edit, :id => plugin_instances(:one).id
-    assert_response :success
-  end
-
-#  it "should_update_plugin_instance" do
-#    put :update, :id => plugin_instances(:one).id, 
-#                :plugin_instance => { :name => "new name"}
-#    assert_redirected_to plugin_instance_path(assigns(:plugin_instance))
-#  end
-
-  it "should_destroy_plugin_instance" do
-    assert_difference('PluginInstance.count', -1) do
-      delete :destroy, :id => plugin_instances(:one).id
+    it "contains a list of plugin_instances" do
+      pending
+      @response.should have_xpath("//ul")
     end
-
-    assert_redirected_to plugin_instances_path
+    
+  end
+  
+  describe "GET", :given => "a plugin_instance exists" do
+    before(:each) do
+      @response = request(resource(:plugin_instances))
+    end
+    
+    it "has a list of plugin_instances" do
+      pending
+      @response.should have_xpath("//ul/li")
+    end
+  end
+  
+  describe "a successful POST" do
+    before(:each) do
+      PluginInstance.all.destroy!
+      @response = request(resource(:plugin_instances), :method => "POST", 
+        :params => { :plugin_instance => { :id => nil }})
+    end
+    
+    it "redirects to resource(:plugin_instances)" do
+      @response.should redirect_to(resource(PluginInstance.first), :message => {:notice => "plugin_instance was successfully created"})
+    end
+    
   end
 end
+
+describe "resource(@plugin_instance)" do 
+  describe "a successful DELETE", :given => "a plugin_instance exists" do
+     before(:each) do
+       @response = request(resource(PluginInstance.first), :method => "DELETE")
+     end
+
+     it "should redirect to the index action" do
+       @response.should redirect_to(resource(:plugin_instances))
+     end
+
+   end
+end
+
+describe "resource(:plugin_instances, :new)" do
+  before(:each) do
+    @response = request(resource(:plugin_instances, :new))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@plugin_instance, :edit)", :given => "a plugin_instance exists" do
+  before(:each) do
+    @response = request(resource(PluginInstance.first, :edit))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@plugin_instance)", :given => "a plugin_instance exists" do
+  
+  describe "GET" do
+    before(:each) do
+      @response = request(resource(PluginInstance.first))
+    end
+  
+    it "responds successfully" do
+      @response.should be_successful
+    end
+  end
+  
+  describe "PUT" do
+    before(:each) do
+      @plugin_instance = PluginInstance.first
+      @response = request(resource(@plugin_instance), :method => "PUT", 
+        :params => { :plugin_instance => {:id => @plugin_instance.id} })
+    end
+  
+    it "redirect to the article show action" do
+      @response.should redirect_to(resource(@plugin_instance))
+    end
+  end
+  
+end
+

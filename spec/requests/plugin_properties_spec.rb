@@ -1,45 +1,110 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-describe PluginProperties do 
-  it "should_get_index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:plugin_properties)
-  end
+given "a plugin_property exists" do
+  PluginProperty.all.destroy!
+  request(resource(:plugin_properties), :method => "POST", 
+    :params => { :plugin_property => { :id => nil }})
+end
 
-  it "should_get_new" do
-    get :new
-    assert_response :success
-  end
-
-  it "should_create_plugin_property" do
-    assert_difference('PluginProperty.count') do
-      post :create, :plugin_property => { }
+describe "resource(:plugin_properties)" do
+  describe "GET" do
+    
+    before(:each) do
+      @response = request(resource(:plugin_properties))
+    end
+    
+    it "responds successfully" do
+      @response.should be_successful
     end
 
-    assert_redirected_to plugin_property_path(assigns(:plugin_property))
-  end
-
-  it "should_show_plugin_property" do
-    get :show, :id => plugin_properties(:one).id
-    assert_response :success
-  end
-
-  it "should_get_edit" do
-    get :edit, :id => plugin_properties(:one).id
-    assert_response :success
-  end
-
-  it "should_update_plugin_property" do
-    put :update, :id => plugin_properties(:one).id, :plugin_property => { }
-    assert_redirected_to plugin_property_path(assigns(:plugin_property))
-  end
-
-  it "should_destroy_plugin_property" do
-    assert_difference('PluginProperty.count', -1) do
-      delete :destroy, :id => plugin_properties(:one).id
+    it "contains a list of plugin_properties" do
+      pending
+      @response.should have_xpath("//ul")
     end
-
-    assert_redirected_to plugin_properties_path
+    
+  end
+  
+  describe "GET", :given => "a plugin_property exists" do
+    before(:each) do
+      @response = request(resource(:plugin_properties))
+    end
+    
+    it "has a list of plugin_properties" do
+      pending
+      @response.should have_xpath("//ul/li")
+    end
+  end
+  
+  describe "a successful POST" do
+    before(:each) do
+      PluginProperty.all.destroy!
+      @response = request(resource(:plugin_properties), :method => "POST", 
+        :params => { :plugin_property => { :id => nil }})
+    end
+    
+    it "redirects to resource(:plugin_properties)" do
+      @response.should redirect_to(resource(PluginProperty.first), :message => {:notice => "plugin_property was successfully created"})
+    end
+    
   end
 end
+
+describe "resource(@plugin_property)" do 
+  describe "a successful DELETE", :given => "a plugin_property exists" do
+     before(:each) do
+       @response = request(resource(PluginProperty.first), :method => "DELETE")
+     end
+
+     it "should redirect to the index action" do
+       @response.should redirect_to(resource(:plugin_properties))
+     end
+
+   end
+end
+
+describe "resource(:plugin_properties, :new)" do
+  before(:each) do
+    @response = request(resource(:plugin_properties, :new))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@plugin_property, :edit)", :given => "a plugin_property exists" do
+  before(:each) do
+    @response = request(resource(PluginProperty.first, :edit))
+  end
+  
+  it "responds successfully" do
+    @response.should be_successful
+  end
+end
+
+describe "resource(@plugin_property)", :given => "a plugin_property exists" do
+  
+  describe "GET" do
+    before(:each) do
+      @response = request(resource(PluginProperty.first))
+    end
+  
+    it "responds successfully" do
+      @response.should be_successful
+    end
+  end
+  
+  describe "PUT" do
+    before(:each) do
+      @plugin_property = PluginProperty.first
+      @response = request(resource(@plugin_property), :method => "PUT", 
+        :params => { :plugin_property => {:id => @plugin_property.id} })
+    end
+  
+    it "redirect to the article show action" do
+      @response.should redirect_to(resource(@plugin_property))
+    end
+  end
+  
+end
+

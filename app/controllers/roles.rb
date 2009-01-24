@@ -36,7 +36,7 @@ class Roles < Application
 
     if @role.save
       # flash[:notice] = 'Role was successfully created.'
-      redorect resource(@role)
+      redirect resource(@role)
     else
       render :new
     end
