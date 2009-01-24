@@ -14,3 +14,13 @@ http://github.com/brynary/webrat/tree/master/README.rdoc
   
   gem install webrat
 
+
+You'll also want to have Cucumber installed for acceptance testing, i.e. to
+be able to execute rake:features.
+
+ * Installation should be as follows:
+
+  gem install cucumber
+  gem sources -a http://gems.github.com
+  gem install david-merb_cucumber
+
