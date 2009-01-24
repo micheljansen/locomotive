@@ -11,7 +11,7 @@ class Client
   has n, :services, :through => :contracts
   has n, :service_instances
 
-  validates_present :name, :on => :create, :message => "can't be blank"
+  validates_present :name, :message => "can't be blank"
 
   # def instances_for_service_id(service_id)
   #     service_instances.find_by_server_id(server_id)

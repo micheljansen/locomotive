@@ -14,7 +14,7 @@ describe Platform do
   end
   
   it "should be valid with a name" do
-    Platform.find_by_name("one").should be_valid
+    Platform.first(:name => "one").should be_valid
   end
 
   it "should have memberships for all associated servers" do

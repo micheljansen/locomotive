@@ -12,7 +12,7 @@ class Service
   has n, :contracts # :dependent => :destroy
   has n, :clients, :through => :contracts
 
-  validates_present :service_type_type, :on => :create, :message => "can't be blank"
+  validates_present :service_type_type, :message => "can't be blank"
   validates_with_method :service_type_exists?
 
   def service_type
