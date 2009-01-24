@@ -1,18 +1,18 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class ContractsControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe Contracts do 
+  it "should_get_index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:contracts)
   end
 
-  def test_should_get_new
+  it "should_get_new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_contract
+  it "should_create_contract" do
     assert_difference('Contract.count') do
       post :create, :contract => { }
     end
@@ -20,22 +20,22 @@ class ContractsControllerTest < ActionController::TestCase
     assert_redirected_to contract_path(assigns(:contract))
   end
 
-  def test_should_show_contract
+  it "should_show_contract" do
     get :show, :id => contracts(:one).id
     assert_response :success
   end
 
-  def test_should_get_edit
+  it "should_get_edit" do
     get :edit, :id => contracts(:one).id
     assert_response :success
   end
 
-  def test_should_update_contract
+  it "should_update_contract" do
     put :update, :id => contracts(:one).id, :contract => { }
     assert_redirected_to contract_path(assigns(:contract))
   end
 
-  def test_should_destroy_contract
+  it "should_destroy_contract" do
     assert_difference('Contract.count', -1) do
       delete :destroy, :id => contracts(:one).id
     end

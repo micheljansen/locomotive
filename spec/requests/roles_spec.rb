@@ -1,18 +1,18 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class RolesControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe Roles do 
+  it "should_get_index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:roles)
   end
 
-  def test_should_get_new
+  it "should_get_new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_role
+  it "should_create_role" do
     assert_difference('Role.count') do
       post :create, :role => { }
     end
@@ -20,22 +20,22 @@ class RolesControllerTest < ActionController::TestCase
     assert_redirected_to role_path(assigns(:role))
   end
 
-  def test_should_show_role
+  it "should_show_role" do
     get :show, :id => roles(:one).id
     assert_response :success
   end
 
-  def test_should_get_edit
+  it "should_get_edit" do
     get :edit, :id => roles(:one).id
     assert_response :success
   end
 
-  def test_should_update_role
+  it "should_update_role" do
     put :update, :id => roles(:one).id, :role => { }
     assert_redirected_to role_path(assigns(:role))
   end
 
-  def test_should_destroy_role
+  it "should_destroy_role" do
     assert_difference('Role.count', -1) do
       delete :destroy, :id => roles(:one).id
     end

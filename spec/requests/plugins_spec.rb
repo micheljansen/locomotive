@@ -1,13 +1,13 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class PluginsControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe Plugins do 
+  it "should_get_index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:plugins)
   end
 
-  def test_should_show_plugin
+  it "should_show_plugin" do
     get :show, :id => "hello_world"
     assert_response :success
   end

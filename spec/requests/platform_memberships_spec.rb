@@ -1,18 +1,18 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class PlatformMembershipsControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe Platforms do 
+  it "should_get_index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:platform_memberships)
   end
 
-  def test_should_get_new
+  it "should_get_new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_platform_membership
+  it "should_create_platform_membership" do
     assert_difference('PlatformMembership.count') do
       post :create, :platform_membership => { }
     end
@@ -20,22 +20,22 @@ class PlatformMembershipsControllerTest < ActionController::TestCase
     assert_redirected_to platform_membership_path(assigns(:platform_membership))
   end
 
-  def test_should_show_platform_membership
+  it "should_show_platform_membership" do
     get :show, :id => platform_memberships(:one).id
     assert_response :success
   end
 
-  def test_should_get_edit
+  it "should_get_edit" do
     get :edit, :id => platform_memberships(:one).id
     assert_response :success
   end
 
-  def test_should_update_platform_membership
+  it "should_update_platform_membership" do
     put :update, :id => platform_memberships(:one).id, :platform_membership => { }
     assert_redirected_to platform_membership_path(assigns(:platform_membership))
   end
 
-  def test_should_destroy_platform_membership
+  it "should_destroy_platform_membership" do
     assert_difference('PlatformMembership.count', -1) do
       delete :destroy, :id => platform_memberships(:one).id
     end

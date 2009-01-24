@@ -1,18 +1,18 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class ServiceInstancesControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe ServiceInstances do 
+  it "should_get_index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:service_instances)
   end
 
-  def test_should_get_new
+  it "should_get_new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_service_instance
+  it "should_create_service_instance" do
     assert_difference('ServiceInstance.count') do
       post :create, :service_instance => { }
     end
@@ -20,22 +20,22 @@ class ServiceInstancesControllerTest < ActionController::TestCase
     assert_redirected_to service_instance_path(assigns(:service_instance))
   end
 
-  def test_should_show_service_instance
+  it "should_show_service_instance" do
     get :show, :id => service_instances(:one).id
     assert_response :success
   end
 
-  def test_should_get_edit
+  it "should_get_edit" do
     get :edit, :id => service_instances(:one).id
     assert_response :success
   end
 
-  def test_should_update_service_instance
+  it "should_update_service_instance" do
     put :update, :id => service_instances(:one).id, :service_instance => { }
     assert_redirected_to service_instance_path(assigns(:service_instance))
   end
 
-  def test_should_destroy_service_instance
+  it "should_destroy_service_instance" do
     assert_difference('ServiceInstance.count', -1) do
       delete :destroy, :id => service_instances(:one).id
     end

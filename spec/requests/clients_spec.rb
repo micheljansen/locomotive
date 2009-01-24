@@ -1,18 +1,19 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class ClientsControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe Clients do 
+ 
+  it "should_get_index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:clients)
   end
 
-  def test_should_get_new
+  it "should_get_new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_client
+  it "should_create_client" do
     assert_difference('Client.count') do
       post :create, :client => { }
     end
@@ -20,22 +21,22 @@ class ClientsControllerTest < ActionController::TestCase
     assert_redirected_to client_path(assigns(:client))
   end
 
-  def test_should_show_client
+  it "should_show_client" do
     get :show, :id => clients(:one).id
     assert_response :success
   end
 
-  def test_should_get_edit
+  it "should_get_edit" do
     get :edit, :id => clients(:one).id
     assert_response :success
   end
 
-  def test_should_update_client
+  it "should_update_client" do
     put :update, :id => clients(:one).id, :client => { }
     assert_redirected_to client_path(assigns(:client))
   end
 
-  def test_should_destroy_client
+  it "should_destroy_client" do
     assert_difference('Client.count', -1) do
       delete :destroy, :id => clients(:one).id
     end

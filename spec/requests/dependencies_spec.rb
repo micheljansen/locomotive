@@ -1,18 +1,18 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class DependenciesControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe Dependencies do 
+  it "should_get_index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:dependencies)
   end
 
-  def test_should_get_new
+  it "should_get_new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_dependency
+  it "should_create_dependency" do
     assert_difference('Dependency.count') do
       post :create, :dependency => { }
     end
@@ -20,22 +20,22 @@ class DependenciesControllerTest < ActionController::TestCase
     assert_redirected_to dependency_path(assigns(:dependency))
   end
 
-  def test_should_show_dependency
+  it "should_show_dependency" do
     get :show, :id => dependencies(:one).id
     assert_response :success
   end
 
-  def test_should_get_edit
+  it "should_get_edit" do
     get :edit, :id => dependencies(:one).id
     assert_response :success
   end
 
-  def test_should_update_dependency
+  it "should_update_dependency" do
     put :update, :id => dependencies(:one).id, :dependency => { }
     assert_redirected_to dependency_path(assigns(:dependency))
   end
 
-  def test_should_destroy_dependency
+  it "should_destroy_dependency" do
     assert_difference('Dependency.count', -1) do
       delete :destroy, :id => dependencies(:one).id
     end

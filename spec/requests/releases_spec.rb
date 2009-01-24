@@ -1,18 +1,18 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class ReleasesControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe Releases do 
+  it "should_get_index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:releases)
   end
 
-  def test_should_get_new
+  it "should_get_new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_release
+  it "should_create_release" do
     assert_difference('Release.count') do
       post :create, :release => { }
     end
@@ -20,22 +20,22 @@ class ReleasesControllerTest < ActionController::TestCase
     assert_redirected_to release_path(assigns(:release))
   end
 
-  def test_should_show_release
+  it "should_show_release" do
     get :show, :id => releases(:one).id
     assert_response :success
   end
 
-  def test_should_get_edit
+  it "should_get_edit" do
     get :edit, :id => releases(:one).id
     assert_response :success
   end
 
-  def test_should_update_release
+  it "should_update_release" do
     put :update, :id => releases(:one).id, :release => { }
     assert_redirected_to release_path(assigns(:release))
   end
 
-  def test_should_destroy_release
+  it "should_destroy_release" do
     assert_difference('Release.count', -1) do
       delete :destroy, :id => releases(:one).id
     end

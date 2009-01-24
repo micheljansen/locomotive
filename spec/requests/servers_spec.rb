@@ -1,18 +1,18 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class ServersControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe Servers do 
+  it "should_get_index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:servers)
   end
 
-  def test_should_get_new
+  it "should_get_new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_server
+  it "should_create_server" do
     assert_difference('Server.count') do
       post :create, :server => { }
     end
@@ -20,22 +20,22 @@ class ServersControllerTest < ActionController::TestCase
     assert_redirected_to server_path(assigns(:server))
   end
 
-  def test_should_show_server
+  it "should_show_server" do
     get :show, :id => servers(:one).id
     assert_response :success
   end
 
-  def test_should_get_edit
+  it "should_get_edit" do
     get :edit, :id => servers(:one).id
     assert_response :success
   end
 
-  def test_should_update_server
+  it "should_update_server" do
     put :update, :id => servers(:one).id, :server => { }
     assert_redirected_to server_path(assigns(:server))
   end
 
-  def test_should_destroy_server
+  it "should_destroy_server" do
     assert_difference('Server.count', -1) do
       delete :destroy, :id => servers(:one).id
     end

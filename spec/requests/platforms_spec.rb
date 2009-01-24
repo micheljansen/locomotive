@@ -1,18 +1,18 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class PlatformsControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe Platforms do 
+  it "should_get_index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:platforms)
   end
 
-  def test_should_get_new
+  it "should_get_new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_platform
+  it "should_create_platform" do
     assert_difference('Platform.count') do
       post :create, :platform => { }
     end
@@ -20,22 +20,22 @@ class PlatformsControllerTest < ActionController::TestCase
     assert_redirected_to platform_path(assigns(:platform))
   end
 
-  def test_should_show_platform
+  it "should_show_platform" do
     get :show, :id => platforms(:one).id
     assert_response :success
   end
 
-  def test_should_get_edit
+  it "should_get_edit" do
     get :edit, :id => platforms(:one).id
     assert_response :success
   end
 
-  def test_should_update_platform
+  it "should_update_platform" do
     put :update, :id => platforms(:one).id, :platform => { }
     assert_redirected_to platform_path(assigns(:platform))
   end
 
-  def test_should_destroy_platform
+  it "should_destroy_platform" do
     assert_difference('Platform.count', -1) do
       delete :destroy, :id => platforms(:one).id
     end

@@ -1,18 +1,18 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class PurposesControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe Purposes do 
+  it "should_get_index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:purposes)
   end
 
-  def test_should_get_new
+  it "should_get_new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_purpose
+  it "should_create_purpose" do
     assert_difference('Purpose.count') do
       post :create, :purpose => { }
     end
@@ -20,22 +20,22 @@ class PurposesControllerTest < ActionController::TestCase
     assert_redirected_to purpose_path(assigns(:purpose))
   end
 
-  def test_should_show_purpose
+  it "should_show_purpose" do
     get :show, :id => purposes(:one).id
     assert_response :success
   end
 
-  def test_should_get_edit
+  it "should_get_edit" do
     get :edit, :id => purposes(:one).id
     assert_response :success
   end
 
-  def test_should_update_purpose
+  it "should_update_purpose" do
     put :update, :id => purposes(:one).id, :purpose => { }
     assert_redirected_to purpose_path(assigns(:purpose))
   end
 
-  def test_should_destroy_purpose
+  it "should_destroy_purpose" do
     assert_difference('Purpose.count', -1) do
       delete :destroy, :id => purposes(:one).id
     end
