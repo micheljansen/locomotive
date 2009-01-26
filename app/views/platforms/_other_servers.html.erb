@@ -2,15 +2,17 @@
 
 <div id="other_servers_options">
   <%= link_to "Add more...", resource(:servers, :new) %>
-  <%= link_to_function "Filter", visual_effect(:toggle_blind, 'server_filter_box') %>
+  <%# FIXME: link_to_function "Filter", visual_effect(:toggle_blind, 'server_filter_box') %>
   <div id="server_filter_box" style="display: none">
     <span>Show only</span>
     <span style="float: right">
-      <% form_tag 'javascript:void(0)' do %>
-        <%= select_tag :role_filter, options_for_select(Role.all.map {|r| [r.name.pluralize, r.id]}) %>
-      <% end %>
+      <%= form :action => 'javascript:void(0)' do %>
+        <%= select :role_filter, :collection => (Role.all.map {|r| [r.name.pluralize, r.id]}) %>
+      <% end =%>
     </span>
   </div>
 </div>
 
-<%= render :partial => "/platforms/server", :collection => other_servers %>
+<% unless other_servers.nil? %>
+  <%= partial :server, :with => other_servers, :as => :server %>
+<% end %>

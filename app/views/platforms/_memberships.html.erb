@@ -1,6 +1,7 @@
 <h2><%=h platform.name %></h2>
 <div id="servers_options">
-  <%= link_to "Edit...", resource(@platform, :edit) %>
+  <%= link_to "Edit...", resource(platform, :edit) %>
 </div>
-
-<%= partial :platforms_membership, :collection => @memberships %>
+<% unless memberships.nil? %>
+  <%= partial :membership, :with => memberships, :as => :membership %>
+<% end %>

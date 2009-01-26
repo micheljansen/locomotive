@@ -1,14 +1,14 @@
 <h2>Actions</h2>
 <ul id="specific">
-  <li><%= link_to 'Edit this service', resource(@service, :edit) %> </li>
-  <li><%= link_to 'Manage deployments', resource(:service_service_instances, @service.id) %></li>
+  <li><%= link_to 'Edit this service', resource(service, :edit) %> </li>
+  <li><%= link_to 'Manage deployments', resource(service, :service_instances) %></li>
 </ul>
 <ul id="general">
-  <li><%= link_to "Add a release", resource(:service_releases, :new, @service) %> </li>
+  <li><%= link_to "Add a release", resource(service, :releases, :new) %> </li>
 </ul>
-<h2>Releases <sup><%= link_to "+", resource(:service_releases, :new, @service) %></sup></h2>
+<h2>Releases <sup><%= link_to "+", resource(service, :releases, :new) %></sup></h2>
 <ul>
-  <% @service.releases.each do |release| %>
-    <li><%= link_to release.name, resource(:service_service_releaes, @service.id, release.id) %> </li>
+  <% service.releases.each do |release| %>
+    <li><%= link_to release.name, resource(service, release) %> </li>
   <% end %>
 </ul>

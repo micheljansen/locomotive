@@ -8,22 +8,22 @@
 <div id="platform_manager">
   
   <div id="servers">
-    <%= partial :memberships, 
-                :object => @platform.platform_memberships, 
-                :locals => { :platform => @platform } %>
+    <%= partial :memberships,
+      :platform_memberships => @platform.platform_memberships,
+      :platform => @platform %>
   </div>
 
   <div id="other_servers">
-    <%= partial :other_servers, 
-                :object => @platform.other_servers, 
-                :locals => { :platform => @platform } %>
+    <%= partial :other_servers,
+      :other_servers => @platform.other_servers,
+      :platform => @platform %>
   </div>
   
   <div style="clear: both"/>
 
 </div>
 
-<%=   drop_receiving_element("servers",
+<%#   drop_receiving_element("servers",
         :accept     => "server",
         :before     => visual_effect("highlight", "servers") +
                            " new Effect.Move(element, { x: Position.page($('servers'))[0]-Position.page(element)[0], mode: 'relative', duration: 4 });",
@@ -32,7 +32,7 @@
         :url        => resource(@platform) + ".js"
       ) %>
 
-<%=   unescaped_drop_receiving_element("other_servers",
+<%#   unescaped_drop_receiving_element("other_servers",
         :accept     => "membership",
         :before     => visual_effect("highlight", "other_servers"),
         :hoverclass => "dragover",

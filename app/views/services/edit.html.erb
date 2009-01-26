@@ -19,4 +19,4 @@
 <%= link_to 'Show', resource(@service) %> |
 <%= link_to 'Back', resource(:services) %>
 
-<% throw_content :sidebar, render (:partial => "sidebar", :object => @service) %>
+<% throw_content :sidebar, partial("sidebar", :service => @service) %>
