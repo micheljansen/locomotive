@@ -30,7 +30,7 @@ class PluginInstance
   end
 
   def plugin_properties_with_inherited_defaults(force_reload=false)
-    logger.debug("PPWID================")
+    #logger.debug("PPWID================")
     props = {}
 
     plugin.properties.each do |key, value|

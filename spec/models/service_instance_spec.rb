@@ -7,11 +7,22 @@ describe ServiceInstance do
   
   before(:each) do
     @client  = Client.create(:name => "henk", :description => "test")
-    @service = @client.services.create(:name => "testservice", :service_type_type => "SpecServiceType")
-    @release = @service.releases.create(:name => "release")
-    @valid_service_instance = @release.service_instances.create(:client => @client)
+    
+    # The following shortcuts are not available to us in DM:
+    # @service = @client.services.create(:name => "testservice", :service_type_type => "SpecServiceType")
+    # @release = @service.releases.create(:name => "release")
+
+    @service = Service.create(:name => "testservice", :service_type_type => "SpecServiceType")
+    @client.contracts << @service
+
+    @release = Release.create(:name => "release")
+    @service.releases << @release
+
+    @valid_service_instance = ServiceInstance.create(:client => @client)
+    # @valid_service_instance = @release.service_instances.create(:client => @client)
     @valid_service_instance.platform = Platform.new
     @valid_service_instance.save
+    @release.service_instances << @valid_service_instance
   end
   
   it "should be valid when provided with a valid release, client and platform" do
@@ -44,10 +55,15 @@ describe ServiceInstance do
   
   it "should not be allowed to change service type" do
     si = @valid_service_instance
-    unrelated_service = @client.services.create(:name => "completely_unrelated_service", :service_type_type => "SpecServiceType")
-    unrelated_release = unrelated_service.releases.create(:name => "test")
+    # unrelated_service = @client.services.create(:name => "completely_unrelated_service", :service_type_type => "SpecServiceType")
+    # unrelated_release = unrelated_service.releases.create(:name => "test")
+    unrelated_service = Service.create(:name => "completely_unrelated_service", :service_type_type => "SpecServiceType")
+    @client.contracts << unrelated_service
+    unrelated_release = Release.create(:name => "test")
+    unrelated_service.releases << unrelated_release
+
     si.release = unrelated_release
-    
+
     si.should_not be_valid
   end
   
