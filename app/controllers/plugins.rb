@@ -8,7 +8,7 @@ class Plugins < Application
     #@plugins = Plugin.all
     #@plugins = []
     @plugins = Locomotive::Plugins.find_all
-    logger.debug(Locomotive::Plugins.find_all)
+    Merb.logger.debug(Locomotive::Plugins.find_all.to_s)
     display @plugins
   end
 

@@ -18,7 +18,7 @@ class PluginInstance
 
   # gives the plugin that is the template of this instance
   def plugin
-    @plugin ||= Locomotive::Plugin.find_by_id(plugin_type)
+    @plugin # FIXME: ||= Locomotive::Plugin.find_by_id(plugin_type)
   end
 
   # FIXME: equivalent on Merb/DM stack
