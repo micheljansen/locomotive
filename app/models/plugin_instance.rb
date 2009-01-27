@@ -11,10 +11,10 @@ class PluginInstance
   has n, :plugin_properties # :dependent => :destroy
 
   #validates_presence_of :plugin_type, :on => :create, :message => "can't be blank"
-  validates_present :plugin_type, :on => :create, :message => "can't be blank. This should not happen"
-  validates_present :version, :on => :create, :message => "can't be blank. This should not happen"
-  validates_present :name, :on => :create, :message => "should be provided"
-  validates_is_unique :name, :on => :create, :message => "should be unique"
+  validates_present :plugin_type, :with => [:create], :message => "can't be blank. This should not happen"
+  validates_present :version,     :with => [:create], :message => "can't be blank. This should not happen"
+  validates_present :name,        :with => [:create], :message => "should be provided"
+  validates_is_unique :name,      :with => [:create], :message => "should be unique"
 
   # gives the plugin that is the template of this instance
   def plugin

@@ -12,9 +12,9 @@ class ServiceInstance
   belongs_to :client
   belongs_to :platform
 
-  validates_present :release, :on => :create, :message => "can't be blank"
-  validates_present :client, :on => :create, :message => "can't be blank"
-  validates_present :platform, :on => :create, :message => "can't be blank"
+  validates_present :release,  :with => [:create], :message => "can't be blank"
+  validates_present :client,   :with => [:create], :message => "can't be blank"
+  validates_present :platform, :with => [:create], :message => "can't be blank"
 
   validates_with_method :legal_release_for_client?
   validates_with_method :service_has_not_changed?
