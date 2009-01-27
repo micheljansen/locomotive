@@ -1,8 +1,8 @@
 class Role
   include DataMapper::Resource
   
-  property :id, Integer, :serial => true
-  property :name, String
+  property :id,         Integer, :serial => true
+  property :name,       String,  :nullable => false, :length => 0..50
   property :created_at, DateTime
   property :updated_at, DateTime
   
