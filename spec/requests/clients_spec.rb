@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 given "a client exists" do
   Client.all.destroy!
   request(resource(:clients), :method => "POST", 
-    :params => { :client => { :id => nil }})
+    :params => { :client => { :id => nil, :name => 'ABC Enterprises' }})
 end
 
 describe "resource(:clients)" do
@@ -39,7 +39,7 @@ describe "resource(:clients)" do
     before(:each) do
       Client.all.destroy!
       @response = request(resource(:clients), :method => "POST", 
-        :params => { :client => { :id => nil }})
+        :params => { :client => { :id => nil, :name => 'CBA Ondernemen' }})
     end
     
     it "redirects to resource(:clients)" do

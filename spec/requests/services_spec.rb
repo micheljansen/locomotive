@@ -3,7 +3,9 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 given "a service exists" do
   Service.all.destroy!
   request(resource(:services), :method => "POST", 
-    :params => { :service => { :id => nil }})
+    :params => { :service => { :id => nil,
+      :name => 'Example Service',
+      :service_type_type => 'Example Type' }})
 end
 
 describe "resource(:services)" do
@@ -39,7 +41,9 @@ describe "resource(:services)" do
     before(:each) do
       Service.all.destroy!
       @response = request(resource(:services), :method => "POST", 
-        :params => { :service => { :id => nil }})
+        :params => { :service => { :id => nil,
+        :name => 'Example Service',
+        :service_type_type => 'Example Type' }})
     end
     
     it "redirects to resource(:services)" do

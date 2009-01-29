@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 given "a platform exists" do
   Platform.all.destroy!
   request(resource(:platforms), :method => "POST", 
-    :params => { :platform => { :id => nil }})
+    :params => { :platform => { :id => nil, :name => 'Mac OS X 10.5' }})
 end
 
 describe "resource(:platforms)" do
@@ -39,7 +39,7 @@ describe "resource(:platforms)" do
     before(:each) do
       Platform.all.destroy!
       @response = request(resource(:platforms), :method => "POST", 
-        :params => { :platform => { :id => nil }})
+        :params => { :platform => { :id => nil, :name => 'Ubuntu 8.10' }})
     end
     
     it "redirects to resource(:platforms)" do

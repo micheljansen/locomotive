@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 given "a role exists" do
   Role.all.destroy!
   request(resource(:roles), :method => "POST", 
-    :params => { :role => { :id => nil }})
+    :params => { :role => { :id => nil, :name => 'Print Server' }})
 end
 
 describe "resource(:roles)" do
@@ -39,7 +39,7 @@ describe "resource(:roles)" do
     before(:each) do
       Role.all.destroy!
       @response = request(resource(:roles), :method => "POST", 
-        :params => { :role => { :id => nil }})
+        :params => { :role => { :id => nil, :name => 'Web Server' }})
     end
     
     it "redirects to resource(:roles)" do

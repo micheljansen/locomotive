@@ -3,7 +3,9 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 given "a server exists" do
   Server.all.destroy!
   request(resource(:servers), :method => "POST", 
-    :params => { :server => { :id => nil }})
+    :params => { :server => { :id => nil,
+    :name => 'Windows 2000',
+    :hostname => 'zero-uptime' }})
 end
 
 describe "resource(:servers)" do
@@ -39,7 +41,9 @@ describe "resource(:servers)" do
     before(:each) do
       Server.all.destroy!
       @response = request(resource(:servers), :method => "POST", 
-        :params => { :server => { :id => nil }})
+        :params => { :server => { :id => nil,
+        :name => 'CentOS Box',
+        :hostname => 'cien-porciento-uptime' }})
     end
     
     it "redirects to resource(:servers)" do
