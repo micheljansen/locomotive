@@ -4,8 +4,8 @@ class Subsystem
   property :id,         Serial
   property :port,       Integer
   property :server,     Integer
-  property :created_at, DateTime
-  property :updated_at, DateTime
+
+  timestamps :on
 
   def self.types
     @types ||= []

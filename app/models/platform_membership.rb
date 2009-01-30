@@ -3,8 +3,8 @@ class PlatformMembership
 
   property :server_id, Integer
   property :platform_id, Integer
-  property :created_at, DateTime
-  property :updated_at, DateTime
+
+  timestamps :on
 
   belongs_to :server
   belongs_to :platform

@@ -5,8 +5,8 @@ class PluginInstance
   property :plugin_type, String
   property :version,     Integer
   property :name,        String
-  property :created_at,  DateTime
-  property :updated_at,  DateTime
+
+  timestamps :on
 
   has n, :plugin_properties # :dependent => :destroy
 

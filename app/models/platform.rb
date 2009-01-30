@@ -3,8 +3,8 @@ class Platform
 
   property :id,         Serial
   property :name,       String
-  property :created_at, DateTime
-  property :updated_at, DateTime
+
+  timestamps :on
 
   has n, :service_instances
   has n, :platform_memberships # :dependent => :destroy

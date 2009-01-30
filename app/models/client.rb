@@ -4,8 +4,8 @@ class Client
   property :id,          Serial
   property :name,        String
   property :description, Text
-  property :created_at,  DateTime
-  property :updated_at,  DateTime
+
+  timestamps :on
 
   has n, :contracts
   has n, :services, :through => :contracts

@@ -4,8 +4,8 @@ class Contract
   property :id,         Serial
   property :client_id,  Integer, :index => true
   property :service_id, Integer, :index => true
-  property :created_at, DateTime
-  property :updated_at, DateTime
+
+  timestamps :on
 
   belongs_to :client
   belongs_to :service
