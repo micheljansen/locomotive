@@ -23,7 +23,7 @@ describe Platform do
     # @platforms[1].servers << server
     # (see ticket http://datamapper.lighthouseapp.com/projects/20609/tickets/485-has-n-through-does-not-allow-saving-of-model)
     @platforms[1].platform_memberships << server
-    @platforms[1].platform_memberships.map.should include server
+    @platforms[1].platform_memberships.map.should include(server)
   end
   
   it "should be able to find memberships for associated server by id" do
