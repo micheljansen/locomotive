@@ -1,12 +1,12 @@
 class PluginInstance
   include DataMapper::Resource
 
-  property :id, Integer, :serial => true
+  property :id,          Serial
   property :plugin_type, String
-  property :version, Integer
-  property :name, String
-  property :created_at, DateTime
-  property :updated_at, DateTime
+  property :version,     Integer
+  property :name,        String
+  property :created_at,  DateTime
+  property :updated_at,  DateTime
 
   has n, :plugin_properties # :dependent => :destroy
 

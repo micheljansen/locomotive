@@ -1,9 +1,9 @@
 class Purpose
   include DataMapper::Resource
 
-  property :id, Integer, :serial => true
-  property :role_id, Integer
-  property :server_id, Integer
+  property :id,         Serial
+  property :role_id,    Integer
+  property :server_id,  Integer
   property :created_at, DateTime
   property :updated_at, DateTime
 

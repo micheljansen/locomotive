@@ -1,9 +1,9 @@
 class Subsystem
   include DataMapper::Resource
 
-  property :id, Integer, :serial => true
-  property :port, Integer
-  property :server, Integer
+  property :id,         Serial
+  property :port,       Integer
+  property :server,     Integer
   property :created_at, DateTime
   property :updated_at, DateTime
 

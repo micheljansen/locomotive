@@ -1,7 +1,7 @@
 class Contract
   include DataMapper::Resource
 
-  property :id,         Integer, :serial => true
+  property :id,         Serial
   property :client_id,  Integer, :index => true
   property :service_id, Integer, :index => true
   property :created_at, DateTime

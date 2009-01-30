@@ -1,7 +1,7 @@
 class ServiceInstance
   include DataMapper::Resource
 
-  property :id, Integer, :serial => true
+  property :id,         Serial
   property :created_at, DateTime
   property :updated_at, DateTime
   property :platform_id, Integer

@@ -1,8 +1,8 @@
 class Service
   include DataMapper::Resource
 
-  property :id, Integer, :serial => true
-  property :name, String
+  property :id,         Serial
+  property :name,       String
   property :created_at, DateTime
   property :updated_at, DateTime
   property :service_type_type, String
