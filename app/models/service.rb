@@ -3,9 +3,9 @@ class Service
 
   property :id,         Serial
   property :name,       String
-  property :created_at, DateTime
-  property :updated_at, DateTime
   property :service_type_type, String
+
+  timestamps :on
 
   has n, :releases # :dependent => :destroy
   has n, :deployments, :through => :releases # :dependent => :destroy

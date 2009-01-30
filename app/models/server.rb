@@ -7,8 +7,7 @@ class Server
   property :name,       String,  :nullable => false
   property :hostname,   String,  :nullable => false, :length => 2..255,
                                  :format => Proc.new { |code| code =~ /(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\\-]*[A-Za-z0-9])$/ }
-  property :created_at, DateTime
-  property :updated_at, DateTime
+  timestamps :on
 
   has n, :platform_memberships # :dependent => :destroy
   has n, :platforms, :through => :platform_memberships
