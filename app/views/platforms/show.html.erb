@@ -23,6 +23,34 @@
 
 </div>
 
+<script>
+$('.server').draggable({
+  containment: '#platform_manager',
+  revert: 'invalid'
+});
+$('.membership').draggable({
+  containment: '#platform_manager',
+  revert: 'invalid'
+});
+
+$('#servers').droppable({
+  accept: '.server',
+  hoverClass: 'dragover',
+  drop: function(event, ui) {
+    $(this).effect('highlight');
+    // TODO: add the ajax call
+  }
+});
+$('#other_servers').droppable({
+  accept: '.membership',
+  hoverClass: 'dragover',
+  drop: function(event, ui) {
+    $(this).effect('highlight');
+    // TODO: add the ajax call
+  }
+});
+</script>
+
 <%#   drop_receiving_element("servers",
         :accept     => "server",
         :before     => visual_effect("highlight", "servers") +
