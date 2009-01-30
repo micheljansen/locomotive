@@ -10,7 +10,7 @@
     <td><%=h platform.name %></td>
     <td><%= link_to 'Show', resource(platform) %></td>
     <td><%= link_to 'Edit', resource(platform, :edit) %></td>
-    <td><%= link_to 'Delete', resource(platform, :delete), :confirm => 'Are you sure?' %></td>
+    <td><%= link_to 'Delete', resource(platform, :delete), :class => 'delete-link' %></td>
   </tr>
 <% end %>
 </table>

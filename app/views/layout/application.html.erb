@@ -7,7 +7,8 @@
   <title>Locomotive - <%= Extlib::Inflection.humanize(controller_name) %> - <%= Extlib::Inflection.humanize(action_name) %></title>
   <%= css_include_tag 'scaffold' %>
   <%= css_include_tag 'panel' %>
-  <%= js_include_tag :defaults %> 
+  <%= js_include_tag :jquery %>
+  <%= js_include_tag :application %> 
 </head>
 
 <body class="<%= controller_name %>">

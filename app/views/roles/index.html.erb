@@ -17,7 +17,7 @@
     <tr>
       <td><%= link_to role.name, resource(role) %></td>
       <td><%= link_to 'Edit', resource(role, :edit) %></td>
-      <td><%= link_to 'Delete', resource(role, :delete), :confirm => 'Are you sure?' %></td>
+      <td><%= link_to 'Delete', resource(role, :delete), :class => 'delete-link' %></td>
     </tr>
   <% end %>
   </table>

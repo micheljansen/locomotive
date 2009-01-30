@@ -14,7 +14,7 @@
     <tr>
       <td><%= link_to client.name, resource(client) %></td> 
       <td><%=h client.description %></td>
-      <td><%= link_to 'Delete', resource(client, :delete), :confirm => 'Are you sure?'  %></td>
+      <td><%= link_to 'Delete', resource(client, :delete), :class => 'delete-link' %></td>
   <% end %>
 
 <% throw_content(:sidebar) do %>

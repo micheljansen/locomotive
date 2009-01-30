@@ -5,7 +5,7 @@
   <tr>
     <td><%=h purpose.role.name %></td>
     <td><%= link_to 'x', resource(@server.id, purpose.id),
-            :confirm => 'Are you sure?', :method => :delete %></td>
+            :class => 'delete-link', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

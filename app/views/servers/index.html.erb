@@ -14,7 +14,7 @@
     <td><%=h server.roles.map {|r| r.name} * "," %></td>
     <td><%= link_to 'Show', resource(server) %></td>
     <td><%= link_to 'Edit', resource(server, :edit) %></td>
-    <td><%= link_to 'Delete', resource(server, :delete), :confirm => 'Are you sure?' %></td>
+    <td><%= link_to 'Delete', resource(server, :delete), :class => 'delete-link' %></td>
   </tr>
 <% end %>
 </table>

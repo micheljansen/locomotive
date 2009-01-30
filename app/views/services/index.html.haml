@@ -12,7 +12,7 @@
       %td= link_to service.name, resource(service)
       %td=h service.service_type # FIXME: service_type.name throwing "No method error"
       %td= link_to 'Edit', resource(service, :edit)
-      %td= link_to 'Delete', resource(service, :delete), :confirm => 'Are you sure?'
+      %td= link_to 'Delete', resource(service, :delete), :class => 'delete-link'
 
 %p= link_to 'New service', resource(:services, :new)
 - throw_content :sidebar do
