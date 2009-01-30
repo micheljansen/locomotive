@@ -6,7 +6,7 @@ class Platform
 
   timestamps :on
 
-  has n, :service_instances
+  has n, :deployments
   has n, :platform_memberships # :dependent => :destroy
   has n, :servers, :through => :platform_memberships
 

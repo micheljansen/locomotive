@@ -9,16 +9,16 @@
       <th>Platform</th>
       <th>Release</th>
     </tr>
-    <% @service_instances.each do |si| %>
+    <% @deployments.each do |d| %>
     <tr>
-      <td><%= si.client.name %></td>
-      <td><%= si.platform.name %></td>
-      <td><%= si.release.name %></td>
+      <td><%= d.client.name %></td>
+      <td><%= d.platform.name %></td>
+      <td><%= d.release.name %></td>
     </tr>
     <% end %>
   </table>
 </div>
 -->
-I'm not sure what to make of this page yet. For now, move over to <%= link_to '"Manage deployments"', resource(@service, :service_instances) %>.
+I'm not sure what to make of this page yet. For now, move over to <%= link_to '"Manage deployments"', resource(@service, :deployments) %>.
 
 <% throw_content :sidebar, partial("sidebar", :service => @service) %>

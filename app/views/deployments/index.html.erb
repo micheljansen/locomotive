@@ -1,0 +1,26 @@
+<h1><%=h title %></h1>
+
+<table>
+  <tr>
+    <th>Client</th>
+    <th>Service</th>
+    <th>Release</th>
+    <th>Platform</th>
+  </tr>
+
+<% for d in @deployments %>
+  <tr>
+    <td><%= link_to d.client.name, d.client.id %></td>
+    <td><%= link_to d.release.service.name, d.release.service.id %></td>
+    <td><%= link_to d.release.name, resource(d.release.service, :edit, d.release.id) %></td>
+    <td><%= link_to d.platform.name, resource(d.platform) %></td>
+    <td><%= link_to 'Show', resource(d) %></td>
+    <td><%= link_to 'Edit', resource(d, :edit) %></td>
+    <td><%= link_to 'Delete', resource(d, :delete), :class => 'delete-link' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New deployment', resource(:deployments, :new) %>

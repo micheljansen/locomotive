@@ -1,6 +1,6 @@
-<h1>New service_instance</h1>
+<h1>New deployment</h1>
 
-<%= form_for(@service_instance, :action => resource(:service_instances)) do %>
+<%= form_for(@deployment, :action => resource(:deployments)) do %>
   <%= error_messages %>
   <table>
     <tr>
@@ -22,4 +22,4 @@
   </p>
 <% end =%>
 
-<%= link_to 'Back', resource(:service_instances) %>
+<%= link_to 'Back', resource(:deployments) %>

@@ -1,0 +1,16 @@
+<h2><%= "#{@deployment.release.service.name} for #{@client.name} on #{@deployment.platform.name}" %></h2>
+<h3>Details</h3>
+<p><b>Client:</b>
+<%= link_to @deployment.client.name, resource(@deployment.client) %>
+</p>
+<p><b>Service:</b>
+<%= link_to @deployment.release.service.name, resource(@deployment.release.service) %>
+<p><b>Release:</b>
+<%= link_to @deployment.release.name, resource(@deployment.release.service) %>
+</p>
+<p><b>Platform:</b>
+<%= link_to @deployment.platform.name, resource(@deployment.platform) %>
+</p>
+
+<%= link_to 'Edit', resource(@deployment) %> |
+<%= link_to 'Back', resource(:deployments) %>

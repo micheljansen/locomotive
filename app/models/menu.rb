@@ -9,7 +9,7 @@ class Menu
       Menu["Administration"]["Servers"] = [:servers]
       Menu["Administration"]["Roles"] = [:roles]
       Menu["Administration"]["Platforms"] = [:platforms]
-      Menu["Manage"]["Deploy"] = [:service_instances]
+      Menu["Manage"]["Deploy"] = [:deployments]
       Menu["Settings"]["Plugins"] = [:plugins]
       
       @defaults_loaded = true

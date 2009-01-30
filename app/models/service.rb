@@ -8,7 +8,7 @@ class Service
   property :service_type_type, String
 
   has n, :releases # :dependent => :destroy
-  has n, :service_instances, :through => :releases # :dependent => :destroy
+  has n, :deployments, :through => :releases # :dependent => :destroy
   has n, :contracts # :dependent => :destroy
   has n, :clients, :through => :contracts
 
@@ -26,6 +26,6 @@ class Service
   end
 
   def instances_for_client_id(client_id)
-    service_instances.find_all_by_client_id(client_id)
+    deployments.find_all_by_client_id(client_id)
   end
 end

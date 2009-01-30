@@ -1,7 +1,7 @@
 <h2>Actions</h2>
 <ul id="specific">
   <li><%= link_to 'Edit this service', resource(service, :edit) %> </li>
-  <li><%= link_to 'Manage deployments', resource(service, :service_instances) %></li>
+  <li><%= link_to 'Manage deployments', resource(service, :deployments) %></li>
 </ul>
 <ul id="general">
   <li><%= link_to "Add a release", resource(service, :releases, :new) %> </li>

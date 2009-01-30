@@ -1,5 +1,5 @@
 module Merb
-  module ServiceInstancesHelper
+  module DeploymentsHelper
   
     # convenience method to check what we are listing for
     def for?(type)

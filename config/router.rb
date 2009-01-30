@@ -18,16 +18,16 @@ Merb::Router.prepare do
 
   #map.resources :contracts
 
-  resources :service_instances
+  resources :deployments
 
   resources :services do
     resources :releases
-    resources :service_instances
+    resources :deployments
   end
 
   resources :clients do
     resources :contracts
-    resources :service_instances
+    resources :deployments
   end
 
   resources :plugin_instances

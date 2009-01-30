@@ -8,7 +8,7 @@ class Release
   timestamps :on
 
   belongs_to :service
-  has n, :service_instances
+  has n, :deployments
 
   validates_present :service_id, :message => "unknown for this release"
 

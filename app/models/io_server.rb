@@ -4,10 +4,10 @@ class IOServer < ServiceType
   depends_on "appserver"
   
 
-  def self.deploy(service_instance)
+  def self.deploy(deployment)
     puts "iO Deploy called for 
-            release #{service_instance.release.name} 
-            for client #{service_instance.client.name}"
+            release #{deployment.release.name} 
+            for client #{deployment.client.name}"
   end
 
 end

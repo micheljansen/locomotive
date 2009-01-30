@@ -1,4 +1,4 @@
-class ServiceInstance
+class Deployment
   include DataMapper::Resource
 
   property :id,         Serial
@@ -34,7 +34,7 @@ class ServiceInstance
 
   private
 
-  # Validation to check if the release associated with this ServiceInstance
+  # Validation to check if the release associated with this deployment
   # is legal given the associated client.
   #
   # It does not make sense to have an instance of a service release that

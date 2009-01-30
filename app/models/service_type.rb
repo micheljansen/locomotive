@@ -69,12 +69,12 @@ class ServiceType
     end
   end
   
-  # deploy a service_instance of this type
-  def self.deploy(service_instance)
-    puts "deploying an instance of service #{service_instance.release.service.name} 
-            release #{service_instance.release.name} 
+  # deploy a deployment of this type
+  def self.deploy(deployment)
+    puts "deploying an instance of service #{deployment.release.service.name} 
+            release #{deployment.release.name} 
             of type #{self.name} 
-            for client #{service_instance.client.name}"
+            for client #{deployment.client.name}"
   end
 
 end
