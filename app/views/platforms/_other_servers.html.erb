@@ -2,16 +2,24 @@
 
 <div id="other_servers_options">
   <%= link_to "Add more...", resource(:servers, :new) %>
-  <%# FIXME: link_to_function "Filter", visual_effect(:toggle_blind, 'server_filter_box') %>
+  <a href="#" id="filter">Filter</a>
   <div id="server_filter_box" style="display: none">
     <span>Show only</span>
     <span style="float: right">
       <%= form :action => 'javascript:void(0)' do %>
-        <%= select :role_filter, :collection => (Role.all.map {|r| [r.name.pluralize, r.id]}) %>
+        <%= select :role_filter, :collection => (Role.all.map {|r| [r.id, r.name.pluralize]}) %>
       <% end =%>
     </span>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(function() {
+      $("#filter").click(function() {
+        $("#server_filter_box").toggle("blind");
+        });
+      });
+</script>
 
 <ul class="connected-sortable">
 <% unless other_servers.nil? %>
