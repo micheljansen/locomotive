@@ -23,32 +23,51 @@
 
 </div>
 
-<script>
-$('.server').draggable({
-  containment: '#platform_manager',
-  revert: 'invalid'
-});
-$('.membership').draggable({
-  containment: '#platform_manager',
-  revert: 'invalid'
-});
+<style type="text/css">
+  /* TODO: move to an actual stylesheet */
+  .connected-sortable {
+    border:4px solid #00dd00;height:200px
+  }
+  ul.connected-sortable {
+    margin: 0px; padding: 0px;
+    list-style-type: none;
+  }
+</style>
 
-$('#servers').droppable({
-  accept: '.server',
-  hoverClass: 'dragover',
-  drop: function(event, ui) {
-    $(this).effect('highlight');
-    // TODO: add the ajax call
-  }
-});
-$('#other_servers').droppable({
-  accept: '.membership',
-  hoverClass: 'dragover',
-  drop: function(event, ui) {
-    $(this).effect('highlight');
-    // TODO: add the ajax call
-  }
-});
+<script>
+  $('#servers ul, #other_servers ul').sortable({
+    receive: function(event, ui) {
+      $(this).effect('highlight');
+      // TODO: add the ajax call
+    },
+    connectWith: ['.connected-sortable']
+  });
+
+//$('.server').draggable({
+//  containment: '#platform_manager',
+//  revert: 'invalid'
+//});
+//$('.membership').draggable({
+//  containment: '#platform_manager',
+//  revert: 'invalid'
+//});
+
+//$('#servers').droppable({
+//  accept: '.server',
+//  hoverClass: 'dragover',
+//  drop: function(event, ui) {
+//    $(this).effect('highlight');
+//    // TODO: add the ajax call
+//  }
+//});
+//$('#other_servers').droppable({
+//  accept: '.membership',
+//  hoverClass: 'dragover',
+//  drop: function(event, ui) {
+//    $(this).effect('highlight');
+//    // TODO: add the ajax call
+//  }
+//});
 </script>
 
 <%#   drop_receiving_element("servers",

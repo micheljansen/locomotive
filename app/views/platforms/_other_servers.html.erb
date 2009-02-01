@@ -13,6 +13,8 @@
   </div>
 </div>
 
+<ul class="connected-sortable">
 <% unless other_servers.nil? %>
   <%= partial :server, :with => other_servers, :as => :server %>
 <% end %>
+</ul>
