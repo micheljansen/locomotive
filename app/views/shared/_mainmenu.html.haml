@@ -1,0 +1,8 @@
+%ul#mainmenu
+  - Menu.root.links.each do |menu_link_params|
+    - if not @menu.nil? and menu_link_params[0] == @menu[0]
+      %li#active
+        = menu_link(*menu_link_params)
+    - else
+      %li
+        = menu_link(*menu_link_params)

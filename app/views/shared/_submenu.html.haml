@@ -1,0 +1,10 @@
+#submenu
+  %ul
+    - if not @menu.nil? and Menu[@menu[0]].respond_to?(:links)
+      - Menu[@menu[0]].links.each do |submenu_link_param|
+        - if not @menu[1].nil? and submenu_link_param[0] == @menu[1]
+          %li#active
+            = menu_link(*submenu_link_param)
+          - else
+          %li
+            = menu_link(*submenu_link_param)
