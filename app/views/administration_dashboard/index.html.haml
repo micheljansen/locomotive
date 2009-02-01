@@ -1,0 +1,22 @@
+%h1
+  Administration dashboard
+%p
+  You currently have
+  = link_to count_objects(Client), resource(:clients)
+  ,
+  = link_to count_objects(Service), resource(:services)
+  and
+  = link_to count_objects(Server), resource(:servers)
+  set-up.
+  If you want to know more about these, click on any of the tabs above. You can also jump right into adding more by hitting the buttons in the side bar to the right.
+
+- throw_content(:sidebar) do
+  %h2
+    Actions
+  %ul
+    %li
+      = link_to "add a client", resource(:clients, :new)
+    %li
+      = link_to "add a service", resource(:services, :new)
+    %li
+      = link_to "add a server", resource(:servers, :new)
