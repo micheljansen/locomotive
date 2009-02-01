@@ -1,0 +1,11 @@
+%h1
+  Editing platform
+= form_for(@platform, :action => resource(@platform)) do
+  = error_messages
+  %p
+    = text_field :name
+  %p
+    = submit "Update"
+= link_to 'Show', resource(@platform)
+|
+= link_to 'Back', resource(:platforms)

@@ -1,0 +1,68 @@
+%h1
+  Editing platform
+  = h @platform.name
+%p
+  Drag servers between your into this platform to add them
+  or drag them away to remove.
+#platform_manager
+  #servers
+    = partial :memberships, :platform_memberships => @platform.platform_memberships, :platform => @platform
+  #other_servers
+    = partial :other_servers, :other_servers => @platform.other_servers, :platform => @platform
+  %div{ :style => "clear: both" }
+  %style{ :type => "text/css" }
+    \/* TODO: move to an actual stylesheet */
+    \.connected-sortable {
+    border:4px solid #00dd00;height:200px
+    }
+    ul.connected-sortable {
+    margin: 0px; padding: 0px;
+    list-style-type: none;
+    }
+  %script
+    $('#servers ul, #other_servers ul').sortable({
+    receive: function(event, ui) {
+    $(this).effect('highlight');
+    \// TODO: add the ajax call
+    },
+    connectWith: ['.connected-sortable']
+    });
+    
+    \//$('.server').draggable({
+    \//  containment: '#platform_manager',
+    \//  revert: 'invalid'
+    \//});
+    \//$('.membership').draggable({
+    \//  containment: '#platform_manager',
+    \//  revert: 'invalid'
+    \//});
+    
+    \//$('#servers').droppable({
+    \//  accept: '.server',
+    \//  hoverClass: 'dragover',
+    \//  drop: function(event, ui) {
+    \//    $(this).effect('highlight');
+    \//    // TODO: add the ajax call
+    \//  }
+    \//});
+    \//$('#other_servers').droppable({
+    \//  accept: '.membership',
+    \//  hoverClass: 'dragover',
+    \//  drop: function(event, ui) {
+    \//    $(this).effect('highlight');
+    \//    // TODO: add the ajax call
+    \//  }
+    \//});
+
+= link_to 'Edit', resource(@platform, :edit)
+|
+= link_to 'Back', resource(:platforms)
+
+- throw_content :sidebar do
+  - if (! @platform.others.empty?)
+    %h2
+      More platforms
+    %ul
+    - @platform.others.each do |other_platform|
+      %li
+        = link_to other_platform.name, resource(other_platform)

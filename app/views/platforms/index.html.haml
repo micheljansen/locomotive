@@ -1,0 +1,27 @@
+%h1 Listing platforms
+%table
+  %tr
+    %th Name
+  - for platform in @platforms
+    %tr
+      %td
+        = h platform.name
+      %td
+        = link_to 'Show', resource(platform)
+      %td
+        = link_to 'Edit', resource(platform, :edit)
+      %td
+        = link_to 'Delete', resource(platform, :delete), :class => 'delete-link'
+
+- throw_content(:sidebar) do
+  %h2
+    Actions
+  %ul
+    %li
+      = link_to 'Add a platform', resource(:platforms, :new)
+  %h2
+    All platforms
+  %ul
+  - Platform.all.each do |platform|
+    %li
+      = link_to platform.name, resource(platform)

@@ -1,0 +1,23 @@
+%h2
+  Other servers
+#other_servers_options
+  = link_to "Add more...", resource(:servers, :new)
+  %a#filter{ :href => "#" }
+    Filter
+  #server_filter_box{ :style => "display: none" }
+    %span
+      Show only
+    %span{ :style => "float: right" }
+      = form(:action => 'javascript:void(0)') do
+        = select(:role_filter, :collection => (Role.all.map {|r| [r.id, r.name.pluralize]}))
+      
+%script{ :type => "text/javascript" }
+  $(function() {
+  $("#filter").click(function() {
+  $("#server_filter_box").toggle("blind");
+  });
+  });
+
+%ul.connected-sortable
+  - unless other_servers.nil?
+    = partial :server, :with => other_servers, :as => :server
