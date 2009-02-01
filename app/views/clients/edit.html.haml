@@ -1,0 +1,14 @@
+%h1
+  Editing client
+= form_for(@client, :action => resource(@client)) do
+  = error_messages
+  %p
+    = text_field :name, :label => 'Name'
+  %p
+    = text_field :description, :label => 'Description'
+  %p
+    = submit "Update"
+
+= link_to 'Show', resource(@client)
+|
+= link_to 'Back', resource(:clients)

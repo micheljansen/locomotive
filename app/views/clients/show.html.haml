@@ -1,0 +1,47 @@
+%h1
+  = h @client.name
+%p
+  = h @client.description
+#contracts
+  %h2
+    Services
+  %p
+    These are the services that are assigned to this client.
+    Feel free to check them out or
+    - #= link_to 'assign more', resource(:contracts, :new, :client_id => @client.id)
+  %table
+    %tr
+      %th
+        Service
+      %th
+        Instances
+      %th
+        Actions
+    - @client.contracts.each do |contract|
+      %tr
+        %td
+          = link_to contract.service.name, resource(contract.service)
+        %td
+          %ul
+            - instances = contract.service.instances_for_client_id(@client.id)
+            - if instances.size > 0
+              - instances.each do |instance|
+                = link_to "#{instance.platform.name} (#{instance.release.name})", instance
+            - else
+              not deployed to any platforms yet
+        %td
+          = link_to 'cancel contract', resource(@client, contract), :method => :delete
+
+- throw_content(:sidebar) do
+  %h2
+    Actions
+  %ul#specific
+    %li
+      = link_to 'Edit this client', resource(@client, :edit)
+    %li
+      = link_to 'Assign a service', resource(@client, :contracts)
+    %li
+      = link_to 'Manage deployments', resource(@client, :deployments)
+  %ul#general
+    %li
+      = link_to 'Add a new client', resource(:clients, :new)
