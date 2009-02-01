@@ -1,0 +1,15 @@
+%h1
+  = h @role.name
+%p
+  Listing all servers with role `
+  = h @role.name
+  '
+
+%ul
+- @role.servers.each do |server|
+  %li
+    = link_to server.name, resource(server)
+
+= link_to 'Edit', resource(@role, :edit)
+|
+= link_to 'Back', resource(:roles)

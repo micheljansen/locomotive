@@ -1,0 +1,32 @@
+%h1
+  Listing roles
+- unless Role.count == 0
+  %p
+    Roles are like job descriptions for your servers.
+    You can check out the list below to see the roles that are currently available
+    or add more using the "add more" link to the right.
+
+  %table
+    %tr
+      %th
+        Name
+    - for role in @roles
+      %tr
+        %td
+          = link_to role.name, resource(role)
+        %td
+          = link_to 'Edit', resource(role, :edit)
+        %td
+          = link_to 'Delete', resource(role, :delete), :class => 'delete-link'
+- else # no roles defined yet
+  %p
+    Hey! It looks like you haven't defined any roles yet.
+    Roles are like job descriptions for your servers. Hurry to the "add more"
+    link to the right to add more.
+
+- throw_content :sidebar do
+  %h2
+    Actions
+  %ul#general
+    %li
+      = link_to "Add a new role", resource(:roles, :new)

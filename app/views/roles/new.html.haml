@@ -1,0 +1,9 @@
+%h1
+  New role
+= form_for(@role, :action => resource(:roles)) do
+  = error_messages
+  %p
+    = text_field :name
+  %p
+    = submit "Create"
+= link_to 'Back', resource(:roles)
