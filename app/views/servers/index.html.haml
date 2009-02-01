@@ -1,0 +1,31 @@
+%h1
+  Listing servers
+%table
+  %tr
+    %th
+      Name
+    %th
+      Hostname
+    %th
+      Roles
+  - for server in @servers
+    %tr
+      %td
+        = h server.name
+      %td
+        = h server.hostname
+      %td
+        = h server.roles.map {|r| r.name} * ","
+      %td
+        = link_to 'Show', resource(server)
+      %td
+        = link_to 'Edit', resource(server, :edit)
+      %td
+        = link_to 'Delete', resource(server, :delete), :class => 'delete-link'
+%br
+- throw_content(:sidebar) do
+  %h2
+    Actions
+  %ul#general
+    %li
+      = link_to 'New server', resource(:servers, :new)

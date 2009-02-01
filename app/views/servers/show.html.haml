@@ -1,0 +1,38 @@
+%p
+  %b
+    Name:
+  = h @server.name
+%p
+  %b
+    Hostname:
+  = h @server.hostname
+%p
+  %b
+    Roles:
+  %ul
+    - @server.roles.each do |role|
+      %li
+        = h role.name
+
+= link_to 'Back to server list', resource(:servers)
+
+- throw_content(:sidebar) do
+  %h2
+    Actions
+  %ul#specific
+    %li
+      = link_to 'Edit this server', resource(@server, :edit)
+    %li
+      = link_to 'Assign a role', resource(@server, :purposes, :new)
+  %ul#general
+    %li
+      = link_to 'New server', resource(:servers, :new)
+  - if @server.others.size > 0
+    %h2
+      More servers
+    %ul
+      - @server.others.each do |server|
+        %li
+          = link_to server.name, server
+      %li
+        = link_to "See all...", resource(:servers)

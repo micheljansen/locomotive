@@ -1,0 +1,23 @@
+%h1
+  New server
+= form_for(@server, :action => resource(:servers)) do
+  = error_messages
+  %p
+    = text_field :name, :label => 'Name'
+  %p
+    = text_field :hostname, :label => 'Hostname'
+  %p
+    = submit "Create"
+
+= link_to 'Back', resource(:servers)
+
+- throw_content(:sidebar) do
+  - if @server.others.size > 0
+    %h2
+      More servers
+    %ul
+      - @server.others.each do |server|
+        %li
+          = link_to server.name, resource(server)
+      %li
+        = link_to "See all...", resource(:servers)

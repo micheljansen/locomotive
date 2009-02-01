@@ -1,0 +1,40 @@
+%h1
+  Editing server
+= form_for(@server, :action => resource(@server)) do
+  = error_messages
+  %p
+    = text_field :name, :label => 'Name'
+  %p
+    = text_field :hostname, :label => 'Hostname'
+  %table
+    - # render :partial => "server_role", :collection => Role.all
+    - Role.all.each do |role|
+      %tr
+        %td
+          = check_box :name => "server[role_ids][]", :value => role.id, :boolean => @server.roles.include?(role)
+        %td
+          = h role.name
+  %p
+    = submit "Update"
+
+= link_to 'Show', resource(@server)
+|
+= link_to 'Back', resource(:servers)
+- throw_content(:sidebar) do
+  %h2
+    Actions
+  %ul#specific
+    %li
+      = link_to 'Assign a role', resource(@server, :purposes, :new)
+  %ul#general
+    %li
+      = link_to 'New server', resource(:servers, :new)
+  - if @server.others.size > 0
+    %h2
+      More servers
+    %ul
+      - @server.others.each do |server|
+        %li
+          = link_to server.name, resource(server)
+      %li
+        = link_to "See all...", resource(:servers)
