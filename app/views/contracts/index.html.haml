@@ -1,0 +1,14 @@
+%h1
+  Listing contracts
+%table
+  %tr
+  - for contract in @contracts
+    %tr
+      %td
+        = link_to 'Show', resource(contract)
+      %td
+        = link_to 'Edit', resource(contract, :edit)
+      %td
+        = link_to 'Delete', resource(contract, :delete), :class => 'delete-link'
+%br
+-# link_to 'New contract', resource(@client, :contracts, :new)

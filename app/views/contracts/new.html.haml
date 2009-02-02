@@ -1,0 +1,9 @@
+%h1
+  New contract
+= form_for(@contract, :action => resource(@client, :contracts)) do
+  = error_messages
+  %p
+    = select :service_id, @services, :id, :name
+  %p
+    = submit "Create"
+= link_to 'Back', resource(@client)

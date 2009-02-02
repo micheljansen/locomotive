@@ -1,0 +1,9 @@
+%h1
+  Editing contract
+= form_for(@contract, :action => resource(@contract)) do
+  = error_messages
+  %p
+    = submit "Update"
+= link_to 'Show', resource(@contract)
+|
+= link_to 'Back', resource(:contracts)
