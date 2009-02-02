@@ -6,7 +6,7 @@ describe Role do
     role = Role.new
     role.should_not be_valid
   end
-  
+
   it "should be valid with a name and hostname" do
     role = Role.new
     role.name = 'Windows 2000'

@@ -6,7 +6,7 @@ describe Server do
     server = Server.new
     server.should_not be_valid
   end
-  
+
   it "should be valid with a name and hostname" do
     server = Server.new
     server.name = 'Windows 2000'

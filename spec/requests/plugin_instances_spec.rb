@@ -2,17 +2,17 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a plugin_instance exists" do
   PluginInstance.all.destroy!
-  request(resource(:plugin_instances), :method => "POST", 
+  request(resource(:plugin_instances), :method => "POST",
     :params => { :plugin_instance => { :id => nil }})
 end
 
 describe "resource(:plugin_instances)" do
   describe "GET" do
-    
+
     before(:each) do
       @response = request(resource(:plugin_instances))
     end
-    
+
     it "responds successfully" do
       @response.should be_successful
     end
@@ -21,35 +21,35 @@ describe "resource(:plugin_instances)" do
       pending
       @response.should have_xpath("//ul")
     end
-    
+
   end
-  
+
   describe "GET", :given => "a plugin_instance exists" do
     before(:each) do
       @response = request(resource(:plugin_instances))
     end
-    
+
     it "has a list of plugin_instances" do
       pending
       @response.should have_xpath("//ul/li")
     end
   end
-  
+
   describe "a successful POST" do
     before(:each) do
       PluginInstance.all.destroy!
-      @response = request(resource(:plugin_instances), :method => "POST", 
+      @response = request(resource(:plugin_instances), :method => "POST",
         :params => { :plugin_instance => { :id => nil }})
     end
-    
+
     it "redirects to resource(:plugin_instances)" do
       @response.should redirect_to(resource(PluginInstance.first), :message => {:notice => "plugin_instance was successfully created"})
     end
-    
+
   end
 end
 
-describe "resource(@plugin_instance)" do 
+describe "resource(@plugin_instance)" do
   describe "a successful DELETE", :given => "a plugin_instance exists" do
      before(:each) do
        @response = request(resource(PluginInstance.first), :method => "DELETE")
@@ -66,7 +66,7 @@ describe "resource(:plugin_instances, :new)" do
   before(:each) do
     @response = request(resource(:plugin_instances, :new))
   end
-  
+
   it "responds successfully" do
     @response.should be_successful
   end
@@ -76,35 +76,35 @@ describe "resource(@plugin_instance, :edit)", :given => "a plugin_instance exist
   before(:each) do
     @response = request(resource(PluginInstance.first, :edit))
   end
-  
+
   it "responds successfully" do
     @response.should be_successful
   end
 end
 
 describe "resource(@plugin_instance)", :given => "a plugin_instance exists" do
-  
+
   describe "GET" do
     before(:each) do
       @response = request(resource(PluginInstance.first))
     end
-  
+
     it "responds successfully" do
       @response.should be_successful
     end
   end
-  
+
   describe "PUT" do
     before(:each) do
       @plugin_instance = PluginInstance.first
-      @response = request(resource(@plugin_instance), :method => "PUT", 
+      @response = request(resource(@plugin_instance), :method => "PUT",
         :params => { :plugin_instance => {:id => @plugin_instance.id} })
     end
-  
+
     it "redirect to the article show action" do
       @response.should redirect_to(resource(@plugin_instance))
     end
   end
-  
+
 end
 

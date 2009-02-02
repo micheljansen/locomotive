@@ -2,7 +2,7 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a server exists" do
   Server.all.destroy!
-  request(resource(:servers), :method => "POST", 
+  request(resource(:servers), :method => "POST",
     :params => { :server => { :id => nil,
     :name => 'Windows 2000',
     :hostname => 'zero-uptime' }})
@@ -10,11 +10,11 @@ end
 
 describe "resource(:servers)" do
   describe "GET" do
-    
+
     before(:each) do
       @response = request(resource(:servers))
     end
-    
+
     it "responds successfully" do
       @response.should be_successful
     end
@@ -23,37 +23,37 @@ describe "resource(:servers)" do
       pending
       @response.should have_xpath("//ul")
     end
-    
+
   end
-  
+
   describe "GET", :given => "a server exists" do
     before(:each) do
       @response = request(resource(:servers))
     end
-    
+
     it "has a list of servers" do
       pending
       @response.should have_xpath("//ul/li")
     end
   end
-  
+
   describe "a successful POST" do
     before(:each) do
       Server.all.destroy!
-      @response = request(resource(:servers), :method => "POST", 
+      @response = request(resource(:servers), :method => "POST",
         :params => { :server => { :id => nil,
         :name => 'CentOS Box',
         :hostname => 'cien-porciento-uptime' }})
     end
-    
+
     it "redirects to resource(:servers)" do
       @response.should redirect_to(resource(Server.first), :message => {:notice => "server was successfully created"})
     end
-    
+
   end
 end
 
-describe "resource(@server)" do 
+describe "resource(@server)" do
   describe "a successful DELETE", :given => "a server exists" do
      before(:each) do
        @response = request(resource(Server.first), :method => "DELETE")
@@ -70,7 +70,7 @@ describe "resource(:servers, :new)" do
   before(:each) do
     @response = request(resource(:servers, :new))
   end
-  
+
   it "responds successfully" do
     @response.should be_successful
   end
@@ -80,35 +80,35 @@ describe "resource(@server, :edit)", :given => "a server exists" do
   before(:each) do
     @response = request(resource(Server.first, :edit))
   end
-  
+
   it "responds successfully" do
     @response.should be_successful
   end
 end
 
 describe "resource(@server)", :given => "a server exists" do
-  
+
   describe "GET" do
     before(:each) do
       @response = request(resource(Server.first))
     end
-  
+
     it "responds successfully" do
       @response.should be_successful
     end
   end
-  
+
   describe "PUT" do
     before(:each) do
       @server = Server.first
-      @response = request(resource(@server), :method => "PUT", 
+      @response = request(resource(@server), :method => "PUT",
         :params => { :server => {:id => @server.id} })
     end
-  
+
     it "redirect to the article show action" do
       @response.should redirect_to(resource(@server))
     end
   end
-  
+
 end
 

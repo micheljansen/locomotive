@@ -7,7 +7,7 @@ module PluginSetup
 end
 
 #context "A Plugin Instance" do
-  
+
   describe PluginInstance do
     before(:each) do
       # XXX: Causing "Stack level too deep" error - needs investigation

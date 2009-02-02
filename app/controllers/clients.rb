@@ -1,7 +1,7 @@
 class Clients < Application
-  
+
   before :init_menu
-  
+
   # GET /clients
   # GET /clients.xml
   def index
@@ -36,7 +36,7 @@ class Clients < Application
 
     if @client.save
       # flash[:notice] = 'Client was successfully created.'
-      redirect resource(@client) 
+      redirect resource(@client)
     else
       render :new
     end
@@ -76,9 +76,9 @@ class Clients < Application
       raise InternalServerError
     end
   end
-  
+
   def init_menu
     @menu = ["Administration","Clients"]
   end
-  
+
 end

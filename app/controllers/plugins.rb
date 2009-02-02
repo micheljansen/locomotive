@@ -1,7 +1,7 @@
 class Plugins < Application
-  
+
   before :init_menu
-  
+
   # GET /plugins
   # GET /plugins.xml
   def index
@@ -32,7 +32,7 @@ class Plugins < Application
     @plugin = Locomotive::Plugins::HelloWorld
     display @plugin
   end
-  
+
   def init_menu
     @menu = ["Settings", "Plugins"]
   end

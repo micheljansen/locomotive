@@ -1,7 +1,7 @@
 class Dependencies < Application
-  
+
   before :init_menu
-  
+
   # GET /dependencies
   # GET /dependencies.xml
   def index
@@ -71,7 +71,7 @@ class Dependencies < Application
       raise InternalServerError
     end
   end
-  
+
   def init_menu
     @menu = ["Administration","Clients"]
   end

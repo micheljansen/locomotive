@@ -1,6 +1,6 @@
 module Merb
   module PlatformsHelper
-  
+
   def unescaped_remote_function(options)
     javascript_options = options_for_ajax(options)
 
@@ -30,24 +30,24 @@ module Merb
 
     return function
   end
-  
+
   def unescaped_drop_receiving_element(element_id, options = {})
     javascript_tag(unescaped_drop_receiving_element_js(element_id, options).chop!)
   end
-  
+
   def unescaped_drop_receiving_element_js(element_id, options = {}) #:nodoc:
     options[:with]     ||= "'id=' + encodeURIComponent(element.id)"
     options[:onDrop]   ||= "function(element){" + unescaped_remote_function(options) + "}"
     options.delete_if { |key, value| ActionView::Helpers::PrototypeHelper::AJAX_OPTIONS.include?(key) }
 
-    options[:accept] = array_or_string_for_javascript(options[:accept]) if options[:accept]    
+    options[:accept] = array_or_string_for_javascript(options[:accept]) if options[:accept]
     options[:hoverclass] = "'#{options[:hoverclass]}'" if options[:hoverclass]
-    
+
     # Confirmation happens during the onDrop callback, so it can be removed from the options
     options.delete(:confirm) if options[:confirm]
 
     %(Droppables.add(#{element_id.to_json}, #{options_for_javascript(options)});)
   end
-  
+
   end
 end

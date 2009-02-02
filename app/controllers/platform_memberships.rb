@@ -1,9 +1,9 @@
 class PlatformMemberships < Application
-  
+
   before :find_platform
   before :find_server
   before :initialize_params
-  
+
   # GET /platform_memberships
   # GET /platform_memberships.xml
   def index
@@ -53,7 +53,7 @@ class PlatformMemberships < Application
       # flash[:notice] = 'PlatformMembership was successfully updated.'
       redirect resource(@platform_membership)
     else
-      render :edit 
+      render :edit
     end
   end
 
@@ -74,23 +74,23 @@ class PlatformMemberships < Application
       raise InternalServerError
     end
   end
-  
+
   private
-  
+
   # Actions
   def refresh
     #all the fun is in refresh.js.rjs ;)
   end
   # end
-  
+
   def find_platform
     @platform ||= Platform.get(params[:platform_id]) if params[:platform_id]
   end
-  
+
   def find_server
     @server ||= Server.get(params[:server_id]) if params[:server_id]
   end
-  
+
   def initialize_params
     puts "initializing params"
     # y params

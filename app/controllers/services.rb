@@ -1,7 +1,7 @@
 class Services < Application
-  
+
   before :init_menu
-  
+
   # GET /services
   # GET /services.xml
   def index
@@ -73,7 +73,7 @@ class Services < Application
       raise InternalServerError
     end
   end
-  
+
   def init_menu
     @menu = ["Administration","Services"]
   end

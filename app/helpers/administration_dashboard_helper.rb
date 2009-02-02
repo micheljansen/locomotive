@@ -7,6 +7,6 @@ module Merb
       counter = (type.count == 0 ? "no" : type.count.to_s)
       return (counter + " " + type.name) # FIXME: reinstate inflections .inflected
     end
-  
+
   end
 end

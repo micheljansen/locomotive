@@ -1,7 +1,7 @@
 class Contracts < Application
-  
+
   before :init_menu
-  
+
   # GET /contracts
   # GET /contracts.xml
   def index
@@ -20,7 +20,7 @@ class Contracts < Application
   def new
     @services = Service.all
     @client = Client.get(params[:client_id])
-    @contract = Contract.new    
+    @contract = Contract.new
     display @contract
   end
 
@@ -38,7 +38,7 @@ class Contracts < Application
 
     if @contract.save
       # flash[:notice] = 'Contract was successfully created.'
-      
+
       @client = @contract.client
       redirect resource(@client)
     else
@@ -77,9 +77,9 @@ class Contracts < Application
       raise InternalServerError
     end
   end
-  
+
   def init_menu
     @menu = ["Administration", "Clients"]
   end
-  
+
 end

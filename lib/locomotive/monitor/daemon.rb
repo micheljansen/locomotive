@@ -7,9 +7,9 @@ require 'daemons'
 
 module Locomotive
   module Monitor
-    
+
     class Daemon
-      
+
       # construct a new daemon and initialize its files
       def initialize
         @logfilename = File.expand_path(__FILE__) + '.log'
@@ -18,23 +18,23 @@ module Locomotive
         @target_thread = {} # maps targets to the threads that monitor them
         @threads_mutex = Mutex.new
       end
-    
-      # Run the execution loop. 
+
+      # Run the execution loop.
       # This call normally won't return until everything is finished.
       def run
-        
+
         #loop forever
         loop do
-          
+
           Server.all.each do |server|
             result = server.check()
             log("result for #{server.name}: #{result}")
           end
-            
+
         end
-    
+
       end
-      
+
       # simple log wrapper
       def log(msg)
         msg = Time.new.to_s + ": " + msg
@@ -43,12 +43,12 @@ module Locomotive
       end
     end
   end
-  
+
   class MockTarget
-    def method_missing(name, *args, &block) 
-      puts "Called #{name} with #{args.inspect} and #{block}" 
+    def method_missing(name, *args, &block)
+      puts "Called #{name} with #{args.inspect} and #{block}"
       return "nothing"
-    end 
+    end
   end
-  
+
 end

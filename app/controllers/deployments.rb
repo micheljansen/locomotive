@@ -1,13 +1,13 @@
 class Deployments < Application
-  
+
   before :init_menu
   before :find_client
   before :find_service
-  
+
   # GET /deployments
   # GET /deployments.xml
   def index
-    @deployments = 
+    @deployments =
       if @client
         @client.deployments
       elsif @service
@@ -43,7 +43,7 @@ class Deployments < Application
   # POST /deployments.xml
   #
   # CREATING a deployment, means deploying a new instance of
-  # a given service to a given platform. 
+  # a given service to a given platform.
   def create
     @deployment = Deployment.new(params[:deployment])
 
@@ -67,36 +67,36 @@ class Deployments < Application
   # These actions should be combined if possible.
   def update
     @deployment = Deployment.get(params[:id])
-    
+
     old_release = @deployment.release
     old_platform = @deployment.platform
-    
+
     #Deployment.transaction do
       # update the service instances data to reflect the changes
       begin
         @deployment.update_attributes(params[:deployment])
-        
+
         # somehow, the relation attributes don't get updated automatically
         # after their corresponding _id attributes have been updated, so
         # reload manually to flush the cache
         @deployment.reload
-        
+
         if old_platform != @deployment.platform
           # move from one platform to another
         end
-      
+
         if old_release != @deployment.release
           # up / downgrade
           puts "upgrading from #{old_release.name} to #{@deployment.release.name}"
           @deployment.deploy
         end
-      
-      rescue Exception 
+
+      rescue Exception
         STDERR.puts "ERROR: #{$!}"
       end
     #end
 
-    #if 
+    #if
       # flash[:notice] = 'Deployment was successfully updated.'
     #else
     #end
@@ -119,23 +119,23 @@ class Deployments < Application
       raise InternalServerError
     end
   end
-  
+
   private
-  
+
   def init_menu
     @menu = ["Manage", "Deploy"]
   end
-  
+
   def find_client
     if params[:client_id]
       @client = Client.get(params[:client_id])
     end
   end
-  
+
   def find_service
     if params[:service_id]
       @service = Service.get(params[:service_id])
     end
   end
-  
+
 end

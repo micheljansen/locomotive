@@ -1,11 +1,11 @@
 class Purposes < Application
-  
+
   before :init_menu
   before :find_associated_server
-  
+
 #  # GET /purposes
 #  # GET /purposes.xml
-  def index  
+  def index
     @purposes = @server.purposes
     display @purposes
   end
@@ -73,33 +73,33 @@ class Purposes < Application
       raise InternalServerError
     end
   end
-  
+
   # attempt to find the corresponding server if we're accessed
   # through a route containing a server, like
   # /servers/1/purposes/x
   def find_associated_server
     @server = nil
     server_id = params[:server_id]
-    
+
     unless server_id.nil?
       @server = Server.get(server_id)
     end
   end
-  
+
   # attempt to find the corresponding server if we're accessed
   # through a route containing a server, like
   # /servers/1/roles
   def find_associated_server
     @server = nil
     server_id = params[:server_id]
-    
+
     unless server_id.nil?
       @server = Server.get(server_id)
     end
   end
-  
+
   def init_menu
     @menu = ["Administration", "Servers"]
   end
-  
+
 end

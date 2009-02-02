@@ -1,7 +1,7 @@
 class PluginInstances < Application
-  
+
   before :init_menu
-  
+
   # GET /plugin_instances
   # GET /plugin_instances.xml
   def index
@@ -19,7 +19,7 @@ class PluginInstances < Application
   # GET /plugin_instances/new/hello_world
   def new
     @plugin = Locomotive::PluginInstance.all(:conditions => {:id => params[:id]})[0]
-    
+
     # explode if the corresponding plugin cannot be found
     if @plugin.nil? then
       logger.error("Attempt to instantiate nonexisting plugin '#{params[:id]}'")
@@ -29,7 +29,7 @@ class PluginInstances < Application
     end
 
 
-    @plugin_instance = PluginInstance.new(:plugin_type => params[:id], 
+    @plugin_instance = PluginInstance.new(:plugin_type => params[:id],
                                           :version => @plugin.version)
     display @plugin_instance
   end
@@ -46,7 +46,7 @@ class PluginInstances < Application
   def create
     @plugin_instance = PluginInstance.new(params[:plugin_instance])
     @plugin = @plugin_instance.plugin
-    
+
     logger.debug("plugin_instance: #{y @plugin_instance} for plugin: #{y @plugin}")
 
     if @plugin_instance.save
@@ -61,16 +61,16 @@ class PluginInstances < Application
   # PUT /plugin_instances/1.xml
   def update
     @plugin_instance = PluginInstance.get(params[:id])
-    
+
     @plugin_instance.attributes = params[:plugin_instance]
-      
+
     @plugin_instance.plugin_properties.each do |p|
       logger.debug("updating plugin_property #{p.key}")
         #y p
         #y params[:plugin_properties][p.id.to_s]
-      p.attributes = params[:plugin_properties][p.id.to_s]  
+      p.attributes = params[:plugin_properties][p.id.to_s]
     end
-      
+
     if @plugin_instance.valid? && @plugin_instance.plugin_properties.all?(&:valid?)
       @plugin_instance.save!
       @plugin_instance.plugin_properties.each { |p| p.save! }
@@ -97,9 +97,9 @@ class PluginInstances < Application
       raise InternalServerError
     end
   end
-  
+
   def init_menu
     @menu = ["Settings", "Plugins"]
   end
-  
+
 end

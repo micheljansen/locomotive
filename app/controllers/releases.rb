@@ -1,7 +1,7 @@
 class Releases < Application
-  
+
   before :init_menu
-  
+
   # GET /releases
   # GET /releases.xml
   def index
@@ -75,7 +75,7 @@ class Releases < Application
       raise InternalServerError
     end
   end
-  
+
   def init_menu
     @menu = ["Administration", "Services"]
   end

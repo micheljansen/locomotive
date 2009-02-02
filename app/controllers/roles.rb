@@ -1,7 +1,7 @@
 class Roles < Application
-  
+
   before :init_menu
-  
+
   # GET /roles
   # GET /roles.xml
   def index
@@ -71,9 +71,9 @@ class Roles < Application
       raise InternalServerError
     end
   end
-  
+
   def init_menu
     @menu = ["Administration", "Roles"]
   end
-  
+
 end
