@@ -1,0 +1,31 @@
+%h1
+  = h title
+%table
+  %tr
+    %th
+      Client
+    %th
+      Service
+    %th
+      Release
+    %th
+      Platform
+  - for d in @deployments
+    %tr
+      %td
+        = link_to d.client.name, d.client.id
+      %td
+        = link_to d.release.service.name, d.release.service.id
+      %td
+        = link_to d.release.name, resource(d.release.service, :edit, d.release.id)
+      %td
+        = link_to d.platform.name, resource(d.platform)
+      %td
+        = link_to 'Show', resource(d)
+      %td
+        = link_to 'Edit', resource(d, :edit)
+      %td
+        = link_to 'Delete', resource(d, :delete), :class => 'delete-link'
+
+%br
+= link_to 'New deployment', resource(:deployments, :new)

@@ -1,0 +1,24 @@
+%h2
+  = "#{@deployment.release.service.name} for #{@client.name} on #{@deployment.platform.name}"
+%h3
+  Details
+%p
+  %b
+    Client:
+  = link_to @deployment.client.name, resource(@deployment.client)
+%p
+  %b
+    Service:
+  = link_to @deployment.release.service.name, resource(@deployment.release.service)
+  %p
+    %b
+      Release:
+    = link_to @deployment.release.name, resource(@deployment.release.service)
+  %p
+    %b
+      Platform:
+    = link_to @deployment.platform.name, resource(@deployment.platform)
+
+= link_to 'Edit', resource(@deployment)
+|
+= link_to 'Back', resource(:deployments)
