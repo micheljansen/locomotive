@@ -68,11 +68,6 @@ class Clients < Application
     if @client.destroy
       redirect resource(:clients)
     else
-
-    respond_to do |format|
-      format.html { redirect_to(:controller => "services") }
-      format.xml  { head :ok }
-    end
       raise InternalServerError
     end
   end
