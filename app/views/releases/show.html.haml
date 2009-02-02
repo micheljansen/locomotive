@@ -1,0 +1,25 @@
+%h1
+  = link_to @release.service.name, resource(@release.service)
+  release
+  = h @release.name
+#actions
+  %span
+    = link_to 'Edit', resource(@release.service, :edit)
+
+- throw_content :sidebar do
+  %h2
+    Actions
+  %ul
+    %li
+      = link_to 'Edit this release', resource(@release.service, :edit)
+    %li
+      = link_to "Delete this release", resource(@release.service, :delete), :method => :delete
+  %ul
+    %li
+      = link_to "Add a release", resource(@release.service, :releases, :new, @release.service.id)
+  %h2
+    Other releases
+    %ul
+      - @release.service.releases.each do |other_release|
+        %li
+          = link_to other_release.name, :controller => "releases", :action => "show", :id => other_release.id

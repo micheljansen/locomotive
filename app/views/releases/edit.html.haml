@@ -1,0 +1,10 @@
+%h1
+  Editing release
+= form_for(@release, :action => resource(@service, @release)) do
+  = error_messages
+  %p
+    = text_field :name
+  %p
+    = submit "Update"
+
+= link_to 'Back', resource(@service)
