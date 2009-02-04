@@ -9,7 +9,7 @@
       Show only
     %span{ :style => "float: right" }
       = form(:action => 'javascript:void(0)') do
-        = select(:role_filter, :collection => (Role.all.map {|r| [r.id, r.name.pluralize]}))
+        = select(:role_filter, :collection => (Locomotive::Role.all.map {|r| [r.id, r.name.pluralize]}))
       
 %script{ :type => "text/javascript" }
   $(function() {
