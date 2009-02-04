@@ -1,5 +1,5 @@
 module Locomotive
-  module Plugins
+  module PluginsModule
 
     DEFAULT_PATH = File.join(Merb.root, 'vendor','plugins','locomotive')
 

@@ -22,6 +22,6 @@
   %h2
     All platforms
   %ul
-  - Platform.all.each do |platform|
+  - Locomotive::Platform.all.each do |platform|
     %li
       = link_to platform.name, resource(platform)

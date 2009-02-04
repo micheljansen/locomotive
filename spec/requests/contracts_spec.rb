@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a contract exists" do
-  Contract.all.destroy!
+  Locomotive::Contract.all.destroy!
   request(resource(@client, :contracts), :method => "POST",
     :params => { :contract => { :id => nil }})
 end
@@ -37,13 +37,13 @@ describe "resource(@client, :contracts)" do
 
   describe "a successful POST" do
     before(:each) do
-      Contract.all.destroy!
+      Locomotive::Contract.all.destroy!
       @response = request(resource(@client, :contracts), :method => "POST",
         :params => { :contract => { :id => nil }})
     end
 
     it "redirects to resource(@client, :contracts)" do
-      @response.should redirect_to(resource(Contract.first), :message => {:notice => "contract was successfully created"})
+      @response.should redirect_to(resource(Locomotive::Contract.first), :message => {:notice => "contract was successfully created"})
     end
 
   end
@@ -52,7 +52,7 @@ end
 describe "resource(@client, @contract)" do
   describe "a successful DELETE", :given => "a contract exists" do
      before(:each) do
-       @response = request(resource(Contract.first), :method => "DELETE")
+       @response = request(resource(Locomotive::Contract.first), :method => "DELETE")
      end
 
      it "should redirect to the index action" do
@@ -74,7 +74,7 @@ end
 
 describe "resource(@client, @contract, :edit)", :given => "a contract exists" do
   before(:each) do
-    @response = request(resource(Contract.first, :edit))
+    @response = request(resource(Locomotive::Contract.first, :edit))
   end
 
   it "responds successfully" do
@@ -86,7 +86,7 @@ describe "resource(@client, @contract)", :given => "a contract exists" do
 
   describe "GET" do
     before(:each) do
-      @response = request(resource(Contract.first))
+      @response = request(resource(Locomotive::Contract.first))
     end
 
     it "responds successfully" do
@@ -96,7 +96,7 @@ describe "resource(@client, @contract)", :given => "a contract exists" do
 
   describe "PUT" do
     before(:each) do
-      @contract = Contract.first
+      @contract = Locomotive::Contract.first
       @response = request(resource(@client, @contract), :method => "PUT",
         :params => { :contract => {:id => @contract.id} })
     end

@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a client exists" do
-  Client.all.destroy!
+  Locomotive::Client.all.destroy!
   request(resource(:clients), :method => "POST",
     :params => { :client => { :id => nil, :name => 'ABC Enterprises' }})
 end
@@ -37,13 +37,13 @@ describe "resource(:clients)" do
 
   describe "a successful POST" do
     before(:each) do
-      Client.all.destroy!
+      Locomotive::Client.all.destroy!
       @response = request(resource(:clients), :method => "POST",
         :params => { :client => { :id => nil, :name => 'CBA Ondernemen' }})
     end
 
     it "redirects to resource(:clients)" do
-      @response.should redirect_to(resource(Client.first), :message => {:notice => "client was successfully created"})
+      @response.should redirect_to(resource(Locomotive::Client.first), :message => {:notice => "client was successfully created"})
     end
 
   end
@@ -52,7 +52,7 @@ end
 describe "resource(@client)" do
   describe "a successful DELETE", :given => "a client exists" do
      before(:each) do
-       @response = request(resource(Client.first), :method => "DELETE")
+       @response = request(resource(Locomotive::Client.first), :method => "DELETE")
      end
 
      it "should redirect to the index action" do
@@ -74,7 +74,7 @@ end
 
 describe "resource(@client, :edit)", :given => "a client exists" do
   before(:each) do
-    @response = request(resource(Client.first, :edit))
+    @response = request(resource(Locomotive::Client.first, :edit))
   end
 
   it "responds successfully" do
@@ -86,7 +86,7 @@ describe "resource(@client)", :given => "a client exists" do
 
   describe "GET" do
     before(:each) do
-      @response = request(resource(Client.first))
+      @response = request(resource(Locomotive::Client.first))
     end
 
     it "responds successfully" do
@@ -96,7 +96,7 @@ describe "resource(@client)", :given => "a client exists" do
 
   describe "PUT" do
     before(:each) do
-      @client = Client.first
+      @client = Locomotive::Client.first
       @response = request(resource(@client), :method => "PUT",
         :params => { :client => {:id => @client.id} })
     end

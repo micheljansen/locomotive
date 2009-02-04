@@ -1,4 +1,6 @@
 module Merb
-  module ReleasesHelper
+  module Locomotive
+    module ReleasesHelper
+    end
   end
 end

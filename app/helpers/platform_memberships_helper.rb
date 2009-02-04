@@ -1,4 +1,6 @@
 module Merb
-  module PlatformMembershipsHelper
+  module Locomotive
+    module PlatformMembershipsHelper
+    end
   end
 end

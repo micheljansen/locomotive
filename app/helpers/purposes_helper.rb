@@ -1,4 +1,6 @@
 module Merb
-  module PurposesHelper
+  module Locomotive
+    module PurposesHelper
+    end
   end
 end

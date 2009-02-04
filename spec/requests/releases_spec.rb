@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a release exists" do
-  Release.all.destroy!
+  Locomotive::Release.all.destroy!
   request(resource(@service, :releases), :method => "POST",
     :params => { :release => { :id => nil }})
 end
@@ -37,13 +37,13 @@ describe "resource(@service, :releases)" do
 
   describe "a successful POST" do
     before(:each) do
-      Release.all.destroy!
+      Locomotive::Release.all.destroy!
       @response = request(resource(@service, :releases), :method => "POST",
         :params => { :release => { :id => nil }})
     end
 
     it "redirects to resource(@service, :releases)" do
-      @response.should redirect_to(resource(Release.first), :message => {:notice => "release was successfully created"})
+      @response.should redirect_to(resource(Locomotive::Release.first), :message => {:notice => "release was successfully created"})
     end
 
   end
@@ -52,7 +52,7 @@ end
 describe "resource(@service, @release)" do
   describe "a successful DELETE", :given => "a release exists" do
      before(:each) do
-       @response = request(resource(Release.first), :method => "DELETE")
+       @response = request(resource(Locomotive::Release.first), :method => "DELETE")
      end
 
      it "should redirect to the index action" do
@@ -74,7 +74,7 @@ end
 
 describe "resource(@service, @release, :edit)", :given => "a release exists" do
   before(:each) do
-    @response = request(resource(Release.first, :edit))
+    @response = request(resource(Locomotive::Release.first, :edit))
   end
 
   it "responds successfully" do
@@ -86,7 +86,7 @@ describe "resource(@service, @release)", :given => "a release exists" do
 
   describe "GET" do
     before(:each) do
-      @response = request(resource(Release.first))
+      @response = request(resource(Locomotive::Release.first))
     end
 
     it "responds successfully" do
@@ -96,7 +96,7 @@ describe "resource(@service, @release)", :given => "a release exists" do
 
   describe "PUT" do
     before(:each) do
-      @release = Release.first
+      @release = Locomotive::Release.first
       @response = request(resource(@service, @release), :method => "PUT",
         :params => { :release => {:id => @release.id} })
     end

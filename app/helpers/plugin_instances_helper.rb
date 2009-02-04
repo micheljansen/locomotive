@@ -1,4 +1,6 @@
 module Merb
-  module PluginInstancesHelper
+  module Locomotive
+    module PluginInstancesHelper
+    end
   end
 end

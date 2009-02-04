@@ -8,7 +8,7 @@ end
 
 #context "A Plugin Instance" do
 
-  describe PluginInstance do
+  describe Locomotive::PluginInstance do
     before(:each) do
       # XXX: Causing "Stack level too deep" error - needs investigation
       # @plugin_instance = PluginInstance.new(:plugin_type => "spec_test_plugin")

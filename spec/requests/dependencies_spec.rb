@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a dependency exists" do
-  Dependency.all.destroy!
+  Locomotive::Dependency.all.destroy!
   request(resource(:dependencies), :method => "POST",
     :params => { :dependency => { :id => nil }})
 end
@@ -37,13 +37,13 @@ describe "resource(:dependencies)" do
 
   describe "a successful POST" do
     before(:each) do
-      Dependency.all.destroy!
+      Locomotive::Dependency.all.destroy!
       @response = request(resource(:dependencies), :method => "POST",
         :params => { :dependency => { :id => nil }})
     end
 
     it "redirects to resource(:dependencies)" do
-      @response.should redirect_to(resource(Dependency.first), :message => {:notice => "dependency was successfully created"})
+      @response.should redirect_to(resource(Locomotive::Dependency.first), :message => {:notice => "dependency was successfully created"})
     end
 
   end
@@ -52,7 +52,7 @@ end
 describe "resource(@dependency)" do
   describe "a successful DELETE", :given => "a dependency exists" do
      before(:each) do
-       @response = request(resource(Dependency.first), :method => "DELETE")
+       @response = request(resource(Locomotive::Dependency.first), :method => "DELETE")
      end
 
      it "should redirect to the index action" do
@@ -74,7 +74,7 @@ end
 
 describe "resource(@dependency, :edit)", :given => "a dependency exists" do
   before(:each) do
-    @response = request(resource(Dependency.first, :edit))
+    @response = request(resource(Locomotive::Dependency.first, :edit))
   end
 
   it "responds successfully" do
@@ -86,7 +86,7 @@ describe "resource(@dependency)", :given => "a dependency exists" do
 
   describe "GET" do
     before(:each) do
-      @response = request(resource(Dependency.first))
+      @response = request(resource(Locomotive::Dependency.first))
     end
 
     it "responds successfully" do
@@ -96,7 +96,7 @@ describe "resource(@dependency)", :given => "a dependency exists" do
 
   describe "PUT" do
     before(:each) do
-      @dependency = Dependency.first
+      @dependency = Locomotive::Dependency.first
       @response = request(resource(@dependency), :method => "PUT",
         :params => { :dependency => {:id => @dependency.id} })
     end

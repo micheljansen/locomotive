@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a role exists" do
-  Role.all.destroy!
+  Locomotive::Role.all.destroy!
   request(resource(:roles), :method => "POST",
     :params => { :role => { :id => nil, :name => 'Print Server' }})
 end
@@ -37,13 +37,13 @@ describe "resource(:roles)" do
 
   describe "a successful POST" do
     before(:each) do
-      Role.all.destroy!
+      Locomotive::Role.all.destroy!
       @response = request(resource(:roles), :method => "POST",
         :params => { :role => { :id => nil, :name => 'Web Server' }})
     end
 
     it "redirects to resource(:roles)" do
-      @response.should redirect_to(resource(Role.first), :message => {:notice => "role was successfully created"})
+      @response.should redirect_to(resource(Locomotive::Role.first), :message => {:notice => "role was successfully created"})
     end
 
   end
@@ -52,7 +52,7 @@ end
 describe "resource(@role)" do
   describe "a successful DELETE", :given => "a role exists" do
      before(:each) do
-       @response = request(resource(Role.first), :method => "DELETE")
+       @response = request(resource(Locomotive::Role.first), :method => "DELETE")
      end
 
      it "should redirect to the index action" do
@@ -74,7 +74,7 @@ end
 
 describe "resource(@role, :edit)", :given => "a role exists" do
   before(:each) do
-    @response = request(resource(Role.first, :edit))
+    @response = request(resource(Locomotive::Role.first, :edit))
   end
 
   it "responds successfully" do
@@ -86,7 +86,7 @@ describe "resource(@role)", :given => "a role exists" do
 
   describe "GET" do
     before(:each) do
-      @response = request(resource(Role.first))
+      @response = request(resource(Locomotive::Role.first))
     end
 
     it "responds successfully" do
@@ -96,7 +96,7 @@ describe "resource(@role)", :given => "a role exists" do
 
   describe "PUT" do
     before(:each) do
-      @role = Role.first
+      @role = Locomotive::Role.first
       @response = request(resource(@role), :method => "PUT",
         :params => { :role => {:id => @role.id} })
     end

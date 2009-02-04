@@ -1,27 +1,27 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class SpecServiceType < ServiceType
+class SpecServiceType < Locomotive::ServiceType
 end
 
 class SpecSubServiceType < SpecServiceType
 end
 
-describe ServiceType do
+describe Locomotive::ServiceType do
 
   before(:each) do
   end
 
   it "should know of direct subclass service types" do
-    ServiceType.known_service_types.should include(SpecServiceType)
+    Locomotive::ServiceType.known_service_types.should include(SpecServiceType)
   end
 
   it "should know of service types that are subclasses of other service types" do
-    ServiceType.known_service_types.should include(SpecSubServiceType)
+    Locomotive::ServiceType.known_service_types.should include(SpecSubServiceType)
   end
 
   it "should be able to have dependencies" do
 
-    class DependingServiceType < ServiceType
+    class DependingServiceType < Locomotive::ServiceType
       depends_on "appserver"
     end
 

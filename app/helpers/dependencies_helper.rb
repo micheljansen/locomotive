@@ -1,4 +1,6 @@
 module Merb
-  module DependenciesHelper
+  module Locomotive
+    module DependenciesHelper
+    end
   end
 end

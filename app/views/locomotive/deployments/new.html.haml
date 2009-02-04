@@ -1,0 +1,24 @@
+%h1
+  New deployment
+= form_for(@deployment, :action => resource(:deployments)) do
+  = error_messages
+  %table
+    %tr
+      %th
+        Client:
+      %td
+        = select :client_id, :collection => Locomotive::Client.all, :value_method => :id, :text_method => :name
+    %tr
+      %th
+        Release:
+      %td
+        = select :release_id, :collection => Locomotive::Release.all, :value_method => :id, :text_method => :full_name
+    %tr
+      %th
+        Platform:
+      %td
+        = select :platform_id, :collection => Locomotive::Platform.all, :value_method => :id, :text_method => :name
+  %p
+    = submit "Create"
+
+= link_to 'Back', resource(:deployments)

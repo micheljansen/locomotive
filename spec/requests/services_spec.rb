@@ -1,10 +1,10 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a service exists" do
-  Service.all.destroy!
+  Locomotive::Service.all.destroy!
   request(resource(:services), :method => "POST",
     :params => { :service => { :id => nil,
-      :name => 'Example Service',
+      :name => 'Example Locomotive::Service',
       :service_type_type => 'Example Type' }})
 end
 
@@ -39,15 +39,15 @@ describe "resource(:services)" do
 
   describe "a successful POST" do
     before(:each) do
-      Service.all.destroy!
+      Locomotive::Service.all.destroy!
       @response = request(resource(:services), :method => "POST",
         :params => { :service => { :id => nil,
-        :name => 'Example Service',
+        :name => 'Example Locomotive::Service',
         :service_type_type => 'Example Type' }})
     end
 
     it "redirects to resource(:services)" do
-      @response.should redirect_to(resource(Service.first), :message => {:notice => "service was successfully created"})
+      @response.should redirect_to(resource(Locomotive::Service.first), :message => {:notice => "service was successfully created"})
     end
 
   end
@@ -56,7 +56,7 @@ end
 describe "resource(@service)" do
   describe "a successful DELETE", :given => "a service exists" do
      before(:each) do
-       @response = request(resource(Service.first), :method => "DELETE")
+       @response = request(resource(Locomotive::Service.first), :method => "DELETE")
      end
 
      it "should redirect to the index action" do
@@ -78,7 +78,7 @@ end
 
 describe "resource(@service, :edit)", :given => "a service exists" do
   before(:each) do
-    @response = request(resource(Service.first, :edit))
+    @response = request(resource(Locomotive::Service.first, :edit))
   end
 
   it "responds successfully" do
@@ -90,7 +90,7 @@ describe "resource(@service)", :given => "a service exists" do
 
   describe "GET" do
     before(:each) do
-      @response = request(resource(Service.first))
+      @response = request(resource(Locomotive::Service.first))
     end
 
     it "responds successfully" do
@@ -100,7 +100,7 @@ describe "resource(@service)", :given => "a service exists" do
 
   describe "PUT" do
     before(:each) do
-      @service = Service.first
+      @service = Locomotive::Service.first
       @response = request(resource(@service), :method => "PUT",
         :params => { :service => {:id => @service.id} })
     end

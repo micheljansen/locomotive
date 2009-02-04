@@ -1,14 +1,14 @@
 require File.join( File.dirname(__FILE__), '..', "spec_helper" )
 
-describe Server do
+describe Locomotive::Server do
 
   it "should not be valid without a name" do
-    server = Server.new
+    server = Locomotive::Server.new
     server.should_not be_valid
   end
 
   it "should be valid with a name and hostname" do
-    server = Server.new
+    server = Locomotive::Server.new
     server.name = 'Windows 2000'
     server.hostname = 'millenium-windoze'
     server.should be_valid
@@ -17,7 +17,7 @@ describe Server do
   describe 'hostname' do
 
     before(:each) do
-      @server = Server.new
+      @server = Locomotive::Server.new
       @server.name = 'Ubuntu 8.10'
     end
 

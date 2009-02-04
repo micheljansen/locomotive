@@ -8,7 +8,7 @@
     = text_field :hostname, :label => 'Hostname'
   %table
     - # render :partial => "server_role", :collection => Role.all
-    - Role.all.each do |role|
+    - Locomotive::Role.all.each do |role|
       %tr
         %td
           = check_box :name => "server[role_ids][]", :value => role.id, :boolean => @server.roles.include?(role)

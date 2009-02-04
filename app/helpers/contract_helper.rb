@@ -1,4 +1,6 @@
 module Merb
-  module ContractHelper
+  module Locomotive
+    module ContractHelper
+    end
   end
 end

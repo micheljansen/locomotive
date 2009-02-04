@@ -1,4 +1,6 @@
 module Merb
-  module ClientsHelper
+  module Locomotive
+    module ClientsHelper
+    end
   end
 end

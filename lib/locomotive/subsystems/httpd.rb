@@ -1,5 +1,5 @@
 module Locomotive::Subsystems
-  class Httpd < Subsystem
-    Subsystem.register(self)
+  class Httpd < ::Locomotive::Subsystem
+    ::Locomotive::Subsystem.register(self)
   end
 end

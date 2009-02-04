@@ -1,4 +1,6 @@
 module Merb
-  module RolesHelper
+  module Locomotive
+    module RolesHelper
+    end
   end
 end

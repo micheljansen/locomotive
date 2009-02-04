@@ -1,24 +1,24 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe Platform do
+describe Locomotive::Platform do
 
   before :each do
     @platforms =
-      [ Platform.create(:name => "one"),
-          Platform.create(:name => "two"),
-            Platform.create(:name => "three") ]
+      [ Locomotive::Platform.create(:name => "one"),
+          Locomotive::Platform.create(:name => "two"),
+            Locomotive::Platform.create(:name => "three") ]
   end
 
   it "should not be valid without a name" do
-    Platform.new(:name => "").should_not be_valid
+    Locomotive::Platform.new(:name => "").should_not be_valid
   end
 
   it "should be valid with a name" do
-    Platform.first(:name => "one").should be_valid
+    Locomotive::Platform.first(:name => "one").should be_valid
   end
 
   it "should have memberships for all associated servers" do
-    server = Server.create(:name => "test", :hostname =>"test")
+    server = Locomotive::Server.create(:name => "test", :hostname =>"test")
 
     # @platforms[1].servers << server
     # (see ticket http://datamapper.lighthouseapp.com/projects/20609/tickets/485-has-n-through-does-not-allow-saving-of-model)
@@ -27,7 +27,7 @@ describe Platform do
   end
 
   it "should be able to find memberships for associated server by id" do
-    server = Server.create(:name => "test", :hostname =>"test")
+    server = Locomotive::Server.create(:name => "test", :hostname =>"test")
     # @platforms[1].servers << server
     @platforms[1].platform_memberships << server
 
@@ -35,11 +35,11 @@ describe Platform do
   end
 
   it "should not have memberships for servers that are not associated" do
-    server1 = Server.create(:name => "test1", :hostname =>"test1")
+    server1 = Locomotive::Server.create(:name => "test1", :hostname =>"test1")
     # @platforms[1].servers << server1
     @platforms[1].platform_memberships << server1
 
-    server2 = Server.create(:name => "test2", :hostname =>"test2")
+    server2 = Locomotive::Server.create(:name => "test2", :hostname =>"test2")
     # @platforms[2].servers << server2
     @platforms[2].platform_memberships << server2
 

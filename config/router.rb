@@ -1,40 +1,45 @@
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
   # RESTful routes
-  resources :service_types
+  namespace :locomotive, :path => '', :name_prefix => nil do
 
-  resources :dependencies
+    resources :service_types, 'Locomotive::ServiceType'
 
-  resources :roles
+    resources :dependencies, 'Locomotive::Dependency'
 
-  resources :servers do
-    resources :purposes
-    resources :platform_memberships
+    resources :roles, 'Locomotive::Role'
+
+    resources :servers, 'Locomotive::Server' do
+      resources :purposes, 'Locomotive::Purpose'
+      resources :platform_memberships, 'Locomotive::PlatformMembership'
+    end
+
+    resources :platforms, 'Locomotive::Platform' do
+      resources :platform_memberships, 'Locomotive::PlatformMembership'
+    end
+
+    #map.resources :contracts
+
+    resources :deployments, 'Locomotive::Deployment'
+
+    resources :services, 'Locomotive::Service' do
+      resources :releases, 'Locomotive::Release'
+      resources :deployments, 'Locomotive::Deployment'
+    end
+
+    resources :clients, 'Locomotive::Client' do
+       resources :contracts, 'Locomotive::Contract'
+       resources :deployments, 'Locomotive::Deployment'
+    end
+
+    resources :plugin_instances, 'Locomotive::PluginInstance'
+
+    resources :plugin_properties, 'Locomotive::PluginProperty'
+
+    resources :plugins, 'Locomotive::Plugin'
   end
 
-  resources :platforms do
-    resources :platform_memberships
-  end
-
-  #map.resources :contracts
-
-  resources :deployments
-
-  resources :services do
-    resources :releases
-    resources :deployments
-  end
-
-  resources :clients do
-    resources :contracts
-    resources :deployments
-  end
-
-  resources :plugin_instances
-
-  resources :plugin_properties
-
-  resources :plugins
+  # slice(:locomotive, :name_prefix => nil, :path_prefix => '')
 
   # Adds the required routes for merb-auth using the password slice
   slice(:merb_auth_slice_password, :name_prefix => nil, :path_prefix => "")
@@ -46,7 +51,7 @@ Merb::Router.prepare do
   # default_routes
 
   # Change this for your home page to be available at /
-  match('/').to(:controller => 'AdministrationDashboard', :action =>'index')
+  match('/').to(:controller => 'locomotive/administration_dashboard', :action =>'index')
 
 end
 

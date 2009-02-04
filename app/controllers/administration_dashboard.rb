@@ -1,14 +1,16 @@
-class AdministrationDashboard < Application
+module Locomotive
+  class AdministrationDashboard < Application
 
-  before :init_menu
+    before :init_menu
 
-  def index
-    @clients = Client.all
-    @services = Service.all
-    render
-  end
+    def index
+      @clients = Locomotive::Client.all
+      @services = Locomotive::Service.all
+      render
+    end
 
-  def init_menu
-    @menu = ["Administration", "Dashboard"]
+    def init_menu
+      @menu = ["Administration", "Dashboard"]
+    end
   end
 end

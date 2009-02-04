@@ -1,2 +1,4 @@
-class Application < Merb::Controller
+module Locomotive
+  class Application < Merb::Controller
+  end
 end

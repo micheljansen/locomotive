@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a deployment exists" do
-  Deployment.all.destroy!
+  Locomotive::Deployment.all.destroy!
   request(resource(:deployments), :method => "POST",
     :params => { :deployment => { :id => nil }})
 end
@@ -37,13 +37,13 @@ describe "resource(:deployments)" do
 
   describe "a successful POST" do
     before(:each) do
-      Deployment.all.destroy!
+      Locomotive::Deployment.all.destroy!
       @response = request(resource(:deployments), :method => "POST",
         :params => { :deployment => { :id => nil }})
     end
 
     it "redirects to resource(:deployments)" do
-      @response.should redirect_to(resource(Deployment.first), :message => {:notice => "deployment was successfully created"})
+      @response.should redirect_to(resource(Locomotive::Deployment.first), :message => {:notice => "deployment was successfully created"})
     end
 
   end
@@ -52,7 +52,7 @@ end
 describe "resource(@deployment)" do
   describe "a successful DELETE", :given => "a deployment exists" do
      before(:each) do
-       @response = request(resource(Deployment.first), :method => "DELETE")
+       @response = request(resource(Locomotive::Deployment.first), :method => "DELETE")
      end
 
      it "should redirect to the index action" do
@@ -74,7 +74,7 @@ end
 
 describe "resource(@deployment, :edit)", :given => "a deployment exists" do
   before(:each) do
-    @response = request(resource(Deployment.first, :edit))
+    @response = request(resource(Locomotive::Deployment.first, :edit))
   end
 
   it "responds successfully" do
@@ -86,7 +86,7 @@ describe "resource(@deployment)", :given => "a deployment exists" do
 
   describe "GET" do
     before(:each) do
-      @response = request(resource(Deployment.first))
+      @response = request(resource(Locomotive::Deployment.first))
     end
 
     it "responds successfully" do
@@ -96,7 +96,7 @@ describe "resource(@deployment)", :given => "a deployment exists" do
 
   describe "PUT" do
     before(:each) do
-      @deployment = Deployment.first
+      @deployment = Locomotive::Deployment.first
       @response = request(resource(@deployment), :method => "PUT",
         :params => { :deployment => {:id => @deployment.id} })
     end

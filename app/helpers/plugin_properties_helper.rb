@@ -1,4 +1,6 @@
 module Merb
-  module PluginPropertiesHelper
+  module Locomotive
+    module PluginPropertiesHelper
+    end
   end
 end

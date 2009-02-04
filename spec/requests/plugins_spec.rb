@@ -1,6 +1,6 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-describe Plugins do
+describe Locomotive::Plugins do
   it "should_get_index" do
 #    get :index
 #    assert_response :success
@@ -14,7 +14,7 @@ describe Plugins do
 end
 
 given "a plugin exists" do
-#  Plugin.all.destroy!
+#  Locomotive::Plugin.all.destroy!
 #  request(resource(:plugins), :method => "POST",
 #    :params => { :plugin => { :id => nil }})
 end
@@ -50,14 +50,14 @@ describe "resource(:plugins)" do
 
   describe "a successful POST" do
     before(:each) do
-#      Plugin.all.destroy!
+#      Locomotive::Plugin.all.destroy!
 #      @response = request(resource(:plugins), :method => "POST",
 #        :params => { :plugin => { :id => nil }})
     end
 
     it "redirects to resource(:plugins)" do
       pending
-      @response.should redirect_to(resource(Plugin.first), :message => {:notice => "plugin was successfully created"})
+      @response.should redirect_to(resource(Locomotive::Plugin.first), :message => {:notice => "plugin was successfully created"})
     end
 
   end
@@ -66,7 +66,7 @@ end
 describe "resource(@plugin)" do
   describe "a successful DELETE", :given => "a plugin exists" do
      before(:each) do
-#       @response = request(resource(Plugin.first), :method => "DELETE")
+#       @response = request(resource(Locomotive::Plugin.first), :method => "DELETE")
      end
 
      it "should redirect to the index action" do
@@ -90,7 +90,7 @@ end
 
 describe "resource(@plugin, :edit)", :given => "a plugin exists" do
   before(:each) do
-#    @response = request(resource(Plugin.first, :edit))
+#    @response = request(resource(Locomotive::Plugin.first, :edit))
   end
 
   it "responds successfully" do
@@ -103,7 +103,7 @@ describe "resource(@plugin)", :given => "a plugin exists" do
 
   describe "GET" do
     before(:each) do
-#      @response = request(resource(Plugin.first))
+#      @response = request(resource(Locomotive::Plugin.first))
     end
 
     it "responds successfully" do
@@ -114,7 +114,7 @@ describe "resource(@plugin)", :given => "a plugin exists" do
 
   describe "PUT" do
     before(:each) do
-#      @plugin = Plugin.first
+#      @plugin = Locomotive::Plugin.first
 #      @response = request(resource(@plugin), :method => "PUT",
 #        :params => { :plugin => {:id => @plugin.id} })
     end

@@ -1,4 +1,6 @@
 module Merb
-  module ServicesHelper
+  module Locomotive
+    module ServicesHelper
+    end
   end
 end

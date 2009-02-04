@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a server exists" do
-  Server.all.destroy!
+  Locomotive::Server.all.destroy!
   request(resource(:servers), :method => "POST",
     :params => { :server => { :id => nil,
     :name => 'Windows 2000',
@@ -39,7 +39,7 @@ describe "resource(:servers)" do
 
   describe "a successful POST" do
     before(:each) do
-      Server.all.destroy!
+      Locomotive::Server.all.destroy!
       @response = request(resource(:servers), :method => "POST",
         :params => { :server => { :id => nil,
         :name => 'CentOS Box',
@@ -47,7 +47,7 @@ describe "resource(:servers)" do
     end
 
     it "redirects to resource(:servers)" do
-      @response.should redirect_to(resource(Server.first), :message => {:notice => "server was successfully created"})
+      @response.should redirect_to(resource(Locomotive::Server.first), :message => {:notice => "server was successfully created"})
     end
 
   end
@@ -56,7 +56,7 @@ end
 describe "resource(@server)" do
   describe "a successful DELETE", :given => "a server exists" do
      before(:each) do
-       @response = request(resource(Server.first), :method => "DELETE")
+       @response = request(resource(Locomotive::Server.first), :method => "DELETE")
      end
 
      it "should redirect to the index action" do
@@ -78,7 +78,7 @@ end
 
 describe "resource(@server, :edit)", :given => "a server exists" do
   before(:each) do
-    @response = request(resource(Server.first, :edit))
+    @response = request(resource(Locomotive::Server.first, :edit))
   end
 
   it "responds successfully" do
@@ -90,7 +90,7 @@ describe "resource(@server)", :given => "a server exists" do
 
   describe "GET" do
     before(:each) do
-      @response = request(resource(Server.first))
+      @response = request(resource(Locomotive::Server.first))
     end
 
     it "responds successfully" do
@@ -100,7 +100,7 @@ describe "resource(@server)", :given => "a server exists" do
 
   describe "PUT" do
     before(:each) do
-      @server = Server.first
+      @server = Locomotive::Server.first
       @response = request(resource(@server), :method => "PUT",
         :params => { :server => {:id => @server.id} })
     end
