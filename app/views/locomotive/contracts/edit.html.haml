@@ -1,6 +1,6 @@
 %h1
   Editing contract
-= form_for(@contract, :action => resource(@contract)) do
+= form_for(:contract, :action => resource(@contract)) do
   = error_messages
   %p
     = submit "Update"

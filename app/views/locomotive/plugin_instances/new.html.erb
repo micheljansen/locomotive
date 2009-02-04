@@ -4,7 +4,7 @@
   Let's hook a new instance of <%=h @plugin.name %> into your Locomotive. Please provide a name for this instance and configure its properties.
 </p>
 
-<%= form_for(@plugin_instance, :action => resource(:plugin_instances)) do %>
+<%= form_for(:plugin_instance, :action => resource(:plugin_instances)) do %>
   <%= error_messages %>
 
   <p>

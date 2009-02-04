@@ -1,7 +1,7 @@
 %h1
   Add a role to server
   = @server.name
-= form_for(@purpose, :action => resource(@server, :purposes)) do
+= form_for(:purpose, :action => resource(@server, :purposes)) do
   = error_messages
   = hidden_field :server_id
   %p

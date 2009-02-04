@@ -1,6 +1,6 @@
 %h1
   Editing role
-= form_for(@role, :action => resource(@role)) do
+= form_for(:role, :action => resource(@role)) do
   = error_messages
   %p
     = text_field :name

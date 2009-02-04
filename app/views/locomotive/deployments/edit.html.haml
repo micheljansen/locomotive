@@ -1,7 +1,7 @@
 %h2
   Editing
   = "#{@deployment.release.full_name} for #{@deployment.client.name}"
-= form_for(@deployment, :action => resource(@deployment)) do
+= form_for(:deployment, :action => resource(@deployment)) do
   = error_messages
   %p
     %p

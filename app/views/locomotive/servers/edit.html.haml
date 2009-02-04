@@ -1,6 +1,6 @@
 %h1
   Editing server
-= form_for(@server, :action => resource(@server)) do
+= form_for(:server, :action => resource(@server)) do
   = error_messages
   %p
     = text_field :name, :label => 'Name'

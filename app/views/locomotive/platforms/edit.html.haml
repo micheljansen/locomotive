@@ -1,6 +1,6 @@
 %h1
   Editing platform
-= form_for(@platform, :action => resource(@platform)) do
+= form_for(:platform, :action => resource(@platform)) do
   = error_messages
   %p
     = text_field :name
