@@ -8,8 +8,8 @@ module Locomotive
     def index
       #@plugins = Plugin.all
       #@plugins = []
-      @plugins = Locomotive::Plugins.find_all
-      Merb.logger.debug(Locomotive::Plugins.find_all.to_s)
+      @plugins = Locomotive::PluginsModule.find_all
+      Merb.logger.debug(Locomotive::PluginsModule.find_all.to_s)
       display @plugins
     end
 
