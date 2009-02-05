@@ -20,12 +20,12 @@ spec = Gem::Specification.new do |s|
   s.extra_rdoc_files = ["README.rdoc", "LICENSE"]
   s.summary = SUMMARY
   s.description = s.summary
-  s.author = AUTHORS
+  s.authors = AUTHORS
   s.email = EMAILS
   s.homepage = HOMEPAGE
   s.add_dependency('merb-slices', '>= 1.0.8.1')
   s.require_path = 'lib'
-  s.files = %w(LICENSE README Rakefile TODO) + Dir.glob("{lib,spec,app,public,stubs}/**/*")
+  s.files = %w(LICENSE README.rdoc Rakefile) + Dir.glob("{lib,spec,app,public,stubs}/**/*")
 end
 
 Rake::GemPackageTask.new(spec) do |pkg|
