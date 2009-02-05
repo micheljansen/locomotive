@@ -32,6 +32,11 @@ Merb::BootLoader.before_app_loads do
   # (N.B. these are not autoloaded, see note above)
   require 'locomotive' / 'plugin'
   require 'locomotive' / 'plugins'
+
+  # Dir[File.join(Merb.root, 'lib', 'locomotive', 'subsystems', '*')].each do |path|
+  #  require path
+  # end
+
 end
 
 Merb::BootLoader.after_app_loads do
