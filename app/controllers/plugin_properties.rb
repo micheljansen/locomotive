@@ -1,5 +1,5 @@
 module Locomotive
-  class PluginProperties < Application
+  class PluginProperties < Locomotive::Application
     # GET /plugin_properties
     # GET /plugin_properties.xml
     def index

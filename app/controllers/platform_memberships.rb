@@ -1,5 +1,5 @@
 module Locomotive
-  class PlatformMemberships < Application
+  class PlatformMemberships < Locomotive::Application
 
     before :find_platform
     before :find_server

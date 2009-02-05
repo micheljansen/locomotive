@@ -1,5 +1,5 @@
 module Locomotive
-  class Roles < Application
+  class Roles < Locomotive::Application
 
     before :init_menu
 

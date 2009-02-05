@@ -1,5 +1,5 @@
 module Locomotive
-  class Releases < Application
+  class Releases < Locomotive::Application
 
     before :init_menu
 

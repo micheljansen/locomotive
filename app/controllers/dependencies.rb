@@ -1,5 +1,5 @@
 module Locomotive
-  class Dependencies < Application
+  class Dependencies < Locomotive::Application
 
     before :init_menu
 

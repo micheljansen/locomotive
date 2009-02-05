@@ -1,5 +1,5 @@
 module Locomotive
-  class Clients < Application
+  class Clients < Locomotive::Application
 
     before :init_menu
 

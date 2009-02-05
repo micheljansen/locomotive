@@ -1,5 +1,5 @@
 module Locomotive
-  class Plugins < Application
+  class Plugins < Locomotive::Application
 
     before :init_menu
 

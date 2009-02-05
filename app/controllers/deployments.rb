@@ -1,5 +1,5 @@
 module Locomotive
-  class Deployments < Application
+  class Deployments < Locomotive::Application
 
     before :init_menu
     before :find_client

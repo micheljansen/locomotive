@@ -1,5 +1,5 @@
 module Locomotive
-  class Servers < Application
+  class Servers < Locomotive::Application
 
     before :init_menu
 

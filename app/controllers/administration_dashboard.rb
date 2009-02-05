@@ -1,5 +1,5 @@
 module Locomotive
-  class AdministrationDashboard < Application
+  class AdministrationDashboard < Locomotive::Application
 
     before :init_menu
 

@@ -1,5 +1,5 @@
 module Locomotive
-  class Platforms < Application
+  class Platforms < Locomotive::Application
 
     before :init_menu
 

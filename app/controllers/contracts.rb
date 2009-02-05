@@ -1,5 +1,5 @@
 module Locomotive
-  class Contracts < Application
+  class Contracts < Locomotive::Application
 
     before :init_menu
 

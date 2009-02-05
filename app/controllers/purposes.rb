@@ -1,5 +1,5 @@
 module Locomotive
-  class Locomotive::Purposes < Application
+  class Purposes < Locomotive::Application
 
     before :init_menu
     before :find_associated_server
