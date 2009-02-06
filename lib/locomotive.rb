@@ -53,28 +53,28 @@ if defined?(Merb::Plugins)
     #   to avoid potential conflicts with global named routes.
     def self.setup_router(scope)
 
-      scope.resources :service_types
-      scope.resources :dependencies
-      scope.resources :roles
-      scope.resources :servers do |s|
-        s.resources :purposes
-        s.resources :platform_memberships
+      scope.resources :service_types, 'Locomotive::ServiceType'
+      scope.resources :dependencies, 'Locomotive::Dependency'
+      scope.resources :roles, 'Locomotive::Role'
+      scope.resources :servers, 'Locomotive::Server' do |s|
+        s.resources :purposes, 'Locomotive::Purpose'
+        s.resources :platform_memberships, 'Locomotive::PlatformMembership'
       end
-      scope.resources :platforms do |p|
-        p.resources :platform_memberships
+      scope.resources :platforms, 'Locomotive::Platform' do |p|
+        p.resources :platform_memberships, 'Locomotive::PlatformMembership'
       end
-      scope.resources :deployments
-      scope.resources :services do |s|
-        s.resources :releases
-        s.resources :deployments
+      scope.resources :deployments, 'Locomotive::Deployment'
+      scope.resources :services, 'Locomotive::Service' do |s|
+        s.resources :releases, 'Locomotive::Release'
+        s.resources :deployments, 'Locomotive::Deployment'
       end
-      scope.resources :clients do |c|
-        c.resources :contracts
-        c.resources :deployments
+      scope.resources :clients, 'Locomotive::Client' do |c|
+        c.resources :contracts, 'Locomotive::Contract'
+        c.resources :deployments, 'Locomotive::Deployment'
       end
-      scope.resources :plugin_instances
-      scope.resources :plugin_properties
-      scope.resources :plugins
+      scope.resources :plugin_instances, 'Locomotive::PluginInstance'
+      scope.resources :plugin_properties, 'Locomotive::PluginProperties'
+      scope.resources :plugins, 'Locomotive::Plugin'
 
       # the slice is mounted at /locomotive - note that it comes before default_routes
       scope.match('/').to(:controller => 'administration_dashboard', :action =>'index')
