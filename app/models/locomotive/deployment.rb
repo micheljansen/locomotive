@@ -20,6 +20,8 @@ module Locomotive
     validates_with_method :legal_release_for_client?
     validates_with_method :service_has_not_changed?
 
+    is_paginated
+
     def deploy
       # find the service_type to delegate this request to
       service_type = release.service.service_type

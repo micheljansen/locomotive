@@ -6,7 +6,7 @@ module Locomotive
     # GET /services
     # GET /services.xml
     def index
-      @services = Locomotive::Service.all
+      @page_count, @services = Locomotive::Service.paginated(:page => (params[:page] || 1).to_i)
       display @services
     end
 

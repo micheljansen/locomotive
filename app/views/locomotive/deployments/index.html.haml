@@ -27,5 +27,7 @@
       %td
         = link_to 'Delete', resource(d, :delete), :class => 'delete-link'
 
-%br
+#pagination
+  = paginate_links(params[:page], @page_count, :deployments)
+
 = link_to 'New deployment', resource(:deployments, :new)

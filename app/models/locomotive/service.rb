@@ -16,6 +16,8 @@ module Locomotive
     validates_present :service_type_type, :with => [:client], :message => "can't be blank"
     validates_with_method :service_type_exists?
 
+    is_paginated
+
     def service_type
       service_type_type.to_s # TODO .constantize
     end

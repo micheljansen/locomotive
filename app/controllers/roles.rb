@@ -6,7 +6,7 @@ module Locomotive
     # GET /roles
     # GET /roles.xml
     def index
-      @roles = Locomotive::Role.all
+      @page_count, @roles = Locomotive::Role.paginated(:page => (params[:page] || 1).to_i)
       display @roles
     end
 

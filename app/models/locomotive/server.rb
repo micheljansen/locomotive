@@ -15,6 +15,8 @@ module Locomotive
     has n, :purposes # :dependent => :destroy
     has n, :roles, :through => :purposes
 
+    is_paginated
+
     def others
       Server.all - [self]
     end

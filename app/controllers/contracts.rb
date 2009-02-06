@@ -6,7 +6,7 @@ module Locomotive
     # GET /contracts
     # GET /contracts.xml
     def index
-      @contracts = Locomotive::Contract.all
+      @page_count, @contracts = Locomotive::Contract.paginated(:page => (params[:page] || 1).to_i)
       display @contracts
     end
 

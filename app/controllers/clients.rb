@@ -6,7 +6,7 @@ module Locomotive
     # GET /clients
     # GET /clients.xml
     def index
-      @clients = Locomotive::Client.all
+      @page_count, @clients = Locomotive::Client.paginated(:page => (params[:page] || 1).to_i)
       display @clients
     end
 

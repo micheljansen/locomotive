@@ -6,7 +6,7 @@ module Locomotive
     # GET /platforms
     # GET /platforms.xml
     def index
-      @platforms = Locomotive::Platform.all
+      @page_count, @platforms = Locomotive::Platform.paginated(:page => (params[:page] || 1).to_i)
       display @platforms
     end
 

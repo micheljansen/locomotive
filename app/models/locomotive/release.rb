@@ -13,6 +13,8 @@ module Locomotive
 
     validates_present :service_id, :message => "unknown for this release"
 
+    is_paginated
+
     def full_name
       "#{service.name} #{name}"
     end

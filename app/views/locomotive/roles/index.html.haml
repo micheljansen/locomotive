@@ -24,6 +24,9 @@
     Roles are like job descriptions for your servers. Hurry to the "add more"
     link to the right to add more.
 
+#pagination
+  = paginate_links(params[:page], @page_count, :platforms)
+
 - throw_content :sidebar do
   %h2
     Actions

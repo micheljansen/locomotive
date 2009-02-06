@@ -22,7 +22,10 @@
         = link_to 'Edit', resource(server, :edit)
       %td
         = link_to 'Delete', resource(server, :delete), :class => 'delete-link'
-%br
+
+#pagination
+  = paginate_links(params[:page], @page_count, :servers)
+
 - throw_content(:sidebar) do
   %h2
     Actions

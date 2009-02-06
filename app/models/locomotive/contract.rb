@@ -13,5 +13,8 @@ module Locomotive
 
     validates_present :client_id,  :with => [:create], :message => "can't be blank"
     validates_present :service_id, :with => [:create], :message => "can't be blank"
+
+    is_paginated
+
   end
 end

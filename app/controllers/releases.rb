@@ -6,7 +6,7 @@ module Locomotive
     # GET /releases
     # GET /releases.xml
     def index
-      @releases = Locomotive::Release.all
+      @page_count, @releases = Locomotive::Release.paginated(:page => (params[:page] || 1).to_i)
       display @releases
     end
 

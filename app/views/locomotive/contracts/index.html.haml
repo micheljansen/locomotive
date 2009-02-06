@@ -10,5 +10,8 @@
         = link_to 'Edit', resource(contract, :edit)
       %td
         = link_to 'Delete', resource(contract, :delete), :class => 'delete-link'
-%br
+
+#pagination
+  = paginate_links(params[:page], @page_count, :contracts)
+
 -# link_to 'New contract', resource(@client, :contracts, :new)

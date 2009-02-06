@@ -14,7 +14,11 @@
       %td= link_to 'Edit', resource(service, :edit)
       %td= link_to 'Delete', resource(service, :delete), :class => 'delete-link'
 
+#pagination
+  = paginate_links(params[:page], @page_count, :services)
+
 %p= link_to 'New service', resource(:services, :new)
+
 - throw_content :sidebar do
   %h2 Actions
   %ul

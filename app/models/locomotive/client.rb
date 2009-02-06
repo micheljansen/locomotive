@@ -14,6 +14,8 @@ module Locomotive
 
     validates_present :name, :with => [:create], :message => "can't be blank"
 
+    is_paginated
+
     # def instances_for_service_id(service_id)
     #     deployments.find_by_server_id(server_id)
     #   end

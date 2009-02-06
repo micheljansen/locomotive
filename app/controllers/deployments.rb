@@ -10,12 +10,16 @@ module Locomotive
     def index
       @deployments =
         if @client
+          # TODO: add pagination
           @client.deployments
         elsif @service
+          # TODO: add pagination
           @service.deployments
         else
+          # TODO: add pagination
           Locomotive::Deployment.all
         end
+
       display @deployments
     end
 

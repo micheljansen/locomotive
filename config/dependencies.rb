@@ -31,5 +31,6 @@ dependency "dm-timestamps", dm_gems_version
 dependency "dm-types", dm_gems_version
 dependency "dm-validations", dm_gems_version
 dependency "dm-serializer", dm_gems_version
+dependency "dm-is-paginated"
 
 dependency "merb_datamapper", merb_gems_version

@@ -11,5 +11,8 @@ module Locomotive
     has n, :servers, :through => :purposes
 
     validates_is_unique :name
+
+    is_paginated
+
   end
 end

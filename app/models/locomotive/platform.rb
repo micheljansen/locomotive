@@ -13,6 +13,8 @@ module Locomotive
 
     validates_present :name
 
+    is_paginated
+
     # a list of servers not part of this platform
     def other_servers
       # TODO: handle this via SQL instead of substracting sets in Ruby
