@@ -1,7 +1,7 @@
-Locomotive control panel
-========================
+Locomotive
+==========
 
-(note that this project is still miles off its baby shower)
+*An open-source monitoring and deployment control panel*
 
 Locomotive is a control panel for monitoring and deploying applications,
 services and the like. It aims to be flexible and extensible to suit
@@ -34,4 +34,31 @@ to extend Locomotive to support exotic kinds of services by implementing an
 API, but the goal is to keep the amount of "service specific patchwork" to a
 minimum.
 
--- Michel Jansen
+_-- Michel Jansen_
+
+Licensing and Copyright
+-----------------------
+
+MerbGlobal is released under an **MIT License** . Copyright information, as well as
+a copy of the License may be found in the accompanying LICENSE file.
+
+Installation
+------------
+
+See INSTALL.markdown.
+
+Support
+-------
+
+(note that this project is still miles off its baby shower)
+
+* [Locomotive Homepage](http://locomotiveapp.com/)
+* [Locomotive Wiki](http://wiki.github.com/nedap/locomotive)
+* [Locomotive Issues](http://nedaphealthcare.lighthouseapp.com/projects/7313-locomotive)
+
+Sponsorship
+-----------
+
+The development of Locomotive has been brought to you by [Nedap Healthcare][nedap].
+
+[nedap]: http://www.nedap-healthcare.com
