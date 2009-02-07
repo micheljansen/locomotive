@@ -1,0 +1,23 @@
+#container
+  #header-container
+    %h2 Error
+    %hr
+  #left-container
+    %h3
+      Exception:
+    %p
+      = request.exceptions.first.message
+  #main-container
+    %h3
+      Why am I seeing this page?
+    %p
+      Merb couldn't find an appropriate content_type to return,
+      based on what you said was available via provides() and
+      what the client requested.
+  #footer-container
+    %hr
+    .left
+    .right
+      \&copy; 2008-2009 Nedap NV Healthcare
+    %p
+      \&nbsp;
