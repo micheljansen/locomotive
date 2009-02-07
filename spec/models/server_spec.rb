@@ -14,6 +14,10 @@ describe Locomotive::Server do
     server.should be_valid
   end
 
+  it 'should use the operating system name as its default name' do
+    pending
+  end
+
   describe 'hostname' do
 
     before(:each) do
@@ -46,6 +50,42 @@ describe Locomotive::Server do
       @server.should be_valid
       @server.hostname = 'windows-box-'
       @server.should be_valid
+    end
+
+  end
+
+  describe 'associations' do
+
+    before(:each) do
+      @server = Locomotive::Server.new
+    end
+
+    it 'should belong to an operating system' do
+      @server.should respond_to(:operating_system)
+    end
+
+    it 'should have server processors' do
+      @server.should respond_to(:server_processors)
+    end
+
+    it 'should have processors' do
+      @server.should respond_to(:processors)
+    end
+
+    it 'should have subsystems' do
+      @server.should respond_to(:subsystems)
+      @server.should respond_to(:subsystems=)
+      # subsystem = mock('subsystem')
+      # @server.subsystems << subsystem
+    end
+
+    it 'should have platform memberships' do
+      @server.should respond_to(:platform_memberships)
+      @server.should respond_to(:platform_memberships=)
+    end
+
+    it 'should have platforms' do
+      @server.should respond_to(:platforms)
     end
 
   end
