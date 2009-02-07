@@ -4,18 +4,17 @@ module Locomotive
 
     property :id,         Serial
     property :port,       Integer
-    property :server,     Integer
+    property :notes,      Text
+
+    property :server_id,  Integer
+    property :type_id,    Integer
 
     timestamps :on
 
-    def self.types
-      @types ||= []
-    end
+    belongs_to :server
+    belongs_to :type, :class_name => Locomotive::SubsystemType
 
-    def self.register(type)
-      puts "registering #{type}"
-      types << type
-    end
+   # validates_present [:server, :type]
 
   end
 end

@@ -14,6 +14,7 @@ module Locomotive
     has n, :platforms, :through => :platform_memberships
     has n, :purposes # :dependent => :destroy
     has n, :roles, :through => :purposes
+    has n, :subsystems
 
     is_paginated
 
