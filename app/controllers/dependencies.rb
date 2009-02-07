@@ -12,28 +12,31 @@ module Locomotive
 
     # GET /dependencies/1
     # GET /dependencies/1.xml
-    def show
-      @dependency = Locomotive::Dependency.get(params[:id])
+    def show(id)
+      @dependency = Locomotive::Dependency.get(id)
+      raise NotFound unless @dependency
       display @dependency
     end
 
     # GET /dependencies/new
-    # GET /dependencies/new.xml
     def new
+      only_provides :html
       @dependency = Locomotive::Dependency.new
       display @dependency
     end
 
     # GET /dependencies/1/edit
-    def edit
-      @dependency = Locomotive::Dependency.get(params[:id])
+    def edit(id)
+      only_provides :html
+      @dependency = Locomotive::Dependency.get(id)
+      raise NotFound unless @dependency
       display @dependency
     end
 
     # POST /dependencies
     # POST /dependencies.xml
-    def create
-      @dependency = Locomotive::Dependency.new(params[:dependency])
+    def create(dependency)
+      @dependency = Locomotive::Dependency.new(dependency)
 
       if @dependency.save
         # flash[:notice] = 'Locomotive::Dependency was successfully created.'
@@ -45,10 +48,10 @@ module Locomotive
 
     # PUT /dependencies/1
     # PUT /dependencies/1.xml
-    def update
-      @dependency = Locomotive::Dependency.get(params[:id])
-
-      if @dependency.update_attributes(params[:dependency])
+    def update(id, dependency)
+      @dependency = Locomotive::Dependency.get(id)
+      raise NotFound unless @dependency
+      if @dependency.update_attributes(dependency)
         # flash[:notice] = 'Locomotive::Dependency was successfully updated.'
         redirect resource(@dependency)
       else
@@ -58,13 +61,14 @@ module Locomotive
 
     def delete(id)
       @dependency = Locomotive::Dependency.get(id)
+      raise NotFound unless @dependency
       display @dependency
     end
 
     # DELETE /dependencies/1
     # DELETE /dependencies/1.xml
-    def destroy
-      @dependency = Locomotive::Dependency.get(params[:id])
+    def destroy(id)
+      @dependency = Locomotive::Dependency.get(id)
       raise NotFound unless @dependency
       if @dependency.destroy
         redirect resource(:dependencies)

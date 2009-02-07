@@ -12,14 +12,15 @@ module Locomotive
 
     # GET /releases/1
     # GET /releases/1.xml
-    def show
-      @release = Locomotive::Release.get(params[:id])
+    def show(id)
+      @release = Locomotive::Release.get(id)
+      raise NotFound unless @release
       display @release
     end
 
     # GET /releases/new
-    # GET /releases/new.xml
     def new
+      only_provides :html
       @release = Locomotive::Release.new
       @release.service_id = params[:service_id]
       @service = Locomotive::Service.get(params[:service_id])
@@ -27,16 +28,18 @@ module Locomotive
     end
 
     # GET /services/1/releases/1/edit
-    def edit
-      @release = Locomotive::Release.get(params[:id])
+    def edit(id)
+      only_provides :html
+      @release = Locomotive::Release.get(id)
+      raise NotFound unless @release
       @service = @release.service
       display @release
     end
 
     # POST /releases
     # POST /releases.xml
-    def create
-      @release = Locomotive::Release.new(params[:release])
+    def create(release)
+      @release = Locomotive::Release.new(release)
       @service = Service.get(params[:service_id])
 
       if @release.save
@@ -49,10 +52,10 @@ module Locomotive
 
     # PUT /releases/1
     # PUT /releases/1.xml
-    def update
-      @release = Locomotive::Release.get(params[:id])
-
-      if @release.update_attributes(params[:release])
+    def update(id, release)
+      @release = Locomotive::Release.get(id)
+      raise NotFound unless @release
+      if @release.update_attributes(release)
         # flash[:notice] = 'Locomotive::Release was successfully updated.'
         redirect resource(@release.service)
       else
@@ -62,13 +65,14 @@ module Locomotive
 
     def delete(id)
       @release = Locomotive::Release.get(id)
+      raise NotFound unless @release
       display @release
     end
 
     # DELETE /releases/1
     # DELETE /releases/1.xml
-    def destroy
-      @release = Locomotive::Release.get(params[:id])
+    def destroy(id)
+      @release = Locomotive::Release.get(id)
       raise NotFound unless @release
       if @release.destroy
         redirect resource(:releases)

@@ -14,28 +14,31 @@ module Locomotive
 
     # GET /platform_memberships/1
     # GET /platform_memberships/1.xml
-    def show
-      @platform_membership = Locomotive::PlatformMembership.get(params[:id])
+    def show(id)
+      @platform_membership = Locomotive::PlatformMembership.get(id)
+      raise NotFound unless @platform_membership
       display @platform_membership
     end
 
     # GET /platform_memberships/new
-    # GET /platform_memberships/new.xml
     def new
+      only_provides :html
       @platform_membership = Locomotive::PlatformMembership.new
       display @platform_membership
     end
 
     # GET /platform_memberships/1/edit
-    def edit
-      @platform_membership = Locomotive::PlatformMembership.get(params[:id])
+    def edit(id)
+      only_provides :html
+      @platform_membership = Locomotive::PlatformMembership.get(id)
+      raise NotFound unless @platform_membership
       display @platform_membership
     end
 
     # POST /platform_memberships
     # POST /platform_memberships.xml
-    def create
-      @platform_membership = Locomotive::PlatformMembership.new(params[:platform_membership])
+    def create(platform_membership)
+      @platform_membership = Locomotive::PlatformMembership.new(platform_membership)
 
       if @platform_membership.save
         # flash[:notice] = 'Locomotive::PlatformMembership was successfully created.'
@@ -47,10 +50,10 @@ module Locomotive
 
     # PUT /platform_memberships/1
     # PUT /platform_memberships/1.xml
-    def update
-      @platform_membership = Locomotive::PlatformMembership.get(params[:id])
-
-      if @platform_membership.update_attributes(params[:platform_membership])
+    def update(id, platform_membership)
+      @platform_membership = Locomotive::PlatformMembership.get(id)
+      raise NotFound unless @platform_membership
+      if @platform_membership.update_attributes(platform_membership)
         # flash[:notice] = 'Locomotive::PlatformMembership was successfully updated.'
         redirect resource(@platform_membership)
       else
@@ -60,13 +63,14 @@ module Locomotive
 
     def delete(id)
       @platform_membership = Locomotive::PlatformMembership.get(id)
+      raise NotFound unless @platform_membership
       display @platform_membership
     end
 
     # DELETE /platform_memberships/1
     # DELETE /platform_memberships/1.xml
-    def destroy
-      @platform_membership = Locomotive::PlatformMembership.get(params[:id])
+    def destroy(id)
+      @platform_membership = Locomotive::PlatformMembership.get(id)
       raise NotFound unless @platform_membership
       if @platform_membership.destroy
         redirect resource(:platform_memberships)

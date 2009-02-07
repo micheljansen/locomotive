@@ -15,22 +15,25 @@ module Locomotive
 
     # GET /plugins/1
     # GET /plugins/1.xml
-    def show
-      @plugin = Locomotive::Plugins[params[:id]]
+    def show(id)
+      @plugin = Locomotive::Plugins[id]
+      raise NotFound unless @plugin
       display @plugin
     end
 
     # GET /plugins/new
-    # GET /plugins/new.xml
     def new
+      only_provides :html
       @plugin = Locomotive::Plugin.new
       display @plugin
     end
 
     # GET /plugins/1/edit
-    def edit
-      #@plugin = Plugin.get(params[:id])
+    def edit(id)
+      only_provides :html
+      #@plugin = Plugin.get(id)
       @plugin = Locomotive::Plugins::HelloWorld
+      raise NotFound unless @plugin
       display @plugin
     end
 

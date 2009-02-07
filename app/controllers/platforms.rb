@@ -12,28 +12,31 @@ module Locomotive
 
     # GET /platforms/1
     # GET /platforms/1.xml
-    def show
-      @platform = Locomotive::Platform.get(params[:id])
+    def show(id)
+      @platform = Locomotive::Platform.get(id)
+      raise NotFound unless @platform
       display @platform
     end
 
     # GET /platforms/new
-    # GET /platforms/new.xml
     def new
+      only_provides :html
       @platform = Locomotive::Platform.new
       display @platform
     end
 
     # GET /platforms/1/edit
-    def edit
-      @platform = Locomotive::Platform.get(params[:id])
+    def edit(id)
+      only_provides :html
+      @platform = Locomotive::Platform.get(id)
+      raise NotFound unless @platform
       display @platform
     end
 
     # POST /platforms
     # POST /platforms.xml
-    def create
-      @platform = Locomotive::Platform.new(params[:platform])
+    def create(platform)
+      @platform = Locomotive::Platform.new(platform)
 
       if @platform.save
         # flash[:notice] = 'Locomotive::Platform was successfully created.'
@@ -45,10 +48,10 @@ module Locomotive
 
     # PUT /platforms/1
     # PUT /platforms/1.xml
-    def update
-      @platform = Locomotive::Platform.get(params[:id])
-
-      if @platform.update_attributes(params[:platform])
+    def update(id, platform)
+      @platform = Locomotive::Platform.get(id)
+      raise NotFound unless @platform
+      if @platform.update_attributes(platform)
         # flash[:notice] = 'Locomotive::Platform was successfully updated.'
         redirect resource(@platform)
       else
@@ -58,13 +61,14 @@ module Locomotive
 
     def delete(id)
       @platform = Locomotive::Platform.get(id)
+      raise NotFound unless @platform
       display @platform
     end
 
     # DELETE /platforms/1
     # DELETE /platforms/1.xml
-    def destroy
-      @platform = Locomotive::Platform.get(params[:id])
+    def destroy(id)
+      @platform = Locomotive::Platform.get(id)
       raise NotFound unless @platform
       if @platform.destroy
         redirect resource(:platforms)

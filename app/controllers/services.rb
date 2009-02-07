@@ -12,30 +12,33 @@ module Locomotive
 
     # GET /services/1
     # GET /services/1.xml
-    def show
-      @service = Locomotive::Service.get(params[:id])
+    def show(id)
+      @service = Locomotive::Service.get(id)
+      raise NotFound unless @service
       @releases = @service.releases
       @deployments = @service.deployments.all(:order => [:client_id.desc])
       display @service
     end
 
     # GET /services/new
-    # GET /services/new.xml
     def new
+      only_provides :html
       @service = Locomotive::Service.new
       display @service
     end
 
     # GET /services/1/edit
-    def edit
-      @service = Locomotive::Service.get(params[:id])
+    def edit(id)
+      only_provides :html
+      @service = Locomotive::Service.get(id)
+      raise NotFound unless @service
       display @service
     end
 
     # POST /services
     # POST /services.xml
-    def create
-      @service = Locomotive::Service.new(params[:service])
+    def create(service)
+      @service = Locomotive::Service.new(service)
 
       if @service.save
         # flash[:notice] = 'Locomotive::Service was successfully created.'
@@ -47,10 +50,10 @@ module Locomotive
 
     # PUT /services/1
     # PUT /services/1.xml
-    def update
-      @service = Locomotive::Service.get(params[:id])
-
-      if @service.update_attributes(params[:service])
+    def update(id, service)
+      @service = Locomotive::Service.get(id)
+      raise NotFound unless @service
+      if @service.update_attributes(service)
         # flash[:notice] = 'Locomotive::Service was successfully updated.'
         redirect resource(@service)
       else
@@ -60,13 +63,14 @@ module Locomotive
 
     def delete(id)
       @service = Locomotive::Service.get(id)
+      raise NotFound unless @service
       display @service
     end
 
     # DELETE /services/1
     # DELETE /services/1.xml
-    def destroy
-      @service = Locomotive::Service.get(params[:id])
+    def destroy(id)
+      @service = Locomotive::Service.get(id)
       raise NotFound unless @service
       if @service.destroy
         redirect resource(:services)

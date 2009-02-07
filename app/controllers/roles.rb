@@ -12,28 +12,31 @@ module Locomotive
 
     # GET /roles/1
     # GET /roles/1.xml
-    def show
-      @role = Locomotive::Role.get(params[:id])
+    def show(id)
+      @role = Locomotive::Role.get(id)
+      raise NotFound unless @role
       display @role
     end
 
     # GET /roles/new
-    # GET /roles/new.xml
     def new
+      only_provides :html
       @role = Locomotive::Role.new
       display @role
     end
 
     # GET /roles/1/edit
-    def edit
-      @role = Locomotive::Role.get(params[:id])
+    def edit(id)
+      only_provides :html
+      @role = Locomotive::Role.get(id)
+      raise NotFound unless @role
       display @role
     end
 
     # POST /roles
     # POST /roles.xml
-    def create
-      @role = Locomotive::Role.new(params[:role])
+    def create(role)
+      @role = Locomotive::Role.new(role)
 
       if @role.save
         # flash[:notice] = 'Locomotive::Role was successfully created.'
@@ -45,10 +48,10 @@ module Locomotive
 
     # PUT /roles/1
     # PUT /roles/1.xml
-    def update
-      @role = Locomotive::Role.get(params[:id])
-
-      if @role.update_attributes(params[:role])
+    def update(id, role)
+      @role = Locomotive::Role.get(id)
+      raise NotFound unless @role
+      if @role.update_attributes(role)
         # flash[:notice] = 'Locomotive::Role was successfully updated.'
         redirect resource(@role)
       else
@@ -58,13 +61,14 @@ module Locomotive
 
     def delete(id)
       @role = Locomotive::Role.get(id)
+      raise NotFound unless @role
       display @role
     end
 
     # DELETE /roles/1
     # DELETE /roles/1.xml
-    def destroy
-      @role = Locomotive::Role.get(params[:id])
+    def destroy(id)
+      @role = Locomotive::Role.get(id)
       raise NotFound unless @role
       if @role.destroy
         redirect resource(:roles)

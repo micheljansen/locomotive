@@ -12,13 +12,15 @@ module Locomotive
 
     # GET /plugin_instances/1
     # GET /plugin_instances/1.xml
-    def show
-      @plugin_instance = Locomotive::PluginInstance.get(params[:id])
+    def show(id)
+      @plugin_instance = Locomotive::PluginInstance.get(id)
+      raise NotFound unless @plugin_instance
       display @plugin_instance
     end
 
     # GET /plugin_instances/new/hello_world
     def new
+      only_provides :html
       @plugin = Locomotive::Locomotive::PluginInstance.all(:conditions => {:id => params[:id]})[0]
 
       # explode if the corresponding plugin cannot be found
@@ -36,16 +38,18 @@ module Locomotive
     end
 
     # GET /plugin_instances/1/edit
-    def edit
-      @plugin_instance = Locomotive::PluginInstance.get(params[:id])
+    def edit(id)
+      only_provides :html
+      @plugin_instance = Locomotive::PluginInstance.get(id)
+      raise NotFound unless @plugin_instance
       p @plugin_instance.plugin_properties
       display @plugin_instance
     end
 
     # POST /plugin_instances
     # POST /plugin_instances.xml
-    def create
-      @plugin_instance = Locomotive::PluginInstance.new(params[:plugin_instance])
+    def create(plugin_instance)
+      @plugin_instance = Locomotive::PluginInstance.new(plugin_instance)
       @plugin = @plugin_instance.plugin
 
       logger.debug("plugin_instance: #{y @plugin_instance} for plugin: #{y @plugin}")
@@ -60,10 +64,11 @@ module Locomotive
 
     # PUT /plugin_instances/1
     # PUT /plugin_instances/1.xml
-    def update
-      @plugin_instance = Locomotive::PluginInstance.get(params[:id])
+    def update(id, plugin_instance)
+      @plugin_instance = Locomotive::PluginInstance.get(id)
+      raise NotFound unless @plugin_instance
 
-      @plugin_instance.attributes = params[:plugin_instance]
+      @plugin_instance.attributes = plugin_instance
 
       @plugin_instance.plugin_properties.each do |p|
         logger.debug("updating plugin_property #{p.key}")
@@ -84,13 +89,14 @@ module Locomotive
 
     def delete(id)
       @plugin_instance = Locomotive::PluginInstance.get(id)
+      raise NotFound unless @plugin_instance
       display @plugin_instance
     end
 
     # DELETE /plugin_instances/1
     # DELETE /plugin_instances/1.xml
-    def destroy
-      @plugin_instance = Locomotive::PluginInstance.get(params[:id])
+    def destroy(id)
+      @plugin_instance = Locomotive::PluginInstance.get(id)
       raise NotFound unless @plugin_instance
       if @plugin_instance.destroy
         redirect resource(:plugin_instances)

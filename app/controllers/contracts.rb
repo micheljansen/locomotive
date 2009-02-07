@@ -12,13 +12,15 @@ module Locomotive
 
     # GET /contracts/1
     # GET /contracts/1.xml
-    def show
-      @contract = Locomotive::Contract.get(params[:id])
+    def show(id)
+      @contract = Locomotive::Contract.get(id)
+      raise NotFound unless @contract
       display @contract
     end
 
     # GET /clients/1/contracts/assign/2
     def new
+      only_provides :html
       @services = Locomotive::Service.all
       @client = Locomotive::Client.get(params[:client_id])
       @contract = Locomotive::Contract.new
@@ -26,15 +28,17 @@ module Locomotive
     end
 
     # GET /contracts/1/edit
-    def edit
-      @contract = Locomotive::Contract.get(params[:id])
+    def edit(id)
+      only_provides :html
+      @contract = Locomotive::Contract.get(id)
+      raise NotFound unless @contract
       display @contract
     end
 
     # POST /clients/1/contracts
     # POST /clients/1/contracts.xml
-    def create
-      @contract = Locomotive::Contract.new(params[:contract])
+    def create(contract)
+      @contract = Locomotive::Contract.new(contract)
       @contract.client_id = params[:client_id]
 
       if @contract.save
@@ -49,10 +53,10 @@ module Locomotive
 
     # PUT /contracts/1
     # PUT /contracts/1.xml
-    def update
-      @contract = Locomotive::Contract.get(params[:id])
-
-      if @contract.update_attributes(params[:contract])
+    def update(id, contract)
+      @contract = Locomotive::Contract.get(id)
+      raise NotFound unless @contract
+      if @contract.update_attributes(contract)
         # flash[:notice] = 'Locomotive::Contract was successfully updated.'
         redirect resource(@contract)
       else
@@ -62,14 +66,15 @@ module Locomotive
 
     def delete(id)
       @contract = Locomotive::Contract.get(id)
+      raise NotFound unless @contract
       display @contract
     end
 
     # DELETE /contracts/1
     # DELETE /contracts/1.xml
-    def destroy
+    def destroy(id)
       @client = Locomotive::Client.get(params[:client_id])
-      @contract = Locomotive::Contract.get(params[:id])
+      @contract = Locomotive::Contract.get(id)
       raise NotFound unless @contract
       if @contract.destroy
         #  flash[:notice] = 'Locomotive::Contract was successfully cancelled.'

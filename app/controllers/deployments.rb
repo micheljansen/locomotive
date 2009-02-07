@@ -25,22 +25,25 @@ module Locomotive
 
     # GET /deployments/1
     # GET /deployments/1.xml
-    def show
-      @deployment = Locomotive::Deployment.get(params[:id])
+    def show(id)
+      @deployment = Locomotive::Deployment.get(id)
+      raise NotFound unless @deployment
       @client = @deployment.client
       display @deployment
     end
 
     # GET /deployments/new
-    # GET /deployments/new.xml
     def new
+      only_provides :html
       @deployment = Locomotive::Deployment.new
       display @deployment
     end
 
     # GET /deployments/1/edit
-    def edit
-      @deployment = Locomotive::Deployment.get(params[:id])
+    def edit(id)
+      only_provides :html
+      @deployment = Locomotive::Deployment.get(id)
+      raise NotFound unless @deployment
       display @deployment
     end
 
@@ -49,8 +52,8 @@ module Locomotive
     #
     # CREATING a deployment, means deploying a new instance of
     # a given service to a given platform.
-    def create
-      @deployment = Locomotive::Deployment.new(params[:deployment])
+    def create(deployment)
+      @deployment = Locomotive::Deployment.new(deployment)
 
       if @deployment.save
         # flash[:notice] = 'Locomotive::Deployment was successfully created.'
@@ -70,8 +73,9 @@ module Locomotive
     #   * If the platform has changed, this instance will be moved to a different
     #     set of servers.
     # These actions should be combined if possible.
-    def update
-      @deployment = Locomotive::Deployment.get(params[:id])
+    def update(id, deployment)
+      @deployment = Locomotive::Deployment.get(id)
+      raise NotFound unless @deployment
 
       old_release = @deployment.release
       old_platform = @deployment.platform
@@ -79,7 +83,7 @@ module Locomotive
       #Locomotive::Deployment.transaction do
         # update the service instances data to reflect the changes
         begin
-          @deployment.update_attributes(params[:deployment])
+          @deployment.update_attributes(deployment)
 
           # somehow, the relation attributes don't get updated automatically
           # after their corresponding _id attributes have been updated, so
@@ -109,14 +113,15 @@ module Locomotive
     end
 
     def delete(id)
-      @server_instance = Locomotive::ServerInstance.get(id)
-      display @server_instance
+      @deployment = Locomotive::ServerInstance.get(id)
+      raise NotFound unless @deployment
+      display @deployment
     end
 
     # DELETE /deployments/1
     # DELETE /deployments/1.xml
-    def destroy
-      @deployment = Locomotive::Deployment.get(params[:id])
+    def destroy(id)
+      @deployment = Locomotive::Deployment.get(id)
       raise NotFound unless @deployment
       if @deployment.destroy
         redirect resource(:deployments)

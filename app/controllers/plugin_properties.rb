@@ -9,28 +9,31 @@ module Locomotive
 
     # GET /plugin_properties/1
     # GET /plugin_properties/1.xml
-    def show
-      @plugin_property = Locomotive::PluginProperty.get(params[:id])
+    def show(id)
+      @plugin_property = Locomotive::PluginProperty.get(id)
+      raise NotFound unless @plugin_property
       display @plugin_property
     end
 
     # GET /plugin_properties/new
-    # GET /plugin_properties/new.xml
     def new
+      only_provides :html
       @plugin_property = Locomotive::PluginProperty.new
       display @plugin_property
     end
 
     # GET /plugin_properties/1/edit
-    def edit
-      @plugin_property = Locomotive::PluginProperty.get(params[:id])
+    def edit(id)
+      only_provides :html
+      @plugin_property = Locomotive::PluginProperty.get(id)
+      raise NotFound unless @plugin_property
       display @plugin_property
     end
 
     # POST /plugin_properties
     # POST /plugin_properties.xml
-    def create
-      @plugin_property = Locomotive::PluginProperty.new(params[:plugin_property])
+    def create(plugin_property)
+      @plugin_property = Locomotive::PluginProperty.new(plugin_property)
 
       if @plugin_property.save
         # flash[:notice] = 'Locomotive::PluginProperty was successfully created.'
@@ -42,10 +45,10 @@ module Locomotive
 
     # PUT /plugin_properties/1
     # PUT /plugin_properties/1.xml
-    def update
-      @plugin_property = Locomotive::PluginProperty.get(params[:id])
-
-      if @plugin_property.update_attributes(params[:plugin_property])
+    def update(id, plugin_property)
+      @plugin_property = Locomotive::PluginProperty.get(id)
+      raise NotFound unless @plugin_property
+      if @plugin_property.update_attributes(plugin_property)
         # flash[:notice] = 'Locomotive::PluginProperty was successfully updated.'
         redirect resource(@plugin_property)
       else
@@ -55,13 +58,14 @@ module Locomotive
 
     def delete(id)
       @plugin_property = Locomotive::PluginProperty.get(id)
+      raise NotFound unless @plugin_property
       display @plugin_property
     end
 
     # DELETE /plugin_properties/1
     # DELETE /plugin_properties/1.xml
-    def destroy
-      @plugin_property = Locomotive::PluginProperty.get(params[:id])
+    def destroy(id)
+      @plugin_property = Locomotive::PluginProperty.get(id)
       raise NotFound unless @plugin_property
       if @plugin_property.destroy
         redirect resource(:plugin_instances)

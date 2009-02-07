@@ -14,28 +14,31 @@ module Locomotive
   #  TODO: remove this action when no longer debugging
   #  # GET /purposes/1
   #  # GET /purposes/1.xml
-    def show
-      @purpose = Locomotive::Purpose.get(params[:id])
+    def show(id)
+      @purpose = Locomotive::Purpose.get(id)
+      raise NotFound unless @purpose
       display @purpose
     end
 
     # GET /purposes/new
-    # GET /purposes/new.xml
     def new
+      only_provides :html
       @purpose = Locomotive::Purpose.new
       @purpose.server_id = @server.id
       display @purpose
     end
 
   #  # GET /purposes/1/edit
-  #  def edit
-  #    @purpose = Locomotive::Purpose.get(params[:id])
+  #  def edit(id)
+  #    only_provides :html
+  #    @purpose = Locomotive::Purpose.get(id)
+  #    raise NotFound unless @purpose
   #  end
 
     # POST /purposes
     # POST /purposes.xml
-    def create
-      @purpose = Locomotive::Purpose.new(params[:purpose])
+    def create(purpose)
+      @purpose = Locomotive::Purpose.new(purpose)
 
       if @purpose.save
         # flash[:notice] = 'Role was successfully created.'
@@ -47,10 +50,10 @@ module Locomotive
 
     # PUT /purposes/1
     # PUT /purposes/1.xml
-    def update
-      @purpose = Locomotive::Purpose.get(params[:id])
-
-      if @purpose.update_attributes(params[:purpose])
+    def update(id, purpose)
+      @purpose = Locomotive::Purpose.get(id)
+      raise NotFound unless @purpose
+      if @purpose.update_attributes(purpose)
         # flash[:notice] = 'Role was successfully updated.'
         redirect resource(@server)
       else
@@ -60,13 +63,14 @@ module Locomotive
 
     def delete(id)
       @purpose = Locomotive::Purpose.get(id)
+      raise NotFound unless @purpose
       display @purpose
     end
 
     # DELETE /purposes/1
     # DELETE /purposes/1.xml
-    def destroy
-      @purpose = Locomotive::Purpose.get(params[:id])
+    def destroy(id)
+      @purpose = Locomotive::Purpose.get(id)
       raise NotFound unless @purpose
       if @purpose.destroy
         redirect resource(@server)
