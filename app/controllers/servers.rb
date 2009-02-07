@@ -39,8 +39,7 @@ module Locomotive
       @server = Locomotive::Server.new(server)
 
       if @server.save
-        # flash[:notice] = 'Locomotive::Server was successfully created.'
-        redirect resource(@server)
+        redirect resource(@server), :message => {:notice => "Server was successfully created"}
       else
         render :new
       end
@@ -52,8 +51,7 @@ module Locomotive
       @server = Locomotive::Server.get(id)
       raise NotFound unless @server
       if @server.update_attributes(server)
-        # flash[:notice] = 'Locomotive::Server was successfully updated.'
-        redirect resource(@server)
+        redirect resource(@server), :message => {:notice => "Server was successfully updated"}
       else
         render :edit
       end

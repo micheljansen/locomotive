@@ -39,8 +39,7 @@ module Locomotive
       @platform = Locomotive::Platform.new(platform)
 
       if @platform.save
-        # flash[:notice] = 'Locomotive::Platform was successfully created.'
-        redirect resource(@platform)
+        redirect resource(@platform), :message => {:notice => "Platform was successfully created"}
       else
         render :new
       end
@@ -52,8 +51,7 @@ module Locomotive
       @platform = Locomotive::Platform.get(id)
       raise NotFound unless @platform
       if @platform.update_attributes(platform)
-        # flash[:notice] = 'Locomotive::Platform was successfully updated.'
-        redirect resource(@platform)
+        redirect resource(@platform), :message => {:notice => "Platform was successfully updated"}
       else
         render :edit
       end

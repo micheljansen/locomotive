@@ -41,8 +41,7 @@ module Locomotive
       @purpose = Locomotive::Purpose.new(purpose)
 
       if @purpose.save
-        # flash[:notice] = 'Role was successfully created.'
-        redirect resource(@server)
+        redirect resource(@server), :message => {:notice => "Role was successfully created"}
       else
         render :new
       end
@@ -54,8 +53,7 @@ module Locomotive
       @purpose = Locomotive::Purpose.get(id)
       raise NotFound unless @purpose
       if @purpose.update_attributes(purpose)
-        # flash[:notice] = 'Role was successfully updated.'
-        redirect resource(@server)
+        redirect resource(@server), :message => {:notice => 'Role was successfully updated'}
       else
         render :edit
       end

@@ -41,8 +41,7 @@ module Locomotive
       @platform_membership = Locomotive::PlatformMembership.new(platform_membership)
 
       if @platform_membership.save
-        # flash[:notice] = 'Locomotive::PlatformMembership was successfully created.'
-        redirect resource(@platform)
+        redirect resource(@platform), :message => {:notice => "Platform membership was successfully created"}
       else
         render :new
       end
@@ -54,8 +53,7 @@ module Locomotive
       @platform_membership = Locomotive::PlatformMembership.get(id)
       raise NotFound unless @platform_membership
       if @platform_membership.update_attributes(platform_membership)
-        # flash[:notice] = 'Locomotive::PlatformMembership was successfully updated.'
-        redirect resource(@platform_membership)
+        redirect resource(@platform_membership), :message => {:notice => "Platform membership was successfully updated"}
       else
         render :edit
       end

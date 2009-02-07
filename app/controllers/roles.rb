@@ -39,8 +39,7 @@ module Locomotive
       @role = Locomotive::Role.new(role)
 
       if @role.save
-        # flash[:notice] = 'Locomotive::Role was successfully created.'
-        redirect resource(@role)
+        redirect resource(@role), :message => {:notice => 'Role was successfully created'}
       else
         render :new
       end
@@ -52,8 +51,7 @@ module Locomotive
       @role = Locomotive::Role.get(id)
       raise NotFound unless @role
       if @role.update_attributes(role)
-        # flash[:notice] = 'Locomotive::Role was successfully updated.'
-        redirect resource(@role)
+        redirect resource(@role), :message => {:notice => "Role was successfully updated"}
       else
         render :edit
       end

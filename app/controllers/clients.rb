@@ -39,8 +39,7 @@ module Locomotive
       @client = Locomotive::Client.new(client)
 
       if @client.save
-        # flash[:notice] = 'Locomotive::Client was successfully created.'
-        redirect resource(@client)
+        redirect resource(@client), :message => {:notice => "Client was successfully created"}
       else
         render :new
       end
@@ -52,8 +51,7 @@ module Locomotive
       @client = Locomotive::Client.get(id)
       raise NotFound unless @client
       if @client.update_attributes(client)
-        # flash[:notice] = 'Locomotive::Client was successfully updated.'
-        redirect resource(@client)
+        redirect resource(@client), :message => {:notice => "Client was successfully updated"}
       else
         display @client, :edit
       end

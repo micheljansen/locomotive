@@ -55,8 +55,7 @@ module Locomotive
       logger.debug("plugin_instance: #{y @plugin_instance} for plugin: #{y @plugin}")
 
       if @plugin_instance.save
-        # flash[:notice] = 'Locomotive::PluginInstance was successfully created.'
-        redirect resource(@plugin_instance, :edit)
+        redirect resource(@plugin_instance, :edit), :message => {:notice => "Plugin instance was successfully created"}
       else
         render :new
       end
@@ -80,8 +79,7 @@ module Locomotive
       if @plugin_instance.valid? && @plugin_instance.plugin_properties.all?(&:valid?)
         @plugin_instance.save!
         @plugin_instance.plugin_properties.each { |p| p.save! }
-         #  flash[:notice] = 'Locomotive::PluginInstance was successfully updated.'
-        redirect resource(@plugin_instance)
+        redirect resource(@plugin_instance), :message => {:notice => 'Plugin instance was successfully updated'}
       else
         render :edit
       end

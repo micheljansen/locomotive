@@ -42,10 +42,8 @@ module Locomotive
       @contract.client_id = params[:client_id]
 
       if @contract.save
-        # flash[:notice] = 'Locomotive::Contract was successfully created.'
-
         @client = @contract.client
-        redirect resource(@client)
+        redirect resource(@client), :message => {:notice => "Contract was successfully created"}
       else
         render :new
       end
@@ -57,8 +55,7 @@ module Locomotive
       @contract = Locomotive::Contract.get(id)
       raise NotFound unless @contract
       if @contract.update_attributes(contract)
-        # flash[:notice] = 'Locomotive::Contract was successfully updated.'
-        redirect resource(@contract)
+        redirect resource(@contract), :message => {:notice => "Contract was successfully updated"}
       else
         render :edit
       end

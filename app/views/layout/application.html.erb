@@ -34,7 +34,7 @@
           <%= partial 'shared/submenu' %>
         </div>
         <div id="contentwindow-body">
-          <p style="color: green"><%= h(message) %></p>
+          <p style="color: green"><%= h(message[:notice]) %></p>
           <%= catch_content :for_layout  %>
         </div>
       </div>

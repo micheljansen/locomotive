@@ -41,8 +41,7 @@ module Locomotive
       @service = Locomotive::Service.new(service)
 
       if @service.save
-        # flash[:notice] = 'Locomotive::Service was successfully created.'
-        redirect resource(@service)
+        redirect resource(@service), :message => {:notice => "Service was successfully created"}
       else
         render :new
       end
@@ -54,8 +53,7 @@ module Locomotive
       @service = Locomotive::Service.get(id)
       raise NotFound unless @service
       if @service.update_attributes(service)
-        # flash[:notice] = 'Locomotive::Service was successfully updated.'
-        redirect resource(@service)
+        redirect resource(@service), :message => {:notice => 'Service was successfully updated'}
       else
         render :edit
       end

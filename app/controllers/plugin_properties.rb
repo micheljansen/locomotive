@@ -36,8 +36,7 @@ module Locomotive
       @plugin_property = Locomotive::PluginProperty.new(plugin_property)
 
       if @plugin_property.save
-        # flash[:notice] = 'Locomotive::PluginProperty was successfully created.'
-        redirect resource(@plugin_property)
+        redirect resource(@plugin_property), :message => {:notice => "Plugin property was successfully created"}
       else
         render :new
       end
@@ -49,8 +48,7 @@ module Locomotive
       @plugin_property = Locomotive::PluginProperty.get(id)
       raise NotFound unless @plugin_property
       if @plugin_property.update_attributes(plugin_property)
-        # flash[:notice] = 'Locomotive::PluginProperty was successfully updated.'
-        redirect resource(@plugin_property)
+        redirect resource(@plugin_property), :message => {:notice => "Plugin property was successfully updated"}
       else
         render :edit
       end

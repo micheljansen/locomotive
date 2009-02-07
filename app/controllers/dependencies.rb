@@ -39,8 +39,7 @@ module Locomotive
       @dependency = Locomotive::Dependency.new(dependency)
 
       if @dependency.save
-        # flash[:notice] = 'Locomotive::Dependency was successfully created.'
-        redirect resource(@dependency)
+        redirect resource(@dependency), :message => {:notice => "Dependency was successfully created"}
       else
         render :new
       end
@@ -52,8 +51,7 @@ module Locomotive
       @dependency = Locomotive::Dependency.get(id)
       raise NotFound unless @dependency
       if @dependency.update_attributes(dependency)
-        # flash[:notice] = 'Locomotive::Dependency was successfully updated.'
-        redirect resource(@dependency)
+        redirect resource(@dependency), :message => {:notice => "Dependency was successfully updated"}
       else
         render :edit
       end

@@ -56,8 +56,7 @@ module Locomotive
       @deployment = Locomotive::Deployment.new(deployment)
 
       if @deployment.save
-        # flash[:notice] = 'Locomotive::Deployment was successfully created.'
-        redirect resource(@deployment)
+        redirect resource(@deployment), :message => {:notice => "Deployment was successfully created"}
       else
         render :new
       end
@@ -105,11 +104,7 @@ module Locomotive
         end
       #end
 
-      #if
-        # flash[:notice] = 'Locomotive::Deployment was successfully updated.'
-      #else
-      #end
-      redirect resource(@deployment)
+      redirect resource(@deployment), :message => {:notice => 'Deployment was successfully updated'}
     end
 
     def delete(id)
