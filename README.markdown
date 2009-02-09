@@ -39,7 +39,7 @@ _-- Michel Jansen_
 Licensing and Copyright
 -----------------------
 
-MerbGlobal is released under an **MIT License** . Copyright information, as well as
+Locomotive is released under an **MIT License** . Copyright information, as well as
 a copy of the License may be found in the accompanying LICENSE file.
 
 Installation
