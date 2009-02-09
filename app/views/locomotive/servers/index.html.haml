@@ -2,18 +2,18 @@
   Listing servers
 %table
   %tr
-    %th
-      Name
-    %th
-      Hostname
-    %th
-      Roles
+    %th Name
+    %th Hostname
+    %th Operating System
+    %th Roles
   - for server in @servers
     %tr
       %td
         = h server.name
       %td
         = h server.hostname
+      %td
+        = h server.operating_system.name
       %td
         = h server.roles.map {|r| r.name} * ","
       %td

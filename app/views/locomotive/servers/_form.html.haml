@@ -1,0 +1,6 @@
+%p
+  = text_field :name, :label => 'Name'
+%p
+  = text_field :hostname, :label => 'Hostname'
+= fieldset :legend => 'Operating System' do
+  = select :operating_system_id, :collection => Locomotive::OperatingSystem.all, :value_method => :id, :text_method => :name
