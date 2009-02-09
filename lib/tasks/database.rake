@@ -10,10 +10,15 @@ namespace :db do
       exit
     end
 
-    csv = FasterCSV.foreach('db/default/operating_systems.csv') do |row|
+    FasterCSV.foreach('db/default/operating_systems.csv') do |row|
       os_name = row[0]
       os_vendor = row[1]
       Locomotive::OperatingSystem.create(:name => os_name, :vendor_name => os_vendor)
+    end
+
+    FasterCSV.foreach('db/default/roles.csv') do |row|
+      name = row[0]
+      Locomotive::Role.create(:name => name)
     end
   end
 
