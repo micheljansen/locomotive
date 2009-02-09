@@ -34,3 +34,19 @@ dependency "dm-serializer", dm_gems_version
 dependency "dm-is-paginated"
 
 dependency "merb_datamapper", merb_gems_version
+
+# Non-Runtime Dependencies
+# ========================
+#
+# Dependencies that should not required at runtime, but should be bundled
+# with the application nonetheless.
+#
+# spec and feature testing dependencies
+# -------------------------------------
+dependency 'cucumber', :require => nil
+dependency 'webrat', :require => nil
+#dependency 'merb-cucumber'
+
+# Rake task dependencies
+# ----------------------
+dependency 'fastercsv', :require => nil
