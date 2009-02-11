@@ -17,11 +17,11 @@ module Merb
       def title
         case showing_what
           when :service
-            "Listing deployed instances of #{@service.name}"
+            "Deployed instances of #{@service.name}"
           when :client
-            "Listing deployed instances for #{@client.name}"
+            "Deployed instances for #{@client.name}"
           else
-            "Listing all deployed instances"
+            "Deployed instances"
         end
       end
 
