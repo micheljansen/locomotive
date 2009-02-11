@@ -1,0 +1,19 @@
+%h1
+  New system
+= form_for(:system, :action => resource(:systems)) do
+  = error_messages
+  = partial(:form)
+  = submit "Create"
+
+= link_to 'Back', resource(:systems)
+
+- throw_content(:sidebar) do
+  - if @system.others.size > 0
+    %h2
+      More systems
+    %ul
+      - @system.others.each do |system|
+        %li
+          = link_to system.name, resource(system)
+      %li
+        = link_to "See all...", resource(:systems)

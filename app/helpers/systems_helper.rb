@@ -1,6 +1,6 @@
 module Merb
   module Locomotive
-    module ServersHelper
+    module SystemsHelper
     end
   end
 end

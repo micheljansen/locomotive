@@ -9,7 +9,7 @@ module Locomotive
 
     has n, :deployments
     has n, :platform_memberships # :dependent => :destroy
-    has n, :servers, :through => :platform_memberships
+    has n, :systems, :through => :platform_memberships
 
     validates_present :name
 
@@ -28,8 +28,8 @@ module Locomotive
 
     # returns the membership for a given server
     # or nil if not found
-    def membership_for_server_id(server_id)
-      platform_memberships.all(:server_id => server_id)
+    def membership_for_system_id(system_id)
+      platform_memberships.all(:system_id => system_id)
     end
   end
 end

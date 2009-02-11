@@ -17,8 +17,8 @@ describe Locomotive::OperatingSystem do
 
     it 'should have many servers' do
       operating_system = Locomotive::OperatingSystem.new
-      operating_system.should respond_to(:servers)
-      operating_system.should respond_to(:servers=)
+      operating_system.should respond_to(:systems)
+      operating_system.should respond_to(:systems=)
     end
 
   end

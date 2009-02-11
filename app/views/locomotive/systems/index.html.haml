@@ -1,0 +1,34 @@
+%h1
+  Listing systems
+%table
+  %tr
+    %th Name
+    %th Hostname
+    %th Operating System
+    %th Roles
+  - for system in @systems
+    %tr
+      %td
+        = h system.name
+      %td
+        = h system.hostname
+      %td
+        = h system.operating_system.name
+      %td
+        = h system.roles.map {|r| r.name} * ","
+      %td
+        = link_to 'Show', resource(system)
+      %td
+        = link_to 'Edit', resource(system, :edit)
+      %td
+        = link_to 'Delete', resource(system, :delete), :class => 'delete-link'
+
+#pagination
+  = paginate_links(params[:page], @page_count, :systems)
+
+- throw_content(:sidebar) do
+  %h2
+    Actions
+  %ul#general
+    %li
+      = link_to 'New system', resource(:systems, :new)

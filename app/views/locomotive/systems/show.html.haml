@@ -1,0 +1,42 @@
+%p
+  %b
+    Name:
+  = h @system.name
+%p
+  %b
+    Hostname:
+  = h @system.hostname
+%p
+  %strong
+    Operating System:
+  = h @system.operating_system.name
+%p
+  %b
+    Roles:
+  %ul
+    - @system.roles.each do |role|
+      %li
+        = h role.name
+
+= link_to 'Back to system list', resource(:systems)
+
+- throw_content(:sidebar) do
+  %h2
+    Actions
+  %ul#specific
+    %li
+      = link_to 'Edit this system', resource(@system, :edit)
+    %li
+      = link_to 'Assign a role', resource(@system, :purposes, :new)
+  %ul#general
+    %li
+      = link_to 'New system', resource(:systems, :new)
+  - if @system.others.size > 0
+    %h2
+      More systems
+    %ul
+      - @system.others.each do |system|
+        %li
+          = link_to system.name, system
+      %li
+        = link_to "See all...", resource(:systems)

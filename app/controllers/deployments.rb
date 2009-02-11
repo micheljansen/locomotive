@@ -108,7 +108,7 @@ module Locomotive
     end
 
     def delete(id)
-      @deployment = Locomotive::ServerInstance.get(id)
+      @deployment = Locomotive::Deployment.get(id)
       raise NotFound unless @deployment
       display @deployment
     end

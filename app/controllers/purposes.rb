@@ -7,7 +7,7 @@ module Locomotive
   #  # GET /purposes
   #  # GET /purposes.xml
     def index
-      @purposes = @server.purposes
+      @purposes = @system.purposes
       display @purposes
     end
 
@@ -24,7 +24,7 @@ module Locomotive
     def new
       only_provides :html
       @purpose = Locomotive::Purpose.new
-      @purpose.server_id = @server.id
+      @purpose.system_id = @system.id
       display @purpose
     end
 
@@ -41,7 +41,7 @@ module Locomotive
       @purpose = Locomotive::Purpose.new(purpose)
 
       if @purpose.save
-        redirect resource(@server), :message => {:notice => "Role was successfully created"}
+        redirect resource(@system), :message => {:notice => "Role was successfully created"}
       else
         render :new
       end
@@ -53,7 +53,7 @@ module Locomotive
       @purpose = Locomotive::Purpose.get(id)
       raise NotFound unless @purpose
       if @purpose.update_attributes(purpose)
-        redirect resource(@server), :message => {:notice => 'Role was successfully updated'}
+        redirect resource(@system), :message => {:notice => 'Role was successfully updated'}
       else
         render :edit
       end
@@ -71,7 +71,7 @@ module Locomotive
       @purpose = Locomotive::Purpose.get(id)
       raise NotFound unless @purpose
       if @purpose.destroy
-        redirect resource(@server)
+        redirect resource(@system)
       else
         raise InternalServerError
       end
@@ -81,11 +81,11 @@ module Locomotive
     # through a route containing a server, like
     # /servers/1/purposes/x
     def find_associated_server
-      @server = nil
-      server_id = params[:server_id]
+      @system = nil
+      system_id = params[:system_id]
 
-      unless server_id.nil?
-        @server = Locomotive::Server.get(server_id)
+      unless system_id.nil?
+        @system = Locomotive::System.get(system_id)
       end
     end
 
@@ -93,11 +93,11 @@ module Locomotive
     # through a route containing a server, like
     # /servers/1/roles
     def find_associated_server
-      @server = nil
-      server_id = params[:server_id]
+      @system = nil
+      system_id = params[:system_id]
 
-      unless server_id.nil?
-        @server = Locomotive::Server.get(server_id)
+      unless system_id.nil?
+        @system = Locomotive::System.get(system_id)
       end
     end
 

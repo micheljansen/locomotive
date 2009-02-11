@@ -2,15 +2,15 @@ module Locomotive
   class PlatformMembership
     include DataMapper::Resource
 
-    property :server_id, Integer
+    property :system_id, Integer
     property :platform_id, Integer
 
     timestamps :on
 
-    belongs_to :server
+    belongs_to :system
     belongs_to :platform
 
-    validates_present :server_id
+    validates_present :system_id
     validates_present :platform_id
 
     # FIXME for DM: validates_associated :server, :on => :save
@@ -23,7 +23,7 @@ module Locomotive
     #     record.errors.add attr, 'is invalid' if value.nil?
     #end
 
-    validates_is_unique :server_id, :scope => :platform_id,
+    validates_is_unique :system_id, :scope => :platform_id,
                             :message => "already belongs to this platform"
   end
 end

@@ -7,7 +7,7 @@ module Locomotive
         Menu["Administration"]["Dashboard"] = ['/']
         Menu["Administration"]["Clients"] = [:clients]
         Menu["Administration"]["Services"] = [:services]
-        Menu["Administration"]["Servers"] = [:servers]
+        Menu["Administration"]["Systems"] = [:systems]
         Menu["Administration"]["Roles"] = [:roles]
         Menu["Administration"]["Platforms"] = [:platforms]
         Menu["Manage"]["Deploy"] = [:deployments]

@@ -17,7 +17,7 @@ module Locomotive
     is_paginated
 
     # def instances_for_service_id(service_id)
-    #     deployments.find_by_server_id(server_id)
+    #     deployments.find_by_system_id(system_id)
     #   end
 
   end

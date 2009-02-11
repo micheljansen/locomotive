@@ -4,14 +4,14 @@ module Locomotive
 
     property :id,         Serial
     property :role_id,    Integer
-    property :server_id,  Integer
+    property :system_id,  Integer
 
     timestamps :on
 
     belongs_to :role
-    belongs_to :server
+    belongs_to :system
 
-    validates_is_unique :role_id, :scope => :server_id,
+    validates_is_unique :role_id, :scope => :system_id,
                             :message => "already assigned to this server."
   end
 end

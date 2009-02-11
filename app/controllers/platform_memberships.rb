@@ -91,17 +91,17 @@ module Locomotive
     end
 
     def find_server
-      @server ||= Locomotive::Server.get(params[:server_id]) if params[:server_id]
+      @system ||= Locomotive::System.get(params[:system_id]) if params[:system_id]
     end
 
     def initialize_params
       puts "initializing params"
       # y params
       #     p @platform
-      #     p @server
+      #     p @system
       params[:platform_membership] ||= {}
       params[:platform_membership][:platform_id] ||= @platform.id if @platform
-      params[:platform_membership][:server_id] ||= @server.id if @server
+      params[:platform_membership][:system_id] ||= @system.id if @system
       #y params
     end
   end

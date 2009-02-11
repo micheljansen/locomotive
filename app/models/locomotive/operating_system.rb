@@ -6,7 +6,7 @@ module Locomotive
     property :name,        String, :nullable => false
     property :vendor_name, String
 
-    has n, :servers
+    has n, :systems
 
   end
 end

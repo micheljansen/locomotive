@@ -1,7 +1,7 @@
 require 'ping'
 
 module Locomotive
-  class Server
+  class System
     include DataMapper::Resource
 
     property :id,         Serial
@@ -15,8 +15,8 @@ module Locomotive
 
     timestamps :on
 
-    has n, :server_processors
-    has n, :processors, :through => :server_processors
+#    has n, :server_processors
+#    has n, :processors, :through => :server_processors
     has n, :platform_memberships # :dependent => :destroy
     has n, :platforms, :through => :platform_memberships
     has n, :purposes # :dependent => :destroy
@@ -28,7 +28,7 @@ module Locomotive
     is_paginated
 
     def others
-      Server.all - [self]
+      System.all - [self]
     end
 
     def check

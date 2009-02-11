@@ -1,0 +1,37 @@
+%h1
+  Editing system
+= form_for(:system, :action => resource(@system)) do
+  = error_messages
+  = partial(:form)
+  %table
+    - # render :partial => "system_role", :collection => Role.all
+    - Locomotive::Role.all.each do |role|
+      %tr
+        %td
+          = check_box :name => "system[role_ids][]", :value => role.id, :boolean => @system.roles.include?(role)
+        %td
+          = h role.name
+  %p
+    = submit "Update"
+
+= link_to 'Show', resource(@system)
+|
+= link_to 'Back', resource(:systems)
+- throw_content(:sidebar) do
+  %h2
+    Actions
+  %ul#specific
+    %li
+      = link_to 'Assign a role', resource(@system, :purposes, :new)
+  %ul#general
+    %li
+      = link_to 'New system', resource(:systems, :new)
+  - if @system.others.size > 0
+    %h2
+      More systems
+    %ul
+      - @system.others.each do |system|
+        %li
+          = link_to system.name, resource(system)
+      %li
+        = link_to "See all...", resource(:systems)

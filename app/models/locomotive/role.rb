@@ -8,7 +8,7 @@ module Locomotive
     timestamps :on
 
     has n, :purposes # :dependent => :destroy
-    has n, :servers, :through => :purposes
+    has n, :systems, :through => :purposes
 
     validates_is_unique :name
 

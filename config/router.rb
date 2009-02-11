@@ -9,7 +9,7 @@ Merb::Router.prepare do
 
     resources :roles, 'Locomotive::Role'
 
-    resources :servers, 'Locomotive::Server' do
+    resources :systems, 'Locomotive::System' do
       resources :purposes, 'Locomotive::Purpose'
       resources :platform_memberships, 'Locomotive::PlatformMembership'
     end

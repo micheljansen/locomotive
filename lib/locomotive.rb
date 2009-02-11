@@ -56,7 +56,7 @@ if defined?(Merb::Plugins)
       scope.resources :service_types, 'Locomotive::ServiceType'
       scope.resources :dependencies, 'Locomotive::Dependency'
       scope.resources :roles, 'Locomotive::Role'
-      scope.resources :servers, 'Locomotive::Server' do |s|
+      scope.resources :systems, 'Locomotive::System' do |s|
         s.resources :purposes, 'Locomotive::Purpose'
         s.resources :platform_memberships, 'Locomotive::PlatformMembership'
       end
