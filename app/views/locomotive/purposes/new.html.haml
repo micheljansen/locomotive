@@ -1,13 +1,13 @@
 %h1
-  Add a role to server
+  Add a role to system
   = @system.name
 = form_for(:purpose, :action => resource(@system, :purposes)) do
   = error_messages
   = hidden_field :system_id
   %p
-    = label :role_id
-    %br
+    = label 'Role: '
     = select :role_id, :collection => Locomotive::Role.all, :value_method => :id, :text_method => :name
   %p
-    = submit "Create"
+    = submit "Add"
+
 = link_to 'Back to server '+@system.name, resource(@system)

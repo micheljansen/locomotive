@@ -37,6 +37,6 @@
     %ul
       - @system.others.each do |system|
         %li
-          = link_to system.name, system
+          = link_to system.name, resource(system)
       %li
         = link_to "See all...", resource(:systems)
