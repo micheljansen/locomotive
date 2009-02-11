@@ -1,0 +1,35 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
+    %title
+      Locomotive -
+      = Extlib::Inflection.humanize(controller_name)
+      \-
+      = Extlib::Inflection.humanize(action_name)
+    = css_include_tag 'scaffold'
+    = css_include_tag 'panel'
+    = js_include_tag :jquery
+    = js_include_tag :application
+    = js_include_tag 'ui/ui.core', 'ui/ui.dialog', 'ui/ui.draggable', 'ui/ui.droppable', 'ui/ui.resizable', 'ui/ui.sortable'
+    = js_include_tag 'effects/effects.core', 'effects/effects.blind', 'effects/effects.highlight'
+  %body{ :class => controller_name }
+    #wrapper
+      #header
+        %h1
+          Locomotive Control Panel
+        = partial 'shared/mainmenu'
+      #main
+        #sidebar
+          = catch_content :sidebar
+        #content
+          #contentwindow
+            #contentwindow-header
+              %h1
+                /
+                  insert title here
+              = partial 'shared/submenu'
+            #contentwindow-body
+              %p{ :style => "color: green" }
+                = h(message[:notice])
+              = catch_content :for_layout
