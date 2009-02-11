@@ -1,12 +1,27 @@
+-# 'Red Cross Bamble': http://kuler.adobe.com/#themeID/345491
+
+*
+  :margin 0px
+  :padding 0px
+  :text-decoration none
+
+  html #sidebar
+    :width 17%
+
+
+html
+  :height 100%
+  :margin-bottom 1px
+
+
 body
-  :background-color #fff
+  :background-color #261f1f
   :color #333
   :font-family helvetica, sans-serif, verdana, arial 
   :font-size 13px
   :line-height 18px
   :margin 0
   :padding 0
-  :background #eee
 
 
 p
@@ -30,19 +45,15 @@ pre
 
 
 a
-  :color #000
-  :color #4d9b12
+  :color #f00
   :background-color #fff
   :text-decoration none
 
   &:visited
-    :color #666
+    :color #991700
 
   &:hover
-    :color #fff
-    :background-color #000
-    :color #4d9b12
-    :background-color #fff
+    :color #f00
     :text-decoration underline
 
 
@@ -79,18 +90,6 @@ a
     :list-style square
 
 
-*
-  :margin 0px
-  :padding 0px
-  :text-decoration none
-
-  html #sidebar
-    :width 17%
-
-
-html
-  :height 100%
-  :margin-bottom 1px
 
 
 #container
@@ -126,15 +125,14 @@ hr
 
 h1
   :font-size 28px
-  :color #c55
+  :color #991700
   :font-weight 300
 
 
 h2
   :font-size 15px
-  :color #999
+  :color #261f1f
   :font-weight 300
-  :background-color #fff
 
 
 h3
@@ -188,22 +186,23 @@ h3
 
 
 #header
-  :background-color #333
+  :background-color #991700
   :padding-top 10px
 
   h1
     :margin-left 10px
     :margin-bottom 20px
-    :color #ccc
+    :color #fff
 
 
 #sidebar
+  :background-color #d9c3ad
   :float right
   :width 17%
   :position relative
   :z-index 9
   :min-height 600px
-  :padding-left 0px
+  :padding-left 10px
   :padding-top 40px
   :padding-right 20px
   :margin 0
@@ -217,7 +216,8 @@ h3
     :margin-top 1em
     :padding-left 0
     :list-style-type none
-
+  a
+    :background-color transparent
 
 #mainmenu
   :border-bottom 4px solid #c00

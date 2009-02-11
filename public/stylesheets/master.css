@@ -1,12 +1,23 @@
+
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none; }
+  * html #sidebar {
+    width: 17%; }
+
+html {
+  height: 100%;
+  margin-bottom: 1px; }
+
 body {
-  background-color: #fff;
+  background-color: #261f1f;
   color: #333;
   font-family: helvetica, sans-serif, verdana, arial;
   font-size: 13px;
   line-height: 18px;
   margin: 0;
-  padding: 0;
-  background: #eee; }
+  padding: 0; }
 
 p {
   font-size: 13px;
@@ -26,17 +37,13 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000;
-  color: #4d9b12;
+  color: #f00;
   background-color: #fff;
   text-decoration: none; }
   a:visited {
-    color: #666; }
+    color: #991700; }
   a:hover {
-    color: #fff;
-    background-color: #000;
-    color: #4d9b12;
-    background-color: #fff;
+    color: #f00;
     text-decoration: underline; }
 
 .fieldWithErrors {
@@ -67,17 +74,6 @@ a {
     font-size: 12px;
     list-style: square; }
 
-* {
-  margin: 0px;
-  padding: 0px;
-  text-decoration: none; }
-  * html #sidebar {
-    width: 17%; }
-
-html {
-  height: 100%;
-  margin-bottom: 1px; }
-
 #container {
   width: 80%;
   text-align: left;
@@ -106,14 +102,13 @@ hr {
 
 h1 {
   font-size: 28px;
-  color: #c55;
+  color: #991700;
   font-weight: 300; }
 
 h2 {
   font-size: 15px;
-  color: #999;
-  font-weight: 300;
-  background-color: #fff; }
+  color: #261f1f;
+  font-weight: 300; }
 
 h3 {
   color: #4d9b12;
@@ -158,20 +153,21 @@ h3 {
   background-color: #fff; }
 
 #header {
-  background-color: #333;
+  background-color: #991700;
   padding-top: 10px; }
   #header h1 {
     margin-left: 10px;
     margin-bottom: 20px;
-    color: #ccc; }
+    color: #fff; }
 
 #sidebar {
+  background-color: #d9c3ad;
   float: right;
   width: 17%;
   position: relative;
   z-index: 9;
   min-height: 600px;
-  padding-left: 0px;
+  padding-left: 10px;
   padding-top: 40px;
   padding-right: 20px;
   margin: 0; }
@@ -183,6 +179,8 @@ h3 {
     margin-top: 1em;
     padding-left: 0;
     list-style-type: none; }
+  #sidebar a {
+    background-color: transparent; }
 
 #mainmenu {
   border-bottom: 4px solid #c00;
