@@ -165,7 +165,7 @@ body {
 	margin: 0;
 }
 
-#platform_manager #servers {
+#platform_manager #systems {
 	float: left;
 	display: block;
 	background: #eee;
@@ -180,7 +180,7 @@ body {
 }
 
 
-#platform_manager #other_servers {
+#platform_manager #other_systems {
 	float: right;
 	display: block;
 	background: #eee;
@@ -190,7 +190,7 @@ body {
 	min-height: 200px;
 }
 
-#platform_manager .server, #platform_manager .membership {
+#platform_manager .system, #platform_manager .membership {
 	padding: 10px;
 	background: #fee;
 	margin-top: 5px;
@@ -198,7 +198,7 @@ body {
 	cursor:move;
 }
 
-#server_filter_box {
+#system_filter_box {
 	position: relative;
 	background: #ddd;
 	border: 1px solid #ccc;
@@ -209,7 +209,7 @@ body {
 	height: 20px;
 }
 
-#server_filter_box h3 {
+#system_filter_box h3 {
 	
 }
 

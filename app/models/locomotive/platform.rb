@@ -15,10 +15,10 @@ module Locomotive
 
     is_paginated
 
-    # a list of servers not part of this platform
-    def other_servers
+    # a list of systems not part of this platform
+    def other_systems
       # TODO: handle this via SQL instead of substracting sets in Ruby
-      Server.all - servers
+      System.all - systems
     end
 
     # a list of all platforms except this one
@@ -26,7 +26,7 @@ module Locomotive
       Platform.all - [self]
     end
 
-    # returns the membership for a given server
+    # returns the membership for a given system
     # or nil if not found
     def membership_for_system_id(system_id)
       platform_memberships.all(:system_id => system_id)

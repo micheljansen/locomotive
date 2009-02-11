@@ -2,13 +2,13 @@
   Editing platform
   = h @platform.name
 %p
-  Drag servers between your into this platform to add them
+  Drag systems between your into this platform to add them
   or drag them away to remove.
 #platform_manager
-  #servers
+  #systems
     = partial :memberships, :platform_memberships => @platform.platform_memberships, :platform => @platform
-  #other_servers
-    = partial :other_servers, :other_servers => @platform.other_servers, :platform => @platform
+  #other_systems
+    = partial :other_systems, :other_systems => @platform.other_systems, :platform => @platform
   %div{ :style => "clear: both" }
   %style{ :type => "text/css" }
     \/* TODO: move to an actual stylesheet */
@@ -20,7 +20,7 @@
     list-style-type: none;
     }
   %script
-    $('#servers ul, #other_servers ul').sortable({
+    $('#systems ul, #other_systems ul').sortable({
     receive: function(event, ui) {
     $(this).effect('highlight');
     \// TODO: add the ajax call
@@ -28,7 +28,7 @@
     connectWith: ['.connected-sortable']
     });
     
-    \//$('.server').draggable({
+    \//$('.system').draggable({
     \//  containment: '#platform_manager',
     \//  revert: 'invalid'
     \//});
@@ -37,15 +37,15 @@
     \//  revert: 'invalid'
     \//});
     
-    \//$('#servers').droppable({
-    \//  accept: '.server',
+    \//$('#systems').droppable({
+    \//  accept: '.system',
     \//  hoverClass: 'dragover',
     \//  drop: function(event, ui) {
     \//    $(this).effect('highlight');
     \//    // TODO: add the ajax call
     \//  }
     \//});
-    \//$('#other_servers').droppable({
+    \//$('#other_systems').droppable({
     \//  accept: '.membership',
     \//  hoverClass: 'dragover',
     \//  drop: function(event, ui) {

@@ -1,10 +1,10 @@
 %h2
-  Other servers
-#other_servers_options
+  Other systems
+#other_systems_options
   = link_to "Add more...", resource(:systems, :new)
   %a#filter{ :href => "#" }
     Filter
-  #server_filter_box{ :style => "display: none" }
+  #system_filter_box{ :style => "display: none" }
     %span
       Show only
     %span{ :style => "float: right" }
@@ -14,10 +14,10 @@
 %script{ :type => "text/javascript" }
   $(function() {
   $("#filter").click(function() {
-  $("#server_filter_box").toggle("blind");
+  $("#system_filter_box").toggle("blind");
   });
   });
 
 %ul.connected-sortable
-  - unless other_servers.nil?
-    = partial :server, :with => other_servers, :as => :server
+  - unless other_systems.nil?
+    = partial :system, :with => other_systems, :as => :system
