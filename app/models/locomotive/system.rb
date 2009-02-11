@@ -57,7 +57,7 @@ module Locomotive
       self.role_ids.each do |id|
         role = Role.first_or_create(:id => id)
         Purpose.create(:system_id => self.id, :role_id => role.id)
-      end
+      end unless role_ids.nil?
     end
 
   end

@@ -2,5 +2,17 @@
   = text_field :name, :label => 'Name'
 %p
   = text_field :hostname, :label => 'Hostname'
+
 = fieldset :legend => 'Operating System' do
   = select :operating_system_id, :collection => Locomotive::OperatingSystem.all, :value_method => :id, :text_method => :name
+
+= fieldset :legend => 'Roles' do
+  %table
+    - # render :partial => "system_role", :collection => Role.all
+    - Locomotive::Role.all.each do |role|
+      - html_id = 'role_' + role.id.to_s
+      %tr
+        %td
+          = check_box :name => "system[role_ids][]", :boolean => false, :id => html_id, :value => role.id, :checked => @system.roles.include?(role)
+        %td
+          = label role.name, :for => html_id
