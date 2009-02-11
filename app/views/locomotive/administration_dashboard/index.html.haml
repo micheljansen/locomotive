@@ -2,12 +2,10 @@
   Administration dashboard
 %p
   You currently have
-  = link_to count_objects(Locomotive::Client), resource(:clients)
-  ,
-  = link_to count_objects(Locomotive::Service), resource(:services)
-  and
-  = link_to count_objects(Locomotive::System), resource(:systems)
-  set-up.
+  == #{link_to count_objects(Locomotive::Client), resource(:clients)},
+  == #{link_to count_objects(Locomotive::Service), resource(:services)}
+  == and #{link_to count_objects(Locomotive::System), resource(:systems)} set-up.
+
   If you want to know more about these, click on any of the tabs above. You can also jump right into adding more by hitting the buttons in the side bar to the right.
 
 - throw_content(:sidebar) do
