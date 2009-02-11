@@ -3,7 +3,7 @@
 = form_for(:contract, :action => resource(@client, :contracts)) do
   = error_messages
   %p
-    = select :service_id, @services, :id, :name
+    = select :service_id, :collection => @services, :value_method => :id, :text_method => :name
   %p
     = submit "Create"
 = link_to 'Back', resource(@client)
