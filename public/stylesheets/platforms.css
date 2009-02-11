@@ -36,3 +36,12 @@
   margin: 0px;
   width: 100%;
   height: 20px; }
+
+.connected-sortable {
+  border: 4px solid #00dd00;
+  height: 200px; }
+
+ul.connected-sortable {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none; }

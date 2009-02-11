@@ -10,15 +10,6 @@
   #other_systems
     = partial :other_systems, :other_systems => @platform.other_systems, :platform => @platform
   %div{ :style => "clear: both" }
-  %style{ :type => "text/css" }
-    \/* TODO: move to an actual stylesheet */
-    \.connected-sortable {
-    border:4px solid #00dd00;height:200px
-    }
-    ul.connected-sortable {
-    margin: 0px; padding: 0px;
-    list-style-type: none;
-    }
   %script
     $('#systems ul, #other_systems ul').sortable({
     receive: function(event, ui) {
