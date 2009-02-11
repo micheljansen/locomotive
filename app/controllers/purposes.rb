@@ -102,7 +102,7 @@ module Locomotive
     end
 
     def init_menu
-      @menu = ["Administration", "Servers"]
+      @menu = ["Administration", "Systems"]
     end
 
   end
