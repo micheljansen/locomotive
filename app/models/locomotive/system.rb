@@ -25,6 +25,8 @@ module Locomotive
 
     belongs_to :operating_system
 
+    validates_present :operating_system
+
     is_paginated
 
     def others

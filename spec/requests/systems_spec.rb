@@ -2,10 +2,13 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 given "a system exists" do
   Locomotive::System.all.destroy!
+  os = Locomotive::OperatingSystem.first_or_create(:name => 'Windows 7')
+
   request(resource(:systems), :method => "POST",
     :params => { :system => { :id => nil,
     :name => 'Windows 2000',
-    :hostname => 'zero-uptime' }})
+    :hostname => 'zero-uptime',
+    :operating_system_id => os.id }})
 end
 
 describe "resource(:systems)" do
@@ -40,10 +43,13 @@ describe "resource(:systems)" do
   describe "a successful POST" do
     before(:each) do
       Locomotive::System.all.destroy!
+      os = Locomotive::OperatingSystem.first_or_create(:name => 'CentOS')
+
       @response = request(resource(:systems), :method => "POST",
         :params => { :system => { :id => nil,
         :name => 'CentOS Box',
-        :hostname => 'cien-porciento-uptime' }})
+        :hostname => 'cien-porciento-uptime',
+        :operating_system_id => os.id }})
     end
 
     it "redirects to resource(:systems)" do

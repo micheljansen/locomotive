@@ -7,10 +7,11 @@ describe Locomotive::System do
     server.should_not be_valid
   end
 
-  it "should be valid with a name and hostname" do
+  it "should be valid with a name, hostname" do
     server = Locomotive::System.new
-    server.name = 'Windows 2000'
+    server.name = 'Windows 2000 Box'
     server.hostname = 'millenium-windoze'
+    server.operating_system = Locomotive::OperatingSystem.create(:name => 'Windows 2000')
     server.should be_valid
   end
 
@@ -22,7 +23,8 @@ describe Locomotive::System do
 
     before(:each) do
       @system = Locomotive::System.new
-      @system.name = 'Ubuntu 8.10'
+      @system.operating_system = Locomotive::OperatingSystem.create(:name => 'Windows 2000')
+      @system.name = 'Ubuntu 8.10 Box'
     end
 
     it 'should be greater than 2' do
