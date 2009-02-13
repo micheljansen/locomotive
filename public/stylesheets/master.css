@@ -46,19 +46,18 @@ a {
     color: #f00;
     text-decoration: underline; }
 
-.fieldWithErrors {
+input.error {
   padding: 2px;
-  background-color: red;
-  display: table; }
+  background-color: red; }
 
-#errorExplanation {
+div.error {
   width: 400px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
   background-color: #f0f0f0; }
-  #errorExplanation h2 {
+  div.error h2 {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
@@ -66,27 +65,13 @@ a {
     margin: -7px;
     background-color: #c00;
     color: #fff; }
-  #errorExplanation p {
+  div.error p {
     color: #333;
     margin-bottom: 0;
     padding: 5px; }
-  #errorExplanation ul li {
+  div.error ul li {
     font-size: 12px;
     list-style: square; }
-
-#container {
-  width: 80%;
-  text-align: left;
-  background-color: #fff;
-  margin-right: auto;
-  margin-left: auto; }
-
-#header-container {
-  width: 100%;
-  padding-top: 15px; }
-  #header-container h1, #header-container h2 {
-    margin-left: 6px;
-    margin-bottom: 6px; }
 
 .spacer {
   width: 100%;
@@ -117,26 +102,6 @@ h3 {
   font-weight: 300;
   padding: 5px;
   margin-top: 5px; }
-
-#left-container {
-  float: left;
-  width: 250px;
-  background-color: #FFFFFF;
-  color: black; }
-  #left-container h3 {
-    color: #c55; }
-
-#main-container {
-  margin: 5px 5px 5px 260px;
-  padding: 15px;
-  border-left: 1px solid silver;
-  min-height: 400px; }
-  #main-container ul {
-    margin-left: 3.0em; }
-
-#footer-container {
-  clear: both;
-  font-size: 12px; }
 
 .right {
   float: right;
