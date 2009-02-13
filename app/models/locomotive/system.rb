@@ -34,7 +34,7 @@ module Locomotive
     after :save, :assign_roles
 
     def others
-      System.all - [self]
+      System.all(:id.not => self.id)
     end
 
     def check

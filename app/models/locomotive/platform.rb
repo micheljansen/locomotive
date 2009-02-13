@@ -17,13 +17,13 @@ module Locomotive
 
     # a list of systems not part of this platform
     def other_systems
-      # TODO: handle this via SQL instead of substracting sets in Ruby
-      System.all - systems
+      systems_ids = systems.collect { |s| s.id }
+      System.all(:id.not => systems_ids)
     end
 
     # a list of all platforms except this one
     def others
-      Platform.all - [self]
+      Platform.all(:id.not => self.id)
     end
 
     # returns the membership for a given system
