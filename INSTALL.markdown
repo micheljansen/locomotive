@@ -18,6 +18,24 @@ Install as an Application
 
     bin/thor merb:gem:redeploy
 
+
+  1. Create a `config/database.yaml` for your database settings:
+
+        bin/rake db:database_yaml
+  2. Customize your database settings in `config/database.yaml` as appropriate.
+  3. If you're using MySQL or SQLite3 and the database you specified in step 2
+     doesn't yet exist, create it:
+
+        bin/rake db:create
+  4. 'Automigrate' or bootstrap your database (if you don't want default data,
+      such as admin user, server roles, etc. just run the first command):
+
+        bin/rake db:automigrate
+        bin/rake db:bootstrap
+  5. And run it:
+
+        bin/merb
+
 http://wiki.merbivore.com/deployment/bundling
 
 Install as a Slice
@@ -53,11 +71,16 @@ Then follow these steps to get a working slice host app:
 
         slice(:locomotive, :name_prefix => nil)
   5. Customize your database settings in `config/database.yaml` as appropriate.
-  6. Then, create/automigrate your database:
+  6. If you're using MySQL or SQLite3 and the database you specified in step 5
+     doesn't yet exist, create it:
 
         rake db:create
+  7. 'Automigrate' or bootstrap your database (if you don't want default data,
+      such as admin user, server roles, etc. just run the first command):
+
         rake db:automigrate
-  7. And run it:
+        rake db:bootstrap
+  8. And run it:
 
         merb
 
